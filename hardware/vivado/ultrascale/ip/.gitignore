@@ -1,0 +1,6 @@
+*
+!/.gitignore
+!/axi_datamover_iofm
+!/axi_datamover_iofm/axi_datamover_iofm.xci
+!/axi_datamover_wgt
+!/axi_datamover_wgt/axi_datamover_wgt.xci

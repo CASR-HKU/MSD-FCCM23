@@ -1,0 +1,1705 @@
+/home/jjc/miniconda3/envs/ant_quant/lib/python3.8/site-packages/torch/distributed/launch.py:178: FutureWarning: The module torch.distributed.launch is deprecated
+and will be removed in future. Use torchrun.
+Note that --use_env is set by default in torchrun.
+If your script expects `--local_rank` argument to be set, please
+change it to read from `os.environ['LOCAL_RANK']` instead. See 
+https://pytorch.org/docs/stable/distributed.html#launch-utility for 
+further instructions
+
+  warnings.warn(
+Namespace(a_low=75, a_up=150, abit=8, batch_size=256, ckpt_path=None, dataset='imagenet', dataset_path='/home/mnt/data/imagenet', disable_input_quantization=False, disable_quant=False, eb='eb3', epoch=5, layer_8bit_l='15,14,13,10,20,16,18,0,4,2,9,8,6,4', layer_8bit_n=0, local_rank=0, lr=0.0005, mode='int', model='resnet18', percent=100, ptq=False, resume=False, search=False, tag='', train=True, w_low=75, w_up=150, wbit=8)
+01/06/2023 14:08:41 - INFO - __main__ -   output/resnet18_imagenet/int_W8A8_64148/gpu_0
+01/06/2023 14:08:41 - INFO - __main__ -   Namespace(a_low=75, a_up=150, abit=8, batch_size=256, ckpt_path=None, dataset='imagenet', dataset_path='/home/mnt/data/imagenet', disable_input_quantization=False, disable_quant=False, eb='eb3', epoch=5, layer_8bit_l='15,14,13,10,20,16,18,0,4,2,9,8,6,4', layer_8bit_n=0, local_rank=0, lr=0.0005, mode='int', model='resnet18', percent=100, ptq=False, resume=False, search=False, tag='', train=True, w_low=75, w_up=150, wbit=8)
+01/06/2023 14:08:41 - INFO - __main__ -   ==> Preparing data..
+01/06/2023 14:08:45 - INFO - __main__ -   ==> Setting quantizer..
+Namespace(a_low=75, a_up=150, abit=8, batch_size=256, ckpt_path=None, dataset='imagenet', dataset_path='/home/mnt/data/imagenet', disable_input_quantization=False, disable_quant=False, eb='eb3', epoch=5, layer_8bit_l='15,14,13,10,20,16,18,0,4,2,9,8,6,4', layer_8bit_n=0, local_rank=0, lr=0.0005, mode='int', model='resnet18', percent=100, ptq=False, resume=False, search=False, tag='', train=True, w_low=75, w_up=150, wbit=8)
+01/06/2023 14:08:45 - INFO - __main__ -   Namespace(a_low=75, a_up=150, abit=8, batch_size=256, ckpt_path=None, dataset='imagenet', dataset_path='/home/mnt/data/imagenet', disable_input_quantization=False, disable_quant=False, eb='eb3', epoch=5, layer_8bit_l='15,14,13,10,20,16,18,0,4,2,9,8,6,4', layer_8bit_n=0, local_rank=0, lr=0.0005, mode='int', model='resnet18', percent=100, ptq=False, resume=False, search=False, tag='', train=True, w_low=75, w_up=150, wbit=8)
+01/06/2023 14:08:45 - INFO - __main__ -   ==> Building model..
+ResNet(
+  (conv1): Conv2dQuantizer(
+    (quant_weight): TensorQuantizer()
+    (quant_input): TensorQuantizer()
+  )
+  (bn1): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu): ReLU(inplace=True)
+  (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+  (layer1): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2dQuantizer(
+        (quant_weight): TensorQuantizer()
+        (quant_input): TensorQuantizer()
+      )
+      (bn1): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2dQuantizer(
+        (quant_weight): TensorQuantizer()
+        (quant_input): TensorQuantizer()
+      )
+      (bn2): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (1): BasicBlock(
+      (conv1): Conv2dQuantizer(
+        (quant_weight): TensorQuantizer()
+        (quant_input): TensorQuantizer()
+      )
+      (bn1): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2dQuantizer(
+        (quant_weight): TensorQuantizer()
+        (quant_input): TensorQuantizer()
+      )
+      (bn2): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (layer2): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2dQuantizer(
+        (quant_weight): TensorQuantizer()
+        (quant_input): TensorQuantizer()
+      )
+      (bn1): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2dQuantizer(
+        (quant_weight): TensorQuantizer()
+        (quant_input): TensorQuantizer()
+      )
+      (bn2): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2dQuantizer(
+          (quant_weight): TensorQuantizer()
+          (quant_input): TensorQuantizer()
+        )
+        (1): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2dQuantizer(
+        (quant_weight): TensorQuantizer()
+        (quant_input): TensorQuantizer()
+      )
+      (bn1): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2dQuantizer(
+        (quant_weight): TensorQuantizer()
+        (quant_input): TensorQuantizer()
+      )
+      (bn2): SyncBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (layer3): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2dQuantizer(
+        (quant_weight): TensorQuantizer()
+        (quant_input): TensorQuantizer()
+      )
+      (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2dQuantizer(
+        (quant_weight): TensorQuantizer()
+        (quant_input): TensorQuantizer()
+      )
+      (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2dQuantizer(
+          (quant_weight): TensorQuantizer()
+          (quant_input): TensorQuantizer()
+        )
+        (1): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2dQuantizer(
+        (quant_weight): TensorQuantizer()
+        (quant_input): TensorQuantizer()
+      )
+      (bn1): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2dQuantizer(
+        (quant_weight): TensorQuantizer()
+        (quant_input): TensorQuantizer()
+      )
+      (bn2): SyncBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (layer4): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2dQuantizer(
+        (quant_weight): TensorQuantizer()
+        (quant_input): TensorQuantizer()
+      )
+      (bn1): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2dQuantizer(
+        (quant_weight): TensorQuantizer()
+        (quant_input): TensorQuantizer()
+      )
+      (bn2): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (downsample): Sequential(
+        (0): Conv2dQuantizer(
+          (quant_weight): TensorQuantizer()
+          (quant_input): TensorQuantizer()
+        )
+        (1): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): Conv2dQuantizer(
+        (quant_weight): TensorQuantizer()
+        (quant_input): TensorQuantizer()
+      )
+      (bn1): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2dQuantizer(
+        (quant_weight): TensorQuantizer()
+        (quant_input): TensorQuantizer()
+      )
+      (bn2): SyncBatchNorm(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+  (fc): LinearQuantizer(
+    (quant_weight): TensorQuantizer()
+    (quant_input): TensorQuantizer()
+  )
+)
+01/06/2023 14:08:47 - INFO - __main__ -   {'milestones': Counter({2: 1, 3: 1, 4: 1}), 'gamma': 0.1, 'base_lrs': [0.0005], 'last_epoch': 0, '_step_count': 1, 'verbose': False, '_get_lr_called_within_step': False, '_last_lr': [0.0005]}
+01/06/2023 14:08:47 - INFO - __main__ -   
+Epoch: 0
+Layer quant EB eb3
+int	8-bit 	 conv1.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 conv1.quant_input,
+set init to 1
+Layer quant EB eb3
+int	8-bit 	 layer1.0.conv1.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer1.0.conv1.quant_input,
+set init to 1
+Layer quant EB eb3
+int	8-bit 	 layer1.0.conv2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer1.0.conv2.quant_input,
+set init to 1
+Layer quant EB eb3
+int	8-bit 	 layer1.1.conv1.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer1.1.conv1.quant_input,
+set init to 1
+Layer quant EB eb3
+int	8-bit 	 layer1.1.conv2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer1.1.conv2.quant_input,
+set init to 1
+Layer quant EB eb3
+int	8-bit 	 layer2.0.conv1.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer2.0.conv1.quant_input,
+set init to 1
+Layer quant EB eb3
+int	8-bit 	 layer2.0.conv2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer2.0.conv2.quant_input,
+set init to 1
+Layer quant EB eb3
+int	8-bit 	 layer2.0.downsample.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer2.0.downsample.0.quant_input,
+set init to 1
+Layer quant EB eb3
+int	8-bit 	 layer2.1.conv1.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer2.1.conv1.quant_input,
+set init to 1
+Layer quant EB eb3
+int	8-bit 	 layer2.1.conv2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer2.1.conv2.quant_input,
+set init to 1
+Layer quant EB eb3
+int	8-bit 	 layer3.0.conv1.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer3.0.conv1.quant_input,
+set init to 1
+Layer quant EB eb3
+int	8-bit 	 layer3.0.conv2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer3.0.conv2.quant_input,
+set init to 1
+Layer quant EB eb3
+int	8-bit 	 layer3.0.downsample.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer3.0.downsample.0.quant_input,
+set init to 1
+Layer quant EB eb3
+int	8-bit 	 layer3.1.conv1.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer3.1.conv1.quant_input,
+set init to 1
+Layer quant EB eb3
+int	8-bit 	 layer3.1.conv2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer3.1.conv2.quant_input,
+set init to 1
+Layer quant EB eb3
+int	8-bit 	 layer4.0.conv1.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer4.0.conv1.quant_input,
+set init to 1
+Layer quant EB eb3
+int	8-bit 	 layer4.0.conv2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer4.0.conv2.quant_input,
+set init to 1
+Layer quant EB eb3
+int	8-bit 	 layer4.0.downsample.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer4.0.downsample.0.quant_input,
+set init to 1
+Layer quant EB eb3
+int	8-bit 	 layer4.1.conv1.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer4.1.conv1.quant_input,
+set init to 1
+Layer quant EB eb3
+int	8-bit 	 layer4.1.conv2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer4.1.conv2.quant_input,
+set init to 1
+Layer quant EB eb3
+int	8-bit 	 fc.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 fc.quant_input,
+set init to 1
+------------- 8-bit EB2 Re-SET -------------
+14
+conv1.quant_weight 0
+conv1.quant_input 0
+layer1.0.conv2.quant_weight 2
+layer1.0.conv2.quant_input 2
+layer1.1.conv2.quant_weight 4
+layer1.1.conv2.quant_input 4
+layer2.0.conv2.quant_weight 6
+layer2.0.conv2.quant_input 6
+layer2.1.conv1.quant_weight 8
+layer2.1.conv1.quant_input 8
+layer2.1.conv2.quant_weight 9
+layer2.1.conv2.quant_input 9
+layer3.0.conv1.quant_weight 10
+layer3.0.conv1.quant_input 10
+layer3.1.conv1.quant_weight 13
+layer3.1.conv1.quant_input 13
+layer3.1.conv2.quant_weight 14
+layer3.1.conv2.quant_input 14
+layer4.0.conv1.quant_weight 15
+layer4.0.conv1.quant_input 15
+layer4.0.conv2.quant_weight 16
+layer4.0.conv2.quant_input 16
+layer4.1.conv1.quant_weight 18
+layer4.1.conv1.quant_input 18
+fc.quant_weight 20
+fc.quant_input 20
+------------- 8-bit EB2 Re-SET -------------
+Layer quant EB eb2
+int	8-bit 	 conv1.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 conv1.quant_input,
+set init to 1
+Layer quant EB eb3
+int	8-bit 	 layer1.0.conv1.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer1.0.conv1.quant_input,
+set init to 1
+Layer quant EB eb2
+int	8-bit 	 layer1.0.conv2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer1.0.conv2.quant_input,
+set init to 1
+Layer quant EB eb3
+int	8-bit 	 layer1.1.conv1.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer1.1.conv1.quant_input,
+set init to 1
+Layer quant EB eb2
+int	8-bit 	 layer1.1.conv2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer1.1.conv2.quant_input,
+set init to 1
+Layer quant EB eb3
+int	8-bit 	 layer2.0.conv1.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer2.0.conv1.quant_input,
+set init to 1
+Layer quant EB eb2
+int	8-bit 	 layer2.0.conv2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer2.0.conv2.quant_input,
+set init to 1
+Layer quant EB eb3
+int	8-bit 	 layer2.0.downsample.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer2.0.downsample.0.quant_input,
+set init to 1
+Layer quant EB eb2
+int	8-bit 	 layer2.1.conv1.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer2.1.conv1.quant_input,
+set init to 1
+Layer quant EB eb2
+int	8-bit 	 layer2.1.conv2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer2.1.conv2.quant_input,
+set init to 1
+Layer quant EB eb2
+int	8-bit 	 layer3.0.conv1.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer3.0.conv1.quant_input,
+set init to 1
+Layer quant EB eb3
+int	8-bit 	 layer3.0.conv2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer3.0.conv2.quant_input,
+set init to 1
+Layer quant EB eb3
+int	8-bit 	 layer3.0.downsample.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer3.0.downsample.0.quant_input,
+set init to 1
+Layer quant EB eb2
+int	8-bit 	 layer3.1.conv1.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer3.1.conv1.quant_input,
+set init to 1
+Layer quant EB eb2
+int	8-bit 	 layer3.1.conv2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer3.1.conv2.quant_input,
+set init to 1
+Layer quant EB eb2
+int	8-bit 	 layer4.0.conv1.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer4.0.conv1.quant_input,
+set init to 1
+Layer quant EB eb2
+int	8-bit 	 layer4.0.conv2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer4.0.conv2.quant_input,
+set init to 1
+Layer quant EB eb3
+int	8-bit 	 layer4.0.downsample.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer4.0.downsample.0.quant_input,
+set init to 1
+Layer quant EB eb2
+int	8-bit 	 layer4.1.conv1.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer4.1.conv1.quant_input,
+set init to 1
+Layer quant EB eb3
+int	8-bit 	 layer4.1.conv2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 layer4.1.conv2.quant_input,
+set init to 1
+Layer quant EB eb2
+int	8-bit 	 fc.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 fc.quant_input,
+set init to 1
+01/06/2023 14:09:05 - INFO - __main__ -   test: [epoch: 0 | batch: 0/5005 ] | Loss: 1.120 | Acc: 72.656% (186/256)
+01/06/2023 14:10:53 - INFO - __main__ -   test: [epoch: 0 | batch: 100/5005 ] | Loss: 1.249 | Acc: 70.077% (18119/25856)
+01/06/2023 14:12:39 - INFO - __main__ -   test: [epoch: 0 | batch: 200/5005 ] | Loss: 1.262 | Acc: 69.947% (35992/51456)
+01/06/2023 14:14:25 - INFO - __main__ -   test: [epoch: 0 | batch: 300/5005 ] | Loss: 1.267 | Acc: 69.866% (53836/77056)
+01/06/2023 14:16:12 - INFO - __main__ -   test: [epoch: 0 | batch: 400/5005 ] | Loss: 1.272 | Acc: 69.774% (71627/102656)
+01/06/2023 14:17:57 - INFO - __main__ -   test: [epoch: 0 | batch: 500/5005 ] | Loss: 1.274 | Acc: 69.703% (89398/128256)
+01/06/2023 14:19:43 - INFO - __main__ -   test: [epoch: 0 | batch: 600/5005 ] | Loss: 1.277 | Acc: 69.606% (107093/153856)
+01/06/2023 14:21:28 - INFO - __main__ -   test: [epoch: 0 | batch: 700/5005 ] | Loss: 1.277 | Acc: 69.632% (124958/179456)
+01/06/2023 14:23:15 - INFO - __main__ -   test: [epoch: 0 | batch: 800/5005 ] | Loss: 1.279 | Acc: 69.610% (142740/205056)
+01/06/2023 14:25:00 - INFO - __main__ -   test: [epoch: 0 | batch: 900/5005 ] | Loss: 1.277 | Acc: 69.674% (160708/230656)
+01/06/2023 14:26:45 - INFO - __main__ -   test: [epoch: 0 | batch: 1000/5005 ] | Loss: 1.277 | Acc: 69.682% (178564/256256)
+01/06/2023 14:28:31 - INFO - __main__ -   test: [epoch: 0 | batch: 1100/5005 ] | Loss: 1.277 | Acc: 69.683% (196405/281856)
+01/06/2023 14:30:17 - INFO - __main__ -   test: [epoch: 0 | batch: 1200/5005 ] | Loss: 1.276 | Acc: 69.701% (214299/307456)
+01/06/2023 14:32:03 - INFO - __main__ -   test: [epoch: 0 | batch: 1300/5005 ] | Loss: 1.277 | Acc: 69.654% (231987/333056)
+01/06/2023 14:33:50 - INFO - __main__ -   test: [epoch: 0 | batch: 1400/5005 ] | Loss: 1.276 | Acc: 69.644% (249784/358656)
+01/06/2023 14:35:36 - INFO - __main__ -   test: [epoch: 0 | batch: 1500/5005 ] | Loss: 1.276 | Acc: 69.642% (267602/384256)
+01/06/2023 14:37:22 - INFO - __main__ -   test: [epoch: 0 | batch: 1600/5005 ] | Loss: 1.277 | Acc: 69.592% (285226/409856)
+01/06/2023 14:39:09 - INFO - __main__ -   test: [epoch: 0 | batch: 1700/5005 ] | Loss: 1.277 | Acc: 69.587% (303020/435456)
+01/06/2023 14:40:55 - INFO - __main__ -   test: [epoch: 0 | batch: 1800/5005 ] | Loss: 1.276 | Acc: 69.601% (320898/461056)
+01/06/2023 14:42:41 - INFO - __main__ -   test: [epoch: 0 | batch: 1900/5005 ] | Loss: 1.277 | Acc: 69.584% (338634/486656)
+01/06/2023 14:44:27 - INFO - __main__ -   test: [epoch: 0 | batch: 2000/5005 ] | Loss: 1.277 | Acc: 69.580% (356429/512256)
+01/06/2023 14:46:13 - INFO - __main__ -   test: [epoch: 0 | batch: 2100/5005 ] | Loss: 1.276 | Acc: 69.568% (374178/537856)
+01/06/2023 14:47:59 - INFO - __main__ -   test: [epoch: 0 | batch: 2200/5005 ] | Loss: 1.276 | Acc: 69.582% (392062/563456)
+01/06/2023 14:49:45 - INFO - __main__ -   test: [epoch: 0 | batch: 2300/5005 ] | Loss: 1.276 | Acc: 69.563% (409767/589056)
+01/06/2023 14:51:30 - INFO - __main__ -   test: [epoch: 0 | batch: 2400/5005 ] | Loss: 1.276 | Acc: 69.567% (427599/614656)
+01/06/2023 14:53:15 - INFO - __main__ -   test: [epoch: 0 | batch: 2500/5005 ] | Loss: 1.276 | Acc: 69.576% (445467/640256)
+01/06/2023 14:55:00 - INFO - __main__ -   test: [epoch: 0 | batch: 2600/5005 ] | Loss: 1.276 | Acc: 69.573% (463258/665856)
+01/06/2023 14:56:45 - INFO - __main__ -   test: [epoch: 0 | batch: 2700/5005 ] | Loss: 1.277 | Acc: 69.555% (480940/691456)
+01/06/2023 14:58:31 - INFO - __main__ -   test: [epoch: 0 | batch: 2800/5005 ] | Loss: 1.277 | Acc: 69.549% (498705/717056)
+01/06/2023 15:00:17 - INFO - __main__ -   test: [epoch: 0 | batch: 2900/5005 ] | Loss: 1.276 | Acc: 69.560% (516588/742656)
+01/06/2023 15:02:03 - INFO - __main__ -   test: [epoch: 0 | batch: 3000/5005 ] | Loss: 1.277 | Acc: 69.570% (534476/768256)
+01/06/2023 15:03:49 - INFO - __main__ -   test: [epoch: 0 | batch: 3100/5005 ] | Loss: 1.277 | Acc: 69.561% (552216/793856)
+01/06/2023 15:05:35 - INFO - __main__ -   test: [epoch: 0 | batch: 3200/5005 ] | Loss: 1.278 | Acc: 69.556% (569984/819456)
+01/06/2023 15:07:20 - INFO - __main__ -   test: [epoch: 0 | batch: 3300/5005 ] | Loss: 1.277 | Acc: 69.568% (587890/845056)
+01/06/2023 15:09:06 - INFO - __main__ -   test: [epoch: 0 | batch: 3400/5005 ] | Loss: 1.277 | Acc: 69.567% (605688/870656)
+01/06/2023 15:10:52 - INFO - __main__ -   test: [epoch: 0 | batch: 3500/5005 ] | Loss: 1.277 | Acc: 69.564% (623475/896256)
+01/06/2023 15:12:37 - INFO - __main__ -   test: [epoch: 0 | batch: 3600/5005 ] | Loss: 1.278 | Acc: 69.557% (641218/921856)
+01/06/2023 15:14:22 - INFO - __main__ -   test: [epoch: 0 | batch: 3700/5005 ] | Loss: 1.278 | Acc: 69.553% (658985/947456)
+01/06/2023 15:16:06 - INFO - __main__ -   test: [epoch: 0 | batch: 3800/5005 ] | Loss: 1.277 | Acc: 69.558% (676843/973056)
+01/06/2023 15:17:53 - INFO - __main__ -   test: [epoch: 0 | batch: 3900/5005 ] | Loss: 1.278 | Acc: 69.543% (694493/998656)
+01/06/2023 15:19:39 - INFO - __main__ -   test: [epoch: 0 | batch: 4000/5005 ] | Loss: 1.278 | Acc: 69.556% (712433/1024256)
+01/06/2023 15:21:24 - INFO - __main__ -   test: [epoch: 0 | batch: 4100/5005 ] | Loss: 1.277 | Acc: 69.570% (730388/1049856)
+01/06/2023 15:23:10 - INFO - __main__ -   test: [epoch: 0 | batch: 4200/5005 ] | Loss: 1.277 | Acc: 69.559% (748081/1075456)
+01/06/2023 15:24:57 - INFO - __main__ -   test: [epoch: 0 | batch: 4300/5005 ] | Loss: 1.277 | Acc: 69.570% (766002/1101056)
+01/06/2023 15:26:42 - INFO - __main__ -   test: [epoch: 0 | batch: 4400/5005 ] | Loss: 1.276 | Acc: 69.584% (783968/1126656)
+01/06/2023 15:28:26 - INFO - __main__ -   test: [epoch: 0 | batch: 4500/5005 ] | Loss: 1.276 | Acc: 69.581% (801751/1152256)
+01/06/2023 15:30:12 - INFO - __main__ -   test: [epoch: 0 | batch: 4600/5005 ] | Loss: 1.276 | Acc: 69.583% (819590/1177856)
+01/06/2023 15:31:58 - INFO - __main__ -   test: [epoch: 0 | batch: 4700/5005 ] | Loss: 1.276 | Acc: 69.585% (837426/1203456)
+01/06/2023 15:33:44 - INFO - __main__ -   test: [epoch: 0 | batch: 4800/5005 ] | Loss: 1.276 | Acc: 69.583% (855215/1229056)
+01/06/2023 15:35:30 - INFO - __main__ -   test: [epoch: 0 | batch: 4900/5005 ] | Loss: 1.276 | Acc: 69.581% (873003/1254656)
+01/06/2023 15:37:16 - INFO - __main__ -   test: [epoch: 0 | batch: 5000/5005 ] | Loss: 1.277 | Acc: 69.574% (890726/1280256)
+01/06/2023 15:37:20 - INFO - __main__ -   Saving Checkpoint
+01/06/2023 15:37:21 - INFO - __main__ -   test: [batch: 0/196 ] | Loss: 0.695 | Acc: 81.250% (208/256)/ 95.312% (244/256)
+01/06/2023 15:37:23 - INFO - __main__ -   test: [batch: 1/196 ] | Loss: 0.779 | Acc: 80.469% (412/512)/ 93.945% (481/512)
+01/06/2023 15:37:24 - INFO - __main__ -   test: [batch: 2/196 ] | Loss: 0.647 | Acc: 83.724% (643/768)/ 95.443% (733/768)
+01/06/2023 15:37:25 - INFO - __main__ -   test: [batch: 3/196 ] | Loss: 0.603 | Acc: 85.156% (872/1024)/ 95.508% (978/1024)
+01/06/2023 15:37:26 - INFO - __main__ -   test: [batch: 4/196 ] | Loss: 0.590 | Acc: 85.938% (1100/1280)/ 95.391% (1221/1280)
+01/06/2023 15:37:27 - INFO - __main__ -   test: [batch: 5/196 ] | Loss: 0.640 | Acc: 84.831% (1303/1536)/ 94.987% (1459/1536)
+01/06/2023 15:37:28 - INFO - __main__ -   test: [batch: 6/196 ] | Loss: 0.756 | Acc: 81.920% (1468/1792)/ 93.862% (1682/1792)
+01/06/2023 15:37:29 - INFO - __main__ -   test: [batch: 7/196 ] | Loss: 0.797 | Acc: 80.322% (1645/2048)/ 93.750% (1920/2048)
+01/06/2023 15:37:30 - INFO - __main__ -   test: [batch: 8/196 ] | Loss: 0.842 | Acc: 79.644% (1835/2304)/ 93.186% (2147/2304)
+01/06/2023 15:37:31 - INFO - __main__ -   test: [batch: 9/196 ] | Loss: 0.872 | Acc: 78.516% (2010/2560)/ 92.930% (2379/2560)
+01/06/2023 15:37:32 - INFO - __main__ -   test: [batch: 10/196 ] | Loss: 0.908 | Acc: 77.308% (2177/2816)/ 92.649% (2609/2816)
+01/06/2023 15:37:33 - INFO - __main__ -   test: [batch: 11/196 ] | Loss: 0.968 | Acc: 75.911% (2332/3072)/ 92.318% (2836/3072)
+01/06/2023 15:37:34 - INFO - __main__ -   test: [batch: 12/196 ] | Loss: 1.016 | Acc: 74.609% (2483/3328)/ 91.677% (3051/3328)
+01/06/2023 15:37:36 - INFO - __main__ -   test: [batch: 13/196 ] | Loss: 1.023 | Acc: 74.051% (2654/3584)/ 91.518% (3280/3584)
+01/06/2023 15:37:37 - INFO - __main__ -   test: [batch: 14/196 ] | Loss: 1.018 | Acc: 73.984% (2841/3840)/ 91.823% (3526/3840)
+01/06/2023 15:37:38 - INFO - __main__ -   test: [batch: 15/196 ] | Loss: 1.027 | Acc: 74.023% (3032/4096)/ 91.675% (3755/4096)
+01/06/2023 15:37:39 - INFO - __main__ -   test: [batch: 16/196 ] | Loss: 1.001 | Acc: 74.655% (3249/4352)/ 91.866% (3998/4352)
+01/06/2023 15:37:40 - INFO - __main__ -   test: [batch: 17/196 ] | Loss: 0.967 | Acc: 75.521% (3480/4608)/ 92.166% (4247/4608)
+01/06/2023 15:37:41 - INFO - __main__ -   test: [batch: 18/196 ] | Loss: 0.942 | Acc: 76.131% (3703/4864)/ 92.393% (4494/4864)
+01/06/2023 15:37:42 - INFO - __main__ -   test: [batch: 19/196 ] | Loss: 0.936 | Acc: 76.270% (3905/5120)/ 92.383% (4730/5120)
+01/06/2023 15:37:43 - INFO - __main__ -   test: [batch: 20/196 ] | Loss: 0.938 | Acc: 76.469% (4111/5376)/ 92.262% (4960/5376)
+01/06/2023 15:37:44 - INFO - __main__ -   test: [batch: 21/196 ] | Loss: 0.939 | Acc: 76.420% (4304/5632)/ 92.259% (5196/5632)
+01/06/2023 15:37:45 - INFO - __main__ -   test: [batch: 22/196 ] | Loss: 0.945 | Acc: 76.393% (4498/5888)/ 92.188% (5428/5888)
+01/06/2023 15:37:46 - INFO - __main__ -   test: [batch: 23/196 ] | Loss: 0.957 | Acc: 76.074% (4674/6144)/ 92.057% (5656/6144)
+01/06/2023 15:37:47 - INFO - __main__ -   test: [batch: 24/196 ] | Loss: 0.969 | Acc: 75.812% (4852/6400)/ 91.875% (5880/6400)
+01/06/2023 15:37:48 - INFO - __main__ -   test: [batch: 25/196 ] | Loss: 0.949 | Acc: 76.307% (5079/6656)/ 92.127% (6132/6656)
+01/06/2023 15:37:49 - INFO - __main__ -   test: [batch: 26/196 ] | Loss: 0.933 | Acc: 76.635% (5297/6912)/ 92.289% (6379/6912)
+01/06/2023 15:37:50 - INFO - __main__ -   test: [batch: 27/196 ] | Loss: 0.917 | Acc: 77.051% (5523/7168)/ 92.411% (6624/7168)
+01/06/2023 15:37:51 - INFO - __main__ -   test: [batch: 28/196 ] | Loss: 0.902 | Acc: 77.465% (5751/7424)/ 92.497% (6867/7424)
+01/06/2023 15:37:52 - INFO - __main__ -   test: [batch: 29/196 ] | Loss: 0.899 | Acc: 77.474% (5950/7680)/ 92.539% (7107/7680)
+01/06/2023 15:37:53 - INFO - __main__ -   test: [batch: 30/196 ] | Loss: 0.899 | Acc: 77.495% (6150/7936)/ 92.578% (7347/7936)
+01/06/2023 15:37:54 - INFO - __main__ -   test: [batch: 31/196 ] | Loss: 0.903 | Acc: 77.356% (6337/8192)/ 92.566% (7583/8192)
+01/06/2023 15:37:56 - INFO - __main__ -   test: [batch: 32/196 ] | Loss: 0.921 | Acc: 76.716% (6481/8448)/ 92.472% (7812/8448)
+01/06/2023 15:37:57 - INFO - __main__ -   test: [batch: 33/196 ] | Loss: 0.928 | Acc: 76.574% (6665/8704)/ 92.452% (8047/8704)
+01/06/2023 15:37:58 - INFO - __main__ -   test: [batch: 34/196 ] | Loss: 0.927 | Acc: 76.518% (6856/8960)/ 92.511% (8289/8960)
+01/06/2023 15:37:59 - INFO - __main__ -   test: [batch: 35/196 ] | Loss: 0.926 | Acc: 76.443% (7045/9216)/ 92.600% (8534/9216)
+01/06/2023 15:38:00 - INFO - __main__ -   test: [batch: 36/196 ] | Loss: 0.935 | Acc: 76.035% (7202/9472)/ 92.578% (8769/9472)
+01/06/2023 15:38:01 - INFO - __main__ -   test: [batch: 37/196 ] | Loss: 0.943 | Acc: 75.863% (7380/9728)/ 92.496% (8998/9728)
+01/06/2023 15:38:02 - INFO - __main__ -   test: [batch: 38/196 ] | Loss: 0.941 | Acc: 75.901% (7578/9984)/ 92.598% (9245/9984)
+01/06/2023 15:38:03 - INFO - __main__ -   test: [batch: 39/196 ] | Loss: 0.941 | Acc: 75.762% (7758/10240)/ 92.666% (9489/10240)
+01/06/2023 15:38:04 - INFO - __main__ -   test: [batch: 40/196 ] | Loss: 0.941 | Acc: 75.781% (7954/10496)/ 92.740% (9734/10496)
+01/06/2023 15:38:05 - INFO - __main__ -   test: [batch: 41/196 ] | Loss: 0.940 | Acc: 75.781% (8148/10752)/ 92.746% (9972/10752)
+01/06/2023 15:38:06 - INFO - __main__ -   test: [batch: 42/196 ] | Loss: 0.933 | Acc: 75.963% (8362/11008)/ 92.832% (10219/11008)
+01/06/2023 15:38:07 - INFO - __main__ -   test: [batch: 43/196 ] | Loss: 0.938 | Acc: 75.835% (8542/11264)/ 92.729% (10445/11264)
+01/06/2023 15:38:09 - INFO - __main__ -   test: [batch: 44/196 ] | Loss: 0.940 | Acc: 75.799% (8732/11520)/ 92.743% (10684/11520)
+01/06/2023 15:38:10 - INFO - __main__ -   test: [batch: 45/196 ] | Loss: 0.942 | Acc: 75.611% (8904/11776)/ 92.790% (10927/11776)
+01/06/2023 15:38:11 - INFO - __main__ -   test: [batch: 46/196 ] | Loss: 0.945 | Acc: 75.407% (9073/12032)/ 92.803% (11166/12032)
+01/06/2023 15:38:12 - INFO - __main__ -   test: [batch: 47/196 ] | Loss: 0.943 | Acc: 75.342% (9258/12288)/ 92.863% (11411/12288)
+01/06/2023 15:38:13 - INFO - __main__ -   test: [batch: 48/196 ] | Loss: 0.949 | Acc: 75.000% (9408/12544)/ 92.881% (11651/12544)
+01/06/2023 15:38:14 - INFO - __main__ -   test: [batch: 49/196 ] | Loss: 0.938 | Acc: 75.266% (9634/12800)/ 92.969% (11900/12800)
+01/06/2023 15:38:15 - INFO - __main__ -   test: [batch: 50/196 ] | Loss: 0.932 | Acc: 75.444% (9850/13056)/ 93.022% (12145/13056)
+01/06/2023 15:38:16 - INFO - __main__ -   test: [batch: 51/196 ] | Loss: 0.931 | Acc: 75.338% (10029/13312)/ 93.059% (12388/13312)
+01/06/2023 15:38:17 - INFO - __main__ -   test: [batch: 52/196 ] | Loss: 0.933 | Acc: 75.206% (10204/13568)/ 93.050% (12625/13568)
+01/06/2023 15:38:18 - INFO - __main__ -   test: [batch: 53/196 ] | Loss: 0.936 | Acc: 75.239% (10401/13824)/ 93.041% (12862/13824)
+01/06/2023 15:38:19 - INFO - __main__ -   test: [batch: 54/196 ] | Loss: 0.937 | Acc: 75.149% (10581/14080)/ 93.068% (13104/14080)
+01/06/2023 15:38:20 - INFO - __main__ -   test: [batch: 55/196 ] | Loss: 0.942 | Acc: 74.986% (10750/14336)/ 93.032% (13337/14336)
+01/06/2023 15:38:21 - INFO - __main__ -   test: [batch: 56/196 ] | Loss: 0.940 | Acc: 75.055% (10952/14592)/ 93.092% (13584/14592)
+01/06/2023 15:38:22 - INFO - __main__ -   test: [batch: 57/196 ] | Loss: 0.933 | Acc: 75.263% (11175/14848)/ 93.157% (13832/14848)
+01/06/2023 15:38:23 - INFO - __main__ -   test: [batch: 58/196 ] | Loss: 0.934 | Acc: 75.324% (11377/15104)/ 93.134% (14067/15104)
+01/06/2023 15:38:24 - INFO - __main__ -   test: [batch: 59/196 ] | Loss: 0.937 | Acc: 75.208% (11552/15360)/ 93.151% (14308/15360)
+01/06/2023 15:38:25 - INFO - __main__ -   test: [batch: 60/196 ] | Loss: 0.941 | Acc: 75.154% (11736/15616)/ 93.142% (14545/15616)
+01/06/2023 15:38:26 - INFO - __main__ -   test: [batch: 61/196 ] | Loss: 0.946 | Acc: 75.082% (11917/15872)/ 93.095% (14776/15872)
+01/06/2023 15:38:27 - INFO - __main__ -   test: [batch: 62/196 ] | Loss: 0.940 | Acc: 75.223% (12132/16128)/ 93.161% (15025/16128)
+01/06/2023 15:38:28 - INFO - __main__ -   test: [batch: 63/196 ] | Loss: 0.933 | Acc: 75.427% (12358/16384)/ 93.219% (15273/16384)
+01/06/2023 15:38:30 - INFO - __main__ -   test: [batch: 64/196 ] | Loss: 0.930 | Acc: 75.517% (12566/16640)/ 93.233% (15514/16640)
+01/06/2023 15:38:31 - INFO - __main__ -   test: [batch: 65/196 ] | Loss: 0.926 | Acc: 75.681% (12787/16896)/ 93.271% (15759/16896)
+01/06/2023 15:38:32 - INFO - __main__ -   test: [batch: 66/196 ] | Loss: 0.925 | Acc: 75.740% (12991/17152)/ 93.254% (15995/17152)
+01/06/2023 15:38:33 - INFO - __main__ -   test: [batch: 67/196 ] | Loss: 0.923 | Acc: 75.781% (13192/17408)/ 93.290% (16240/17408)
+01/06/2023 15:38:34 - INFO - __main__ -   test: [batch: 68/196 ] | Loss: 0.919 | Acc: 75.815% (13392/17664)/ 93.342% (16488/17664)
+01/06/2023 15:38:35 - INFO - __main__ -   test: [batch: 69/196 ] | Loss: 0.926 | Acc: 75.647% (13556/17920)/ 93.287% (16717/17920)
+01/06/2023 15:38:36 - INFO - __main__ -   test: [batch: 70/196 ] | Loss: 0.924 | Acc: 75.704% (13760/18176)/ 93.288% (16956/18176)
+01/06/2023 15:38:37 - INFO - __main__ -   test: [batch: 71/196 ] | Loss: 0.921 | Acc: 75.830% (13977/18432)/ 93.300% (17197/18432)
+01/06/2023 15:38:38 - INFO - __main__ -   test: [batch: 72/196 ] | Loss: 0.924 | Acc: 75.781% (14162/18688)/ 93.284% (17433/18688)
+01/06/2023 15:38:39 - INFO - __main__ -   test: [batch: 73/196 ] | Loss: 0.925 | Acc: 75.792% (14358/18944)/ 93.270% (17669/18944)
+01/06/2023 15:38:40 - INFO - __main__ -   test: [batch: 74/196 ] | Loss: 0.930 | Acc: 75.667% (14528/19200)/ 93.245% (17903/19200)
+01/06/2023 15:38:41 - INFO - __main__ -   test: [batch: 75/196 ] | Loss: 0.928 | Acc: 75.709% (14730/19456)/ 93.267% (18146/19456)
+01/06/2023 15:38:42 - INFO - __main__ -   test: [batch: 76/196 ] | Loss: 0.927 | Acc: 75.756% (14933/19712)/ 93.258% (18383/19712)
+01/06/2023 15:38:43 - INFO - __main__ -   test: [batch: 77/196 ] | Loss: 0.929 | Acc: 75.756% (15127/19968)/ 93.224% (18615/19968)
+01/06/2023 15:38:44 - INFO - __main__ -   test: [batch: 78/196 ] | Loss: 0.935 | Acc: 75.618% (15293/20224)/ 93.132% (18835/20224)
+01/06/2023 15:38:45 - INFO - __main__ -   test: [batch: 79/196 ] | Loss: 0.936 | Acc: 75.591% (15481/20480)/ 93.130% (19073/20480)
+01/06/2023 15:38:46 - INFO - __main__ -   test: [batch: 80/196 ] | Loss: 0.945 | Acc: 75.424% (15640/20736)/ 93.031% (19291/20736)
+01/06/2023 15:38:47 - INFO - __main__ -   test: [batch: 81/196 ] | Loss: 0.956 | Acc: 75.195% (15785/20992)/ 92.897% (19501/20992)
+01/06/2023 15:38:48 - INFO - __main__ -   test: [batch: 82/196 ] | Loss: 0.959 | Acc: 75.113% (15960/21248)/ 92.842% (19727/21248)
+01/06/2023 15:38:49 - INFO - __main__ -   test: [batch: 83/196 ] | Loss: 0.963 | Acc: 75.102% (16150/21504)/ 92.801% (19956/21504)
+01/06/2023 15:38:50 - INFO - __main__ -   test: [batch: 84/196 ] | Loss: 0.967 | Acc: 75.005% (16321/21760)/ 92.739% (20180/21760)
+01/06/2023 15:38:51 - INFO - __main__ -   test: [batch: 85/196 ] | Loss: 0.974 | Acc: 74.827% (16474/22016)/ 92.633% (20394/22016)
+01/06/2023 15:38:52 - INFO - __main__ -   test: [batch: 86/196 ] | Loss: 0.978 | Acc: 74.699% (16637/22272)/ 92.592% (20622/22272)
+01/06/2023 15:38:54 - INFO - __main__ -   test: [batch: 87/196 ] | Loss: 0.984 | Acc: 74.592% (16804/22528)/ 92.503% (20839/22528)
+01/06/2023 15:38:55 - INFO - __main__ -   test: [batch: 88/196 ] | Loss: 0.990 | Acc: 74.447% (16962/22784)/ 92.403% (21053/22784)
+01/06/2023 15:38:56 - INFO - __main__ -   test: [batch: 89/196 ] | Loss: 0.997 | Acc: 74.349% (17130/23040)/ 92.296% (21265/23040)
+01/06/2023 15:38:57 - INFO - __main__ -   test: [batch: 90/196 ] | Loss: 1.010 | Acc: 74.069% (17255/23296)/ 92.140% (21465/23296)
+01/06/2023 15:38:58 - INFO - __main__ -   test: [batch: 91/196 ] | Loss: 1.016 | Acc: 73.964% (17420/23552)/ 92.056% (21681/23552)
+01/06/2023 15:38:59 - INFO - __main__ -   test: [batch: 92/196 ] | Loss: 1.016 | Acc: 74.021% (17623/23808)/ 92.036% (21912/23808)
+01/06/2023 15:39:00 - INFO - __main__ -   test: [batch: 93/196 ] | Loss: 1.025 | Acc: 73.849% (17771/24064)/ 91.917% (22119/24064)
+01/06/2023 15:39:01 - INFO - __main__ -   test: [batch: 94/196 ] | Loss: 1.029 | Acc: 73.680% (17919/24320)/ 91.883% (22346/24320)
+01/06/2023 15:39:02 - INFO - __main__ -   test: [batch: 95/196 ] | Loss: 1.039 | Acc: 73.539% (18073/24576)/ 91.777% (22555/24576)
+01/06/2023 15:39:03 - INFO - __main__ -   test: [batch: 96/196 ] | Loss: 1.046 | Acc: 73.405% (18228/24832)/ 91.676% (22765/24832)
+01/06/2023 15:39:04 - INFO - __main__ -   test: [batch: 97/196 ] | Loss: 1.055 | Acc: 73.286% (18386/25088)/ 91.562% (22971/25088)
+01/06/2023 15:39:05 - INFO - __main__ -   test: [batch: 98/196 ] | Loss: 1.065 | Acc: 73.110% (18529/25344)/ 91.450% (23177/25344)
+01/06/2023 15:39:06 - INFO - __main__ -   test: [batch: 99/196 ] | Loss: 1.067 | Acc: 73.023% (18694/25600)/ 91.430% (23406/25600)
+01/06/2023 15:39:07 - INFO - __main__ -   test: [batch: 100/196 ] | Loss: 1.073 | Acc: 72.861% (18839/25856)/ 91.371% (23625/25856)
+01/06/2023 15:39:08 - INFO - __main__ -   test: [batch: 101/196 ] | Loss: 1.075 | Acc: 72.848% (19022/26112)/ 91.341% (23851/26112)
+01/06/2023 15:39:09 - INFO - __main__ -   test: [batch: 102/196 ] | Loss: 1.079 | Acc: 72.717% (19174/26368)/ 91.292% (24072/26368)
+01/06/2023 15:39:11 - INFO - __main__ -   test: [batch: 103/196 ] | Loss: 1.084 | Acc: 72.637% (19339/26624)/ 91.237% (24291/26624)
+01/06/2023 15:39:12 - INFO - __main__ -   test: [batch: 104/196 ] | Loss: 1.085 | Acc: 72.608% (19517/26880)/ 91.235% (24524/26880)
+01/06/2023 15:39:13 - INFO - __main__ -   test: [batch: 105/196 ] | Loss: 1.091 | Acc: 72.494% (19672/27136)/ 91.122% (24727/27136)
+01/06/2023 15:39:14 - INFO - __main__ -   test: [batch: 106/196 ] | Loss: 1.093 | Acc: 72.466% (19850/27392)/ 91.085% (24950/27392)
+01/06/2023 15:39:15 - INFO - __main__ -   test: [batch: 107/196 ] | Loss: 1.095 | Acc: 72.454% (20032/27648)/ 91.066% (25178/27648)
+01/06/2023 15:39:16 - INFO - __main__ -   test: [batch: 108/196 ] | Loss: 1.098 | Acc: 72.434% (20212/27904)/ 91.026% (25400/27904)
+01/06/2023 15:39:17 - INFO - __main__ -   test: [batch: 109/196 ] | Loss: 1.099 | Acc: 72.397% (20387/28160)/ 90.994% (25624/28160)
+01/06/2023 15:39:18 - INFO - __main__ -   test: [batch: 110/196 ] | Loss: 1.099 | Acc: 72.413% (20577/28416)/ 90.987% (25855/28416)
+01/06/2023 15:39:19 - INFO - __main__ -   test: [batch: 111/196 ] | Loss: 1.098 | Acc: 72.489% (20784/28672)/ 91.009% (26094/28672)
+01/06/2023 15:39:20 - INFO - __main__ -   test: [batch: 112/196 ] | Loss: 1.096 | Acc: 72.528% (20981/28928)/ 91.005% (26326/28928)
+01/06/2023 15:39:21 - INFO - __main__ -   test: [batch: 113/196 ] | Loss: 1.098 | Acc: 72.502% (21159/29184)/ 90.998% (26557/29184)
+01/06/2023 15:39:22 - INFO - __main__ -   test: [batch: 114/196 ] | Loss: 1.105 | Acc: 72.354% (21301/29440)/ 90.876% (26754/29440)
+01/06/2023 15:39:23 - INFO - __main__ -   test: [batch: 115/196 ] | Loss: 1.110 | Acc: 72.239% (21452/29696)/ 90.797% (26963/29696)
+01/06/2023 15:39:24 - INFO - __main__ -   test: [batch: 116/196 ] | Loss: 1.113 | Acc: 72.199% (21625/29952)/ 90.765% (27186/29952)
+01/06/2023 15:39:25 - INFO - __main__ -   test: [batch: 117/196 ] | Loss: 1.119 | Acc: 72.067% (21770/30208)/ 90.681% (27393/30208)
+01/06/2023 15:39:26 - INFO - __main__ -   test: [batch: 118/196 ] | Loss: 1.118 | Acc: 72.138% (21976/30464)/ 90.674% (27623/30464)
+01/06/2023 15:39:27 - INFO - __main__ -   test: [batch: 119/196 ] | Loss: 1.116 | Acc: 72.207% (22182/30720)/ 90.677% (27856/30720)
+01/06/2023 15:39:28 - INFO - __main__ -   test: [batch: 120/196 ] | Loss: 1.122 | Acc: 72.095% (22332/30976)/ 90.583% (28059/30976)
+01/06/2023 15:39:29 - INFO - __main__ -   test: [batch: 121/196 ] | Loss: 1.132 | Acc: 71.843% (22438/31232)/ 90.465% (28254/31232)
+01/06/2023 15:39:31 - INFO - __main__ -   test: [batch: 122/196 ] | Loss: 1.133 | Acc: 71.853% (22625/31488)/ 90.438% (28477/31488)
+01/06/2023 15:39:32 - INFO - __main__ -   test: [batch: 123/196 ] | Loss: 1.142 | Acc: 71.724% (22768/31744)/ 90.304% (28666/31744)
+01/06/2023 15:39:33 - INFO - __main__ -   test: [batch: 124/196 ] | Loss: 1.145 | Acc: 71.581% (22906/32000)/ 90.278% (28889/32000)
+01/06/2023 15:39:34 - INFO - __main__ -   test: [batch: 125/196 ] | Loss: 1.147 | Acc: 71.543% (23077/32256)/ 90.262% (29115/32256)
+01/06/2023 15:39:35 - INFO - __main__ -   test: [batch: 126/196 ] | Loss: 1.148 | Acc: 71.540% (23259/32512)/ 90.228% (29335/32512)
+01/06/2023 15:39:36 - INFO - __main__ -   test: [batch: 127/196 ] | Loss: 1.155 | Acc: 71.442% (23410/32768)/ 90.137% (29536/32768)
+01/06/2023 15:39:37 - INFO - __main__ -   test: [batch: 128/196 ] | Loss: 1.159 | Acc: 71.330% (23556/33024)/ 90.104% (29756/33024)
+01/06/2023 15:39:38 - INFO - __main__ -   test: [batch: 129/196 ] | Loss: 1.163 | Acc: 71.220% (23702/33280)/ 90.081% (29979/33280)
+01/06/2023 15:39:39 - INFO - __main__ -   test: [batch: 130/196 ] | Loss: 1.162 | Acc: 71.240% (23891/33536)/ 90.112% (30220/33536)
+01/06/2023 15:39:40 - INFO - __main__ -   test: [batch: 131/196 ] | Loss: 1.164 | Acc: 71.188% (24056/33792)/ 90.072% (30437/33792)
+01/06/2023 15:39:41 - INFO - __main__ -   test: [batch: 132/196 ] | Loss: 1.169 | Acc: 71.141% (24222/34048)/ 89.999% (30643/34048)
+01/06/2023 15:39:42 - INFO - __main__ -   test: [batch: 133/196 ] | Loss: 1.169 | Acc: 71.143% (24405/34304)/ 89.987% (30869/34304)
+01/06/2023 15:39:43 - INFO - __main__ -   test: [batch: 134/196 ] | Loss: 1.170 | Acc: 71.082% (24566/34560)/ 89.971% (31094/34560)
+01/06/2023 15:39:44 - INFO - __main__ -   test: [batch: 135/196 ] | Loss: 1.174 | Acc: 71.022% (24727/34816)/ 89.947% (31316/34816)
+01/06/2023 15:39:46 - INFO - __main__ -   test: [batch: 136/196 ] | Loss: 1.175 | Acc: 70.983% (24895/35072)/ 89.941% (31544/35072)
+01/06/2023 15:39:47 - INFO - __main__ -   test: [batch: 137/196 ] | Loss: 1.177 | Acc: 70.947% (25064/35328)/ 89.940% (31774/35328)
+01/06/2023 15:39:48 - INFO - __main__ -   test: [batch: 138/196 ] | Loss: 1.180 | Acc: 70.869% (25218/35584)/ 89.906% (31992/35584)
+01/06/2023 15:39:49 - INFO - __main__ -   test: [batch: 139/196 ] | Loss: 1.180 | Acc: 70.884% (25405/35840)/ 89.897% (32219/35840)
+01/06/2023 15:39:50 - INFO - __main__ -   test: [batch: 140/196 ] | Loss: 1.181 | Acc: 70.850% (25574/36096)/ 89.874% (32441/36096)
+01/06/2023 15:39:51 - INFO - __main__ -   test: [batch: 141/196 ] | Loss: 1.181 | Acc: 70.865% (25761/36352)/ 89.866% (32668/36352)
+01/06/2023 15:39:52 - INFO - __main__ -   test: [batch: 142/196 ] | Loss: 1.189 | Acc: 70.769% (25907/36608)/ 89.743% (32853/36608)
+01/06/2023 15:39:53 - INFO - __main__ -   test: [batch: 143/196 ] | Loss: 1.190 | Acc: 70.709% (26066/36864)/ 89.711% (33071/36864)
+01/06/2023 15:39:54 - INFO - __main__ -   test: [batch: 144/196 ] | Loss: 1.193 | Acc: 70.652% (26226/37120)/ 89.650% (33278/37120)
+01/06/2023 15:39:55 - INFO - __main__ -   test: [batch: 145/196 ] | Loss: 1.196 | Acc: 70.559% (26372/37376)/ 89.606% (33491/37376)
+01/06/2023 15:39:56 - INFO - __main__ -   test: [batch: 146/196 ] | Loss: 1.199 | Acc: 70.477% (26522/37632)/ 89.583% (33712/37632)
+01/06/2023 15:39:57 - INFO - __main__ -   test: [batch: 147/196 ] | Loss: 1.200 | Acc: 70.455% (26694/37888)/ 89.567% (33935/37888)
+01/06/2023 15:39:58 - INFO - __main__ -   test: [batch: 148/196 ] | Loss: 1.203 | Acc: 70.428% (26864/38144)/ 89.521% (34147/38144)
+01/06/2023 15:39:59 - INFO - __main__ -   test: [batch: 149/196 ] | Loss: 1.206 | Acc: 70.367% (27021/38400)/ 89.474% (34358/38400)
+01/06/2023 15:40:00 - INFO - __main__ -   test: [batch: 150/196 ] | Loss: 1.207 | Acc: 70.380% (27206/38656)/ 89.453% (34579/38656)
+01/06/2023 15:40:01 - INFO - __main__ -   test: [batch: 151/196 ] | Loss: 1.210 | Acc: 70.325% (27365/38912)/ 89.420% (34795/38912)
+01/06/2023 15:40:02 - INFO - __main__ -   test: [batch: 152/196 ] | Loss: 1.209 | Acc: 70.307% (27538/39168)/ 89.428% (35027/39168)
+01/06/2023 15:40:03 - INFO - __main__ -   test: [batch: 153/196 ] | Loss: 1.213 | Acc: 70.241% (27692/39424)/ 89.362% (35230/39424)
+01/06/2023 15:40:04 - INFO - __main__ -   test: [batch: 154/196 ] | Loss: 1.215 | Acc: 70.207% (27858/39680)/ 89.335% (35448/39680)
+01/06/2023 15:40:05 - INFO - __main__ -   test: [batch: 155/196 ] | Loss: 1.218 | Acc: 70.172% (28024/39936)/ 89.290% (35659/39936)
+01/06/2023 15:40:06 - INFO - __main__ -   test: [batch: 156/196 ] | Loss: 1.217 | Acc: 70.203% (28216/40192)/ 89.299% (35891/40192)
+01/06/2023 15:40:07 - INFO - __main__ -   test: [batch: 157/196 ] | Loss: 1.220 | Acc: 70.169% (28382/40448)/ 89.265% (36106/40448)
+01/06/2023 15:40:08 - INFO - __main__ -   test: [batch: 158/196 ] | Loss: 1.225 | Acc: 70.042% (28510/40704)/ 89.198% (36307/40704)
+01/06/2023 15:40:09 - INFO - __main__ -   test: [batch: 159/196 ] | Loss: 1.228 | Acc: 70.007% (28675/40960)/ 89.187% (36531/40960)
+01/06/2023 15:40:10 - INFO - __main__ -   test: [batch: 160/196 ] | Loss: 1.227 | Acc: 70.041% (28868/41216)/ 89.194% (36762/41216)
+01/06/2023 15:40:11 - INFO - __main__ -   test: [batch: 161/196 ] | Loss: 1.231 | Acc: 69.970% (29018/41472)/ 89.159% (36976/41472)
+01/06/2023 15:40:13 - INFO - __main__ -   test: [batch: 162/196 ] | Loss: 1.232 | Acc: 69.943% (29186/41728)/ 89.132% (37193/41728)
+01/06/2023 15:40:14 - INFO - __main__ -   test: [batch: 163/196 ] | Loss: 1.240 | Acc: 69.746% (29282/41984)/ 89.020% (37374/41984)
+01/06/2023 15:40:15 - INFO - __main__ -   test: [batch: 164/196 ] | Loss: 1.243 | Acc: 69.685% (29435/42240)/ 88.973% (37582/42240)
+01/06/2023 15:40:16 - INFO - __main__ -   test: [batch: 165/196 ] | Loss: 1.245 | Acc: 69.616% (29584/42496)/ 88.945% (37798/42496)
+01/06/2023 15:40:17 - INFO - __main__ -   test: [batch: 166/196 ] | Loss: 1.244 | Acc: 69.632% (29769/42752)/ 88.960% (38032/42752)
+01/06/2023 15:40:18 - INFO - __main__ -   test: [batch: 167/196 ] | Loss: 1.247 | Acc: 69.594% (29931/43008)/ 88.909% (38238/43008)
+01/06/2023 15:40:19 - INFO - __main__ -   test: [batch: 168/196 ] | Loss: 1.248 | Acc: 69.566% (30097/43264)/ 88.908% (38465/43264)
+01/06/2023 15:40:20 - INFO - __main__ -   test: [batch: 169/196 ] | Loss: 1.251 | Acc: 69.504% (30248/43520)/ 88.879% (38680/43520)
+01/06/2023 15:40:21 - INFO - __main__ -   test: [batch: 170/196 ] | Loss: 1.249 | Acc: 69.534% (30439/43776)/ 88.898% (38916/43776)
+01/06/2023 15:40:22 - INFO - __main__ -   test: [batch: 171/196 ] | Loss: 1.251 | Acc: 69.481% (30594/44032)/ 88.872% (39132/44032)
+01/06/2023 15:40:23 - INFO - __main__ -   test: [batch: 172/196 ] | Loss: 1.255 | Acc: 69.403% (30737/44288)/ 88.814% (39334/44288)
+01/06/2023 15:40:24 - INFO - __main__ -   test: [batch: 173/196 ] | Loss: 1.255 | Acc: 69.410% (30918/44544)/ 88.791% (39551/44544)
+01/06/2023 15:40:25 - INFO - __main__ -   test: [batch: 174/196 ] | Loss: 1.256 | Acc: 69.382% (31083/44800)/ 88.786% (39776/44800)
+01/06/2023 15:40:27 - INFO - __main__ -   test: [batch: 175/196 ] | Loss: 1.259 | Acc: 69.340% (31242/45056)/ 88.772% (39997/45056)
+01/06/2023 15:40:28 - INFO - __main__ -   test: [batch: 176/196 ] | Loss: 1.262 | Acc: 69.297% (31400/45312)/ 88.727% (40204/45312)
+01/06/2023 15:40:29 - INFO - __main__ -   test: [batch: 177/196 ] | Loss: 1.269 | Acc: 69.130% (31501/45568)/ 88.654% (40398/45568)
+01/06/2023 15:40:30 - INFO - __main__ -   test: [batch: 178/196 ] | Loss: 1.267 | Acc: 69.180% (31701/45824)/ 88.681% (40637/45824)
+01/06/2023 15:40:31 - INFO - __main__ -   test: [batch: 179/196 ] | Loss: 1.266 | Acc: 69.221% (31897/46080)/ 88.687% (40867/46080)
+01/06/2023 15:40:32 - INFO - __main__ -   test: [batch: 180/196 ] | Loss: 1.267 | Acc: 69.173% (32052/46336)/ 88.698% (41099/46336)
+01/06/2023 15:40:33 - INFO - __main__ -   test: [batch: 181/196 ] | Loss: 1.268 | Acc: 69.151% (32219/46592)/ 88.689% (41322/46592)
+01/06/2023 15:40:34 - INFO - __main__ -   test: [batch: 182/196 ] | Loss: 1.267 | Acc: 69.179% (32409/46848)/ 88.689% (41549/46848)
+01/06/2023 15:40:35 - INFO - __main__ -   test: [batch: 183/196 ] | Loss: 1.264 | Acc: 69.236% (32613/47104)/ 88.729% (41795/47104)
+01/06/2023 15:40:36 - INFO - __main__ -   test: [batch: 184/196 ] | Loss: 1.263 | Acc: 69.263% (32803/47360)/ 88.756% (42035/47360)
+01/06/2023 15:40:37 - INFO - __main__ -   test: [batch: 185/196 ] | Loss: 1.261 | Acc: 69.262% (32980/47616)/ 88.781% (42274/47616)
+01/06/2023 15:40:38 - INFO - __main__ -   test: [batch: 186/196 ] | Loss: 1.258 | Acc: 69.358% (33203/47872)/ 88.816% (42518/47872)
+01/06/2023 15:40:39 - INFO - __main__ -   test: [batch: 187/196 ] | Loss: 1.260 | Acc: 69.326% (33365/48128)/ 88.776% (42726/48128)
+01/06/2023 15:40:40 - INFO - __main__ -   test: [batch: 188/196 ] | Loss: 1.261 | Acc: 69.312% (33536/48384)/ 88.757% (42944/48384)
+01/06/2023 15:40:41 - INFO - __main__ -   test: [batch: 189/196 ] | Loss: 1.265 | Acc: 69.206% (33662/48640)/ 88.723% (43155/48640)
+01/06/2023 15:40:42 - INFO - __main__ -   test: [batch: 190/196 ] | Loss: 1.265 | Acc: 69.190% (33831/48896)/ 88.733% (43387/48896)
+01/06/2023 15:40:43 - INFO - __main__ -   test: [batch: 191/196 ] | Loss: 1.266 | Acc: 69.165% (33996/49152)/ 88.729% (43612/49152)
+01/06/2023 15:40:44 - INFO - __main__ -   test: [batch: 192/196 ] | Loss: 1.263 | Acc: 69.240% (34210/49408)/ 88.769% (43859/49408)
+01/06/2023 15:40:45 - INFO - __main__ -   test: [batch: 193/196 ] | Loss: 1.258 | Acc: 69.352% (34443/49664)/ 88.819% (44111/49664)
+01/06/2023 15:40:47 - INFO - __main__ -   test: [batch: 194/196 ] | Loss: 1.255 | Acc: 69.417% (34653/49920)/ 88.852% (44355/49920)
+01/06/2023 15:40:48 - INFO - __main__ -   test: [batch: 195/196 ] | Loss: 1.262 | Acc: 69.362% (34681/50000)/ 88.830% (44415/50000)
+01/06/2023 15:40:48 - INFO - __main__ -   Final accuracy: 69.362
+01/06/2023 15:40:48 - INFO - __main__ -   {'milestones': Counter({2: 1, 3: 1, 4: 1}), 'gamma': 0.1, 'base_lrs': [0.0005], 'last_epoch': 1, '_step_count': 2, 'verbose': False, '_get_lr_called_within_step': False, '_last_lr': [0.0005]}
+01/06/2023 15:40:48 - INFO - __main__ -   
+Epoch: 1
+01/06/2023 15:40:49 - INFO - __main__ -   test: [epoch: 1 | batch: 0/5005 ] | Loss: 1.275 | Acc: 71.094% (182/256)
+01/06/2023 15:42:34 - INFO - __main__ -   test: [epoch: 1 | batch: 100/5005 ] | Loss: 1.266 | Acc: 69.802% (18048/25856)
+01/06/2023 15:44:21 - INFO - __main__ -   test: [epoch: 1 | batch: 200/5005 ] | Loss: 1.276 | Acc: 69.595% (35811/51456)
+01/06/2023 15:46:07 - INFO - __main__ -   test: [epoch: 1 | batch: 300/5005 ] | Loss: 1.279 | Acc: 69.525% (53573/77056)
+01/06/2023 15:47:54 - INFO - __main__ -   test: [epoch: 1 | batch: 400/5005 ] | Loss: 1.284 | Acc: 69.496% (71342/102656)
+01/06/2023 15:49:38 - INFO - __main__ -   test: [epoch: 1 | batch: 500/5005 ] | Loss: 1.283 | Acc: 69.513% (89155/128256)
+01/06/2023 15:51:24 - INFO - __main__ -   test: [epoch: 1 | batch: 600/5005 ] | Loss: 1.285 | Acc: 69.444% (106843/153856)
+01/06/2023 15:53:10 - INFO - __main__ -   test: [epoch: 1 | batch: 700/5005 ] | Loss: 1.281 | Acc: 69.554% (124818/179456)
+01/06/2023 15:54:55 - INFO - __main__ -   test: [epoch: 1 | batch: 800/5005 ] | Loss: 1.281 | Acc: 69.523% (142561/205056)
+01/06/2023 15:56:40 - INFO - __main__ -   test: [epoch: 1 | batch: 900/5005 ] | Loss: 1.280 | Acc: 69.603% (160544/230656)
+01/06/2023 15:58:26 - INFO - __main__ -   test: [epoch: 1 | batch: 1000/5005 ] | Loss: 1.280 | Acc: 69.597% (178346/256256)
+01/06/2023 16:00:12 - INFO - __main__ -   test: [epoch: 1 | batch: 1100/5005 ] | Loss: 1.280 | Acc: 69.565% (196072/281856)
+01/06/2023 16:01:59 - INFO - __main__ -   test: [epoch: 1 | batch: 1200/5005 ] | Loss: 1.280 | Acc: 69.568% (213891/307456)
+01/06/2023 16:03:44 - INFO - __main__ -   test: [epoch: 1 | batch: 1300/5005 ] | Loss: 1.280 | Acc: 69.547% (231632/333056)
+01/06/2023 16:05:30 - INFO - __main__ -   test: [epoch: 1 | batch: 1400/5005 ] | Loss: 1.280 | Acc: 69.544% (249422/358656)
+01/06/2023 16:07:17 - INFO - __main__ -   test: [epoch: 1 | batch: 1500/5005 ] | Loss: 1.279 | Acc: 69.551% (267252/384256)
+01/06/2023 16:09:03 - INFO - __main__ -   test: [epoch: 1 | batch: 1600/5005 ] | Loss: 1.280 | Acc: 69.532% (284981/409856)
+01/06/2023 16:10:48 - INFO - __main__ -   test: [epoch: 1 | batch: 1700/5005 ] | Loss: 1.280 | Acc: 69.525% (302751/435456)
+01/06/2023 16:12:33 - INFO - __main__ -   test: [epoch: 1 | batch: 1800/5005 ] | Loss: 1.278 | Acc: 69.559% (320708/461056)
+01/06/2023 16:14:18 - INFO - __main__ -   test: [epoch: 1 | batch: 1900/5005 ] | Loss: 1.278 | Acc: 69.548% (338458/486656)
+01/06/2023 16:16:05 - INFO - __main__ -   test: [epoch: 1 | batch: 2000/5005 ] | Loss: 1.278 | Acc: 69.529% (356168/512256)
+01/06/2023 16:17:50 - INFO - __main__ -   test: [epoch: 1 | batch: 2100/5005 ] | Loss: 1.278 | Acc: 69.536% (374001/537856)
+01/06/2023 16:19:37 - INFO - __main__ -   test: [epoch: 1 | batch: 2200/5005 ] | Loss: 1.278 | Acc: 69.536% (391803/563456)
+01/06/2023 16:21:23 - INFO - __main__ -   test: [epoch: 1 | batch: 2300/5005 ] | Loss: 1.278 | Acc: 69.528% (409561/589056)
+01/06/2023 16:23:08 - INFO - __main__ -   test: [epoch: 1 | batch: 2400/5005 ] | Loss: 1.278 | Acc: 69.547% (427474/614656)
+01/06/2023 16:24:54 - INFO - __main__ -   test: [epoch: 1 | batch: 2500/5005 ] | Loss: 1.277 | Acc: 69.566% (445400/640256)
+01/06/2023 16:26:39 - INFO - __main__ -   test: [epoch: 1 | batch: 2600/5005 ] | Loss: 1.278 | Acc: 69.562% (463185/665856)
+01/06/2023 16:28:24 - INFO - __main__ -   test: [epoch: 1 | batch: 2700/5005 ] | Loss: 1.277 | Acc: 69.567% (481025/691456)
+01/06/2023 16:30:08 - INFO - __main__ -   test: [epoch: 1 | batch: 2800/5005 ] | Loss: 1.277 | Acc: 69.581% (498932/717056)
+01/06/2023 16:31:54 - INFO - __main__ -   test: [epoch: 1 | batch: 2900/5005 ] | Loss: 1.277 | Acc: 69.585% (516776/742656)
+01/06/2023 16:33:40 - INFO - __main__ -   test: [epoch: 1 | batch: 3000/5005 ] | Loss: 1.277 | Acc: 69.587% (534606/768256)
+01/06/2023 16:35:26 - INFO - __main__ -   test: [epoch: 1 | batch: 3100/5005 ] | Loss: 1.277 | Acc: 69.576% (552336/793856)
+01/06/2023 16:37:11 - INFO - __main__ -   test: [epoch: 1 | batch: 3200/5005 ] | Loss: 1.278 | Acc: 69.563% (570037/819456)
+01/06/2023 16:38:57 - INFO - __main__ -   test: [epoch: 1 | batch: 3300/5005 ] | Loss: 1.278 | Acc: 69.564% (587856/845056)
+01/06/2023 16:40:43 - INFO - __main__ -   test: [epoch: 1 | batch: 3400/5005 ] | Loss: 1.278 | Acc: 69.562% (605647/870656)
+01/06/2023 16:42:28 - INFO - __main__ -   test: [epoch: 1 | batch: 3500/5005 ] | Loss: 1.278 | Acc: 69.567% (623501/896256)
+01/06/2023 16:44:13 - INFO - __main__ -   test: [epoch: 1 | batch: 3600/5005 ] | Loss: 1.278 | Acc: 69.571% (641347/921856)
+01/06/2023 16:46:00 - INFO - __main__ -   test: [epoch: 1 | batch: 3700/5005 ] | Loss: 1.278 | Acc: 69.575% (659189/947456)
+01/06/2023 16:47:46 - INFO - __main__ -   test: [epoch: 1 | batch: 3800/5005 ] | Loss: 1.278 | Acc: 69.565% (676911/973056)
+01/06/2023 16:49:33 - INFO - __main__ -   test: [epoch: 1 | batch: 3900/5005 ] | Loss: 1.278 | Acc: 69.549% (694560/998656)
+01/06/2023 16:51:19 - INFO - __main__ -   test: [epoch: 1 | batch: 4000/5005 ] | Loss: 1.278 | Acc: 69.551% (712380/1024256)
+01/06/2023 16:53:04 - INFO - __main__ -   test: [epoch: 1 | batch: 4100/5005 ] | Loss: 1.278 | Acc: 69.564% (730318/1049856)
+01/06/2023 16:54:50 - INFO - __main__ -   test: [epoch: 1 | batch: 4200/5005 ] | Loss: 1.278 | Acc: 69.564% (748126/1075456)
+01/06/2023 16:56:36 - INFO - __main__ -   test: [epoch: 1 | batch: 4300/5005 ] | Loss: 1.277 | Acc: 69.577% (766086/1101056)
+01/06/2023 16:58:23 - INFO - __main__ -   test: [epoch: 1 | batch: 4400/5005 ] | Loss: 1.277 | Acc: 69.587% (784009/1126656)
+01/06/2023 17:00:08 - INFO - __main__ -   test: [epoch: 1 | batch: 4500/5005 ] | Loss: 1.278 | Acc: 69.580% (801738/1152256)
+01/06/2023 17:01:53 - INFO - __main__ -   test: [epoch: 1 | batch: 4600/5005 ] | Loss: 1.278 | Acc: 69.573% (819465/1177856)
+01/06/2023 17:03:39 - INFO - __main__ -   test: [epoch: 1 | batch: 4700/5005 ] | Loss: 1.278 | Acc: 69.572% (837264/1203456)
+01/06/2023 17:05:25 - INFO - __main__ -   test: [epoch: 1 | batch: 4800/5005 ] | Loss: 1.278 | Acc: 69.570% (855057/1229056)
+01/06/2023 17:07:11 - INFO - __main__ -   test: [epoch: 1 | batch: 4900/5005 ] | Loss: 1.278 | Acc: 69.567% (872830/1254656)
+01/06/2023 17:08:58 - INFO - __main__ -   test: [epoch: 1 | batch: 5000/5005 ] | Loss: 1.278 | Acc: 69.565% (890616/1280256)
+01/06/2023 17:09:02 - INFO - __main__ -   Saving Checkpoint
+01/06/2023 17:09:03 - INFO - __main__ -   test: [batch: 0/196 ] | Loss: 0.689 | Acc: 80.859% (207/256)/ 94.531% (242/256)
+01/06/2023 17:09:04 - INFO - __main__ -   test: [batch: 1/196 ] | Loss: 0.769 | Acc: 80.273% (411/512)/ 93.555% (479/512)
+01/06/2023 17:09:05 - INFO - __main__ -   test: [batch: 2/196 ] | Loss: 0.640 | Acc: 83.594% (642/768)/ 94.792% (728/768)
+01/06/2023 17:09:06 - INFO - __main__ -   test: [batch: 3/196 ] | Loss: 0.598 | Acc: 84.961% (870/1024)/ 95.117% (974/1024)
+01/06/2023 17:09:07 - INFO - __main__ -   test: [batch: 4/196 ] | Loss: 0.584 | Acc: 85.781% (1098/1280)/ 95.312% (1220/1280)
+01/06/2023 17:09:08 - INFO - __main__ -   test: [batch: 5/196 ] | Loss: 0.637 | Acc: 84.766% (1302/1536)/ 94.857% (1457/1536)
+01/06/2023 17:09:09 - INFO - __main__ -   test: [batch: 6/196 ] | Loss: 0.753 | Acc: 81.920% (1468/1792)/ 93.750% (1680/1792)
+01/06/2023 17:09:10 - INFO - __main__ -   test: [batch: 7/196 ] | Loss: 0.794 | Acc: 80.518% (1649/2048)/ 93.652% (1918/2048)
+01/06/2023 17:09:11 - INFO - __main__ -   test: [batch: 8/196 ] | Loss: 0.838 | Acc: 79.818% (1839/2304)/ 93.142% (2146/2304)
+01/06/2023 17:09:12 - INFO - __main__ -   test: [batch: 9/196 ] | Loss: 0.869 | Acc: 78.672% (2014/2560)/ 92.891% (2378/2560)
+01/06/2023 17:09:13 - INFO - __main__ -   test: [batch: 10/196 ] | Loss: 0.905 | Acc: 77.521% (2183/2816)/ 92.649% (2609/2816)
+01/06/2023 17:09:15 - INFO - __main__ -   test: [batch: 11/196 ] | Loss: 0.966 | Acc: 76.074% (2337/3072)/ 92.220% (2833/3072)
+01/06/2023 17:09:16 - INFO - __main__ -   test: [batch: 12/196 ] | Loss: 1.015 | Acc: 74.730% (2487/3328)/ 91.587% (3048/3328)
+01/06/2023 17:09:17 - INFO - __main__ -   test: [batch: 13/196 ] | Loss: 1.021 | Acc: 74.163% (2658/3584)/ 91.434% (3277/3584)
+01/06/2023 17:09:18 - INFO - __main__ -   test: [batch: 14/196 ] | Loss: 1.016 | Acc: 74.062% (2844/3840)/ 91.745% (3523/3840)
+01/06/2023 17:09:19 - INFO - __main__ -   test: [batch: 15/196 ] | Loss: 1.025 | Acc: 74.097% (3035/4096)/ 91.577% (3751/4096)
+01/06/2023 17:09:20 - INFO - __main__ -   test: [batch: 16/196 ] | Loss: 0.999 | Acc: 74.701% (3251/4352)/ 91.820% (3996/4352)
+01/06/2023 17:09:21 - INFO - __main__ -   test: [batch: 17/196 ] | Loss: 0.965 | Acc: 75.564% (3482/4608)/ 92.101% (4244/4608)
+01/06/2023 17:09:22 - INFO - __main__ -   test: [batch: 18/196 ] | Loss: 0.941 | Acc: 76.151% (3704/4864)/ 92.352% (4492/4864)
+01/06/2023 17:09:23 - INFO - __main__ -   test: [batch: 19/196 ] | Loss: 0.935 | Acc: 76.289% (3906/5120)/ 92.363% (4729/5120)
+01/06/2023 17:09:24 - INFO - __main__ -   test: [batch: 20/196 ] | Loss: 0.938 | Acc: 76.451% (4110/5376)/ 92.225% (4958/5376)
+01/06/2023 17:09:25 - INFO - __main__ -   test: [batch: 21/196 ] | Loss: 0.938 | Acc: 76.385% (4302/5632)/ 92.241% (5195/5632)
+01/06/2023 17:09:26 - INFO - __main__ -   test: [batch: 22/196 ] | Loss: 0.944 | Acc: 76.359% (4496/5888)/ 92.154% (5426/5888)
+01/06/2023 17:09:27 - INFO - __main__ -   test: [batch: 23/196 ] | Loss: 0.955 | Acc: 76.058% (4673/6144)/ 92.041% (5655/6144)
+01/06/2023 17:09:28 - INFO - __main__ -   test: [batch: 24/196 ] | Loss: 0.968 | Acc: 75.766% (4849/6400)/ 91.859% (5879/6400)
+01/06/2023 17:09:29 - INFO - __main__ -   test: [batch: 25/196 ] | Loss: 0.947 | Acc: 76.277% (5077/6656)/ 92.112% (6131/6656)
+01/06/2023 17:09:30 - INFO - __main__ -   test: [batch: 26/196 ] | Loss: 0.932 | Acc: 76.577% (5293/6912)/ 92.274% (6378/6912)
+01/06/2023 17:09:31 - INFO - __main__ -   test: [batch: 27/196 ] | Loss: 0.916 | Acc: 76.981% (5518/7168)/ 92.397% (6623/7168)
+01/06/2023 17:09:32 - INFO - __main__ -   test: [batch: 28/196 ] | Loss: 0.900 | Acc: 77.371% (5744/7424)/ 92.484% (6866/7424)
+01/06/2023 17:09:34 - INFO - __main__ -   test: [batch: 29/196 ] | Loss: 0.898 | Acc: 77.383% (5943/7680)/ 92.526% (7106/7680)
+01/06/2023 17:09:34 - INFO - __main__ -   test: [batch: 30/196 ] | Loss: 0.898 | Acc: 77.445% (6146/7936)/ 92.566% (7346/7936)
+01/06/2023 17:09:36 - INFO - __main__ -   test: [batch: 31/196 ] | Loss: 0.902 | Acc: 77.307% (6333/8192)/ 92.554% (7582/8192)
+01/06/2023 17:09:37 - INFO - __main__ -   test: [batch: 32/196 ] | Loss: 0.921 | Acc: 76.681% (6478/8448)/ 92.460% (7811/8448)
+01/06/2023 17:09:38 - INFO - __main__ -   test: [batch: 33/196 ] | Loss: 0.927 | Acc: 76.528% (6661/8704)/ 92.440% (8046/8704)
+01/06/2023 17:09:39 - INFO - __main__ -   test: [batch: 34/196 ] | Loss: 0.926 | Acc: 76.496% (6854/8960)/ 92.511% (8289/8960)
+01/06/2023 17:09:40 - INFO - __main__ -   test: [batch: 35/196 ] | Loss: 0.925 | Acc: 76.400% (7041/9216)/ 92.611% (8535/9216)
+01/06/2023 17:09:41 - INFO - __main__ -   test: [batch: 36/196 ] | Loss: 0.934 | Acc: 76.014% (7200/9472)/ 92.589% (8770/9472)
+01/06/2023 17:09:42 - INFO - __main__ -   test: [batch: 37/196 ] | Loss: 0.943 | Acc: 75.822% (7376/9728)/ 92.496% (8998/9728)
+01/06/2023 17:09:43 - INFO - __main__ -   test: [batch: 38/196 ] | Loss: 0.941 | Acc: 75.861% (7574/9984)/ 92.598% (9245/9984)
+01/06/2023 17:09:44 - INFO - __main__ -   test: [batch: 39/196 ] | Loss: 0.941 | Acc: 75.732% (7755/10240)/ 92.666% (9489/10240)
+01/06/2023 17:09:45 - INFO - __main__ -   test: [batch: 40/196 ] | Loss: 0.940 | Acc: 75.724% (7948/10496)/ 92.721% (9732/10496)
+01/06/2023 17:09:47 - INFO - __main__ -   test: [batch: 41/196 ] | Loss: 0.939 | Acc: 75.716% (8141/10752)/ 92.736% (9971/10752)
+01/06/2023 17:09:48 - INFO - __main__ -   test: [batch: 42/196 ] | Loss: 0.932 | Acc: 75.899% (8355/11008)/ 92.823% (10218/11008)
+01/06/2023 17:09:49 - INFO - __main__ -   test: [batch: 43/196 ] | Loss: 0.937 | Acc: 75.790% (8537/11264)/ 92.738% (10446/11264)
+01/06/2023 17:09:50 - INFO - __main__ -   test: [batch: 44/196 ] | Loss: 0.939 | Acc: 75.764% (8728/11520)/ 92.752% (10685/11520)
+01/06/2023 17:09:51 - INFO - __main__ -   test: [batch: 45/196 ] | Loss: 0.940 | Acc: 75.586% (8901/11776)/ 92.799% (10928/11776)
+01/06/2023 17:09:52 - INFO - __main__ -   test: [batch: 46/196 ] | Loss: 0.944 | Acc: 75.366% (9068/12032)/ 92.811% (11167/12032)
+01/06/2023 17:09:53 - INFO - __main__ -   test: [batch: 47/196 ] | Loss: 0.942 | Acc: 75.309% (9254/12288)/ 92.871% (11412/12288)
+01/06/2023 17:09:54 - INFO - __main__ -   test: [batch: 48/196 ] | Loss: 0.947 | Acc: 74.992% (9407/12544)/ 92.897% (11653/12544)
+01/06/2023 17:09:55 - INFO - __main__ -   test: [batch: 49/196 ] | Loss: 0.937 | Acc: 75.258% (9633/12800)/ 92.977% (11901/12800)
+01/06/2023 17:09:56 - INFO - __main__ -   test: [batch: 50/196 ] | Loss: 0.930 | Acc: 75.444% (9850/13056)/ 93.030% (12146/13056)
+01/06/2023 17:09:57 - INFO - __main__ -   test: [batch: 51/196 ] | Loss: 0.930 | Acc: 75.331% (10028/13312)/ 93.059% (12388/13312)
+01/06/2023 17:09:58 - INFO - __main__ -   test: [batch: 52/196 ] | Loss: 0.932 | Acc: 75.206% (10204/13568)/ 93.057% (12626/13568)
+01/06/2023 17:10:00 - INFO - __main__ -   test: [batch: 53/196 ] | Loss: 0.935 | Acc: 75.224% (10399/13824)/ 93.048% (12863/13824)
+01/06/2023 17:10:01 - INFO - __main__ -   test: [batch: 54/196 ] | Loss: 0.936 | Acc: 75.142% (10580/14080)/ 93.082% (13106/14080)
+01/06/2023 17:10:02 - INFO - __main__ -   test: [batch: 55/196 ] | Loss: 0.941 | Acc: 74.972% (10748/14336)/ 93.045% (13339/14336)
+01/06/2023 17:10:03 - INFO - __main__ -   test: [batch: 56/196 ] | Loss: 0.938 | Acc: 75.048% (10951/14592)/ 93.106% (13586/14592)
+01/06/2023 17:10:04 - INFO - __main__ -   test: [batch: 57/196 ] | Loss: 0.931 | Acc: 75.256% (11174/14848)/ 93.164% (13833/14848)
+01/06/2023 17:10:05 - INFO - __main__ -   test: [batch: 58/196 ] | Loss: 0.933 | Acc: 75.324% (11377/15104)/ 93.134% (14067/15104)
+01/06/2023 17:10:06 - INFO - __main__ -   test: [batch: 59/196 ] | Loss: 0.936 | Acc: 75.208% (11552/15360)/ 93.151% (14308/15360)
+01/06/2023 17:10:07 - INFO - __main__ -   test: [batch: 60/196 ] | Loss: 0.939 | Acc: 75.173% (11739/15616)/ 93.148% (14546/15616)
+01/06/2023 17:10:08 - INFO - __main__ -   test: [batch: 61/196 ] | Loss: 0.945 | Acc: 75.101% (11920/15872)/ 93.107% (14778/15872)
+01/06/2023 17:10:09 - INFO - __main__ -   test: [batch: 62/196 ] | Loss: 0.938 | Acc: 75.236% (12134/16128)/ 93.173% (15027/16128)
+01/06/2023 17:10:10 - INFO - __main__ -   test: [batch: 63/196 ] | Loss: 0.931 | Acc: 75.446% (12361/16384)/ 93.231% (15275/16384)
+01/06/2023 17:10:11 - INFO - __main__ -   test: [batch: 64/196 ] | Loss: 0.929 | Acc: 75.535% (12569/16640)/ 93.245% (15516/16640)
+01/06/2023 17:10:12 - INFO - __main__ -   test: [batch: 65/196 ] | Loss: 0.925 | Acc: 75.698% (12790/16896)/ 93.282% (15761/16896)
+01/06/2023 17:10:13 - INFO - __main__ -   test: [batch: 66/196 ] | Loss: 0.924 | Acc: 75.764% (12995/17152)/ 93.266% (15997/17152)
+01/06/2023 17:10:14 - INFO - __main__ -   test: [batch: 67/196 ] | Loss: 0.921 | Acc: 75.804% (13196/17408)/ 93.302% (16242/17408)
+01/06/2023 17:10:15 - INFO - __main__ -   test: [batch: 68/196 ] | Loss: 0.917 | Acc: 75.849% (13398/17664)/ 93.359% (16491/17664)
+01/06/2023 17:10:16 - INFO - __main__ -   test: [batch: 69/196 ] | Loss: 0.924 | Acc: 75.675% (13561/17920)/ 93.320% (16723/17920)
+01/06/2023 17:10:17 - INFO - __main__ -   test: [batch: 70/196 ] | Loss: 0.923 | Acc: 75.726% (13764/18176)/ 93.332% (16964/18176)
+01/06/2023 17:10:18 - INFO - __main__ -   test: [batch: 71/196 ] | Loss: 0.920 | Acc: 75.836% (13978/18432)/ 93.343% (17205/18432)
+01/06/2023 17:10:19 - INFO - __main__ -   test: [batch: 72/196 ] | Loss: 0.923 | Acc: 75.765% (14159/18688)/ 93.301% (17436/18688)
+01/06/2023 17:10:20 - INFO - __main__ -   test: [batch: 73/196 ] | Loss: 0.924 | Acc: 75.771% (14354/18944)/ 93.280% (17671/18944)
+01/06/2023 17:10:21 - INFO - __main__ -   test: [batch: 74/196 ] | Loss: 0.928 | Acc: 75.641% (14523/19200)/ 93.260% (17906/19200)
+01/06/2023 17:10:23 - INFO - __main__ -   test: [batch: 75/196 ] | Loss: 0.927 | Acc: 75.684% (14725/19456)/ 93.277% (18148/19456)
+01/06/2023 17:10:24 - INFO - __main__ -   test: [batch: 76/196 ] | Loss: 0.925 | Acc: 75.731% (14928/19712)/ 93.273% (18386/19712)
+01/06/2023 17:10:25 - INFO - __main__ -   test: [batch: 77/196 ] | Loss: 0.928 | Acc: 75.741% (15124/19968)/ 93.239% (18618/19968)
+01/06/2023 17:10:26 - INFO - __main__ -   test: [batch: 78/196 ] | Loss: 0.934 | Acc: 75.593% (15288/20224)/ 93.152% (18839/20224)
+01/06/2023 17:10:27 - INFO - __main__ -   test: [batch: 79/196 ] | Loss: 0.935 | Acc: 75.571% (15477/20480)/ 93.140% (19075/20480)
+01/06/2023 17:10:28 - INFO - __main__ -   test: [batch: 80/196 ] | Loss: 0.944 | Acc: 75.420% (15639/20736)/ 93.036% (19292/20736)
+01/06/2023 17:10:29 - INFO - __main__ -   test: [batch: 81/196 ] | Loss: 0.955 | Acc: 75.186% (15783/20992)/ 92.897% (19501/20992)
+01/06/2023 17:10:30 - INFO - __main__ -   test: [batch: 82/196 ] | Loss: 0.959 | Acc: 75.113% (15960/21248)/ 92.846% (19728/21248)
+01/06/2023 17:10:31 - INFO - __main__ -   test: [batch: 83/196 ] | Loss: 0.962 | Acc: 75.102% (16150/21504)/ 92.811% (19958/21504)
+01/06/2023 17:10:32 - INFO - __main__ -   test: [batch: 84/196 ] | Loss: 0.966 | Acc: 75.005% (16321/21760)/ 92.748% (20182/21760)
+01/06/2023 17:10:33 - INFO - __main__ -   test: [batch: 85/196 ] | Loss: 0.974 | Acc: 74.823% (16473/22016)/ 92.646% (20397/22016)
+01/06/2023 17:10:34 - INFO - __main__ -   test: [batch: 86/196 ] | Loss: 0.978 | Acc: 74.695% (16636/22272)/ 92.601% (20624/22272)
+01/06/2023 17:10:35 - INFO - __main__ -   test: [batch: 87/196 ] | Loss: 0.983 | Acc: 74.587% (16803/22528)/ 92.516% (20842/22528)
+01/06/2023 17:10:36 - INFO - __main__ -   test: [batch: 88/196 ] | Loss: 0.990 | Acc: 74.447% (16962/22784)/ 92.416% (21056/22784)
+01/06/2023 17:10:37 - INFO - __main__ -   test: [batch: 89/196 ] | Loss: 0.996 | Acc: 74.345% (17129/23040)/ 92.318% (21270/23040)
+01/06/2023 17:10:38 - INFO - __main__ -   test: [batch: 90/196 ] | Loss: 1.010 | Acc: 74.060% (17253/23296)/ 92.166% (21471/23296)
+01/06/2023 17:10:40 - INFO - __main__ -   test: [batch: 91/196 ] | Loss: 1.015 | Acc: 73.956% (17418/23552)/ 92.081% (21687/23552)
+01/06/2023 17:10:41 - INFO - __main__ -   test: [batch: 92/196 ] | Loss: 1.015 | Acc: 74.021% (17623/23808)/ 92.061% (21918/23808)
+01/06/2023 17:10:42 - INFO - __main__ -   test: [batch: 93/196 ] | Loss: 1.024 | Acc: 73.845% (17770/24064)/ 91.934% (22123/24064)
+01/06/2023 17:10:43 - INFO - __main__ -   test: [batch: 94/196 ] | Loss: 1.029 | Acc: 73.672% (17917/24320)/ 91.900% (22350/24320)
+01/06/2023 17:10:44 - INFO - __main__ -   test: [batch: 95/196 ] | Loss: 1.039 | Acc: 73.539% (18073/24576)/ 91.793% (22559/24576)
+01/06/2023 17:10:45 - INFO - __main__ -   test: [batch: 96/196 ] | Loss: 1.046 | Acc: 73.401% (18227/24832)/ 91.692% (22769/24832)
+01/06/2023 17:10:46 - INFO - __main__ -   test: [batch: 97/196 ] | Loss: 1.055 | Acc: 73.294% (18388/25088)/ 91.574% (22974/25088)
+01/06/2023 17:10:47 - INFO - __main__ -   test: [batch: 98/196 ] | Loss: 1.065 | Acc: 73.106% (18528/25344)/ 91.458% (23179/25344)
+01/06/2023 17:10:48 - INFO - __main__ -   test: [batch: 99/196 ] | Loss: 1.067 | Acc: 73.027% (18695/25600)/ 91.438% (23408/25600)
+01/06/2023 17:10:49 - INFO - __main__ -   test: [batch: 100/196 ] | Loss: 1.073 | Acc: 72.873% (18842/25856)/ 91.368% (23624/25856)
+01/06/2023 17:10:50 - INFO - __main__ -   test: [batch: 101/196 ] | Loss: 1.075 | Acc: 72.859% (19025/26112)/ 91.345% (23852/26112)
+01/06/2023 17:10:51 - INFO - __main__ -   test: [batch: 102/196 ] | Loss: 1.079 | Acc: 72.728% (19177/26368)/ 91.300% (24074/26368)
+01/06/2023 17:10:52 - INFO - __main__ -   test: [batch: 103/196 ] | Loss: 1.084 | Acc: 72.645% (19341/26624)/ 91.241% (24292/26624)
+01/06/2023 17:10:53 - INFO - __main__ -   test: [batch: 104/196 ] | Loss: 1.085 | Acc: 72.612% (19518/26880)/ 91.231% (24523/26880)
+01/06/2023 17:10:54 - INFO - __main__ -   test: [batch: 105/196 ] | Loss: 1.091 | Acc: 72.509% (19676/27136)/ 91.126% (24728/27136)
+01/06/2023 17:10:55 - INFO - __main__ -   test: [batch: 106/196 ] | Loss: 1.093 | Acc: 72.466% (19850/27392)/ 91.092% (24952/27392)
+01/06/2023 17:10:56 - INFO - __main__ -   test: [batch: 107/196 ] | Loss: 1.095 | Acc: 72.454% (20032/27648)/ 91.073% (25180/27648)
+01/06/2023 17:10:57 - INFO - __main__ -   test: [batch: 108/196 ] | Loss: 1.098 | Acc: 72.438% (20213/27904)/ 91.030% (25401/27904)
+01/06/2023 17:10:58 - INFO - __main__ -   test: [batch: 109/196 ] | Loss: 1.099 | Acc: 72.408% (20390/28160)/ 90.998% (25625/28160)
+01/06/2023 17:10:59 - INFO - __main__ -   test: [batch: 110/196 ] | Loss: 1.100 | Acc: 72.420% (20579/28416)/ 90.987% (25855/28416)
+01/06/2023 17:11:00 - INFO - __main__ -   test: [batch: 111/196 ] | Loss: 1.098 | Acc: 72.492% (20785/28672)/ 91.005% (26093/28672)
+01/06/2023 17:11:01 - INFO - __main__ -   test: [batch: 112/196 ] | Loss: 1.096 | Acc: 72.532% (20982/28928)/ 91.002% (26325/28928)
+01/06/2023 17:11:02 - INFO - __main__ -   test: [batch: 113/196 ] | Loss: 1.098 | Acc: 72.499% (21158/29184)/ 90.998% (26557/29184)
+01/06/2023 17:11:04 - INFO - __main__ -   test: [batch: 114/196 ] | Loss: 1.105 | Acc: 72.354% (21301/29440)/ 90.876% (26754/29440)
+01/06/2023 17:11:05 - INFO - __main__ -   test: [batch: 115/196 ] | Loss: 1.110 | Acc: 72.252% (21456/29696)/ 90.800% (26964/29696)
+01/06/2023 17:11:06 - INFO - __main__ -   test: [batch: 116/196 ] | Loss: 1.113 | Acc: 72.222% (21632/29952)/ 90.762% (27185/29952)
+01/06/2023 17:11:07 - INFO - __main__ -   test: [batch: 117/196 ] | Loss: 1.119 | Acc: 72.077% (21773/30208)/ 90.671% (27390/30208)
+01/06/2023 17:11:08 - INFO - __main__ -   test: [batch: 118/196 ] | Loss: 1.118 | Acc: 72.141% (21977/30464)/ 90.671% (27622/30464)
+01/06/2023 17:11:09 - INFO - __main__ -   test: [batch: 119/196 ] | Loss: 1.116 | Acc: 72.214% (22184/30720)/ 90.677% (27856/30720)
+01/06/2023 17:11:10 - INFO - __main__ -   test: [batch: 120/196 ] | Loss: 1.122 | Acc: 72.101% (22334/30976)/ 90.586% (28060/30976)
+01/06/2023 17:11:11 - INFO - __main__ -   test: [batch: 121/196 ] | Loss: 1.132 | Acc: 71.853% (22441/31232)/ 90.462% (28253/31232)
+01/06/2023 17:11:12 - INFO - __main__ -   test: [batch: 122/196 ] | Loss: 1.133 | Acc: 71.865% (22629/31488)/ 90.434% (28476/31488)
+01/06/2023 17:11:13 - INFO - __main__ -   test: [batch: 123/196 ] | Loss: 1.142 | Acc: 71.727% (22769/31744)/ 90.297% (28664/31744)
+01/06/2023 17:11:14 - INFO - __main__ -   test: [batch: 124/196 ] | Loss: 1.145 | Acc: 71.584% (22907/32000)/ 90.275% (28888/32000)
+01/06/2023 17:11:15 - INFO - __main__ -   test: [batch: 125/196 ] | Loss: 1.147 | Acc: 71.540% (23076/32256)/ 90.259% (29114/32256)
+01/06/2023 17:11:16 - INFO - __main__ -   test: [batch: 126/196 ] | Loss: 1.148 | Acc: 71.543% (23260/32512)/ 90.228% (29335/32512)
+01/06/2023 17:11:17 - INFO - __main__ -   test: [batch: 127/196 ] | Loss: 1.155 | Acc: 71.448% (23412/32768)/ 90.140% (29537/32768)
+01/06/2023 17:11:18 - INFO - __main__ -   test: [batch: 128/196 ] | Loss: 1.158 | Acc: 71.339% (23559/33024)/ 90.110% (29758/33024)
+01/06/2023 17:11:19 - INFO - __main__ -   test: [batch: 129/196 ] | Loss: 1.163 | Acc: 71.229% (23705/33280)/ 90.081% (29979/33280)
+01/06/2023 17:11:20 - INFO - __main__ -   test: [batch: 130/196 ] | Loss: 1.161 | Acc: 71.249% (23894/33536)/ 90.109% (30219/33536)
+01/06/2023 17:11:21 - INFO - __main__ -   test: [batch: 131/196 ] | Loss: 1.164 | Acc: 71.188% (24056/33792)/ 90.072% (30437/33792)
+01/06/2023 17:11:22 - INFO - __main__ -   test: [batch: 132/196 ] | Loss: 1.168 | Acc: 71.144% (24223/34048)/ 89.996% (30642/34048)
+01/06/2023 17:11:23 - INFO - __main__ -   test: [batch: 133/196 ] | Loss: 1.169 | Acc: 71.143% (24405/34304)/ 89.984% (30868/34304)
+01/06/2023 17:11:24 - INFO - __main__ -   test: [batch: 134/196 ] | Loss: 1.170 | Acc: 71.079% (24565/34560)/ 89.965% (31092/34560)
+01/06/2023 17:11:26 - INFO - __main__ -   test: [batch: 135/196 ] | Loss: 1.174 | Acc: 71.013% (24724/34816)/ 89.939% (31313/34816)
+01/06/2023 17:11:27 - INFO - __main__ -   test: [batch: 136/196 ] | Loss: 1.175 | Acc: 70.980% (24894/35072)/ 89.938% (31543/35072)
+01/06/2023 17:11:28 - INFO - __main__ -   test: [batch: 137/196 ] | Loss: 1.177 | Acc: 70.944% (25063/35328)/ 89.934% (31772/35328)
+01/06/2023 17:11:29 - INFO - __main__ -   test: [batch: 138/196 ] | Loss: 1.179 | Acc: 70.869% (25218/35584)/ 89.900% (31990/35584)
+01/06/2023 17:11:30 - INFO - __main__ -   test: [batch: 139/196 ] | Loss: 1.180 | Acc: 70.884% (25405/35840)/ 89.888% (32216/35840)
+01/06/2023 17:11:31 - INFO - __main__ -   test: [batch: 140/196 ] | Loss: 1.181 | Acc: 70.858% (25577/36096)/ 89.863% (32437/36096)
+01/06/2023 17:11:32 - INFO - __main__ -   test: [batch: 141/196 ] | Loss: 1.181 | Acc: 70.871% (25763/36352)/ 89.855% (32664/36352)
+01/06/2023 17:11:33 - INFO - __main__ -   test: [batch: 142/196 ] | Loss: 1.189 | Acc: 70.777% (25910/36608)/ 89.732% (32849/36608)
+01/06/2023 17:11:34 - INFO - __main__ -   test: [batch: 143/196 ] | Loss: 1.190 | Acc: 70.717% (26069/36864)/ 89.700% (33067/36864)
+01/06/2023 17:11:35 - INFO - __main__ -   test: [batch: 144/196 ] | Loss: 1.193 | Acc: 70.665% (26231/37120)/ 89.644% (33276/37120)
+01/06/2023 17:11:36 - INFO - __main__ -   test: [batch: 145/196 ] | Loss: 1.196 | Acc: 70.572% (26377/37376)/ 89.603% (33490/37376)
+01/06/2023 17:11:37 - INFO - __main__ -   test: [batch: 146/196 ] | Loss: 1.199 | Acc: 70.491% (26527/37632)/ 89.573% (33708/37632)
+01/06/2023 17:11:38 - INFO - __main__ -   test: [batch: 147/196 ] | Loss: 1.200 | Acc: 70.471% (26700/37888)/ 89.561% (33933/37888)
+01/06/2023 17:11:39 - INFO - __main__ -   test: [batch: 148/196 ] | Loss: 1.203 | Acc: 70.446% (26871/38144)/ 89.519% (34146/38144)
+01/06/2023 17:11:40 - INFO - __main__ -   test: [batch: 149/196 ] | Loss: 1.206 | Acc: 70.380% (27026/38400)/ 89.469% (34356/38400)
+01/06/2023 17:11:41 - INFO - __main__ -   test: [batch: 150/196 ] | Loss: 1.207 | Acc: 70.385% (27208/38656)/ 89.451% (34578/38656)
+01/06/2023 17:11:43 - INFO - __main__ -   test: [batch: 151/196 ] | Loss: 1.210 | Acc: 70.328% (27366/38912)/ 89.415% (34793/38912)
+01/06/2023 17:11:44 - INFO - __main__ -   test: [batch: 152/196 ] | Loss: 1.209 | Acc: 70.312% (27540/39168)/ 89.425% (35026/39168)
+01/06/2023 17:11:45 - INFO - __main__ -   test: [batch: 153/196 ] | Loss: 1.213 | Acc: 70.247% (27694/39424)/ 89.359% (35229/39424)
+01/06/2023 17:11:46 - INFO - __main__ -   test: [batch: 154/196 ] | Loss: 1.215 | Acc: 70.209% (27859/39680)/ 89.337% (35449/39680)
+01/06/2023 17:11:47 - INFO - __main__ -   test: [batch: 155/196 ] | Loss: 1.218 | Acc: 70.177% (28026/39936)/ 89.290% (35659/39936)
+01/06/2023 17:11:48 - INFO - __main__ -   test: [batch: 156/196 ] | Loss: 1.217 | Acc: 70.210% (28219/40192)/ 89.299% (35891/40192)
+01/06/2023 17:11:49 - INFO - __main__ -   test: [batch: 157/196 ] | Loss: 1.220 | Acc: 70.179% (28386/40448)/ 89.265% (36106/40448)
+01/06/2023 17:11:50 - INFO - __main__ -   test: [batch: 158/196 ] | Loss: 1.225 | Acc: 70.045% (28511/40704)/ 89.203% (36309/40704)
+01/06/2023 17:11:51 - INFO - __main__ -   test: [batch: 159/196 ] | Loss: 1.228 | Acc: 70.017% (28679/40960)/ 89.194% (36534/40960)
+01/06/2023 17:11:52 - INFO - __main__ -   test: [batch: 160/196 ] | Loss: 1.227 | Acc: 70.055% (28874/41216)/ 89.198% (36764/41216)
+01/06/2023 17:11:53 - INFO - __main__ -   test: [batch: 161/196 ] | Loss: 1.230 | Acc: 69.989% (29026/41472)/ 89.161% (36977/41472)
+01/06/2023 17:11:54 - INFO - __main__ -   test: [batch: 162/196 ] | Loss: 1.231 | Acc: 69.967% (29196/41728)/ 89.139% (37196/41728)
+01/06/2023 17:11:55 - INFO - __main__ -   test: [batch: 163/196 ] | Loss: 1.240 | Acc: 69.769% (29292/41984)/ 89.027% (37377/41984)
+01/06/2023 17:11:56 - INFO - __main__ -   test: [batch: 164/196 ] | Loss: 1.242 | Acc: 69.699% (29441/42240)/ 88.980% (37585/42240)
+01/06/2023 17:11:57 - INFO - __main__ -   test: [batch: 165/196 ] | Loss: 1.245 | Acc: 69.625% (29588/42496)/ 88.950% (37800/42496)
+01/06/2023 17:11:59 - INFO - __main__ -   test: [batch: 166/196 ] | Loss: 1.244 | Acc: 69.644% (29774/42752)/ 88.964% (38034/42752)
+01/06/2023 17:12:00 - INFO - __main__ -   test: [batch: 167/196 ] | Loss: 1.246 | Acc: 69.606% (29936/43008)/ 88.909% (38238/43008)
+01/06/2023 17:12:01 - INFO - __main__ -   test: [batch: 168/196 ] | Loss: 1.248 | Acc: 69.582% (30104/43264)/ 88.908% (38465/43264)
+01/06/2023 17:12:02 - INFO - __main__ -   test: [batch: 169/196 ] | Loss: 1.251 | Acc: 69.522% (30256/43520)/ 88.874% (38678/43520)
+01/06/2023 17:12:03 - INFO - __main__ -   test: [batch: 170/196 ] | Loss: 1.249 | Acc: 69.554% (30448/43776)/ 88.893% (38914/43776)
+01/06/2023 17:12:04 - INFO - __main__ -   test: [batch: 171/196 ] | Loss: 1.251 | Acc: 69.504% (30604/44032)/ 88.869% (39131/44032)
+01/06/2023 17:12:05 - INFO - __main__ -   test: [batch: 172/196 ] | Loss: 1.255 | Acc: 69.432% (30750/44288)/ 88.814% (39334/44288)
+01/06/2023 17:12:06 - INFO - __main__ -   test: [batch: 173/196 ] | Loss: 1.255 | Acc: 69.437% (30930/44544)/ 88.795% (39553/44544)
+01/06/2023 17:12:07 - INFO - __main__ -   test: [batch: 174/196 ] | Loss: 1.256 | Acc: 69.406% (31094/44800)/ 88.788% (39777/44800)
+01/06/2023 17:12:08 - INFO - __main__ -   test: [batch: 175/196 ] | Loss: 1.258 | Acc: 69.360% (31251/45056)/ 88.774% (39998/45056)
+01/06/2023 17:12:09 - INFO - __main__ -   test: [batch: 176/196 ] | Loss: 1.262 | Acc: 69.313% (31407/45312)/ 88.727% (40204/45312)
+01/06/2023 17:12:10 - INFO - __main__ -   test: [batch: 177/196 ] | Loss: 1.269 | Acc: 69.143% (31507/45568)/ 88.654% (40398/45568)
+01/06/2023 17:12:11 - INFO - __main__ -   test: [batch: 178/196 ] | Loss: 1.267 | Acc: 69.193% (31707/45824)/ 88.683% (40638/45824)
+01/06/2023 17:12:12 - INFO - __main__ -   test: [batch: 179/196 ] | Loss: 1.266 | Acc: 69.236% (31904/46080)/ 88.689% (40868/46080)
+01/06/2023 17:12:13 - INFO - __main__ -   test: [batch: 180/196 ] | Loss: 1.267 | Acc: 69.192% (32061/46336)/ 88.700% (41100/46336)
+01/06/2023 17:12:14 - INFO - __main__ -   test: [batch: 181/196 ] | Loss: 1.267 | Acc: 69.175% (32230/46592)/ 88.689% (41322/46592)
+01/06/2023 17:12:16 - INFO - __main__ -   test: [batch: 182/196 ] | Loss: 1.267 | Acc: 69.203% (32420/46848)/ 88.689% (41549/46848)
+01/06/2023 17:12:17 - INFO - __main__ -   test: [batch: 183/196 ] | Loss: 1.264 | Acc: 69.255% (32622/47104)/ 88.729% (41795/47104)
+01/06/2023 17:12:18 - INFO - __main__ -   test: [batch: 184/196 ] | Loss: 1.263 | Acc: 69.276% (32809/47360)/ 88.756% (42035/47360)
+01/06/2023 17:12:19 - INFO - __main__ -   test: [batch: 185/196 ] | Loss: 1.261 | Acc: 69.277% (32987/47616)/ 88.781% (42274/47616)
+01/06/2023 17:12:20 - INFO - __main__ -   test: [batch: 186/196 ] | Loss: 1.258 | Acc: 69.370% (33209/47872)/ 88.818% (42519/47872)
+01/06/2023 17:12:21 - INFO - __main__ -   test: [batch: 187/196 ] | Loss: 1.260 | Acc: 69.336% (33370/48128)/ 88.780% (42728/48128)
+01/06/2023 17:12:22 - INFO - __main__ -   test: [batch: 188/196 ] | Loss: 1.260 | Acc: 69.325% (33542/48384)/ 88.763% (42947/48384)
+01/06/2023 17:12:23 - INFO - __main__ -   test: [batch: 189/196 ] | Loss: 1.264 | Acc: 69.217% (33667/48640)/ 88.729% (43158/48640)
+01/06/2023 17:12:24 - INFO - __main__ -   test: [batch: 190/196 ] | Loss: 1.265 | Acc: 69.198% (33835/48896)/ 88.735% (43388/48896)
+01/06/2023 17:12:25 - INFO - __main__ -   test: [batch: 191/196 ] | Loss: 1.266 | Acc: 69.173% (34000/49152)/ 88.731% (43613/49152)
+01/06/2023 17:12:26 - INFO - __main__ -   test: [batch: 192/196 ] | Loss: 1.262 | Acc: 69.248% (34214/49408)/ 88.769% (43859/49408)
+01/06/2023 17:12:27 - INFO - __main__ -   test: [batch: 193/196 ] | Loss: 1.258 | Acc: 69.360% (34447/49664)/ 88.819% (44111/49664)
+01/06/2023 17:12:29 - INFO - __main__ -   test: [batch: 194/196 ] | Loss: 1.255 | Acc: 69.423% (34656/49920)/ 88.850% (44354/49920)
+01/06/2023 17:12:30 - INFO - __main__ -   test: [batch: 195/196 ] | Loss: 1.262 | Acc: 69.368% (34684/50000)/ 88.826% (44413/50000)
+01/06/2023 17:12:30 - INFO - __main__ -   Final accuracy: 69.368
+01/06/2023 17:12:30 - INFO - __main__ -   {'milestones': Counter({2: 1, 3: 1, 4: 1}), 'gamma': 0.1, 'base_lrs': [0.0005], 'last_epoch': 2, '_step_count': 3, 'verbose': False, '_get_lr_called_within_step': False, '_last_lr': [5e-05]}
+01/06/2023 17:12:30 - INFO - __main__ -   
+Epoch: 2
+01/06/2023 17:12:31 - INFO - __main__ -   test: [epoch: 2 | batch: 0/5005 ] | Loss: 1.269 | Acc: 70.703% (181/256)
+01/06/2023 17:14:17 - INFO - __main__ -   test: [epoch: 2 | batch: 100/5005 ] | Loss: 1.252 | Acc: 70.011% (18102/25856)
+01/06/2023 17:15:52 - INFO - __main__ -   test: [epoch: 2 | batch: 200/5005 ] | Loss: 1.263 | Acc: 69.844% (35939/51456)
+01/06/2023 17:17:17 - INFO - __main__ -   test: [epoch: 2 | batch: 300/5005 ] | Loss: 1.271 | Acc: 69.648% (53668/77056)
+01/06/2023 17:18:43 - INFO - __main__ -   test: [epoch: 2 | batch: 400/5005 ] | Loss: 1.273 | Acc: 69.663% (71513/102656)
+01/06/2023 17:20:08 - INFO - __main__ -   test: [epoch: 2 | batch: 500/5005 ] | Loss: 1.273 | Acc: 69.658% (89340/128256)
+01/06/2023 17:21:33 - INFO - __main__ -   test: [epoch: 2 | batch: 600/5005 ] | Loss: 1.275 | Acc: 69.585% (107060/153856)
+01/06/2023 17:22:57 - INFO - __main__ -   test: [epoch: 2 | batch: 700/5005 ] | Loss: 1.273 | Acc: 69.702% (125084/179456)
+01/06/2023 17:24:22 - INFO - __main__ -   test: [epoch: 2 | batch: 800/5005 ] | Loss: 1.275 | Acc: 69.654% (142829/205056)
+01/06/2023 17:25:48 - INFO - __main__ -   test: [epoch: 2 | batch: 900/5005 ] | Loss: 1.274 | Acc: 69.677% (160715/230656)
+01/06/2023 17:27:13 - INFO - __main__ -   test: [epoch: 2 | batch: 1000/5005 ] | Loss: 1.274 | Acc: 69.643% (178464/256256)
+01/06/2023 17:28:39 - INFO - __main__ -   test: [epoch: 2 | batch: 1100/5005 ] | Loss: 1.276 | Acc: 69.621% (196231/281856)
+01/06/2023 17:30:03 - INFO - __main__ -   test: [epoch: 2 | batch: 1200/5005 ] | Loss: 1.275 | Acc: 69.630% (214082/307456)
+01/06/2023 17:31:28 - INFO - __main__ -   test: [epoch: 2 | batch: 1300/5005 ] | Loss: 1.275 | Acc: 69.637% (231930/333056)
+01/06/2023 17:32:54 - INFO - __main__ -   test: [epoch: 2 | batch: 1400/5005 ] | Loss: 1.275 | Acc: 69.631% (249735/358656)
+01/06/2023 17:34:19 - INFO - __main__ -   test: [epoch: 2 | batch: 1500/5005 ] | Loss: 1.275 | Acc: 69.627% (267546/384256)
+01/06/2023 17:35:44 - INFO - __main__ -   test: [epoch: 2 | batch: 1600/5005 ] | Loss: 1.275 | Acc: 69.630% (285384/409856)
+01/06/2023 17:37:10 - INFO - __main__ -   test: [epoch: 2 | batch: 1700/5005 ] | Loss: 1.275 | Acc: 69.606% (303105/435456)
+01/06/2023 17:38:35 - INFO - __main__ -   test: [epoch: 2 | batch: 1800/5005 ] | Loss: 1.275 | Acc: 69.619% (320984/461056)
+01/06/2023 17:40:00 - INFO - __main__ -   test: [epoch: 2 | batch: 1900/5005 ] | Loss: 1.275 | Acc: 69.618% (338799/486656)
+01/06/2023 17:41:26 - INFO - __main__ -   test: [epoch: 2 | batch: 2000/5005 ] | Loss: 1.276 | Acc: 69.583% (356445/512256)
+01/06/2023 17:42:51 - INFO - __main__ -   test: [epoch: 2 | batch: 2100/5005 ] | Loss: 1.276 | Acc: 69.579% (374237/537856)
+01/06/2023 17:44:17 - INFO - __main__ -   test: [epoch: 2 | batch: 2200/5005 ] | Loss: 1.276 | Acc: 69.592% (392122/563456)
+01/06/2023 17:45:42 - INFO - __main__ -   test: [epoch: 2 | batch: 2300/5005 ] | Loss: 1.277 | Acc: 69.582% (409878/589056)
+01/06/2023 17:47:08 - INFO - __main__ -   test: [epoch: 2 | batch: 2400/5005 ] | Loss: 1.276 | Acc: 69.589% (427735/614656)
+01/06/2023 17:48:33 - INFO - __main__ -   test: [epoch: 2 | batch: 2500/5005 ] | Loss: 1.276 | Acc: 69.598% (445604/640256)
+01/06/2023 17:49:59 - INFO - __main__ -   test: [epoch: 2 | batch: 2600/5005 ] | Loss: 1.277 | Acc: 69.571% (463240/665856)
+01/06/2023 17:51:24 - INFO - __main__ -   test: [epoch: 2 | batch: 2700/5005 ] | Loss: 1.277 | Acc: 69.562% (480990/691456)
+01/06/2023 17:52:50 - INFO - __main__ -   test: [epoch: 2 | batch: 2800/5005 ] | Loss: 1.276 | Acc: 69.580% (498931/717056)
+01/06/2023 17:54:16 - INFO - __main__ -   test: [epoch: 2 | batch: 2900/5005 ] | Loss: 1.277 | Acc: 69.579% (516735/742656)
+01/06/2023 17:55:41 - INFO - __main__ -   test: [epoch: 2 | batch: 3000/5005 ] | Loss: 1.277 | Acc: 69.575% (534511/768256)
+01/06/2023 17:57:07 - INFO - __main__ -   test: [epoch: 2 | batch: 3100/5005 ] | Loss: 1.278 | Acc: 69.569% (552276/793856)
+01/06/2023 17:58:31 - INFO - __main__ -   test: [epoch: 2 | batch: 3200/5005 ] | Loss: 1.278 | Acc: 69.566% (570062/819456)
+01/06/2023 17:59:56 - INFO - __main__ -   test: [epoch: 2 | batch: 3300/5005 ] | Loss: 1.278 | Acc: 69.562% (587834/845056)
+01/06/2023 18:01:22 - INFO - __main__ -   test: [epoch: 2 | batch: 3400/5005 ] | Loss: 1.278 | Acc: 69.558% (605610/870656)
+01/06/2023 18:02:48 - INFO - __main__ -   test: [epoch: 2 | batch: 3500/5005 ] | Loss: 1.278 | Acc: 69.558% (623418/896256)
+01/06/2023 18:04:14 - INFO - __main__ -   test: [epoch: 2 | batch: 3600/5005 ] | Loss: 1.278 | Acc: 69.562% (641261/921856)
+01/06/2023 18:05:39 - INFO - __main__ -   test: [epoch: 2 | batch: 3700/5005 ] | Loss: 1.278 | Acc: 69.564% (659087/947456)
+01/06/2023 18:07:05 - INFO - __main__ -   test: [epoch: 2 | batch: 3800/5005 ] | Loss: 1.278 | Acc: 69.571% (676968/973056)
+01/06/2023 18:08:32 - INFO - __main__ -   test: [epoch: 2 | batch: 3900/5005 ] | Loss: 1.279 | Acc: 69.551% (694571/998656)
+01/06/2023 18:09:57 - INFO - __main__ -   test: [epoch: 2 | batch: 4000/5005 ] | Loss: 1.279 | Acc: 69.555% (712423/1024256)
+01/06/2023 18:11:23 - INFO - __main__ -   test: [epoch: 2 | batch: 4100/5005 ] | Loss: 1.278 | Acc: 69.564% (730319/1049856)
+01/06/2023 18:12:48 - INFO - __main__ -   test: [epoch: 2 | batch: 4200/5005 ] | Loss: 1.279 | Acc: 69.554% (748024/1075456)
+01/06/2023 18:14:14 - INFO - __main__ -   test: [epoch: 2 | batch: 4300/5005 ] | Loss: 1.278 | Acc: 69.561% (765905/1101056)
+01/06/2023 18:15:40 - INFO - __main__ -   test: [epoch: 2 | batch: 4400/5005 ] | Loss: 1.278 | Acc: 69.564% (783749/1126656)
+01/06/2023 18:17:05 - INFO - __main__ -   test: [epoch: 2 | batch: 4500/5005 ] | Loss: 1.278 | Acc: 69.563% (801540/1152256)
+01/06/2023 18:18:30 - INFO - __main__ -   test: [epoch: 2 | batch: 4600/5005 ] | Loss: 1.278 | Acc: 69.563% (819354/1177856)
+01/06/2023 18:19:55 - INFO - __main__ -   test: [epoch: 2 | batch: 4700/5005 ] | Loss: 1.279 | Acc: 69.562% (837154/1203456)
+01/06/2023 18:21:21 - INFO - __main__ -   test: [epoch: 2 | batch: 4800/5005 ] | Loss: 1.279 | Acc: 69.562% (854956/1229056)
+01/06/2023 18:22:46 - INFO - __main__ -   test: [epoch: 2 | batch: 4900/5005 ] | Loss: 1.279 | Acc: 69.556% (872690/1254656)
+01/06/2023 18:24:12 - INFO - __main__ -   test: [epoch: 2 | batch: 5000/5005 ] | Loss: 1.279 | Acc: 69.555% (890484/1280256)
+01/06/2023 18:24:16 - INFO - __main__ -   Saving Checkpoint
+01/06/2023 18:24:16 - INFO - __main__ -   test: [batch: 0/196 ] | Loss: 0.689 | Acc: 80.859% (207/256)/ 94.922% (243/256)
+01/06/2023 18:24:17 - INFO - __main__ -   test: [batch: 1/196 ] | Loss: 0.772 | Acc: 80.273% (411/512)/ 93.555% (479/512)
+01/06/2023 18:24:18 - INFO - __main__ -   test: [batch: 2/196 ] | Loss: 0.643 | Acc: 83.464% (641/768)/ 95.052% (730/768)
+01/06/2023 18:24:19 - INFO - __main__ -   test: [batch: 3/196 ] | Loss: 0.601 | Acc: 85.059% (871/1024)/ 95.215% (975/1024)
+01/06/2023 18:24:20 - INFO - __main__ -   test: [batch: 4/196 ] | Loss: 0.587 | Acc: 85.859% (1099/1280)/ 95.156% (1218/1280)
+01/06/2023 18:24:21 - INFO - __main__ -   test: [batch: 5/196 ] | Loss: 0.639 | Acc: 84.831% (1303/1536)/ 94.727% (1455/1536)
+01/06/2023 18:24:22 - INFO - __main__ -   test: [batch: 6/196 ] | Loss: 0.754 | Acc: 81.864% (1467/1792)/ 93.750% (1680/1792)
+01/06/2023 18:24:23 - INFO - __main__ -   test: [batch: 7/196 ] | Loss: 0.795 | Acc: 80.322% (1645/2048)/ 93.652% (1918/2048)
+01/06/2023 18:24:23 - INFO - __main__ -   test: [batch: 8/196 ] | Loss: 0.840 | Acc: 79.601% (1834/2304)/ 93.186% (2147/2304)
+01/06/2023 18:24:24 - INFO - __main__ -   test: [batch: 9/196 ] | Loss: 0.870 | Acc: 78.555% (2011/2560)/ 92.969% (2380/2560)
+01/06/2023 18:24:25 - INFO - __main__ -   test: [batch: 10/196 ] | Loss: 0.905 | Acc: 77.344% (2178/2816)/ 92.649% (2609/2816)
+01/06/2023 18:24:26 - INFO - __main__ -   test: [batch: 11/196 ] | Loss: 0.965 | Acc: 75.977% (2334/3072)/ 92.318% (2836/3072)
+01/06/2023 18:24:27 - INFO - __main__ -   test: [batch: 12/196 ] | Loss: 1.013 | Acc: 74.669% (2485/3328)/ 91.677% (3051/3328)
+01/06/2023 18:24:28 - INFO - __main__ -   test: [batch: 13/196 ] | Loss: 1.019 | Acc: 74.135% (2657/3584)/ 91.518% (3280/3584)
+01/06/2023 18:24:29 - INFO - __main__ -   test: [batch: 14/196 ] | Loss: 1.014 | Acc: 74.062% (2844/3840)/ 91.823% (3526/3840)
+01/06/2023 18:24:29 - INFO - __main__ -   test: [batch: 15/196 ] | Loss: 1.023 | Acc: 74.146% (3037/4096)/ 91.675% (3755/4096)
+01/06/2023 18:24:30 - INFO - __main__ -   test: [batch: 16/196 ] | Loss: 0.997 | Acc: 74.747% (3253/4352)/ 91.866% (3998/4352)
+01/06/2023 18:24:31 - INFO - __main__ -   test: [batch: 17/196 ] | Loss: 0.963 | Acc: 75.608% (3484/4608)/ 92.144% (4246/4608)
+01/06/2023 18:24:32 - INFO - __main__ -   test: [batch: 18/196 ] | Loss: 0.939 | Acc: 76.192% (3706/4864)/ 92.373% (4493/4864)
+01/06/2023 18:24:33 - INFO - __main__ -   test: [batch: 19/196 ] | Loss: 0.933 | Acc: 76.348% (3909/5120)/ 92.363% (4729/5120)
+01/06/2023 18:24:33 - INFO - __main__ -   test: [batch: 20/196 ] | Loss: 0.936 | Acc: 76.544% (4115/5376)/ 92.225% (4958/5376)
+01/06/2023 18:24:34 - INFO - __main__ -   test: [batch: 21/196 ] | Loss: 0.936 | Acc: 76.474% (4307/5632)/ 92.259% (5196/5632)
+01/06/2023 18:24:35 - INFO - __main__ -   test: [batch: 22/196 ] | Loss: 0.942 | Acc: 76.461% (4502/5888)/ 92.188% (5428/5888)
+01/06/2023 18:24:36 - INFO - __main__ -   test: [batch: 23/196 ] | Loss: 0.954 | Acc: 76.139% (4678/6144)/ 92.074% (5657/6144)
+01/06/2023 18:24:37 - INFO - __main__ -   test: [batch: 24/196 ] | Loss: 0.967 | Acc: 75.891% (4857/6400)/ 91.875% (5880/6400)
+01/06/2023 18:24:38 - INFO - __main__ -   test: [batch: 25/196 ] | Loss: 0.946 | Acc: 76.382% (5084/6656)/ 92.127% (6132/6656)
+01/06/2023 18:24:39 - INFO - __main__ -   test: [batch: 26/196 ] | Loss: 0.930 | Acc: 76.707% (5302/6912)/ 92.289% (6379/6912)
+01/06/2023 18:24:39 - INFO - __main__ -   test: [batch: 27/196 ] | Loss: 0.915 | Acc: 77.134% (5529/7168)/ 92.411% (6624/7168)
+01/06/2023 18:24:40 - INFO - __main__ -   test: [batch: 28/196 ] | Loss: 0.899 | Acc: 77.532% (5756/7424)/ 92.497% (6867/7424)
+01/06/2023 18:24:41 - INFO - __main__ -   test: [batch: 29/196 ] | Loss: 0.897 | Acc: 77.539% (5955/7680)/ 92.539% (7107/7680)
+01/06/2023 18:24:42 - INFO - __main__ -   test: [batch: 30/196 ] | Loss: 0.897 | Acc: 77.596% (6158/7936)/ 92.578% (7347/7936)
+01/06/2023 18:24:43 - INFO - __main__ -   test: [batch: 31/196 ] | Loss: 0.901 | Acc: 77.454% (6345/8192)/ 92.554% (7582/8192)
+01/06/2023 18:24:44 - INFO - __main__ -   test: [batch: 32/196 ] | Loss: 0.919 | Acc: 76.776% (6486/8448)/ 92.448% (7810/8448)
+01/06/2023 18:24:45 - INFO - __main__ -   test: [batch: 33/196 ] | Loss: 0.926 | Acc: 76.631% (6670/8704)/ 92.440% (8046/8704)
+01/06/2023 18:24:45 - INFO - __main__ -   test: [batch: 34/196 ] | Loss: 0.925 | Acc: 76.618% (6865/8960)/ 92.500% (8288/8960)
+01/06/2023 18:24:46 - INFO - __main__ -   test: [batch: 35/196 ] | Loss: 0.925 | Acc: 76.508% (7051/9216)/ 92.578% (8532/9216)
+01/06/2023 18:24:47 - INFO - __main__ -   test: [batch: 36/196 ] | Loss: 0.933 | Acc: 76.087% (7207/9472)/ 92.568% (8768/9472)
+01/06/2023 18:24:48 - INFO - __main__ -   test: [batch: 37/196 ] | Loss: 0.942 | Acc: 75.925% (7386/9728)/ 92.486% (8997/9728)
+01/06/2023 18:24:49 - INFO - __main__ -   test: [batch: 38/196 ] | Loss: 0.940 | Acc: 75.972% (7585/9984)/ 92.588% (9244/9984)
+01/06/2023 18:24:49 - INFO - __main__ -   test: [batch: 39/196 ] | Loss: 0.940 | Acc: 75.820% (7764/10240)/ 92.656% (9488/10240)
+01/06/2023 18:24:50 - INFO - __main__ -   test: [batch: 40/196 ] | Loss: 0.939 | Acc: 75.800% (7956/10496)/ 92.712% (9731/10496)
+01/06/2023 18:24:51 - INFO - __main__ -   test: [batch: 41/196 ] | Loss: 0.938 | Acc: 75.781% (8148/10752)/ 92.727% (9970/10752)
+01/06/2023 18:24:52 - INFO - __main__ -   test: [batch: 42/196 ] | Loss: 0.931 | Acc: 75.972% (8363/11008)/ 92.814% (10217/11008)
+01/06/2023 18:24:53 - INFO - __main__ -   test: [batch: 43/196 ] | Loss: 0.936 | Acc: 75.835% (8542/11264)/ 92.720% (10444/11264)
+01/06/2023 18:24:54 - INFO - __main__ -   test: [batch: 44/196 ] | Loss: 0.938 | Acc: 75.842% (8737/11520)/ 92.717% (10681/11520)
+01/06/2023 18:24:54 - INFO - __main__ -   test: [batch: 45/196 ] | Loss: 0.940 | Acc: 75.662% (8910/11776)/ 92.765% (10924/11776)
+01/06/2023 18:24:55 - INFO - __main__ -   test: [batch: 46/196 ] | Loss: 0.943 | Acc: 75.440% (9077/12032)/ 92.769% (11162/12032)
+01/06/2023 18:24:56 - INFO - __main__ -   test: [batch: 47/196 ] | Loss: 0.942 | Acc: 75.366% (9261/12288)/ 92.830% (11407/12288)
+01/06/2023 18:24:57 - INFO - __main__ -   test: [batch: 48/196 ] | Loss: 0.947 | Acc: 75.056% (9415/12544)/ 92.857% (11648/12544)
+01/06/2023 18:24:58 - INFO - __main__ -   test: [batch: 49/196 ] | Loss: 0.937 | Acc: 75.328% (9642/12800)/ 92.945% (11897/12800)
+01/06/2023 18:24:59 - INFO - __main__ -   test: [batch: 50/196 ] | Loss: 0.930 | Acc: 75.513% (9859/13056)/ 92.999% (12142/13056)
+01/06/2023 18:24:59 - INFO - __main__ -   test: [batch: 51/196 ] | Loss: 0.930 | Acc: 75.391% (10036/13312)/ 93.029% (12384/13312)
+01/06/2023 18:25:00 - INFO - __main__ -   test: [batch: 52/196 ] | Loss: 0.932 | Acc: 75.265% (10212/13568)/ 93.028% (12622/13568)
+01/06/2023 18:25:01 - INFO - __main__ -   test: [batch: 53/196 ] | Loss: 0.935 | Acc: 75.282% (10407/13824)/ 93.019% (12859/13824)
+01/06/2023 18:25:02 - INFO - __main__ -   test: [batch: 54/196 ] | Loss: 0.936 | Acc: 75.213% (10590/14080)/ 93.054% (13102/14080)
+01/06/2023 18:25:03 - INFO - __main__ -   test: [batch: 55/196 ] | Loss: 0.941 | Acc: 75.042% (10758/14336)/ 93.018% (13335/14336)
+01/06/2023 18:25:04 - INFO - __main__ -   test: [batch: 56/196 ] | Loss: 0.938 | Acc: 75.117% (10961/14592)/ 93.078% (13582/14592)
+01/06/2023 18:25:04 - INFO - __main__ -   test: [batch: 57/196 ] | Loss: 0.931 | Acc: 75.330% (11185/14848)/ 93.137% (13829/14848)
+01/06/2023 18:25:05 - INFO - __main__ -   test: [batch: 58/196 ] | Loss: 0.933 | Acc: 75.397% (11388/15104)/ 93.121% (14065/15104)
+01/06/2023 18:25:06 - INFO - __main__ -   test: [batch: 59/196 ] | Loss: 0.936 | Acc: 75.286% (11564/15360)/ 93.138% (14306/15360)
+01/06/2023 18:25:07 - INFO - __main__ -   test: [batch: 60/196 ] | Loss: 0.939 | Acc: 75.224% (11747/15616)/ 93.129% (14543/15616)
+01/06/2023 18:25:08 - INFO - __main__ -   test: [batch: 61/196 ] | Loss: 0.945 | Acc: 75.145% (11927/15872)/ 93.082% (14774/15872)
+01/06/2023 18:25:09 - INFO - __main__ -   test: [batch: 62/196 ] | Loss: 0.938 | Acc: 75.298% (12144/16128)/ 93.149% (15023/16128)
+01/06/2023 18:25:09 - INFO - __main__ -   test: [batch: 63/196 ] | Loss: 0.931 | Acc: 75.500% (12370/16384)/ 93.207% (15271/16384)
+01/06/2023 18:25:10 - INFO - __main__ -   test: [batch: 64/196 ] | Loss: 0.929 | Acc: 75.595% (12579/16640)/ 93.221% (15512/16640)
+01/06/2023 18:25:11 - INFO - __main__ -   test: [batch: 65/196 ] | Loss: 0.925 | Acc: 75.758% (12800/16896)/ 93.253% (15756/16896)
+01/06/2023 18:25:12 - INFO - __main__ -   test: [batch: 66/196 ] | Loss: 0.924 | Acc: 75.822% (13005/17152)/ 93.237% (15992/17152)
+01/06/2023 18:25:13 - INFO - __main__ -   test: [batch: 67/196 ] | Loss: 0.921 | Acc: 75.862% (13206/17408)/ 93.273% (16237/17408)
+01/06/2023 18:25:14 - INFO - __main__ -   test: [batch: 68/196 ] | Loss: 0.917 | Acc: 75.900% (13407/17664)/ 93.331% (16486/17664)
+01/06/2023 18:25:15 - INFO - __main__ -   test: [batch: 69/196 ] | Loss: 0.924 | Acc: 75.737% (13572/17920)/ 93.287% (16717/17920)
+01/06/2023 18:25:15 - INFO - __main__ -   test: [batch: 70/196 ] | Loss: 0.923 | Acc: 75.787% (13775/18176)/ 93.293% (16957/18176)
+01/06/2023 18:25:16 - INFO - __main__ -   test: [batch: 71/196 ] | Loss: 0.919 | Acc: 75.911% (13992/18432)/ 93.305% (17198/18432)
+01/06/2023 18:25:17 - INFO - __main__ -   test: [batch: 72/196 ] | Loss: 0.923 | Acc: 75.856% (14176/18688)/ 93.274% (17431/18688)
+01/06/2023 18:25:18 - INFO - __main__ -   test: [batch: 73/196 ] | Loss: 0.923 | Acc: 75.866% (14372/18944)/ 93.254% (17666/18944)
+01/06/2023 18:25:19 - INFO - __main__ -   test: [batch: 74/196 ] | Loss: 0.928 | Acc: 75.734% (14541/19200)/ 93.234% (17901/19200)
+01/06/2023 18:25:20 - INFO - __main__ -   test: [batch: 75/196 ] | Loss: 0.926 | Acc: 75.776% (14743/19456)/ 93.251% (18143/19456)
+01/06/2023 18:25:21 - INFO - __main__ -   test: [batch: 76/196 ] | Loss: 0.925 | Acc: 75.817% (14945/19712)/ 93.248% (18381/19712)
+01/06/2023 18:25:21 - INFO - __main__ -   test: [batch: 77/196 ] | Loss: 0.928 | Acc: 75.831% (15142/19968)/ 93.214% (18613/19968)
+01/06/2023 18:25:22 - INFO - __main__ -   test: [batch: 78/196 ] | Loss: 0.934 | Acc: 75.697% (15309/20224)/ 93.127% (18834/20224)
+01/06/2023 18:25:23 - INFO - __main__ -   test: [batch: 79/196 ] | Loss: 0.935 | Acc: 75.679% (15499/20480)/ 93.120% (19071/20480)
+01/06/2023 18:25:24 - INFO - __main__ -   test: [batch: 80/196 ] | Loss: 0.944 | Acc: 75.497% (15655/20736)/ 93.022% (19289/20736)
+01/06/2023 18:25:25 - INFO - __main__ -   test: [batch: 81/196 ] | Loss: 0.955 | Acc: 75.267% (15800/20992)/ 92.888% (19499/20992)
+01/06/2023 18:25:26 - INFO - __main__ -   test: [batch: 82/196 ] | Loss: 0.958 | Acc: 75.198% (15978/21248)/ 92.837% (19726/21248)
+01/06/2023 18:25:27 - INFO - __main__ -   test: [batch: 83/196 ] | Loss: 0.961 | Acc: 75.186% (16168/21504)/ 92.801% (19956/21504)
+01/06/2023 18:25:27 - INFO - __main__ -   test: [batch: 84/196 ] | Loss: 0.965 | Acc: 75.092% (16340/21760)/ 92.748% (20182/21760)
+01/06/2023 18:25:28 - INFO - __main__ -   test: [batch: 85/196 ] | Loss: 0.973 | Acc: 74.918% (16494/22016)/ 92.646% (20397/22016)
+01/06/2023 18:25:29 - INFO - __main__ -   test: [batch: 86/196 ] | Loss: 0.977 | Acc: 74.789% (16657/22272)/ 92.610% (20626/22272)
+01/06/2023 18:25:30 - INFO - __main__ -   test: [batch: 87/196 ] | Loss: 0.983 | Acc: 74.685% (16825/22528)/ 92.525% (20844/22528)
+01/06/2023 18:25:31 - INFO - __main__ -   test: [batch: 88/196 ] | Loss: 0.989 | Acc: 74.539% (16983/22784)/ 92.429% (21059/22784)
+01/06/2023 18:25:32 - INFO - __main__ -   test: [batch: 89/196 ] | Loss: 0.996 | Acc: 74.431% (17149/23040)/ 92.326% (21272/23040)
+01/06/2023 18:25:33 - INFO - __main__ -   test: [batch: 90/196 ] | Loss: 1.009 | Acc: 74.141% (17272/23296)/ 92.170% (21472/23296)
+01/06/2023 18:25:34 - INFO - __main__ -   test: [batch: 91/196 ] | Loss: 1.015 | Acc: 74.028% (17435/23552)/ 92.086% (21688/23552)
+01/06/2023 18:25:34 - INFO - __main__ -   test: [batch: 92/196 ] | Loss: 1.015 | Acc: 74.084% (17638/23808)/ 92.066% (21919/23808)
+01/06/2023 18:25:35 - INFO - __main__ -   test: [batch: 93/196 ] | Loss: 1.024 | Acc: 73.907% (17785/24064)/ 91.942% (22125/24064)
+01/06/2023 18:25:36 - INFO - __main__ -   test: [batch: 94/196 ] | Loss: 1.029 | Acc: 73.729% (17931/24320)/ 91.908% (22352/24320)
+01/06/2023 18:25:37 - INFO - __main__ -   test: [batch: 95/196 ] | Loss: 1.038 | Acc: 73.596% (18087/24576)/ 91.801% (22561/24576)
+01/06/2023 18:25:38 - INFO - __main__ -   test: [batch: 96/196 ] | Loss: 1.045 | Acc: 73.454% (18240/24832)/ 91.700% (22771/24832)
+01/06/2023 18:25:39 - INFO - __main__ -   test: [batch: 97/196 ] | Loss: 1.054 | Acc: 73.338% (18399/25088)/ 91.578% (22975/25088)
+01/06/2023 18:25:40 - INFO - __main__ -   test: [batch: 98/196 ] | Loss: 1.064 | Acc: 73.149% (18539/25344)/ 91.465% (23181/25344)
+01/06/2023 18:25:41 - INFO - __main__ -   test: [batch: 99/196 ] | Loss: 1.066 | Acc: 73.070% (18706/25600)/ 91.449% (23411/25600)
+01/06/2023 18:25:41 - INFO - __main__ -   test: [batch: 100/196 ] | Loss: 1.072 | Acc: 72.915% (18853/25856)/ 91.379% (23627/25856)
+01/06/2023 18:25:42 - INFO - __main__ -   test: [batch: 101/196 ] | Loss: 1.074 | Acc: 72.901% (19036/26112)/ 91.353% (23854/26112)
+01/06/2023 18:25:43 - INFO - __main__ -   test: [batch: 102/196 ] | Loss: 1.078 | Acc: 72.762% (19186/26368)/ 91.296% (24073/26368)
+01/06/2023 18:25:44 - INFO - __main__ -   test: [batch: 103/196 ] | Loss: 1.084 | Acc: 72.671% (19348/26624)/ 91.233% (24290/26624)
+01/06/2023 18:25:45 - INFO - __main__ -   test: [batch: 104/196 ] | Loss: 1.085 | Acc: 72.645% (19527/26880)/ 91.231% (24523/26880)
+01/06/2023 18:25:46 - INFO - __main__ -   test: [batch: 105/196 ] | Loss: 1.091 | Acc: 72.527% (19681/27136)/ 91.122% (24727/27136)
+01/06/2023 18:25:47 - INFO - __main__ -   test: [batch: 106/196 ] | Loss: 1.093 | Acc: 72.499% (19859/27392)/ 91.089% (24951/27392)
+01/06/2023 18:25:48 - INFO - __main__ -   test: [batch: 107/196 ] | Loss: 1.095 | Acc: 72.490% (20042/27648)/ 91.077% (25181/27648)
+01/06/2023 18:25:49 - INFO - __main__ -   test: [batch: 108/196 ] | Loss: 1.097 | Acc: 72.473% (20223/27904)/ 91.034% (25402/27904)
+01/06/2023 18:25:50 - INFO - __main__ -   test: [batch: 109/196 ] | Loss: 1.099 | Acc: 72.440% (20399/28160)/ 90.998% (25625/28160)
+01/06/2023 18:25:50 - INFO - __main__ -   test: [batch: 110/196 ] | Loss: 1.099 | Acc: 72.452% (20588/28416)/ 90.987% (25855/28416)
+01/06/2023 18:25:51 - INFO - __main__ -   test: [batch: 111/196 ] | Loss: 1.097 | Acc: 72.520% (20793/28672)/ 91.009% (26094/28672)
+01/06/2023 18:25:52 - INFO - __main__ -   test: [batch: 112/196 ] | Loss: 1.096 | Acc: 72.556% (20989/28928)/ 91.009% (26327/28928)
+01/06/2023 18:25:53 - INFO - __main__ -   test: [batch: 113/196 ] | Loss: 1.097 | Acc: 72.533% (21168/29184)/ 91.002% (26558/29184)
+01/06/2023 18:25:54 - INFO - __main__ -   test: [batch: 114/196 ] | Loss: 1.105 | Acc: 72.388% (21311/29440)/ 90.876% (26754/29440)
+01/06/2023 18:25:55 - INFO - __main__ -   test: [batch: 115/196 ] | Loss: 1.109 | Acc: 72.279% (21464/29696)/ 90.793% (26962/29696)
+01/06/2023 18:25:56 - INFO - __main__ -   test: [batch: 116/196 ] | Loss: 1.112 | Acc: 72.239% (21637/29952)/ 90.762% (27185/29952)
+01/06/2023 18:25:57 - INFO - __main__ -   test: [batch: 117/196 ] | Loss: 1.119 | Acc: 72.107% (21782/30208)/ 90.675% (27391/30208)
+01/06/2023 18:25:57 - INFO - __main__ -   test: [batch: 118/196 ] | Loss: 1.117 | Acc: 72.174% (21987/30464)/ 90.678% (27624/30464)
+01/06/2023 18:25:58 - INFO - __main__ -   test: [batch: 119/196 ] | Loss: 1.116 | Acc: 72.240% (22192/30720)/ 90.680% (27857/30720)
+01/06/2023 18:25:59 - INFO - __main__ -   test: [batch: 120/196 ] | Loss: 1.122 | Acc: 72.120% (22340/30976)/ 90.589% (28061/30976)
+01/06/2023 18:26:00 - INFO - __main__ -   test: [batch: 121/196 ] | Loss: 1.132 | Acc: 71.872% (22447/31232)/ 90.465% (28254/31232)
+01/06/2023 18:26:01 - INFO - __main__ -   test: [batch: 122/196 ] | Loss: 1.132 | Acc: 71.885% (22635/31488)/ 90.441% (28478/31488)
+01/06/2023 18:26:02 - INFO - __main__ -   test: [batch: 123/196 ] | Loss: 1.141 | Acc: 71.749% (22776/31744)/ 90.313% (28669/31744)
+01/06/2023 18:26:03 - INFO - __main__ -   test: [batch: 124/196 ] | Loss: 1.145 | Acc: 71.606% (22914/32000)/ 90.287% (28892/32000)
+01/06/2023 18:26:03 - INFO - __main__ -   test: [batch: 125/196 ] | Loss: 1.147 | Acc: 71.571% (23086/32256)/ 90.268% (29117/32256)
+01/06/2023 18:26:04 - INFO - __main__ -   test: [batch: 126/196 ] | Loss: 1.148 | Acc: 71.570% (23269/32512)/ 90.237% (29338/32512)
+01/06/2023 18:26:05 - INFO - __main__ -   test: [batch: 127/196 ] | Loss: 1.155 | Acc: 71.469% (23419/32768)/ 90.146% (29539/32768)
+01/06/2023 18:26:06 - INFO - __main__ -   test: [batch: 128/196 ] | Loss: 1.159 | Acc: 71.360% (23566/33024)/ 90.113% (29759/33024)
+01/06/2023 18:26:07 - INFO - __main__ -   test: [batch: 129/196 ] | Loss: 1.163 | Acc: 71.250% (23712/33280)/ 90.084% (29980/33280)
+01/06/2023 18:26:08 - INFO - __main__ -   test: [batch: 130/196 ] | Loss: 1.162 | Acc: 71.273% (23902/33536)/ 90.112% (30220/33536)
+01/06/2023 18:26:09 - INFO - __main__ -   test: [batch: 131/196 ] | Loss: 1.164 | Acc: 71.218% (24066/33792)/ 90.072% (30437/33792)
+01/06/2023 18:26:09 - INFO - __main__ -   test: [batch: 132/196 ] | Loss: 1.168 | Acc: 71.173% (24233/34048)/ 89.994% (30641/34048)
+01/06/2023 18:26:10 - INFO - __main__ -   test: [batch: 133/196 ] | Loss: 1.169 | Acc: 71.167% (24413/34304)/ 89.981% (30867/34304)
+01/06/2023 18:26:11 - INFO - __main__ -   test: [batch: 134/196 ] | Loss: 1.171 | Acc: 71.111% (24576/34560)/ 89.965% (31092/34560)
+01/06/2023 18:26:12 - INFO - __main__ -   test: [batch: 135/196 ] | Loss: 1.174 | Acc: 71.051% (24737/34816)/ 89.939% (31313/34816)
+01/06/2023 18:26:13 - INFO - __main__ -   test: [batch: 136/196 ] | Loss: 1.175 | Acc: 71.022% (24909/35072)/ 89.938% (31543/35072)
+01/06/2023 18:26:13 - INFO - __main__ -   test: [batch: 137/196 ] | Loss: 1.177 | Acc: 70.992% (25080/35328)/ 89.937% (31773/35328)
+01/06/2023 18:26:14 - INFO - __main__ -   test: [batch: 138/196 ] | Loss: 1.180 | Acc: 70.911% (25233/35584)/ 89.903% (31991/35584)
+01/06/2023 18:26:15 - INFO - __main__ -   test: [batch: 139/196 ] | Loss: 1.180 | Acc: 70.929% (25421/35840)/ 89.891% (32217/35840)
+01/06/2023 18:26:16 - INFO - __main__ -   test: [batch: 140/196 ] | Loss: 1.181 | Acc: 70.900% (25592/36096)/ 89.869% (32439/36096)
+01/06/2023 18:26:17 - INFO - __main__ -   test: [batch: 141/196 ] | Loss: 1.181 | Acc: 70.915% (25779/36352)/ 89.860% (32666/36352)
+01/06/2023 18:26:18 - INFO - __main__ -   test: [batch: 142/196 ] | Loss: 1.188 | Acc: 70.826% (25928/36608)/ 89.737% (32851/36608)
+01/06/2023 18:26:18 - INFO - __main__ -   test: [batch: 143/196 ] | Loss: 1.190 | Acc: 70.771% (26089/36864)/ 89.703% (33068/36864)
+01/06/2023 18:26:19 - INFO - __main__ -   test: [batch: 144/196 ] | Loss: 1.193 | Acc: 70.717% (26250/37120)/ 89.650% (33278/37120)
+01/06/2023 18:26:20 - INFO - __main__ -   test: [batch: 145/196 ] | Loss: 1.196 | Acc: 70.626% (26397/37376)/ 89.600% (33489/37376)
+01/06/2023 18:26:21 - INFO - __main__ -   test: [batch: 146/196 ] | Loss: 1.199 | Acc: 70.541% (26546/37632)/ 89.573% (33708/37632)
+01/06/2023 18:26:22 - INFO - __main__ -   test: [batch: 147/196 ] | Loss: 1.200 | Acc: 70.518% (26718/37888)/ 89.553% (33930/37888)
+01/06/2023 18:26:23 - INFO - __main__ -   test: [batch: 148/196 ] | Loss: 1.203 | Acc: 70.491% (26888/38144)/ 89.508% (34142/38144)
+01/06/2023 18:26:23 - INFO - __main__ -   test: [batch: 149/196 ] | Loss: 1.206 | Acc: 70.427% (27044/38400)/ 89.458% (34352/38400)
+01/06/2023 18:26:24 - INFO - __main__ -   test: [batch: 150/196 ] | Loss: 1.207 | Acc: 70.431% (27226/38656)/ 89.438% (34573/38656)
+01/06/2023 18:26:25 - INFO - __main__ -   test: [batch: 151/196 ] | Loss: 1.210 | Acc: 70.377% (27385/38912)/ 89.404% (34789/38912)
+01/06/2023 18:26:26 - INFO - __main__ -   test: [batch: 152/196 ] | Loss: 1.209 | Acc: 70.361% (27559/39168)/ 89.415% (35022/39168)
+01/06/2023 18:26:27 - INFO - __main__ -   test: [batch: 153/196 ] | Loss: 1.213 | Acc: 70.300% (27715/39424)/ 89.352% (35226/39424)
+01/06/2023 18:26:28 - INFO - __main__ -   test: [batch: 154/196 ] | Loss: 1.215 | Acc: 70.262% (27880/39680)/ 89.330% (35446/39680)
+01/06/2023 18:26:28 - INFO - __main__ -   test: [batch: 155/196 ] | Loss: 1.218 | Acc: 70.232% (28048/39936)/ 89.288% (35658/39936)
+01/06/2023 18:26:29 - INFO - __main__ -   test: [batch: 156/196 ] | Loss: 1.217 | Acc: 70.265% (28241/40192)/ 89.296% (35890/40192)
+01/06/2023 18:26:30 - INFO - __main__ -   test: [batch: 157/196 ] | Loss: 1.220 | Acc: 70.233% (28408/40448)/ 89.263% (36105/40448)
+01/06/2023 18:26:31 - INFO - __main__ -   test: [batch: 158/196 ] | Loss: 1.225 | Acc: 70.104% (28535/40704)/ 89.193% (36305/40704)
+01/06/2023 18:26:32 - INFO - __main__ -   test: [batch: 159/196 ] | Loss: 1.227 | Acc: 70.066% (28699/40960)/ 89.185% (36530/40960)
+01/06/2023 18:26:33 - INFO - __main__ -   test: [batch: 160/196 ] | Loss: 1.227 | Acc: 70.099% (28892/41216)/ 89.189% (36760/41216)
+01/06/2023 18:26:34 - INFO - __main__ -   test: [batch: 161/196 ] | Loss: 1.230 | Acc: 70.030% (29043/41472)/ 89.157% (36975/41472)
+01/06/2023 18:26:34 - INFO - __main__ -   test: [batch: 162/196 ] | Loss: 1.231 | Acc: 70.006% (29212/41728)/ 89.132% (37193/41728)
+01/06/2023 18:26:35 - INFO - __main__ -   test: [batch: 163/196 ] | Loss: 1.239 | Acc: 69.810% (29309/41984)/ 89.008% (37369/41984)
+01/06/2023 18:26:36 - INFO - __main__ -   test: [batch: 164/196 ] | Loss: 1.242 | Acc: 69.744% (29460/42240)/ 88.968% (37580/42240)
+01/06/2023 18:26:37 - INFO - __main__ -   test: [batch: 165/196 ] | Loss: 1.245 | Acc: 69.672% (29608/42496)/ 88.938% (37795/42496)
+01/06/2023 18:26:38 - INFO - __main__ -   test: [batch: 166/196 ] | Loss: 1.244 | Acc: 69.686% (29792/42752)/ 88.953% (38029/42752)
+01/06/2023 18:26:39 - INFO - __main__ -   test: [batch: 167/196 ] | Loss: 1.246 | Acc: 69.648% (29954/43008)/ 88.902% (38235/43008)
+01/06/2023 18:26:40 - INFO - __main__ -   test: [batch: 168/196 ] | Loss: 1.248 | Acc: 69.626% (30123/43264)/ 88.903% (38463/43264)
+01/06/2023 18:26:40 - INFO - __main__ -   test: [batch: 169/196 ] | Loss: 1.251 | Acc: 69.566% (30275/43520)/ 88.869% (38676/43520)
+01/06/2023 18:26:41 - INFO - __main__ -   test: [batch: 170/196 ] | Loss: 1.249 | Acc: 69.593% (30465/43776)/ 88.889% (38912/43776)
+01/06/2023 18:26:42 - INFO - __main__ -   test: [batch: 171/196 ] | Loss: 1.250 | Acc: 69.540% (30620/44032)/ 88.863% (39128/44032)
+01/06/2023 18:26:43 - INFO - __main__ -   test: [batch: 172/196 ] | Loss: 1.255 | Acc: 69.470% (30767/44288)/ 88.807% (39331/44288)
+01/06/2023 18:26:44 - INFO - __main__ -   test: [batch: 173/196 ] | Loss: 1.255 | Acc: 69.477% (30948/44544)/ 88.786% (39549/44544)
+01/06/2023 18:26:45 - INFO - __main__ -   test: [batch: 174/196 ] | Loss: 1.256 | Acc: 69.449% (31113/44800)/ 88.775% (39771/44800)
+01/06/2023 18:26:46 - INFO - __main__ -   test: [batch: 175/196 ] | Loss: 1.258 | Acc: 69.400% (31269/45056)/ 88.758% (39991/45056)
+01/06/2023 18:26:46 - INFO - __main__ -   test: [batch: 176/196 ] | Loss: 1.262 | Acc: 69.355% (31426/45312)/ 88.707% (40195/45312)
+01/06/2023 18:26:47 - INFO - __main__ -   test: [batch: 177/196 ] | Loss: 1.268 | Acc: 69.185% (31526/45568)/ 88.637% (40390/45568)
+01/06/2023 18:26:48 - INFO - __main__ -   test: [batch: 178/196 ] | Loss: 1.267 | Acc: 69.234% (31726/45824)/ 88.663% (40629/45824)
+01/06/2023 18:26:49 - INFO - __main__ -   test: [batch: 179/196 ] | Loss: 1.266 | Acc: 69.277% (31923/46080)/ 88.672% (40860/46080)
+01/06/2023 18:26:50 - INFO - __main__ -   test: [batch: 180/196 ] | Loss: 1.267 | Acc: 69.231% (32079/46336)/ 88.681% (41091/46336)
+01/06/2023 18:26:51 - INFO - __main__ -   test: [batch: 181/196 ] | Loss: 1.267 | Acc: 69.207% (32245/46592)/ 88.672% (41314/46592)
+01/06/2023 18:26:52 - INFO - __main__ -   test: [batch: 182/196 ] | Loss: 1.267 | Acc: 69.235% (32435/46848)/ 88.674% (41542/46848)
+01/06/2023 18:26:52 - INFO - __main__ -   test: [batch: 183/196 ] | Loss: 1.264 | Acc: 69.291% (32639/47104)/ 88.716% (41789/47104)
+01/06/2023 18:26:53 - INFO - __main__ -   test: [batch: 184/196 ] | Loss: 1.262 | Acc: 69.320% (32830/47360)/ 88.742% (42028/47360)
+01/06/2023 18:26:54 - INFO - __main__ -   test: [batch: 185/196 ] | Loss: 1.261 | Acc: 69.321% (33008/47616)/ 88.766% (42267/47616)
+01/06/2023 18:26:55 - INFO - __main__ -   test: [batch: 186/196 ] | Loss: 1.258 | Acc: 69.418% (33232/47872)/ 88.803% (42512/47872)
+01/06/2023 18:26:56 - INFO - __main__ -   test: [batch: 187/196 ] | Loss: 1.260 | Acc: 69.386% (33394/48128)/ 88.763% (42720/48128)
+01/06/2023 18:26:57 - INFO - __main__ -   test: [batch: 188/196 ] | Loss: 1.260 | Acc: 69.374% (33566/48384)/ 88.746% (42939/48384)
+01/06/2023 18:26:58 - INFO - __main__ -   test: [batch: 189/196 ] | Loss: 1.264 | Acc: 69.268% (33692/48640)/ 88.709% (43148/48640)
+01/06/2023 18:26:58 - INFO - __main__ -   test: [batch: 190/196 ] | Loss: 1.265 | Acc: 69.249% (33860/48896)/ 88.715% (43378/48896)
+01/06/2023 18:26:59 - INFO - __main__ -   test: [batch: 191/196 ] | Loss: 1.266 | Acc: 69.224% (34025/49152)/ 88.711% (43603/49152)
+01/06/2023 18:27:00 - INFO - __main__ -   test: [batch: 192/196 ] | Loss: 1.262 | Acc: 69.301% (34240/49408)/ 88.751% (43850/49408)
+01/06/2023 18:27:01 - INFO - __main__ -   test: [batch: 193/196 ] | Loss: 1.258 | Acc: 69.412% (34473/49664)/ 88.795% (44099/49664)
+01/06/2023 18:27:02 - INFO - __main__ -   test: [batch: 194/196 ] | Loss: 1.255 | Acc: 69.475% (34682/49920)/ 88.826% (44342/49920)
+01/06/2023 18:27:03 - INFO - __main__ -   test: [batch: 195/196 ] | Loss: 1.262 | Acc: 69.420% (34710/50000)/ 88.804% (44402/50000)
+01/06/2023 18:27:03 - INFO - __main__ -   Final accuracy: 69.420
+01/06/2023 18:27:03 - INFO - __main__ -   {'milestones': Counter({2: 1, 3: 1, 4: 1}), 'gamma': 0.1, 'base_lrs': [0.0005], 'last_epoch': 3, '_step_count': 4, 'verbose': False, '_get_lr_called_within_step': False, '_last_lr': [5e-06]}
+01/06/2023 18:27:03 - INFO - __main__ -   
+Epoch: 3
+01/06/2023 18:27:04 - INFO - __main__ -   test: [epoch: 3 | batch: 0/5005 ] | Loss: 1.114 | Acc: 74.609% (191/256)
+01/06/2023 18:28:29 - INFO - __main__ -   test: [epoch: 3 | batch: 100/5005 ] | Loss: 1.250 | Acc: 70.196% (18150/25856)
+01/06/2023 18:29:54 - INFO - __main__ -   test: [epoch: 3 | batch: 200/5005 ] | Loss: 1.268 | Acc: 69.846% (35940/51456)
+01/06/2023 18:31:19 - INFO - __main__ -   test: [epoch: 3 | batch: 300/5005 ] | Loss: 1.275 | Acc: 69.697% (53706/77056)
+01/06/2023 18:32:45 - INFO - __main__ -   test: [epoch: 3 | batch: 400/5005 ] | Loss: 1.278 | Acc: 69.671% (71521/102656)
+01/06/2023 18:34:10 - INFO - __main__ -   test: [epoch: 3 | batch: 500/5005 ] | Loss: 1.277 | Acc: 69.689% (89380/128256)
+01/06/2023 18:35:36 - INFO - __main__ -   test: [epoch: 3 | batch: 600/5005 ] | Loss: 1.279 | Acc: 69.621% (107116/153856)
+01/06/2023 18:37:02 - INFO - __main__ -   test: [epoch: 3 | batch: 700/5005 ] | Loss: 1.274 | Acc: 69.727% (125130/179456)
+01/06/2023 18:38:27 - INFO - __main__ -   test: [epoch: 3 | batch: 800/5005 ] | Loss: 1.276 | Acc: 69.687% (142897/205056)
+01/06/2023 18:39:51 - INFO - __main__ -   test: [epoch: 3 | batch: 900/5005 ] | Loss: 1.274 | Acc: 69.736% (160851/230656)
+01/06/2023 18:41:16 - INFO - __main__ -   test: [epoch: 3 | batch: 1000/5005 ] | Loss: 1.273 | Acc: 69.760% (178764/256256)
+01/06/2023 18:42:42 - INFO - __main__ -   test: [epoch: 3 | batch: 1100/5005 ] | Loss: 1.275 | Acc: 69.720% (196510/281856)
+01/06/2023 18:44:07 - INFO - __main__ -   test: [epoch: 3 | batch: 1200/5005 ] | Loss: 1.275 | Acc: 69.718% (214353/307456)
+01/06/2023 18:45:33 - INFO - __main__ -   test: [epoch: 3 | batch: 1300/5005 ] | Loss: 1.276 | Acc: 69.668% (232033/333056)
+01/06/2023 18:46:59 - INFO - __main__ -   test: [epoch: 3 | batch: 1400/5005 ] | Loss: 1.275 | Acc: 69.676% (249897/358656)
+01/06/2023 18:48:25 - INFO - __main__ -   test: [epoch: 3 | batch: 1500/5005 ] | Loss: 1.275 | Acc: 69.674% (267727/384256)
+01/06/2023 18:49:51 - INFO - __main__ -   test: [epoch: 3 | batch: 1600/5005 ] | Loss: 1.276 | Acc: 69.654% (285481/409856)
+01/06/2023 18:51:01 - INFO - __main__ -   test: [epoch: 3 | batch: 1700/5005 ] | Loss: 1.277 | Acc: 69.642% (303260/435456)
+01/06/2023 18:52:02 - INFO - __main__ -   test: [epoch: 3 | batch: 1800/5005 ] | Loss: 1.277 | Acc: 69.643% (321091/461056)
+01/06/2023 18:53:04 - INFO - __main__ -   test: [epoch: 3 | batch: 1900/5005 ] | Loss: 1.277 | Acc: 69.623% (338826/486656)
+01/06/2023 18:54:05 - INFO - __main__ -   test: [epoch: 3 | batch: 2000/5005 ] | Loss: 1.277 | Acc: 69.610% (356582/512256)
+01/06/2023 18:55:07 - INFO - __main__ -   test: [epoch: 3 | batch: 2100/5005 ] | Loss: 1.277 | Acc: 69.593% (374312/537856)
+01/06/2023 18:56:08 - INFO - __main__ -   test: [epoch: 3 | batch: 2200/5005 ] | Loss: 1.277 | Acc: 69.577% (392033/563456)
+01/06/2023 18:57:10 - INFO - __main__ -   test: [epoch: 3 | batch: 2300/5005 ] | Loss: 1.278 | Acc: 69.565% (409777/589056)
+01/06/2023 18:58:11 - INFO - __main__ -   test: [epoch: 3 | batch: 2400/5005 ] | Loss: 1.278 | Acc: 69.555% (427522/614656)
+01/06/2023 18:59:12 - INFO - __main__ -   test: [epoch: 3 | batch: 2500/5005 ] | Loss: 1.278 | Acc: 69.551% (445304/640256)
+01/06/2023 19:00:14 - INFO - __main__ -   test: [epoch: 3 | batch: 2600/5005 ] | Loss: 1.279 | Acc: 69.550% (463105/665856)
+01/06/2023 19:01:15 - INFO - __main__ -   test: [epoch: 3 | batch: 2700/5005 ] | Loss: 1.279 | Acc: 69.558% (480964/691456)
+01/06/2023 19:02:19 - INFO - __main__ -   test: [epoch: 3 | batch: 2800/5005 ] | Loss: 1.279 | Acc: 69.559% (498774/717056)
+01/06/2023 19:03:21 - INFO - __main__ -   test: [epoch: 3 | batch: 2900/5005 ] | Loss: 1.278 | Acc: 69.567% (516645/742656)
+01/06/2023 19:04:24 - INFO - __main__ -   test: [epoch: 3 | batch: 3000/5005 ] | Loss: 1.278 | Acc: 69.565% (534437/768256)
+01/06/2023 19:05:26 - INFO - __main__ -   test: [epoch: 3 | batch: 3100/5005 ] | Loss: 1.279 | Acc: 69.567% (552261/793856)
+01/06/2023 19:06:28 - INFO - __main__ -   test: [epoch: 3 | batch: 3200/5005 ] | Loss: 1.279 | Acc: 69.562% (570032/819456)
+01/06/2023 19:07:30 - INFO - __main__ -   test: [epoch: 3 | batch: 3300/5005 ] | Loss: 1.278 | Acc: 69.567% (587876/845056)
+01/06/2023 19:08:32 - INFO - __main__ -   test: [epoch: 3 | batch: 3400/5005 ] | Loss: 1.278 | Acc: 69.561% (605641/870656)
+01/06/2023 19:09:05 - INFO - __main__ -   test: [epoch: 3 | batch: 3500/5005 ] | Loss: 1.278 | Acc: 69.551% (623357/896256)
+01/06/2023 19:09:39 - INFO - __main__ -   test: [epoch: 3 | batch: 3600/5005 ] | Loss: 1.278 | Acc: 69.549% (641139/921856)
+01/06/2023 19:10:12 - INFO - __main__ -   test: [epoch: 3 | batch: 3700/5005 ] | Loss: 1.278 | Acc: 69.551% (658962/947456)
+01/06/2023 19:10:45 - INFO - __main__ -   test: [epoch: 3 | batch: 3800/5005 ] | Loss: 1.278 | Acc: 69.553% (676792/973056)
+01/06/2023 19:11:18 - INFO - __main__ -   test: [epoch: 3 | batch: 3900/5005 ] | Loss: 1.278 | Acc: 69.534% (694406/998656)
+01/06/2023 19:11:50 - INFO - __main__ -   test: [epoch: 3 | batch: 4000/5005 ] | Loss: 1.279 | Acc: 69.540% (712264/1024256)
+01/06/2023 19:12:24 - INFO - __main__ -   test: [epoch: 3 | batch: 4100/5005 ] | Loss: 1.278 | Acc: 69.557% (730246/1049856)
+01/06/2023 19:13:31 - INFO - __main__ -   test: [epoch: 3 | batch: 4200/5005 ] | Loss: 1.278 | Acc: 69.551% (747991/1075456)
+01/06/2023 19:15:05 - INFO - __main__ -   test: [epoch: 3 | batch: 4300/5005 ] | Loss: 1.278 | Acc: 69.553% (765819/1101056)
+01/06/2023 19:16:51 - INFO - __main__ -   test: [epoch: 3 | batch: 4400/5005 ] | Loss: 1.278 | Acc: 69.565% (783763/1126656)
+01/06/2023 19:18:36 - INFO - __main__ -   test: [epoch: 3 | batch: 4500/5005 ] | Loss: 1.278 | Acc: 69.565% (801562/1152256)
+01/06/2023 19:20:22 - INFO - __main__ -   test: [epoch: 3 | batch: 4600/5005 ] | Loss: 1.278 | Acc: 69.563% (819354/1177856)
+01/06/2023 19:22:07 - INFO - __main__ -   test: [epoch: 3 | batch: 4700/5005 ] | Loss: 1.278 | Acc: 69.569% (837229/1203456)
+01/06/2023 19:23:53 - INFO - __main__ -   test: [epoch: 3 | batch: 4800/5005 ] | Loss: 1.278 | Acc: 69.569% (855036/1229056)
+01/06/2023 19:25:39 - INFO - __main__ -   test: [epoch: 3 | batch: 4900/5005 ] | Loss: 1.278 | Acc: 69.565% (872805/1254656)
+01/06/2023 19:27:25 - INFO - __main__ -   test: [epoch: 3 | batch: 5000/5005 ] | Loss: 1.278 | Acc: 69.563% (890589/1280256)
+01/06/2023 19:27:29 - INFO - __main__ -   Saving Checkpoint
+01/06/2023 19:27:30 - INFO - __main__ -   test: [batch: 0/196 ] | Loss: 0.700 | Acc: 80.859% (207/256)/ 95.312% (244/256)
+01/06/2023 19:27:31 - INFO - __main__ -   test: [batch: 1/196 ] | Loss: 0.778 | Acc: 80.273% (411/512)/ 93.945% (481/512)
+01/06/2023 19:27:32 - INFO - __main__ -   test: [batch: 2/196 ] | Loss: 0.646 | Acc: 83.464% (641/768)/ 95.182% (731/768)
+01/06/2023 19:27:33 - INFO - __main__ -   test: [batch: 3/196 ] | Loss: 0.604 | Acc: 84.863% (869/1024)/ 95.410% (977/1024)
+01/06/2023 19:27:35 - INFO - __main__ -   test: [batch: 4/196 ] | Loss: 0.589 | Acc: 85.625% (1096/1280)/ 95.391% (1221/1280)
+01/06/2023 19:27:36 - INFO - __main__ -   test: [batch: 5/196 ] | Loss: 0.640 | Acc: 84.701% (1301/1536)/ 94.857% (1457/1536)
+01/06/2023 19:27:37 - INFO - __main__ -   test: [batch: 6/196 ] | Loss: 0.756 | Acc: 81.808% (1466/1792)/ 93.694% (1679/1792)
+01/06/2023 19:27:38 - INFO - __main__ -   test: [batch: 7/196 ] | Loss: 0.798 | Acc: 80.273% (1644/2048)/ 93.604% (1917/2048)
+01/06/2023 19:27:39 - INFO - __main__ -   test: [batch: 8/196 ] | Loss: 0.841 | Acc: 79.601% (1834/2304)/ 93.186% (2147/2304)
+01/06/2023 19:27:40 - INFO - __main__ -   test: [batch: 9/196 ] | Loss: 0.870 | Acc: 78.633% (2013/2560)/ 93.008% (2381/2560)
+01/06/2023 19:27:41 - INFO - __main__ -   test: [batch: 10/196 ] | Loss: 0.904 | Acc: 77.450% (2181/2816)/ 92.756% (2612/2816)
+01/06/2023 19:27:42 - INFO - __main__ -   test: [batch: 11/196 ] | Loss: 0.964 | Acc: 76.042% (2336/3072)/ 92.350% (2837/3072)
+01/06/2023 19:27:43 - INFO - __main__ -   test: [batch: 12/196 ] | Loss: 1.013 | Acc: 74.730% (2487/3328)/ 91.737% (3053/3328)
+01/06/2023 19:27:44 - INFO - __main__ -   test: [batch: 13/196 ] | Loss: 1.018 | Acc: 74.191% (2659/3584)/ 91.574% (3282/3584)
+01/06/2023 19:27:45 - INFO - __main__ -   test: [batch: 14/196 ] | Loss: 1.013 | Acc: 74.115% (2846/3840)/ 91.875% (3528/3840)
+01/06/2023 19:27:46 - INFO - __main__ -   test: [batch: 15/196 ] | Loss: 1.022 | Acc: 74.170% (3038/4096)/ 91.724% (3757/4096)
+01/06/2023 19:27:47 - INFO - __main__ -   test: [batch: 16/196 ] | Loss: 0.996 | Acc: 74.839% (3257/4352)/ 91.935% (4001/4352)
+01/06/2023 19:27:49 - INFO - __main__ -   test: [batch: 17/196 ] | Loss: 0.962 | Acc: 75.738% (3490/4608)/ 92.209% (4249/4608)
+01/06/2023 19:27:50 - INFO - __main__ -   test: [batch: 18/196 ] | Loss: 0.938 | Acc: 76.316% (3712/4864)/ 92.455% (4497/4864)
+01/06/2023 19:27:51 - INFO - __main__ -   test: [batch: 19/196 ] | Loss: 0.932 | Acc: 76.426% (3913/5120)/ 92.441% (4733/5120)
+01/06/2023 19:27:52 - INFO - __main__ -   test: [batch: 20/196 ] | Loss: 0.935 | Acc: 76.562% (4116/5376)/ 92.299% (4962/5376)
+01/06/2023 19:27:53 - INFO - __main__ -   test: [batch: 21/196 ] | Loss: 0.936 | Acc: 76.509% (4309/5632)/ 92.312% (5199/5632)
+01/06/2023 19:27:54 - INFO - __main__ -   test: [batch: 22/196 ] | Loss: 0.942 | Acc: 76.478% (4503/5888)/ 92.221% (5430/5888)
+01/06/2023 19:27:55 - INFO - __main__ -   test: [batch: 23/196 ] | Loss: 0.953 | Acc: 76.172% (4680/6144)/ 92.106% (5659/6144)
+01/06/2023 19:27:56 - INFO - __main__ -   test: [batch: 24/196 ] | Loss: 0.965 | Acc: 75.922% (4859/6400)/ 91.938% (5884/6400)
+01/06/2023 19:27:57 - INFO - __main__ -   test: [batch: 25/196 ] | Loss: 0.945 | Acc: 76.412% (5086/6656)/ 92.188% (6136/6656)
+01/06/2023 19:27:58 - INFO - __main__ -   test: [batch: 26/196 ] | Loss: 0.929 | Acc: 76.736% (5304/6912)/ 92.347% (6383/6912)
+01/06/2023 19:27:59 - INFO - __main__ -   test: [batch: 27/196 ] | Loss: 0.914 | Acc: 77.134% (5529/7168)/ 92.467% (6628/7168)
+01/06/2023 19:28:00 - INFO - __main__ -   test: [batch: 28/196 ] | Loss: 0.898 | Acc: 77.532% (5756/7424)/ 92.551% (6871/7424)
+01/06/2023 19:28:01 - INFO - __main__ -   test: [batch: 29/196 ] | Loss: 0.896 | Acc: 77.513% (5953/7680)/ 92.591% (7111/7680)
+01/06/2023 19:28:02 - INFO - __main__ -   test: [batch: 30/196 ] | Loss: 0.896 | Acc: 77.533% (6153/7936)/ 92.629% (7351/7936)
+01/06/2023 19:28:03 - INFO - __main__ -   test: [batch: 31/196 ] | Loss: 0.900 | Acc: 77.405% (6341/8192)/ 92.603% (7586/8192)
+01/06/2023 19:28:04 - INFO - __main__ -   test: [batch: 32/196 ] | Loss: 0.918 | Acc: 76.776% (6486/8448)/ 92.507% (7815/8448)
+01/06/2023 19:28:06 - INFO - __main__ -   test: [batch: 33/196 ] | Loss: 0.925 | Acc: 76.597% (6667/8704)/ 92.498% (8051/8704)
+01/06/2023 19:28:07 - INFO - __main__ -   test: [batch: 34/196 ] | Loss: 0.924 | Acc: 76.562% (6860/8960)/ 92.567% (8294/8960)
+01/06/2023 19:28:08 - INFO - __main__ -   test: [batch: 35/196 ] | Loss: 0.923 | Acc: 76.487% (7049/9216)/ 92.632% (8537/9216)
+01/06/2023 19:28:09 - INFO - __main__ -   test: [batch: 36/196 ] | Loss: 0.932 | Acc: 76.077% (7206/9472)/ 92.610% (8772/9472)
+01/06/2023 19:28:10 - INFO - __main__ -   test: [batch: 37/196 ] | Loss: 0.941 | Acc: 75.894% (7383/9728)/ 92.506% (8999/9728)
+01/06/2023 19:28:11 - INFO - __main__ -   test: [batch: 38/196 ] | Loss: 0.939 | Acc: 75.921% (7580/9984)/ 92.598% (9245/9984)
+01/06/2023 19:28:12 - INFO - __main__ -   test: [batch: 39/196 ] | Loss: 0.938 | Acc: 75.791% (7761/10240)/ 92.666% (9489/10240)
+01/06/2023 19:28:13 - INFO - __main__ -   test: [batch: 40/196 ] | Loss: 0.938 | Acc: 75.791% (7955/10496)/ 92.731% (9733/10496)
+01/06/2023 19:28:14 - INFO - __main__ -   test: [batch: 41/196 ] | Loss: 0.937 | Acc: 75.781% (8148/10752)/ 92.746% (9972/10752)
+01/06/2023 19:28:15 - INFO - __main__ -   test: [batch: 42/196 ] | Loss: 0.930 | Acc: 75.972% (8363/11008)/ 92.832% (10219/11008)
+01/06/2023 19:28:16 - INFO - __main__ -   test: [batch: 43/196 ] | Loss: 0.935 | Acc: 75.852% (8544/11264)/ 92.738% (10446/11264)
+01/06/2023 19:28:17 - INFO - __main__ -   test: [batch: 44/196 ] | Loss: 0.937 | Acc: 75.825% (8735/11520)/ 92.752% (10685/11520)
+01/06/2023 19:28:18 - INFO - __main__ -   test: [batch: 45/196 ] | Loss: 0.939 | Acc: 75.645% (8908/11776)/ 92.790% (10927/11776)
+01/06/2023 19:28:20 - INFO - __main__ -   test: [batch: 46/196 ] | Loss: 0.943 | Acc: 75.440% (9077/12032)/ 92.803% (11166/12032)
+01/06/2023 19:28:20 - INFO - __main__ -   test: [batch: 47/196 ] | Loss: 0.941 | Acc: 75.382% (9263/12288)/ 92.863% (11411/12288)
+01/06/2023 19:28:22 - INFO - __main__ -   test: [batch: 48/196 ] | Loss: 0.946 | Acc: 75.088% (9419/12544)/ 92.897% (11653/12544)
+01/06/2023 19:28:23 - INFO - __main__ -   test: [batch: 49/196 ] | Loss: 0.935 | Acc: 75.352% (9645/12800)/ 92.984% (11902/12800)
+01/06/2023 19:28:24 - INFO - __main__ -   test: [batch: 50/196 ] | Loss: 0.929 | Acc: 75.528% (9861/13056)/ 93.038% (12147/13056)
+01/06/2023 19:28:25 - INFO - __main__ -   test: [batch: 51/196 ] | Loss: 0.929 | Acc: 75.413% (10039/13312)/ 93.059% (12388/13312)
+01/06/2023 19:28:26 - INFO - __main__ -   test: [batch: 52/196 ] | Loss: 0.931 | Acc: 75.310% (10218/13568)/ 93.050% (12625/13568)
+01/06/2023 19:28:27 - INFO - __main__ -   test: [batch: 53/196 ] | Loss: 0.934 | Acc: 75.340% (10415/13824)/ 93.034% (12861/13824)
+01/06/2023 19:28:28 - INFO - __main__ -   test: [batch: 54/196 ] | Loss: 0.935 | Acc: 75.256% (10596/14080)/ 93.061% (13103/14080)
+01/06/2023 19:28:29 - INFO - __main__ -   test: [batch: 55/196 ] | Loss: 0.940 | Acc: 75.084% (10764/14336)/ 93.025% (13336/14336)
+01/06/2023 19:28:30 - INFO - __main__ -   test: [batch: 56/196 ] | Loss: 0.937 | Acc: 75.151% (10966/14592)/ 93.085% (13583/14592)
+01/06/2023 19:28:31 - INFO - __main__ -   test: [batch: 57/196 ] | Loss: 0.930 | Acc: 75.350% (11188/14848)/ 93.144% (13830/14848)
+01/06/2023 19:28:32 - INFO - __main__ -   test: [batch: 58/196 ] | Loss: 0.932 | Acc: 75.410% (11390/15104)/ 93.114% (14064/15104)
+01/06/2023 19:28:33 - INFO - __main__ -   test: [batch: 59/196 ] | Loss: 0.935 | Acc: 75.299% (11566/15360)/ 93.138% (14306/15360)
+01/06/2023 19:28:34 - INFO - __main__ -   test: [batch: 60/196 ] | Loss: 0.939 | Acc: 75.250% (11751/15616)/ 93.135% (14544/15616)
+01/06/2023 19:28:35 - INFO - __main__ -   test: [batch: 61/196 ] | Loss: 0.944 | Acc: 75.176% (11932/15872)/ 93.095% (14776/15872)
+01/06/2023 19:28:36 - INFO - __main__ -   test: [batch: 62/196 ] | Loss: 0.937 | Acc: 75.316% (12147/16128)/ 93.155% (15024/16128)
+01/06/2023 19:28:37 - INFO - __main__ -   test: [batch: 63/196 ] | Loss: 0.930 | Acc: 75.519% (12373/16384)/ 93.213% (15272/16384)
+01/06/2023 19:28:38 - INFO - __main__ -   test: [batch: 64/196 ] | Loss: 0.928 | Acc: 75.607% (12581/16640)/ 93.233% (15514/16640)
+01/06/2023 19:28:40 - INFO - __main__ -   test: [batch: 65/196 ] | Loss: 0.924 | Acc: 75.769% (12802/16896)/ 93.265% (15758/16896)
+01/06/2023 19:28:41 - INFO - __main__ -   test: [batch: 66/196 ] | Loss: 0.923 | Acc: 75.822% (13005/17152)/ 93.249% (15994/17152)
+01/06/2023 19:28:42 - INFO - __main__ -   test: [batch: 67/196 ] | Loss: 0.920 | Acc: 75.862% (13206/17408)/ 93.290% (16240/17408)
+01/06/2023 19:28:43 - INFO - __main__ -   test: [batch: 68/196 ] | Loss: 0.916 | Acc: 75.900% (13407/17664)/ 93.348% (16489/17664)
+01/06/2023 19:28:44 - INFO - __main__ -   test: [batch: 69/196 ] | Loss: 0.923 | Acc: 75.731% (13571/17920)/ 93.298% (16719/17920)
+01/06/2023 19:28:45 - INFO - __main__ -   test: [batch: 70/196 ] | Loss: 0.922 | Acc: 75.792% (13776/18176)/ 93.310% (16960/18176)
+01/06/2023 19:28:46 - INFO - __main__ -   test: [batch: 71/196 ] | Loss: 0.919 | Acc: 75.917% (13993/18432)/ 93.321% (17201/18432)
+01/06/2023 19:28:47 - INFO - __main__ -   test: [batch: 72/196 ] | Loss: 0.922 | Acc: 75.872% (14179/18688)/ 93.284% (17433/18688)
+01/06/2023 19:28:48 - INFO - __main__ -   test: [batch: 73/196 ] | Loss: 0.923 | Acc: 75.876% (14374/18944)/ 93.264% (17668/18944)
+01/06/2023 19:28:49 - INFO - __main__ -   test: [batch: 74/196 ] | Loss: 0.927 | Acc: 75.750% (14544/19200)/ 93.240% (17902/19200)
+01/06/2023 19:28:50 - INFO - __main__ -   test: [batch: 75/196 ] | Loss: 0.925 | Acc: 75.792% (14746/19456)/ 93.262% (18145/19456)
+01/06/2023 19:28:51 - INFO - __main__ -   test: [batch: 76/196 ] | Loss: 0.924 | Acc: 75.837% (14949/19712)/ 93.258% (18383/19712)
+01/06/2023 19:28:52 - INFO - __main__ -   test: [batch: 77/196 ] | Loss: 0.927 | Acc: 75.836% (15143/19968)/ 93.224% (18615/19968)
+01/06/2023 19:28:53 - INFO - __main__ -   test: [batch: 78/196 ] | Loss: 0.933 | Acc: 75.692% (15308/20224)/ 93.142% (18837/20224)
+01/06/2023 19:28:55 - INFO - __main__ -   test: [batch: 79/196 ] | Loss: 0.934 | Acc: 75.659% (15495/20480)/ 93.130% (19073/20480)
+01/06/2023 19:28:56 - INFO - __main__ -   test: [batch: 80/196 ] | Loss: 0.943 | Acc: 75.497% (15655/20736)/ 93.027% (19290/20736)
+01/06/2023 19:28:57 - INFO - __main__ -   test: [batch: 81/196 ] | Loss: 0.954 | Acc: 75.267% (15800/20992)/ 92.888% (19499/20992)
+01/06/2023 19:28:58 - INFO - __main__ -   test: [batch: 82/196 ] | Loss: 0.958 | Acc: 75.193% (15977/21248)/ 92.832% (19725/21248)
+01/06/2023 19:28:59 - INFO - __main__ -   test: [batch: 83/196 ] | Loss: 0.961 | Acc: 75.181% (16167/21504)/ 92.797% (19955/21504)
+01/06/2023 19:29:00 - INFO - __main__ -   test: [batch: 84/196 ] | Loss: 0.965 | Acc: 75.078% (16337/21760)/ 92.744% (20181/21760)
+01/06/2023 19:29:01 - INFO - __main__ -   test: [batch: 85/196 ] | Loss: 0.973 | Acc: 74.900% (16490/22016)/ 92.637% (20395/22016)
+01/06/2023 19:29:02 - INFO - __main__ -   test: [batch: 86/196 ] | Loss: 0.977 | Acc: 74.762% (16651/22272)/ 92.592% (20622/22272)
+01/06/2023 19:29:03 - INFO - __main__ -   test: [batch: 87/196 ] | Loss: 0.983 | Acc: 74.654% (16818/22528)/ 92.507% (20840/22528)
+01/06/2023 19:29:04 - INFO - __main__ -   test: [batch: 88/196 ] | Loss: 0.989 | Acc: 74.517% (16978/22784)/ 92.411% (21055/22784)
+01/06/2023 19:29:05 - INFO - __main__ -   test: [batch: 89/196 ] | Loss: 0.996 | Acc: 74.414% (17145/23040)/ 92.309% (21268/23040)
+01/06/2023 19:29:06 - INFO - __main__ -   test: [batch: 90/196 ] | Loss: 1.009 | Acc: 74.141% (17272/23296)/ 92.157% (21469/23296)
+01/06/2023 19:29:07 - INFO - __main__ -   test: [batch: 91/196 ] | Loss: 1.014 | Acc: 74.040% (17438/23552)/ 92.073% (21685/23552)
+01/06/2023 19:29:08 - INFO - __main__ -   test: [batch: 92/196 ] | Loss: 1.014 | Acc: 74.105% (17643/23808)/ 92.053% (21916/23808)
+01/06/2023 19:29:09 - INFO - __main__ -   test: [batch: 93/196 ] | Loss: 1.024 | Acc: 73.932% (17791/24064)/ 91.934% (22123/24064)
+01/06/2023 19:29:10 - INFO - __main__ -   test: [batch: 94/196 ] | Loss: 1.028 | Acc: 73.762% (17939/24320)/ 91.896% (22349/24320)
+01/06/2023 19:29:11 - INFO - __main__ -   test: [batch: 95/196 ] | Loss: 1.038 | Acc: 73.625% (18094/24576)/ 91.789% (22558/24576)
+01/06/2023 19:29:12 - INFO - __main__ -   test: [batch: 96/196 ] | Loss: 1.045 | Acc: 73.478% (18246/24832)/ 91.676% (22765/24832)
+01/06/2023 19:29:13 - INFO - __main__ -   test: [batch: 97/196 ] | Loss: 1.053 | Acc: 73.358% (18404/25088)/ 91.554% (22969/25088)
+01/06/2023 19:29:15 - INFO - __main__ -   test: [batch: 98/196 ] | Loss: 1.063 | Acc: 73.173% (18545/25344)/ 91.450% (23177/25344)
+01/06/2023 19:29:16 - INFO - __main__ -   test: [batch: 99/196 ] | Loss: 1.065 | Acc: 73.094% (18712/25600)/ 91.426% (23405/25600)
+01/06/2023 19:29:17 - INFO - __main__ -   test: [batch: 100/196 ] | Loss: 1.071 | Acc: 72.939% (18859/25856)/ 91.364% (23623/25856)
+01/06/2023 19:29:18 - INFO - __main__ -   test: [batch: 101/196 ] | Loss: 1.073 | Acc: 72.932% (19044/26112)/ 91.337% (23850/26112)
+01/06/2023 19:29:19 - INFO - __main__ -   test: [batch: 102/196 ] | Loss: 1.077 | Acc: 72.797% (19195/26368)/ 91.292% (24072/26368)
+01/06/2023 19:29:20 - INFO - __main__ -   test: [batch: 103/196 ] | Loss: 1.082 | Acc: 72.713% (19359/26624)/ 91.233% (24290/26624)
+01/06/2023 19:29:21 - INFO - __main__ -   test: [batch: 104/196 ] | Loss: 1.083 | Acc: 72.679% (19536/26880)/ 91.228% (24522/26880)
+01/06/2023 19:29:22 - INFO - __main__ -   test: [batch: 105/196 ] | Loss: 1.090 | Acc: 72.568% (19692/27136)/ 91.115% (24725/27136)
+01/06/2023 19:29:23 - INFO - __main__ -   test: [batch: 106/196 ] | Loss: 1.092 | Acc: 72.536% (19869/27392)/ 91.081% (24949/27392)
+01/06/2023 19:29:24 - INFO - __main__ -   test: [batch: 107/196 ] | Loss: 1.094 | Acc: 72.519% (20050/27648)/ 91.066% (25178/27648)
+01/06/2023 19:29:25 - INFO - __main__ -   test: [batch: 108/196 ] | Loss: 1.096 | Acc: 72.502% (20231/27904)/ 91.026% (25400/27904)
+01/06/2023 19:29:26 - INFO - __main__ -   test: [batch: 109/196 ] | Loss: 1.098 | Acc: 72.472% (20408/28160)/ 90.991% (25623/28160)
+01/06/2023 19:29:27 - INFO - __main__ -   test: [batch: 110/196 ] | Loss: 1.098 | Acc: 72.484% (20597/28416)/ 90.984% (25854/28416)
+01/06/2023 19:29:28 - INFO - __main__ -   test: [batch: 111/196 ] | Loss: 1.096 | Acc: 72.555% (20803/28672)/ 91.005% (26093/28672)
+01/06/2023 19:29:29 - INFO - __main__ -   test: [batch: 112/196 ] | Loss: 1.095 | Acc: 72.594% (21000/28928)/ 91.002% (26325/28928)
+01/06/2023 19:29:30 - INFO - __main__ -   test: [batch: 113/196 ] | Loss: 1.096 | Acc: 72.567% (21178/29184)/ 90.995% (26556/29184)
+01/06/2023 19:29:31 - INFO - __main__ -   test: [batch: 114/196 ] | Loss: 1.104 | Acc: 72.415% (21319/29440)/ 90.866% (26751/29440)
+01/06/2023 19:29:33 - INFO - __main__ -   test: [batch: 115/196 ] | Loss: 1.108 | Acc: 72.309% (21473/29696)/ 90.787% (26960/29696)
+01/06/2023 19:29:34 - INFO - __main__ -   test: [batch: 116/196 ] | Loss: 1.111 | Acc: 72.276% (21648/29952)/ 90.752% (27182/29952)
+01/06/2023 19:29:35 - INFO - __main__ -   test: [batch: 117/196 ] | Loss: 1.118 | Acc: 72.133% (21790/30208)/ 90.665% (27388/30208)
+01/06/2023 19:29:36 - INFO - __main__ -   test: [batch: 118/196 ] | Loss: 1.116 | Acc: 72.200% (21995/30464)/ 90.664% (27620/30464)
+01/06/2023 19:29:37 - INFO - __main__ -   test: [batch: 119/196 ] | Loss: 1.115 | Acc: 72.269% (22201/30720)/ 90.664% (27852/30720)
+01/06/2023 19:29:38 - INFO - __main__ -   test: [batch: 120/196 ] | Loss: 1.121 | Acc: 72.156% (22351/30976)/ 90.573% (28056/30976)
+01/06/2023 19:29:39 - INFO - __main__ -   test: [batch: 121/196 ] | Loss: 1.131 | Acc: 71.910% (22459/31232)/ 90.452% (28250/31232)
+01/06/2023 19:29:40 - INFO - __main__ -   test: [batch: 122/196 ] | Loss: 1.131 | Acc: 71.923% (22647/31488)/ 90.428% (28474/31488)
+01/06/2023 19:29:41 - INFO - __main__ -   test: [batch: 123/196 ] | Loss: 1.140 | Acc: 71.793% (22790/31744)/ 90.301% (28665/31744)
+01/06/2023 19:29:42 - INFO - __main__ -   test: [batch: 124/196 ] | Loss: 1.144 | Acc: 71.656% (22930/32000)/ 90.272% (28887/32000)
+01/06/2023 19:29:43 - INFO - __main__ -   test: [batch: 125/196 ] | Loss: 1.145 | Acc: 71.611% (23099/32256)/ 90.253% (29112/32256)
+01/06/2023 19:29:44 - INFO - __main__ -   test: [batch: 126/196 ] | Loss: 1.146 | Acc: 71.607% (23281/32512)/ 90.222% (29333/32512)
+01/06/2023 19:29:45 - INFO - __main__ -   test: [batch: 127/196 ] | Loss: 1.153 | Acc: 71.515% (23434/32768)/ 90.131% (29534/32768)
+01/06/2023 19:29:46 - INFO - __main__ -   test: [batch: 128/196 ] | Loss: 1.157 | Acc: 71.406% (23581/33024)/ 90.098% (29754/33024)
+01/06/2023 19:29:47 - INFO - __main__ -   test: [batch: 129/196 ] | Loss: 1.162 | Acc: 71.295% (23727/33280)/ 90.072% (29976/33280)
+01/06/2023 19:29:49 - INFO - __main__ -   test: [batch: 130/196 ] | Loss: 1.160 | Acc: 71.317% (23917/33536)/ 90.100% (30216/33536)
+01/06/2023 19:29:50 - INFO - __main__ -   test: [batch: 131/196 ] | Loss: 1.163 | Acc: 71.265% (24082/33792)/ 90.057% (30432/33792)
+01/06/2023 19:29:51 - INFO - __main__ -   test: [batch: 132/196 ] | Loss: 1.167 | Acc: 71.220% (24249/34048)/ 89.979% (30636/34048)
+01/06/2023 19:29:52 - INFO - __main__ -   test: [batch: 133/196 ] | Loss: 1.168 | Acc: 71.225% (24433/34304)/ 89.966% (30862/34304)
+01/06/2023 19:29:53 - INFO - __main__ -   test: [batch: 134/196 ] | Loss: 1.169 | Acc: 71.160% (24593/34560)/ 89.948% (31086/34560)
+01/06/2023 19:29:54 - INFO - __main__ -   test: [batch: 135/196 ] | Loss: 1.173 | Acc: 71.097% (24753/34816)/ 89.924% (31308/34816)
+01/06/2023 19:29:55 - INFO - __main__ -   test: [batch: 136/196 ] | Loss: 1.174 | Acc: 71.062% (24923/35072)/ 89.924% (31538/35072)
+01/06/2023 19:29:56 - INFO - __main__ -   test: [batch: 137/196 ] | Loss: 1.175 | Acc: 71.029% (25093/35328)/ 89.920% (31767/35328)
+01/06/2023 19:29:57 - INFO - __main__ -   test: [batch: 138/196 ] | Loss: 1.178 | Acc: 70.953% (25248/35584)/ 89.886% (31985/35584)
+01/06/2023 19:29:58 - INFO - __main__ -   test: [batch: 139/196 ] | Loss: 1.179 | Acc: 70.971% (25436/35840)/ 89.874% (32211/35840)
+01/06/2023 19:29:59 - INFO - __main__ -   test: [batch: 140/196 ] | Loss: 1.180 | Acc: 70.941% (25607/36096)/ 89.852% (32433/36096)
+01/06/2023 19:30:00 - INFO - __main__ -   test: [batch: 141/196 ] | Loss: 1.180 | Acc: 70.959% (25795/36352)/ 89.844% (32660/36352)
+01/06/2023 19:30:01 - INFO - __main__ -   test: [batch: 142/196 ] | Loss: 1.187 | Acc: 70.862% (25941/36608)/ 89.718% (32844/36608)
+01/06/2023 19:30:02 - INFO - __main__ -   test: [batch: 143/196 ] | Loss: 1.189 | Acc: 70.801% (26100/36864)/ 89.681% (33060/36864)
+01/06/2023 19:30:03 - INFO - __main__ -   test: [batch: 144/196 ] | Loss: 1.192 | Acc: 70.746% (26261/37120)/ 89.626% (33269/37120)
+01/06/2023 19:30:04 - INFO - __main__ -   test: [batch: 145/196 ] | Loss: 1.195 | Acc: 70.655% (26408/37376)/ 89.582% (33482/37376)
+01/06/2023 19:30:05 - INFO - __main__ -   test: [batch: 146/196 ] | Loss: 1.198 | Acc: 70.570% (26557/37632)/ 89.554% (33701/37632)
+01/06/2023 19:30:06 - INFO - __main__ -   test: [batch: 147/196 ] | Loss: 1.199 | Acc: 70.542% (26727/37888)/ 89.546% (33927/37888)
+01/06/2023 19:30:07 - INFO - __main__ -   test: [batch: 148/196 ] | Loss: 1.202 | Acc: 70.514% (26897/38144)/ 89.500% (34139/38144)
+01/06/2023 19:30:08 - INFO - __main__ -   test: [batch: 149/196 ] | Loss: 1.205 | Acc: 70.453% (27054/38400)/ 89.448% (34348/38400)
+01/06/2023 19:30:09 - INFO - __main__ -   test: [batch: 150/196 ] | Loss: 1.206 | Acc: 70.455% (27235/38656)/ 89.425% (34568/38656)
+01/06/2023 19:30:10 - INFO - __main__ -   test: [batch: 151/196 ] | Loss: 1.209 | Acc: 70.400% (27394/38912)/ 89.389% (34783/38912)
+01/06/2023 19:30:12 - INFO - __main__ -   test: [batch: 152/196 ] | Loss: 1.208 | Acc: 70.384% (27568/39168)/ 89.400% (35016/39168)
+01/06/2023 19:30:13 - INFO - __main__ -   test: [batch: 153/196 ] | Loss: 1.212 | Acc: 70.323% (27724/39424)/ 89.336% (35220/39424)
+01/06/2023 19:30:14 - INFO - __main__ -   test: [batch: 154/196 ] | Loss: 1.214 | Acc: 70.285% (27889/39680)/ 89.312% (35439/39680)
+01/06/2023 19:30:15 - INFO - __main__ -   test: [batch: 155/196 ] | Loss: 1.217 | Acc: 70.250% (28055/39936)/ 89.263% (35648/39936)
+01/06/2023 19:30:16 - INFO - __main__ -   test: [batch: 156/196 ] | Loss: 1.216 | Acc: 70.280% (28247/40192)/ 89.271% (35880/40192)
+01/06/2023 19:30:17 - INFO - __main__ -   test: [batch: 157/196 ] | Loss: 1.219 | Acc: 70.246% (28413/40448)/ 89.238% (36095/40448)
+01/06/2023 19:30:18 - INFO - __main__ -   test: [batch: 158/196 ] | Loss: 1.224 | Acc: 70.116% (28540/40704)/ 89.173% (36297/40704)
+01/06/2023 19:30:19 - INFO - __main__ -   test: [batch: 159/196 ] | Loss: 1.226 | Acc: 70.085% (28707/40960)/ 89.165% (36522/40960)
+01/06/2023 19:30:20 - INFO - __main__ -   test: [batch: 160/196 ] | Loss: 1.226 | Acc: 70.116% (28899/41216)/ 89.169% (36752/41216)
+01/06/2023 19:30:21 - INFO - __main__ -   test: [batch: 161/196 ] | Loss: 1.229 | Acc: 70.050% (29051/41472)/ 89.132% (36965/41472)
+01/06/2023 19:30:22 - INFO - __main__ -   test: [batch: 162/196 ] | Loss: 1.230 | Acc: 70.025% (29220/41728)/ 89.106% (37182/41728)
+01/06/2023 19:30:23 - INFO - __main__ -   test: [batch: 163/196 ] | Loss: 1.238 | Acc: 69.829% (29317/41984)/ 88.996% (37364/41984)
+01/06/2023 19:30:24 - INFO - __main__ -   test: [batch: 164/196 ] | Loss: 1.241 | Acc: 69.761% (29467/42240)/ 88.951% (37573/42240)
+01/06/2023 19:30:25 - INFO - __main__ -   test: [batch: 165/196 ] | Loss: 1.244 | Acc: 69.689% (29615/42496)/ 88.919% (37787/42496)
+01/06/2023 19:30:26 - INFO - __main__ -   test: [batch: 166/196 ] | Loss: 1.243 | Acc: 69.700% (29798/42752)/ 88.934% (38021/42752)
+01/06/2023 19:30:27 - INFO - __main__ -   test: [batch: 167/196 ] | Loss: 1.245 | Acc: 69.664% (29961/43008)/ 88.883% (38227/43008)
+01/06/2023 19:30:28 - INFO - __main__ -   test: [batch: 168/196 ] | Loss: 1.247 | Acc: 69.640% (30129/43264)/ 88.880% (38453/43264)
+01/06/2023 19:30:29 - INFO - __main__ -   test: [batch: 169/196 ] | Loss: 1.250 | Acc: 69.582% (30282/43520)/ 88.849% (38667/43520)
+01/06/2023 19:30:30 - INFO - __main__ -   test: [batch: 170/196 ] | Loss: 1.248 | Acc: 69.618% (30476/43776)/ 88.868% (38903/43776)
+01/06/2023 19:30:31 - INFO - __main__ -   test: [batch: 171/196 ] | Loss: 1.250 | Acc: 69.561% (30629/44032)/ 88.844% (39120/44032)
+01/06/2023 19:30:32 - INFO - __main__ -   test: [batch: 172/196 ] | Loss: 1.254 | Acc: 69.484% (30773/44288)/ 88.789% (39323/44288)
+01/06/2023 19:30:33 - INFO - __main__ -   test: [batch: 173/196 ] | Loss: 1.254 | Acc: 69.489% (30953/44544)/ 88.768% (39541/44544)
+01/06/2023 19:30:34 - INFO - __main__ -   test: [batch: 174/196 ] | Loss: 1.255 | Acc: 69.455% (31116/44800)/ 88.757% (39763/44800)
+01/06/2023 19:30:35 - INFO - __main__ -   test: [batch: 175/196 ] | Loss: 1.258 | Acc: 69.409% (31273/45056)/ 88.741% (39983/45056)
+01/06/2023 19:30:36 - INFO - __main__ -   test: [batch: 176/196 ] | Loss: 1.261 | Acc: 69.364% (31430/45312)/ 88.696% (40190/45312)
+01/06/2023 19:30:38 - INFO - __main__ -   test: [batch: 177/196 ] | Loss: 1.268 | Acc: 69.195% (31531/45568)/ 88.628% (40386/45568)
+01/06/2023 19:30:39 - INFO - __main__ -   test: [batch: 178/196 ] | Loss: 1.266 | Acc: 69.243% (31730/45824)/ 88.652% (40624/45824)
+01/06/2023 19:30:40 - INFO - __main__ -   test: [batch: 179/196 ] | Loss: 1.265 | Acc: 69.280% (31924/46080)/ 88.659% (40854/46080)
+01/06/2023 19:30:41 - INFO - __main__ -   test: [batch: 180/196 ] | Loss: 1.266 | Acc: 69.231% (32079/46336)/ 88.670% (41086/46336)
+01/06/2023 19:30:42 - INFO - __main__ -   test: [batch: 181/196 ] | Loss: 1.267 | Acc: 69.209% (32246/46592)/ 88.661% (41309/46592)
+01/06/2023 19:30:43 - INFO - __main__ -   test: [batch: 182/196 ] | Loss: 1.266 | Acc: 69.237% (32436/46848)/ 88.665% (41538/46848)
+01/06/2023 19:30:44 - INFO - __main__ -   test: [batch: 183/196 ] | Loss: 1.263 | Acc: 69.291% (32639/47104)/ 88.708% (41785/47104)
+01/06/2023 19:30:45 - INFO - __main__ -   test: [batch: 184/196 ] | Loss: 1.262 | Acc: 69.320% (32830/47360)/ 88.733% (42024/47360)
+01/06/2023 19:30:46 - INFO - __main__ -   test: [batch: 185/196 ] | Loss: 1.260 | Acc: 69.319% (33007/47616)/ 88.758% (42263/47616)
+01/06/2023 19:30:47 - INFO - __main__ -   test: [batch: 186/196 ] | Loss: 1.257 | Acc: 69.414% (33230/47872)/ 88.793% (42507/47872)
+01/06/2023 19:30:48 - INFO - __main__ -   test: [batch: 187/196 ] | Loss: 1.259 | Acc: 69.380% (33391/48128)/ 88.753% (42715/48128)
+01/06/2023 19:30:49 - INFO - __main__ -   test: [batch: 188/196 ] | Loss: 1.260 | Acc: 69.364% (33561/48384)/ 88.738% (42935/48384)
+01/06/2023 19:30:50 - INFO - __main__ -   test: [batch: 189/196 ] | Loss: 1.264 | Acc: 69.256% (33686/48640)/ 88.707% (43147/48640)
+01/06/2023 19:30:51 - INFO - __main__ -   test: [batch: 190/196 ] | Loss: 1.264 | Acc: 69.239% (33855/48896)/ 88.717% (43379/48896)
+01/06/2023 19:30:52 - INFO - __main__ -   test: [batch: 191/196 ] | Loss: 1.265 | Acc: 69.208% (34017/49152)/ 88.711% (43603/49152)
+01/06/2023 19:30:53 - INFO - __main__ -   test: [batch: 192/196 ] | Loss: 1.262 | Acc: 69.288% (34234/49408)/ 88.755% (43852/49408)
+01/06/2023 19:30:55 - INFO - __main__ -   test: [batch: 193/196 ] | Loss: 1.257 | Acc: 69.402% (34468/49664)/ 88.803% (44103/49664)
+01/06/2023 19:30:56 - INFO - __main__ -   test: [batch: 194/196 ] | Loss: 1.254 | Acc: 69.465% (34677/49920)/ 88.836% (44347/49920)
+01/06/2023 19:30:57 - INFO - __main__ -   test: [batch: 195/196 ] | Loss: 1.261 | Acc: 69.410% (34705/50000)/ 88.814% (44407/50000)
+01/06/2023 19:30:57 - INFO - __main__ -   Final accuracy: 69.410
+01/06/2023 19:30:57 - INFO - __main__ -   {'milestones': Counter({2: 1, 3: 1, 4: 1}), 'gamma': 0.1, 'base_lrs': [0.0005], 'last_epoch': 4, '_step_count': 5, 'verbose': False, '_get_lr_called_within_step': False, '_last_lr': [5.000000000000001e-07]}
+01/06/2023 19:30:57 - INFO - __main__ -   
+Epoch: 4
+01/06/2023 19:30:58 - INFO - __main__ -   test: [epoch: 4 | batch: 0/5005 ] | Loss: 1.493 | Acc: 66.016% (169/256)
+01/06/2023 19:32:43 - INFO - __main__ -   test: [epoch: 4 | batch: 100/5005 ] | Loss: 1.249 | Acc: 70.123% (18131/25856)
+01/06/2023 19:34:28 - INFO - __main__ -   test: [epoch: 4 | batch: 200/5005 ] | Loss: 1.269 | Acc: 69.782% (35907/51456)
+01/06/2023 19:36:15 - INFO - __main__ -   test: [epoch: 4 | batch: 300/5005 ] | Loss: 1.276 | Acc: 69.665% (53681/77056)
+01/06/2023 19:38:01 - INFO - __main__ -   test: [epoch: 4 | batch: 400/5005 ] | Loss: 1.275 | Acc: 69.679% (71530/102656)
+01/06/2023 19:39:46 - INFO - __main__ -   test: [epoch: 4 | batch: 500/5005 ] | Loss: 1.278 | Acc: 69.647% (89327/128256)
+01/06/2023 19:41:32 - INFO - __main__ -   test: [epoch: 4 | batch: 600/5005 ] | Loss: 1.280 | Acc: 69.582% (107056/153856)
+01/06/2023 19:43:19 - INFO - __main__ -   test: [epoch: 4 | batch: 700/5005 ] | Loss: 1.279 | Acc: 69.617% (124931/179456)
+01/06/2023 19:45:05 - INFO - __main__ -   test: [epoch: 4 | batch: 800/5005 ] | Loss: 1.278 | Acc: 69.610% (142739/205056)
+01/06/2023 19:46:49 - INFO - __main__ -   test: [epoch: 4 | batch: 900/5005 ] | Loss: 1.275 | Acc: 69.664% (160685/230656)
+01/06/2023 19:48:35 - INFO - __main__ -   test: [epoch: 4 | batch: 1000/5005 ] | Loss: 1.275 | Acc: 69.671% (178536/256256)
+01/06/2023 19:50:19 - INFO - __main__ -   test: [epoch: 4 | batch: 1100/5005 ] | Loss: 1.275 | Acc: 69.645% (196298/281856)
+01/06/2023 19:52:04 - INFO - __main__ -   test: [epoch: 4 | batch: 1200/5005 ] | Loss: 1.276 | Acc: 69.647% (214134/307456)
+01/06/2023 19:53:50 - INFO - __main__ -   test: [epoch: 4 | batch: 1300/5005 ] | Loss: 1.276 | Acc: 69.617% (231862/333056)
+01/06/2023 19:55:35 - INFO - __main__ -   test: [epoch: 4 | batch: 1400/5005 ] | Loss: 1.277 | Acc: 69.603% (249636/358656)
+01/06/2023 19:57:20 - INFO - __main__ -   test: [epoch: 4 | batch: 1500/5005 ] | Loss: 1.277 | Acc: 69.591% (267407/384256)
+01/06/2023 19:59:05 - INFO - __main__ -   test: [epoch: 4 | batch: 1600/5005 ] | Loss: 1.276 | Acc: 69.591% (285224/409856)
+01/06/2023 20:00:50 - INFO - __main__ -   test: [epoch: 4 | batch: 1700/5005 ] | Loss: 1.278 | Acc: 69.558% (302894/435456)
+01/06/2023 20:02:35 - INFO - __main__ -   test: [epoch: 4 | batch: 1800/5005 ] | Loss: 1.278 | Acc: 69.569% (320750/461056)
+01/06/2023 20:04:20 - INFO - __main__ -   test: [epoch: 4 | batch: 1900/5005 ] | Loss: 1.278 | Acc: 69.569% (338561/486656)
+01/06/2023 20:06:06 - INFO - __main__ -   test: [epoch: 4 | batch: 2000/5005 ] | Loss: 1.278 | Acc: 69.546% (356251/512256)
+01/06/2023 20:07:51 - INFO - __main__ -   test: [epoch: 4 | batch: 2100/5005 ] | Loss: 1.278 | Acc: 69.549% (374073/537856)
+01/06/2023 20:09:35 - INFO - __main__ -   test: [epoch: 4 | batch: 2200/5005 ] | Loss: 1.277 | Acc: 69.553% (391903/563456)
+01/06/2023 20:11:21 - INFO - __main__ -   test: [epoch: 4 | batch: 2300/5005 ] | Loss: 1.277 | Acc: 69.559% (409742/589056)
+01/06/2023 20:13:07 - INFO - __main__ -   test: [epoch: 4 | batch: 2400/5005 ] | Loss: 1.277 | Acc: 69.563% (427573/614656)
+01/06/2023 20:14:53 - INFO - __main__ -   test: [epoch: 4 | batch: 2500/5005 ] | Loss: 1.277 | Acc: 69.571% (445430/640256)
+01/06/2023 20:16:38 - INFO - __main__ -   test: [epoch: 4 | batch: 2600/5005 ] | Loss: 1.277 | Acc: 69.564% (463198/665856)
+01/06/2023 20:18:24 - INFO - __main__ -   test: [epoch: 4 | batch: 2700/5005 ] | Loss: 1.277 | Acc: 69.551% (480914/691456)
+01/06/2023 20:20:09 - INFO - __main__ -   test: [epoch: 4 | batch: 2800/5005 ] | Loss: 1.276 | Acc: 69.580% (498926/717056)
+01/06/2023 20:21:55 - INFO - __main__ -   test: [epoch: 4 | batch: 2900/5005 ] | Loss: 1.276 | Acc: 69.585% (516776/742656)
+01/06/2023 20:23:40 - INFO - __main__ -   test: [epoch: 4 | batch: 3000/5005 ] | Loss: 1.276 | Acc: 69.614% (534817/768256)
+01/06/2023 20:25:26 - INFO - __main__ -   test: [epoch: 4 | batch: 3100/5005 ] | Loss: 1.276 | Acc: 69.607% (552583/793856)
+01/06/2023 20:27:12 - INFO - __main__ -   test: [epoch: 4 | batch: 3200/5005 ] | Loss: 1.277 | Acc: 69.594% (570289/819456)
+01/06/2023 20:28:57 - INFO - __main__ -   test: [epoch: 4 | batch: 3300/5005 ] | Loss: 1.277 | Acc: 69.595% (588116/845056)
+01/06/2023 20:30:43 - INFO - __main__ -   test: [epoch: 4 | batch: 3400/5005 ] | Loss: 1.277 | Acc: 69.587% (605862/870656)
+01/06/2023 20:32:28 - INFO - __main__ -   test: [epoch: 4 | batch: 3500/5005 ] | Loss: 1.277 | Acc: 69.581% (623627/896256)
+01/06/2023 20:34:14 - INFO - __main__ -   test: [epoch: 4 | batch: 3600/5005 ] | Loss: 1.276 | Acc: 69.586% (641483/921856)
+01/06/2023 20:35:59 - INFO - __main__ -   test: [epoch: 4 | batch: 3700/5005 ] | Loss: 1.276 | Acc: 69.592% (659357/947456)
+01/06/2023 20:37:45 - INFO - __main__ -   test: [epoch: 4 | batch: 3800/5005 ] | Loss: 1.276 | Acc: 69.597% (677215/973056)
+01/06/2023 20:39:30 - INFO - __main__ -   test: [epoch: 4 | batch: 3900/5005 ] | Loss: 1.277 | Acc: 69.585% (694911/998656)
+01/06/2023 20:41:16 - INFO - __main__ -   test: [epoch: 4 | batch: 4000/5005 ] | Loss: 1.277 | Acc: 69.577% (712647/1024256)
+01/06/2023 20:43:02 - INFO - __main__ -   test: [epoch: 4 | batch: 4100/5005 ] | Loss: 1.277 | Acc: 69.580% (730492/1049856)
+01/06/2023 20:44:48 - INFO - __main__ -   test: [epoch: 4 | batch: 4200/5005 ] | Loss: 1.277 | Acc: 69.582% (748322/1075456)
+01/06/2023 20:46:34 - INFO - __main__ -   test: [epoch: 4 | batch: 4300/5005 ] | Loss: 1.277 | Acc: 69.589% (766210/1101056)
+01/06/2023 20:48:20 - INFO - __main__ -   test: [epoch: 4 | batch: 4400/5005 ] | Loss: 1.276 | Acc: 69.606% (784216/1126656)
+01/06/2023 20:50:05 - INFO - __main__ -   test: [epoch: 4 | batch: 4500/5005 ] | Loss: 1.276 | Acc: 69.609% (802075/1152256)
+01/06/2023 20:51:51 - INFO - __main__ -   test: [epoch: 4 | batch: 4600/5005 ] | Loss: 1.276 | Acc: 69.608% (819880/1177856)
+01/06/2023 20:53:36 - INFO - __main__ -   test: [epoch: 4 | batch: 4700/5005 ] | Loss: 1.276 | Acc: 69.604% (837657/1203456)
+01/06/2023 20:55:21 - INFO - __main__ -   test: [epoch: 4 | batch: 4800/5005 ] | Loss: 1.276 | Acc: 69.603% (855463/1229056)
+01/06/2023 20:57:07 - INFO - __main__ -   test: [epoch: 4 | batch: 4900/5005 ] | Loss: 1.276 | Acc: 69.598% (873213/1254656)
+01/06/2023 20:58:53 - INFO - __main__ -   test: [epoch: 4 | batch: 5000/5005 ] | Loss: 1.276 | Acc: 69.596% (891010/1280256)
+01/06/2023 20:58:57 - INFO - __main__ -   Saving Checkpoint
+01/06/2023 20:58:58 - INFO - __main__ -   test: [batch: 0/196 ] | Loss: 0.686 | Acc: 81.250% (208/256)/ 96.094% (246/256)
+01/06/2023 20:58:59 - INFO - __main__ -   test: [batch: 1/196 ] | Loss: 0.770 | Acc: 80.664% (413/512)/ 94.336% (483/512)
+01/06/2023 20:59:01 - INFO - __main__ -   test: [batch: 2/196 ] | Loss: 0.640 | Acc: 83.854% (644/768)/ 95.443% (733/768)
+01/06/2023 20:59:02 - INFO - __main__ -   test: [batch: 3/196 ] | Loss: 0.598 | Acc: 85.059% (871/1024)/ 95.508% (978/1024)
+01/06/2023 20:59:03 - INFO - __main__ -   test: [batch: 4/196 ] | Loss: 0.585 | Acc: 85.859% (1099/1280)/ 95.547% (1223/1280)
+01/06/2023 20:59:04 - INFO - __main__ -   test: [batch: 5/196 ] | Loss: 0.638 | Acc: 84.831% (1303/1536)/ 95.117% (1461/1536)
+01/06/2023 20:59:05 - INFO - __main__ -   test: [batch: 6/196 ] | Loss: 0.755 | Acc: 81.975% (1469/1792)/ 94.029% (1685/1792)
+01/06/2023 20:59:06 - INFO - __main__ -   test: [batch: 7/196 ] | Loss: 0.797 | Acc: 80.420% (1647/2048)/ 93.848% (1922/2048)
+01/06/2023 20:59:07 - INFO - __main__ -   test: [batch: 8/196 ] | Loss: 0.842 | Acc: 79.688% (1836/2304)/ 93.186% (2147/2304)
+01/06/2023 20:59:07 - INFO - __main__ -   test: [batch: 9/196 ] | Loss: 0.873 | Acc: 78.750% (2016/2560)/ 92.930% (2379/2560)
+01/06/2023 20:59:08 - INFO - __main__ -   test: [batch: 10/196 ] | Loss: 0.907 | Acc: 77.592% (2185/2816)/ 92.685% (2610/2816)
+01/06/2023 20:59:09 - INFO - __main__ -   test: [batch: 11/196 ] | Loss: 0.966 | Acc: 76.172% (2340/3072)/ 92.285% (2835/3072)
+01/06/2023 20:59:10 - INFO - __main__ -   test: [batch: 12/196 ] | Loss: 1.014 | Acc: 74.880% (2492/3328)/ 91.647% (3050/3328)
+01/06/2023 20:59:11 - INFO - __main__ -   test: [batch: 13/196 ] | Loss: 1.020 | Acc: 74.302% (2663/3584)/ 91.490% (3279/3584)
+01/06/2023 20:59:12 - INFO - __main__ -   test: [batch: 14/196 ] | Loss: 1.016 | Acc: 74.193% (2849/3840)/ 91.797% (3525/3840)
+01/06/2023 20:59:13 - INFO - __main__ -   test: [batch: 15/196 ] | Loss: 1.024 | Acc: 74.219% (3040/4096)/ 91.675% (3755/4096)
+01/06/2023 20:59:13 - INFO - __main__ -   test: [batch: 16/196 ] | Loss: 0.998 | Acc: 74.885% (3259/4352)/ 91.889% (3999/4352)
+01/06/2023 20:59:14 - INFO - __main__ -   test: [batch: 17/196 ] | Loss: 0.964 | Acc: 75.781% (3492/4608)/ 92.166% (4247/4608)
+01/06/2023 20:59:15 - INFO - __main__ -   test: [batch: 18/196 ] | Loss: 0.940 | Acc: 76.377% (3715/4864)/ 92.414% (4495/4864)
+01/06/2023 20:59:16 - INFO - __main__ -   test: [batch: 19/196 ] | Loss: 0.934 | Acc: 76.543% (3919/5120)/ 92.402% (4731/5120)
+01/06/2023 20:59:17 - INFO - __main__ -   test: [batch: 20/196 ] | Loss: 0.936 | Acc: 76.711% (4124/5376)/ 92.262% (4960/5376)
+01/06/2023 20:59:18 - INFO - __main__ -   test: [batch: 21/196 ] | Loss: 0.937 | Acc: 76.634% (4316/5632)/ 92.259% (5196/5632)
+01/06/2023 20:59:19 - INFO - __main__ -   test: [batch: 22/196 ] | Loss: 0.943 | Acc: 76.630% (4512/5888)/ 92.188% (5428/5888)
+01/06/2023 20:59:19 - INFO - __main__ -   test: [batch: 23/196 ] | Loss: 0.955 | Acc: 76.286% (4687/6144)/ 92.074% (5657/6144)
+01/06/2023 20:59:20 - INFO - __main__ -   test: [batch: 24/196 ] | Loss: 0.967 | Acc: 76.031% (4866/6400)/ 91.891% (5881/6400)
+01/06/2023 20:59:21 - INFO - __main__ -   test: [batch: 25/196 ] | Loss: 0.946 | Acc: 76.517% (5093/6656)/ 92.142% (6133/6656)
+01/06/2023 20:59:22 - INFO - __main__ -   test: [batch: 26/196 ] | Loss: 0.931 | Acc: 76.837% (5311/6912)/ 92.303% (6380/6912)
+01/06/2023 20:59:23 - INFO - __main__ -   test: [batch: 27/196 ] | Loss: 0.915 | Acc: 77.232% (5536/7168)/ 92.425% (6625/7168)
+01/06/2023 20:59:24 - INFO - __main__ -   test: [batch: 28/196 ] | Loss: 0.900 | Acc: 77.627% (5763/7424)/ 92.511% (6868/7424)
+01/06/2023 20:59:25 - INFO - __main__ -   test: [batch: 29/196 ] | Loss: 0.897 | Acc: 77.617% (5961/7680)/ 92.552% (7108/7680)
+01/06/2023 20:59:26 - INFO - __main__ -   test: [batch: 30/196 ] | Loss: 0.896 | Acc: 77.646% (6162/7936)/ 92.591% (7348/7936)
+01/06/2023 20:59:27 - INFO - __main__ -   test: [batch: 31/196 ] | Loss: 0.900 | Acc: 77.502% (6349/8192)/ 92.578% (7584/8192)
+01/06/2023 20:59:27 - INFO - __main__ -   test: [batch: 32/196 ] | Loss: 0.919 | Acc: 76.858% (6493/8448)/ 92.472% (7812/8448)
+01/06/2023 20:59:28 - INFO - __main__ -   test: [batch: 33/196 ] | Loss: 0.926 | Acc: 76.700% (6676/8704)/ 92.452% (8047/8704)
+01/06/2023 20:59:29 - INFO - __main__ -   test: [batch: 34/196 ] | Loss: 0.925 | Acc: 76.652% (6868/8960)/ 92.500% (8288/8960)
+01/06/2023 20:59:30 - INFO - __main__ -   test: [batch: 35/196 ] | Loss: 0.924 | Acc: 76.541% (7054/9216)/ 92.589% (8533/9216)
+01/06/2023 20:59:31 - INFO - __main__ -   test: [batch: 36/196 ] | Loss: 0.933 | Acc: 76.130% (7211/9472)/ 92.568% (8768/9472)
+01/06/2023 20:59:32 - INFO - __main__ -   test: [batch: 37/196 ] | Loss: 0.941 | Acc: 75.946% (7388/9728)/ 92.475% (8996/9728)
+01/06/2023 20:59:33 - INFO - __main__ -   test: [batch: 38/196 ] | Loss: 0.939 | Acc: 75.982% (7586/9984)/ 92.578% (9243/9984)
+01/06/2023 20:59:34 - INFO - __main__ -   test: [batch: 39/196 ] | Loss: 0.939 | Acc: 75.850% (7767/10240)/ 92.656% (9488/10240)
+01/06/2023 20:59:35 - INFO - __main__ -   test: [batch: 40/196 ] | Loss: 0.939 | Acc: 75.838% (7960/10496)/ 92.712% (9731/10496)
+01/06/2023 20:59:36 - INFO - __main__ -   test: [batch: 41/196 ] | Loss: 0.938 | Acc: 75.818% (8152/10752)/ 92.708% (9968/10752)
+01/06/2023 20:59:36 - INFO - __main__ -   test: [batch: 42/196 ] | Loss: 0.931 | Acc: 76.008% (8367/11008)/ 92.796% (10215/11008)
+01/06/2023 20:59:37 - INFO - __main__ -   test: [batch: 43/196 ] | Loss: 0.936 | Acc: 75.897% (8549/11264)/ 92.694% (10441/11264)
+01/06/2023 20:59:38 - INFO - __main__ -   test: [batch: 44/196 ] | Loss: 0.939 | Acc: 75.903% (8744/11520)/ 92.708% (10680/11520)
+01/06/2023 20:59:39 - INFO - __main__ -   test: [batch: 45/196 ] | Loss: 0.940 | Acc: 75.730% (8918/11776)/ 92.756% (10923/11776)
+01/06/2023 20:59:40 - INFO - __main__ -   test: [batch: 46/196 ] | Loss: 0.943 | Acc: 75.549% (9090/12032)/ 92.769% (11162/12032)
+01/06/2023 20:59:41 - INFO - __main__ -   test: [batch: 47/196 ] | Loss: 0.942 | Acc: 75.496% (9277/12288)/ 92.830% (11407/12288)
+01/06/2023 20:59:42 - INFO - __main__ -   test: [batch: 48/196 ] | Loss: 0.947 | Acc: 75.175% (9430/12544)/ 92.857% (11648/12544)
+01/06/2023 20:59:42 - INFO - __main__ -   test: [batch: 49/196 ] | Loss: 0.936 | Acc: 75.430% (9655/12800)/ 92.945% (11897/12800)
+01/06/2023 20:59:43 - INFO - __main__ -   test: [batch: 50/196 ] | Loss: 0.930 | Acc: 75.613% (9872/13056)/ 92.999% (12142/13056)
+01/06/2023 20:59:44 - INFO - __main__ -   test: [batch: 51/196 ] | Loss: 0.930 | Acc: 75.496% (10050/13312)/ 93.029% (12384/13312)
+01/06/2023 20:59:45 - INFO - __main__ -   test: [batch: 52/196 ] | Loss: 0.932 | Acc: 75.369% (10226/13568)/ 93.020% (12621/13568)
+01/06/2023 20:59:46 - INFO - __main__ -   test: [batch: 53/196 ] | Loss: 0.935 | Acc: 75.398% (10423/13824)/ 93.012% (12858/13824)
+01/06/2023 20:59:47 - INFO - __main__ -   test: [batch: 54/196 ] | Loss: 0.937 | Acc: 75.305% (10603/14080)/ 93.047% (13101/14080)
+01/06/2023 20:59:48 - INFO - __main__ -   test: [batch: 55/196 ] | Loss: 0.941 | Acc: 75.140% (10772/14336)/ 93.004% (13333/14336)
+01/06/2023 20:59:48 - INFO - __main__ -   test: [batch: 56/196 ] | Loss: 0.939 | Acc: 75.206% (10974/14592)/ 93.065% (13580/14592)
+01/06/2023 20:59:49 - INFO - __main__ -   test: [batch: 57/196 ] | Loss: 0.932 | Acc: 75.418% (11198/14848)/ 93.130% (13828/14848)
+01/06/2023 20:59:50 - INFO - __main__ -   test: [batch: 58/196 ] | Loss: 0.933 | Acc: 75.470% (11399/15104)/ 93.108% (14063/15104)
+01/06/2023 20:59:51 - INFO - __main__ -   test: [batch: 59/196 ] | Loss: 0.937 | Acc: 75.358% (11575/15360)/ 93.125% (14304/15360)
+01/06/2023 20:59:52 - INFO - __main__ -   test: [batch: 60/196 ] | Loss: 0.940 | Acc: 75.314% (11761/15616)/ 93.122% (14542/15616)
+01/06/2023 20:59:53 - INFO - __main__ -   test: [batch: 61/196 ] | Loss: 0.945 | Acc: 75.233% (11941/15872)/ 93.070% (14772/15872)
+01/06/2023 20:59:54 - INFO - __main__ -   test: [batch: 62/196 ] | Loss: 0.939 | Acc: 75.366% (12155/16128)/ 93.130% (15020/16128)
+01/06/2023 20:59:55 - INFO - __main__ -   test: [batch: 63/196 ] | Loss: 0.932 | Acc: 75.574% (12382/16384)/ 93.188% (15268/16384)
+01/06/2023 20:59:55 - INFO - __main__ -   test: [batch: 64/196 ] | Loss: 0.930 | Acc: 75.661% (12590/16640)/ 93.191% (15507/16640)
+01/06/2023 20:59:56 - INFO - __main__ -   test: [batch: 65/196 ] | Loss: 0.926 | Acc: 75.823% (12811/16896)/ 93.229% (15752/16896)
+01/06/2023 20:59:57 - INFO - __main__ -   test: [batch: 66/196 ] | Loss: 0.925 | Acc: 75.880% (13015/17152)/ 93.208% (15987/17152)
+01/06/2023 20:59:58 - INFO - __main__ -   test: [batch: 67/196 ] | Loss: 0.922 | Acc: 75.913% (13215/17408)/ 93.244% (16232/17408)
+01/06/2023 20:59:59 - INFO - __main__ -   test: [batch: 68/196 ] | Loss: 0.918 | Acc: 75.957% (13417/17664)/ 93.297% (16480/17664)
+01/06/2023 21:00:00 - INFO - __main__ -   test: [batch: 69/196 ] | Loss: 0.925 | Acc: 75.792% (13582/17920)/ 93.237% (16708/17920)
+01/06/2023 21:00:01 - INFO - __main__ -   test: [batch: 70/196 ] | Loss: 0.924 | Acc: 75.836% (13784/18176)/ 93.249% (16949/18176)
+01/06/2023 21:00:02 - INFO - __main__ -   test: [batch: 71/196 ] | Loss: 0.921 | Acc: 75.939% (13997/18432)/ 93.262% (17190/18432)
+01/06/2023 21:00:02 - INFO - __main__ -   test: [batch: 72/196 ] | Loss: 0.924 | Acc: 75.872% (14179/18688)/ 93.220% (17421/18688)
+01/06/2023 21:00:03 - INFO - __main__ -   test: [batch: 73/196 ] | Loss: 0.925 | Acc: 75.882% (14375/18944)/ 93.201% (17656/18944)
+01/06/2023 21:00:04 - INFO - __main__ -   test: [batch: 74/196 ] | Loss: 0.929 | Acc: 75.745% (14543/19200)/ 93.182% (17891/19200)
+01/06/2023 21:00:05 - INFO - __main__ -   test: [batch: 75/196 ] | Loss: 0.927 | Acc: 75.792% (14746/19456)/ 93.200% (18133/19456)
+01/06/2023 21:00:06 - INFO - __main__ -   test: [batch: 76/196 ] | Loss: 0.926 | Acc: 75.842% (14950/19712)/ 93.197% (18371/19712)
+01/06/2023 21:00:07 - INFO - __main__ -   test: [batch: 77/196 ] | Loss: 0.929 | Acc: 75.851% (15146/19968)/ 93.164% (18603/19968)
+01/06/2023 21:00:07 - INFO - __main__ -   test: [batch: 78/196 ] | Loss: 0.935 | Acc: 75.692% (15308/20224)/ 93.087% (18826/20224)
+01/06/2023 21:00:08 - INFO - __main__ -   test: [batch: 79/196 ] | Loss: 0.936 | Acc: 75.664% (15496/20480)/ 93.071% (19061/20480)
+01/06/2023 21:00:09 - INFO - __main__ -   test: [batch: 80/196 ] | Loss: 0.945 | Acc: 75.502% (15656/20736)/ 92.964% (19277/20736)
+01/06/2023 21:00:10 - INFO - __main__ -   test: [batch: 81/196 ] | Loss: 0.956 | Acc: 75.286% (15804/20992)/ 92.835% (19488/20992)
+01/06/2023 21:00:11 - INFO - __main__ -   test: [batch: 82/196 ] | Loss: 0.959 | Acc: 75.216% (15982/21248)/ 92.785% (19715/21248)
+01/06/2023 21:00:12 - INFO - __main__ -   test: [batch: 83/196 ] | Loss: 0.962 | Acc: 75.205% (16172/21504)/ 92.755% (19946/21504)
+01/06/2023 21:00:13 - INFO - __main__ -   test: [batch: 84/196 ] | Loss: 0.967 | Acc: 75.092% (16340/21760)/ 92.707% (20173/21760)
+01/06/2023 21:00:14 - INFO - __main__ -   test: [batch: 85/196 ] | Loss: 0.975 | Acc: 74.918% (16494/22016)/ 92.596% (20386/22016)
+01/06/2023 21:00:14 - INFO - __main__ -   test: [batch: 86/196 ] | Loss: 0.979 | Acc: 74.780% (16655/22272)/ 92.556% (20614/22272)
+01/06/2023 21:00:15 - INFO - __main__ -   test: [batch: 87/196 ] | Loss: 0.984 | Acc: 74.676% (16823/22528)/ 92.472% (20832/22528)
+01/06/2023 21:00:16 - INFO - __main__ -   test: [batch: 88/196 ] | Loss: 0.991 | Acc: 74.522% (16979/22784)/ 92.372% (21046/22784)
+01/06/2023 21:00:17 - INFO - __main__ -   test: [batch: 89/196 ] | Loss: 0.997 | Acc: 74.418% (17146/23040)/ 92.266% (21258/23040)
+01/06/2023 21:00:18 - INFO - __main__ -   test: [batch: 90/196 ] | Loss: 1.011 | Acc: 74.133% (17270/23296)/ 92.106% (21457/23296)
+01/06/2023 21:00:19 - INFO - __main__ -   test: [batch: 91/196 ] | Loss: 1.016 | Acc: 74.015% (17432/23552)/ 92.022% (21673/23552)
+01/06/2023 21:00:20 - INFO - __main__ -   test: [batch: 92/196 ] | Loss: 1.016 | Acc: 74.072% (17635/23808)/ 92.003% (21904/23808)
+01/06/2023 21:00:21 - INFO - __main__ -   test: [batch: 93/196 ] | Loss: 1.026 | Acc: 73.895% (17782/24064)/ 91.868% (22107/24064)
+01/06/2023 21:00:21 - INFO - __main__ -   test: [batch: 94/196 ] | Loss: 1.030 | Acc: 73.717% (17928/24320)/ 91.834% (22334/24320)
+01/06/2023 21:00:22 - INFO - __main__ -   test: [batch: 95/196 ] | Loss: 1.040 | Acc: 73.592% (18086/24576)/ 91.724% (22542/24576)
+01/06/2023 21:00:23 - INFO - __main__ -   test: [batch: 96/196 ] | Loss: 1.047 | Acc: 73.454% (18240/24832)/ 91.620% (22751/24832)
+01/06/2023 21:00:24 - INFO - __main__ -   test: [batch: 97/196 ] | Loss: 1.056 | Acc: 73.342% (18400/25088)/ 91.502% (22956/25088)
+01/06/2023 21:00:25 - INFO - __main__ -   test: [batch: 98/196 ] | Loss: 1.066 | Acc: 73.153% (18540/25344)/ 91.387% (23161/25344)
+01/06/2023 21:00:26 - INFO - __main__ -   test: [batch: 99/196 ] | Loss: 1.068 | Acc: 73.066% (18705/25600)/ 91.371% (23391/25600)
+01/06/2023 21:00:27 - INFO - __main__ -   test: [batch: 100/196 ] | Loss: 1.074 | Acc: 72.900% (18849/25856)/ 91.310% (23609/25856)
+01/06/2023 21:00:28 - INFO - __main__ -   test: [batch: 101/196 ] | Loss: 1.076 | Acc: 72.886% (19032/26112)/ 91.291% (23838/26112)
+01/06/2023 21:00:29 - INFO - __main__ -   test: [batch: 102/196 ] | Loss: 1.080 | Acc: 72.759% (19185/26368)/ 91.251% (24061/26368)
+01/06/2023 21:00:29 - INFO - __main__ -   test: [batch: 103/196 ] | Loss: 1.085 | Acc: 72.675% (19349/26624)/ 91.196% (24280/26624)
+01/06/2023 21:00:30 - INFO - __main__ -   test: [batch: 104/196 ] | Loss: 1.086 | Acc: 72.641% (19526/26880)/ 91.187% (24511/26880)
+01/06/2023 21:00:31 - INFO - __main__ -   test: [batch: 105/196 ] | Loss: 1.092 | Acc: 72.535% (19683/27136)/ 91.078% (24715/27136)
+01/06/2023 21:00:32 - INFO - __main__ -   test: [batch: 106/196 ] | Loss: 1.094 | Acc: 72.503% (19860/27392)/ 91.045% (24939/27392)
+01/06/2023 21:00:33 - INFO - __main__ -   test: [batch: 107/196 ] | Loss: 1.096 | Acc: 72.486% (20041/27648)/ 91.037% (25170/27648)
+01/06/2023 21:00:34 - INFO - __main__ -   test: [batch: 108/196 ] | Loss: 1.098 | Acc: 72.470% (20222/27904)/ 91.001% (25393/27904)
+01/06/2023 21:00:35 - INFO - __main__ -   test: [batch: 109/196 ] | Loss: 1.100 | Acc: 72.436% (20398/28160)/ 90.973% (25618/28160)
+01/06/2023 21:00:35 - INFO - __main__ -   test: [batch: 110/196 ] | Loss: 1.100 | Acc: 72.449% (20587/28416)/ 90.959% (25847/28416)
+01/06/2023 21:00:36 - INFO - __main__ -   test: [batch: 111/196 ] | Loss: 1.098 | Acc: 72.513% (20791/28672)/ 90.981% (26086/28672)
+01/06/2023 21:00:37 - INFO - __main__ -   test: [batch: 112/196 ] | Loss: 1.097 | Acc: 72.553% (20988/28928)/ 90.978% (26318/28928)
+01/06/2023 21:00:38 - INFO - __main__ -   test: [batch: 113/196 ] | Loss: 1.098 | Acc: 72.526% (21166/29184)/ 90.968% (26548/29184)
+01/06/2023 21:00:39 - INFO - __main__ -   test: [batch: 114/196 ] | Loss: 1.106 | Acc: 72.374% (21307/29440)/ 90.842% (26744/29440)
+01/06/2023 21:00:40 - INFO - __main__ -   test: [batch: 115/196 ] | Loss: 1.110 | Acc: 72.266% (21460/29696)/ 90.766% (26954/29696)
+01/06/2023 21:00:41 - INFO - __main__ -   test: [batch: 116/196 ] | Loss: 1.113 | Acc: 72.229% (21634/29952)/ 90.728% (27175/29952)
+01/06/2023 21:00:42 - INFO - __main__ -   test: [batch: 117/196 ] | Loss: 1.120 | Acc: 72.093% (21778/30208)/ 90.642% (27381/30208)
+01/06/2023 21:00:43 - INFO - __main__ -   test: [batch: 118/196 ] | Loss: 1.118 | Acc: 72.164% (21984/30464)/ 90.638% (27612/30464)
+01/06/2023 21:00:44 - INFO - __main__ -   test: [batch: 119/196 ] | Loss: 1.117 | Acc: 72.236% (22191/30720)/ 90.645% (27846/30720)
+01/06/2023 21:00:44 - INFO - __main__ -   test: [batch: 120/196 ] | Loss: 1.123 | Acc: 72.117% (22339/30976)/ 90.557% (28051/30976)
+01/06/2023 21:00:45 - INFO - __main__ -   test: [batch: 121/196 ] | Loss: 1.133 | Acc: 71.869% (22446/31232)/ 90.442% (28247/31232)
+01/06/2023 21:00:46 - INFO - __main__ -   test: [batch: 122/196 ] | Loss: 1.133 | Acc: 71.881% (22634/31488)/ 90.415% (28470/31488)
+01/06/2023 21:00:47 - INFO - __main__ -   test: [batch: 123/196 ] | Loss: 1.142 | Acc: 71.746% (22775/31744)/ 90.285% (28660/31744)
+01/06/2023 21:00:48 - INFO - __main__ -   test: [batch: 124/196 ] | Loss: 1.145 | Acc: 71.597% (22911/32000)/ 90.263% (28884/32000)
+01/06/2023 21:00:49 - INFO - __main__ -   test: [batch: 125/196 ] | Loss: 1.147 | Acc: 71.556% (23081/32256)/ 90.247% (29110/32256)
+01/06/2023 21:00:50 - INFO - __main__ -   test: [batch: 126/196 ] | Loss: 1.148 | Acc: 71.552% (23263/32512)/ 90.213% (29330/32512)
+01/06/2023 21:00:51 - INFO - __main__ -   test: [batch: 127/196 ] | Loss: 1.155 | Acc: 71.457% (23415/32768)/ 90.118% (29530/32768)
+01/06/2023 21:00:51 - INFO - __main__ -   test: [batch: 128/196 ] | Loss: 1.159 | Acc: 71.342% (23560/33024)/ 90.089% (29751/33024)
+01/06/2023 21:00:52 - INFO - __main__ -   test: [batch: 129/196 ] | Loss: 1.163 | Acc: 71.232% (23706/33280)/ 90.063% (29973/33280)
+01/06/2023 21:00:53 - INFO - __main__ -   test: [batch: 130/196 ] | Loss: 1.162 | Acc: 71.261% (23898/33536)/ 90.094% (30214/33536)
+01/06/2023 21:00:54 - INFO - __main__ -   test: [batch: 131/196 ] | Loss: 1.164 | Acc: 71.209% (24063/33792)/ 90.057% (30432/33792)
+01/06/2023 21:00:55 - INFO - __main__ -   test: [batch: 132/196 ] | Loss: 1.169 | Acc: 71.164% (24230/34048)/ 89.991% (30640/34048)
+01/06/2023 21:00:56 - INFO - __main__ -   test: [batch: 133/196 ] | Loss: 1.169 | Acc: 71.161% (24411/34304)/ 89.981% (30867/34304)
+01/06/2023 21:00:56 - INFO - __main__ -   test: [batch: 134/196 ] | Loss: 1.171 | Acc: 71.097% (24571/34560)/ 89.965% (31092/34560)
+01/06/2023 21:00:57 - INFO - __main__ -   test: [batch: 135/196 ] | Loss: 1.174 | Acc: 71.031% (24730/34816)/ 89.939% (31313/34816)
+01/06/2023 21:00:58 - INFO - __main__ -   test: [batch: 136/196 ] | Loss: 1.175 | Acc: 70.994% (24899/35072)/ 89.941% (31544/35072)
+01/06/2023 21:00:59 - INFO - __main__ -   test: [batch: 137/196 ] | Loss: 1.177 | Acc: 70.955% (25067/35328)/ 89.937% (31773/35328)
+01/06/2023 21:01:00 - INFO - __main__ -   test: [batch: 138/196 ] | Loss: 1.180 | Acc: 70.877% (25221/35584)/ 89.906% (31992/35584)
+01/06/2023 21:01:01 - INFO - __main__ -   test: [batch: 139/196 ] | Loss: 1.180 | Acc: 70.896% (25409/35840)/ 89.894% (32218/35840)
+01/06/2023 21:01:01 - INFO - __main__ -   test: [batch: 140/196 ] | Loss: 1.182 | Acc: 70.869% (25581/36096)/ 89.871% (32440/36096)
+01/06/2023 21:01:02 - INFO - __main__ -   test: [batch: 141/196 ] | Loss: 1.181 | Acc: 70.887% (25769/36352)/ 89.863% (32667/36352)
+01/06/2023 21:01:03 - INFO - __main__ -   test: [batch: 142/196 ] | Loss: 1.189 | Acc: 70.796% (25917/36608)/ 89.740% (32852/36608)
+01/06/2023 21:01:04 - INFO - __main__ -   test: [batch: 143/196 ] | Loss: 1.191 | Acc: 70.738% (26077/36864)/ 89.703% (33068/36864)
+01/06/2023 21:01:05 - INFO - __main__ -   test: [batch: 144/196 ] | Loss: 1.193 | Acc: 70.690% (26240/37120)/ 89.647% (33277/37120)
+01/06/2023 21:01:06 - INFO - __main__ -   test: [batch: 145/196 ] | Loss: 1.196 | Acc: 70.599% (26387/37376)/ 89.603% (33490/37376)
+01/06/2023 21:01:07 - INFO - __main__ -   test: [batch: 146/196 ] | Loss: 1.199 | Acc: 70.512% (26535/37632)/ 89.578% (33710/37632)
+01/06/2023 21:01:08 - INFO - __main__ -   test: [batch: 147/196 ] | Loss: 1.200 | Acc: 70.489% (26707/37888)/ 89.564% (33934/37888)
+01/06/2023 21:01:09 - INFO - __main__ -   test: [batch: 148/196 ] | Loss: 1.203 | Acc: 70.457% (26875/38144)/ 89.519% (34146/38144)
+01/06/2023 21:01:09 - INFO - __main__ -   test: [batch: 149/196 ] | Loss: 1.206 | Acc: 70.393% (27031/38400)/ 89.471% (34357/38400)
+01/06/2023 21:01:10 - INFO - __main__ -   test: [batch: 150/196 ] | Loss: 1.207 | Acc: 70.403% (27215/38656)/ 89.451% (34578/38656)
+01/06/2023 21:01:11 - INFO - __main__ -   test: [batch: 151/196 ] | Loss: 1.210 | Acc: 70.351% (27375/38912)/ 89.417% (34794/38912)
+01/06/2023 21:01:12 - INFO - __main__ -   test: [batch: 152/196 ] | Loss: 1.209 | Acc: 70.335% (27549/39168)/ 89.428% (35027/39168)
+01/06/2023 21:01:13 - INFO - __main__ -   test: [batch: 153/196 ] | Loss: 1.213 | Acc: 70.267% (27702/39424)/ 89.364% (35231/39424)
+01/06/2023 21:01:14 - INFO - __main__ -   test: [batch: 154/196 ] | Loss: 1.215 | Acc: 70.224% (27865/39680)/ 89.340% (35450/39680)
+01/06/2023 21:01:15 - INFO - __main__ -   test: [batch: 155/196 ] | Loss: 1.218 | Acc: 70.190% (28031/39936)/ 89.293% (35660/39936)
+01/06/2023 21:01:15 - INFO - __main__ -   test: [batch: 156/196 ] | Loss: 1.217 | Acc: 70.218% (28222/40192)/ 89.301% (35892/40192)
+01/06/2023 21:01:16 - INFO - __main__ -   test: [batch: 157/196 ] | Loss: 1.220 | Acc: 70.186% (28389/40448)/ 89.265% (36106/40448)
+01/06/2023 21:01:17 - INFO - __main__ -   test: [batch: 158/196 ] | Loss: 1.225 | Acc: 70.057% (28516/40704)/ 89.198% (36307/40704)
+01/06/2023 21:01:18 - INFO - __main__ -   test: [batch: 159/196 ] | Loss: 1.228 | Acc: 70.024% (28682/40960)/ 89.189% (36532/40960)
+01/06/2023 21:01:19 - INFO - __main__ -   test: [batch: 160/196 ] | Loss: 1.227 | Acc: 70.060% (28876/41216)/ 89.194% (36762/41216)
+01/06/2023 21:01:20 - INFO - __main__ -   test: [batch: 161/196 ] | Loss: 1.231 | Acc: 69.989% (29026/41472)/ 89.157% (36975/41472)
+01/06/2023 21:01:21 - INFO - __main__ -   test: [batch: 162/196 ] | Loss: 1.232 | Acc: 69.960% (29193/41728)/ 89.130% (37192/41728)
+01/06/2023 21:01:22 - INFO - __main__ -   test: [batch: 163/196 ] | Loss: 1.240 | Acc: 69.755% (29286/41984)/ 89.012% (37371/41984)
+01/06/2023 21:01:22 - INFO - __main__ -   test: [batch: 164/196 ] | Loss: 1.243 | Acc: 69.690% (29437/42240)/ 88.968% (37580/42240)
+01/06/2023 21:01:23 - INFO - __main__ -   test: [batch: 165/196 ] | Loss: 1.246 | Acc: 69.623% (29587/42496)/ 88.938% (37795/42496)
+01/06/2023 21:01:24 - INFO - __main__ -   test: [batch: 166/196 ] | Loss: 1.244 | Acc: 69.634% (29770/42752)/ 88.953% (38029/42752)
+01/06/2023 21:01:25 - INFO - __main__ -   test: [batch: 167/196 ] | Loss: 1.247 | Acc: 69.594% (29931/43008)/ 88.902% (38235/43008)
+01/06/2023 21:01:26 - INFO - __main__ -   test: [batch: 168/196 ] | Loss: 1.248 | Acc: 69.571% (30099/43264)/ 88.903% (38463/43264)
+01/06/2023 21:01:26 - INFO - __main__ -   test: [batch: 169/196 ] | Loss: 1.251 | Acc: 69.508% (30250/43520)/ 88.869% (38676/43520)
+01/06/2023 21:01:27 - INFO - __main__ -   test: [batch: 170/196 ] | Loss: 1.249 | Acc: 69.536% (30440/43776)/ 88.889% (38912/43776)
+01/06/2023 21:01:28 - INFO - __main__ -   test: [batch: 171/196 ] | Loss: 1.251 | Acc: 69.477% (30592/44032)/ 88.865% (39129/44032)
+01/06/2023 21:01:29 - INFO - __main__ -   test: [batch: 172/196 ] | Loss: 1.255 | Acc: 69.409% (30740/44288)/ 88.810% (39332/44288)
+01/06/2023 21:01:30 - INFO - __main__ -   test: [batch: 173/196 ] | Loss: 1.256 | Acc: 69.417% (30921/44544)/ 88.795% (39553/44544)
+01/06/2023 21:01:31 - INFO - __main__ -   test: [batch: 174/196 ] | Loss: 1.257 | Acc: 69.382% (31083/44800)/ 88.788% (39777/44800)
+01/06/2023 21:01:32 - INFO - __main__ -   test: [batch: 175/196 ] | Loss: 1.259 | Acc: 69.338% (31241/45056)/ 88.774% (39998/45056)
+01/06/2023 21:01:33 - INFO - __main__ -   test: [batch: 176/196 ] | Loss: 1.263 | Acc: 69.293% (31398/45312)/ 88.725% (40203/45312)
+01/06/2023 21:01:33 - INFO - __main__ -   test: [batch: 177/196 ] | Loss: 1.269 | Acc: 69.121% (31497/45568)/ 88.650% (40396/45568)
+01/06/2023 21:01:34 - INFO - __main__ -   test: [batch: 178/196 ] | Loss: 1.267 | Acc: 69.171% (31697/45824)/ 88.676% (40635/45824)
+01/06/2023 21:01:35 - INFO - __main__ -   test: [batch: 179/196 ] | Loss: 1.267 | Acc: 69.214% (31894/46080)/ 88.683% (40865/46080)
+01/06/2023 21:01:36 - INFO - __main__ -   test: [batch: 180/196 ] | Loss: 1.268 | Acc: 69.171% (32051/46336)/ 88.691% (41096/46336)
+01/06/2023 21:01:37 - INFO - __main__ -   test: [batch: 181/196 ] | Loss: 1.268 | Acc: 69.151% (32219/46592)/ 88.683% (41319/46592)
+01/06/2023 21:01:38 - INFO - __main__ -   test: [batch: 182/196 ] | Loss: 1.267 | Acc: 69.181% (32410/46848)/ 88.683% (41546/46848)
+01/06/2023 21:01:39 - INFO - __main__ -   test: [batch: 183/196 ] | Loss: 1.264 | Acc: 69.236% (32613/47104)/ 88.723% (41792/47104)
+01/06/2023 21:01:39 - INFO - __main__ -   test: [batch: 184/196 ] | Loss: 1.263 | Acc: 69.259% (32801/47360)/ 88.746% (42030/47360)
+01/06/2023 21:01:40 - INFO - __main__ -   test: [batch: 185/196 ] | Loss: 1.262 | Acc: 69.256% (32977/47616)/ 88.771% (42269/47616)
+01/06/2023 21:01:41 - INFO - __main__ -   test: [batch: 186/196 ] | Loss: 1.258 | Acc: 69.352% (33200/47872)/ 88.810% (42515/47872)
+01/06/2023 21:01:42 - INFO - __main__ -   test: [batch: 187/196 ] | Loss: 1.260 | Acc: 69.319% (33362/48128)/ 88.770% (42723/48128)
+01/06/2023 21:01:43 - INFO - __main__ -   test: [batch: 188/196 ] | Loss: 1.261 | Acc: 69.308% (33534/48384)/ 88.752% (42942/48384)
+01/06/2023 21:01:44 - INFO - __main__ -   test: [batch: 189/196 ] | Loss: 1.265 | Acc: 69.200% (33659/48640)/ 88.717% (43152/48640)
+01/06/2023 21:01:44 - INFO - __main__ -   test: [batch: 190/196 ] | Loss: 1.265 | Acc: 69.184% (33828/48896)/ 88.723% (43382/48896)
+01/06/2023 21:01:45 - INFO - __main__ -   test: [batch: 191/196 ] | Loss: 1.267 | Acc: 69.163% (33995/49152)/ 88.719% (43607/49152)
+01/06/2023 21:01:46 - INFO - __main__ -   test: [batch: 192/196 ] | Loss: 1.263 | Acc: 69.244% (34212/49408)/ 88.759% (43854/49408)
+01/06/2023 21:01:47 - INFO - __main__ -   test: [batch: 193/196 ] | Loss: 1.259 | Acc: 69.352% (34443/49664)/ 88.805% (44104/49664)
+01/06/2023 21:01:48 - INFO - __main__ -   test: [batch: 194/196 ] | Loss: 1.256 | Acc: 69.417% (34653/49920)/ 88.838% (44348/49920)
+01/06/2023 21:01:49 - INFO - __main__ -   test: [batch: 195/196 ] | Loss: 1.262 | Acc: 69.362% (34681/50000)/ 88.816% (44408/50000)
+01/06/2023 21:01:49 - INFO - __main__ -   Final accuracy: 69.362

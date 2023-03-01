@@ -1,0 +1,1 @@
+write_project_tcl -target_proj_dir . -force -all_properties -no_copy_sources -use_bd_files -internal msd_hw_ults.tcl

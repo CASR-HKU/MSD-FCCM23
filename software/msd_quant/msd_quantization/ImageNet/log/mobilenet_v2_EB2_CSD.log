@@ -1,0 +1,1405 @@
+/home/jjc/miniconda3/envs/ant_quant/lib/python3.8/site-packages/torch/distributed/launch.py:178: FutureWarning: The module torch.distributed.launch is deprecated
+and will be removed in future. Use torchrun.
+Note that --use_env is set by default in torchrun.
+If your script expects `--local_rank` argument to be set, please
+change it to read from `os.environ['LOCAL_RANK']` instead. See 
+https://pytorch.org/docs/stable/distributed.html#launch-utility for 
+further instructions
+
+  warnings.warn(
+Namespace(a_low=75, a_up=150, abit=8, batch_size=128, ckpt_path=None, dataset='imagenet', dataset_path='/home/mnt/data/imagenet', disable_input_quantization=False, disable_quant=False, eb='csd_eb2', epoch=5, layer_4bit_l=None, layer_8bit_l=None, layer_8bit_n=0, local_rank=0, lr=0.0005, mode='int', model='mobilenet_v2', percent=100, ptq=False, resume=False, search=False, tag='', train=True, w_low=75, w_up=150, wbit=8)
+01/12/2023 15:34:32 - INFO - __main__ -   output/mobilenet_v2_imagenet/int_W8A8_16126/gpu_0
+01/12/2023 15:34:32 - INFO - __main__ -   Namespace(a_low=75, a_up=150, abit=8, batch_size=128, ckpt_path=None, dataset='imagenet', dataset_path='/home/mnt/data/imagenet', disable_input_quantization=False, disable_quant=False, eb='csd_eb2', epoch=5, layer_4bit_l=None, layer_8bit_l=None, layer_8bit_n=0, local_rank=0, lr=0.0005, mode='int', model='mobilenet_v2', percent=100, ptq=False, resume=False, search=False, tag='', train=True, w_low=75, w_up=150, wbit=8)
+01/12/2023 15:34:32 - INFO - __main__ -   ==> Preparing data..
+01/12/2023 15:34:35 - INFO - __main__ -   ==> Setting quantizer..
+Namespace(a_low=75, a_up=150, abit=8, batch_size=128, ckpt_path=None, dataset='imagenet', dataset_path='/home/mnt/data/imagenet', disable_input_quantization=False, disable_quant=False, eb='csd_eb2', epoch=5, layer_4bit_l=None, layer_8bit_l=None, layer_8bit_n=0, local_rank=0, lr=0.0005, mode='int', model='mobilenet_v2', percent=100, ptq=False, resume=False, search=False, tag='', train=True, w_low=75, w_up=150, wbit=8)
+01/12/2023 15:34:35 - INFO - __main__ -   Namespace(a_low=75, a_up=150, abit=8, batch_size=128, ckpt_path=None, dataset='imagenet', dataset_path='/home/mnt/data/imagenet', disable_input_quantization=False, disable_quant=False, eb='csd_eb2', epoch=5, layer_4bit_l=None, layer_8bit_l=None, layer_8bit_n=0, local_rank=0, lr=0.0005, mode='int', model='mobilenet_v2', percent=100, ptq=False, resume=False, search=False, tag='', train=True, w_low=75, w_up=150, wbit=8)
+01/12/2023 15:34:35 - INFO - __main__ -   ==> Building model..
+MobileNetV2(
+  (features): Sequential(
+    (0): Sequential(
+      (0): Conv2dQuantizer(
+        (quant_weight): TensorQuantizer()
+        (quant_input): TensorQuantizer()
+      )
+      (1): SyncBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): ReLU6(inplace=True)
+    )
+    (1): InvertedResidual(
+      (conv): Sequential(
+        (0): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (1): Conv2dQuantizer(
+          (quant_weight): TensorQuantizer()
+          (quant_input): TensorQuantizer()
+        )
+        (2): SyncBatchNorm(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (2): InvertedResidual(
+      (conv): Sequential(
+        (0): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (1): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (2): Conv2dQuantizer(
+          (quant_weight): TensorQuantizer()
+          (quant_input): TensorQuantizer()
+        )
+        (3): SyncBatchNorm(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (3): InvertedResidual(
+      (conv): Sequential(
+        (0): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (1): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (2): Conv2dQuantizer(
+          (quant_weight): TensorQuantizer()
+          (quant_input): TensorQuantizer()
+        )
+        (3): SyncBatchNorm(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (4): InvertedResidual(
+      (conv): Sequential(
+        (0): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (1): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(144, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (2): Conv2dQuantizer(
+          (quant_weight): TensorQuantizer()
+          (quant_input): TensorQuantizer()
+        )
+        (3): SyncBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (5): InvertedResidual(
+      (conv): Sequential(
+        (0): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (1): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (2): Conv2dQuantizer(
+          (quant_weight): TensorQuantizer()
+          (quant_input): TensorQuantizer()
+        )
+        (3): SyncBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (6): InvertedResidual(
+      (conv): Sequential(
+        (0): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (1): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (2): Conv2dQuantizer(
+          (quant_weight): TensorQuantizer()
+          (quant_input): TensorQuantizer()
+        )
+        (3): SyncBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (7): InvertedResidual(
+      (conv): Sequential(
+        (0): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (1): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (2): Conv2dQuantizer(
+          (quant_weight): TensorQuantizer()
+          (quant_input): TensorQuantizer()
+        )
+        (3): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (8): InvertedResidual(
+      (conv): Sequential(
+        (0): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (1): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (2): Conv2dQuantizer(
+          (quant_weight): TensorQuantizer()
+          (quant_input): TensorQuantizer()
+        )
+        (3): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (9): InvertedResidual(
+      (conv): Sequential(
+        (0): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (1): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (2): Conv2dQuantizer(
+          (quant_weight): TensorQuantizer()
+          (quant_input): TensorQuantizer()
+        )
+        (3): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (10): InvertedResidual(
+      (conv): Sequential(
+        (0): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (1): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (2): Conv2dQuantizer(
+          (quant_weight): TensorQuantizer()
+          (quant_input): TensorQuantizer()
+        )
+        (3): SyncBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (11): InvertedResidual(
+      (conv): Sequential(
+        (0): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (1): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (2): Conv2dQuantizer(
+          (quant_weight): TensorQuantizer()
+          (quant_input): TensorQuantizer()
+        )
+        (3): SyncBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (12): InvertedResidual(
+      (conv): Sequential(
+        (0): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (1): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (2): Conv2dQuantizer(
+          (quant_weight): TensorQuantizer()
+          (quant_input): TensorQuantizer()
+        )
+        (3): SyncBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (13): InvertedResidual(
+      (conv): Sequential(
+        (0): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (1): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (2): Conv2dQuantizer(
+          (quant_weight): TensorQuantizer()
+          (quant_input): TensorQuantizer()
+        )
+        (3): SyncBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (14): InvertedResidual(
+      (conv): Sequential(
+        (0): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (1): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (2): Conv2dQuantizer(
+          (quant_weight): TensorQuantizer()
+          (quant_input): TensorQuantizer()
+        )
+        (3): SyncBatchNorm(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (15): InvertedResidual(
+      (conv): Sequential(
+        (0): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(960, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (1): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(960, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (2): Conv2dQuantizer(
+          (quant_weight): TensorQuantizer()
+          (quant_input): TensorQuantizer()
+        )
+        (3): SyncBatchNorm(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (16): InvertedResidual(
+      (conv): Sequential(
+        (0): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(960, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (1): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(960, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (2): Conv2dQuantizer(
+          (quant_weight): TensorQuantizer()
+          (quant_input): TensorQuantizer()
+        )
+        (3): SyncBatchNorm(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (17): InvertedResidual(
+      (conv): Sequential(
+        (0): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(960, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (1): Sequential(
+          (0): Conv2dQuantizer(
+            (quant_weight): TensorQuantizer()
+            (quant_input): TensorQuantizer()
+          )
+          (1): SyncBatchNorm(960, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU6(inplace=True)
+        )
+        (2): Conv2dQuantizer(
+          (quant_weight): TensorQuantizer()
+          (quant_input): TensorQuantizer()
+        )
+        (3): SyncBatchNorm(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (18): Sequential(
+      (0): Conv2dQuantizer(
+        (quant_weight): TensorQuantizer()
+        (quant_input): TensorQuantizer()
+      )
+      (1): SyncBatchNorm(1280, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): ReLU6(inplace=True)
+    )
+  )
+  (classifier): Sequential(
+    (0): Dropout(p=0.2, inplace=False)
+    (1): LinearQuantizer(
+      (quant_weight): TensorQuantizer()
+      (quant_input): TensorQuantizer()
+    )
+  )
+)
+01/12/2023 15:34:36 - INFO - __main__ -   {'milestones': Counter({2: 1, 3: 1, 4: 1}), 'gamma': 0.1, 'base_lrs': [0.00025], 'last_epoch': 0, '_step_count': 1, 'verbose': False, '_get_lr_called_within_step': False, '_last_lr': [0.00025]}
+01/12/2023 15:34:36 - INFO - __main__ -   
+Epoch: 0
+Layer quant EB csd_eb2
+int	8-bit 	 features.0.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.0.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.1.conv.0.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.1.conv.0.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.1.conv.1.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.1.conv.1.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.2.conv.0.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.2.conv.0.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.2.conv.1.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.2.conv.1.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.2.conv.2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.2.conv.2.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.3.conv.0.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.3.conv.0.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.3.conv.1.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.3.conv.1.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.3.conv.2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.3.conv.2.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.4.conv.0.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.4.conv.0.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.4.conv.1.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.4.conv.1.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.4.conv.2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.4.conv.2.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.5.conv.0.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.5.conv.0.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.5.conv.1.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.5.conv.1.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.5.conv.2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.5.conv.2.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.6.conv.0.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.6.conv.0.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.6.conv.1.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.6.conv.1.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.6.conv.2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.6.conv.2.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.7.conv.0.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.7.conv.0.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.7.conv.1.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.7.conv.1.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.7.conv.2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.7.conv.2.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.8.conv.0.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.8.conv.0.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.8.conv.1.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.8.conv.1.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.8.conv.2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.8.conv.2.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.9.conv.0.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.9.conv.0.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.9.conv.1.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.9.conv.1.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.9.conv.2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.9.conv.2.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.10.conv.0.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.10.conv.0.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.10.conv.1.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.10.conv.1.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.10.conv.2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.10.conv.2.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.11.conv.0.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.11.conv.0.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.11.conv.1.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.11.conv.1.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.11.conv.2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.11.conv.2.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.12.conv.0.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.12.conv.0.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.12.conv.1.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.12.conv.1.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.12.conv.2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.12.conv.2.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.13.conv.0.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.13.conv.0.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.13.conv.1.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.13.conv.1.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.13.conv.2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.13.conv.2.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.14.conv.0.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.14.conv.0.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.14.conv.1.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.14.conv.1.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.14.conv.2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.14.conv.2.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.15.conv.0.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.15.conv.0.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.15.conv.1.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.15.conv.1.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.15.conv.2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.15.conv.2.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.16.conv.0.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.16.conv.0.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.16.conv.1.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.16.conv.1.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.16.conv.2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.16.conv.2.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.17.conv.0.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.17.conv.0.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.17.conv.1.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.17.conv.1.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.17.conv.2.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.17.conv.2.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 features.18.0.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 features.18.0.quant_input,
+set init to 1
+Layer quant EB csd_eb2
+int	8-bit 	 classifier.1.quant_weight,
+set init to 1
+Layer quant EB abit-1
+int	8-bit 	 classifier.1.quant_input,
+set init to 1
+01/12/2023 15:34:55 - INFO - __main__ -   test: [epoch: 0 | batch: 0/10010 ] | Loss: 1.026 | Acc: 71.094% (91/128)
+01/12/2023 15:35:37 - INFO - __main__ -   test: [epoch: 0 | batch: 100/10010 ] | Loss: 1.212 | Acc: 71.101% (9192/12928)
+01/12/2023 15:36:20 - INFO - __main__ -   test: [epoch: 0 | batch: 200/10010 ] | Loss: 1.195 | Acc: 70.973% (18260/25728)
+01/12/2023 15:37:02 - INFO - __main__ -   test: [epoch: 0 | batch: 300/10010 ] | Loss: 1.206 | Acc: 70.925% (27326/38528)
+01/12/2023 15:37:43 - INFO - __main__ -   test: [epoch: 0 | batch: 400/10010 ] | Loss: 1.217 | Acc: 70.735% (36307/51328)
+01/12/2023 15:38:24 - INFO - __main__ -   test: [epoch: 0 | batch: 500/10010 ] | Loss: 1.219 | Acc: 70.705% (45342/64128)
+01/12/2023 15:39:07 - INFO - __main__ -   test: [epoch: 0 | batch: 600/10010 ] | Loss: 1.222 | Acc: 70.621% (54327/76928)
+01/12/2023 15:39:51 - INFO - __main__ -   test: [epoch: 0 | batch: 700/10010 ] | Loss: 1.221 | Acc: 70.659% (63401/89728)
+01/12/2023 15:40:34 - INFO - __main__ -   test: [epoch: 0 | batch: 800/10010 ] | Loss: 1.223 | Acc: 70.579% (72363/102528)
+01/12/2023 15:41:16 - INFO - __main__ -   test: [epoch: 0 | batch: 900/10010 ] | Loss: 1.222 | Acc: 70.598% (81419/115328)
+01/12/2023 15:41:59 - INFO - __main__ -   test: [epoch: 0 | batch: 1000/10010 ] | Loss: 1.223 | Acc: 70.555% (90401/128128)
+01/12/2023 15:42:39 - INFO - __main__ -   test: [epoch: 0 | batch: 1100/10010 ] | Loss: 1.225 | Acc: 70.554% (99430/140928)
+01/12/2023 15:43:21 - INFO - __main__ -   test: [epoch: 0 | batch: 1200/10010 ] | Loss: 1.227 | Acc: 70.488% (108360/153728)
+01/12/2023 15:44:04 - INFO - __main__ -   test: [epoch: 0 | batch: 1300/10010 ] | Loss: 1.224 | Acc: 70.545% (117478/166528)
+01/12/2023 15:44:46 - INFO - __main__ -   test: [epoch: 0 | batch: 1400/10010 ] | Loss: 1.226 | Acc: 70.511% (126446/179328)
+01/12/2023 15:45:27 - INFO - __main__ -   test: [epoch: 0 | batch: 1500/10010 ] | Loss: 1.223 | Acc: 70.544% (135534/192128)
+01/12/2023 15:46:08 - INFO - __main__ -   test: [epoch: 0 | batch: 1600/10010 ] | Loss: 1.224 | Acc: 70.519% (144514/204928)
+01/12/2023 15:46:50 - INFO - __main__ -   test: [epoch: 0 | batch: 1700/10010 ] | Loss: 1.223 | Acc: 70.539% (153583/217728)
+01/12/2023 15:47:33 - INFO - __main__ -   test: [epoch: 0 | batch: 1800/10010 ] | Loss: 1.221 | Acc: 70.576% (162697/230528)
+01/12/2023 15:48:15 - INFO - __main__ -   test: [epoch: 0 | batch: 1900/10010 ] | Loss: 1.221 | Acc: 70.578% (171737/243328)
+01/12/2023 15:48:57 - INFO - __main__ -   test: [epoch: 0 | batch: 2000/10010 ] | Loss: 1.221 | Acc: 70.578% (180769/256128)
+01/12/2023 15:49:40 - INFO - __main__ -   test: [epoch: 0 | batch: 2100/10010 ] | Loss: 1.221 | Acc: 70.575% (189795/268928)
+01/12/2023 15:50:23 - INFO - __main__ -   test: [epoch: 0 | batch: 2200/10010 ] | Loss: 1.221 | Acc: 70.566% (198803/281728)
+01/12/2023 15:51:04 - INFO - __main__ -   test: [epoch: 0 | batch: 2300/10010 ] | Loss: 1.222 | Acc: 70.551% (207792/294528)
+01/12/2023 15:51:47 - INFO - __main__ -   test: [epoch: 0 | batch: 2400/10010 ] | Loss: 1.222 | Acc: 70.539% (216787/307328)
+01/12/2023 15:52:29 - INFO - __main__ -   test: [epoch: 0 | batch: 2500/10010 ] | Loss: 1.222 | Acc: 70.539% (225815/320128)
+01/12/2023 15:53:10 - INFO - __main__ -   test: [epoch: 0 | batch: 2600/10010 ] | Loss: 1.223 | Acc: 70.520% (234780/332928)
+01/12/2023 15:53:52 - INFO - __main__ -   test: [epoch: 0 | batch: 2700/10010 ] | Loss: 1.222 | Acc: 70.511% (243776/345728)
+01/12/2023 15:54:34 - INFO - __main__ -   test: [epoch: 0 | batch: 2800/10010 ] | Loss: 1.222 | Acc: 70.500% (252761/358528)
+01/12/2023 15:55:14 - INFO - __main__ -   test: [epoch: 0 | batch: 2900/10010 ] | Loss: 1.222 | Acc: 70.504% (261801/371328)
+01/12/2023 15:55:54 - INFO - __main__ -   test: [epoch: 0 | batch: 3000/10010 ] | Loss: 1.222 | Acc: 70.508% (270842/384128)
+01/12/2023 15:56:37 - INFO - __main__ -   test: [epoch: 0 | batch: 3100/10010 ] | Loss: 1.222 | Acc: 70.494% (279810/396928)
+01/12/2023 15:57:19 - INFO - __main__ -   test: [epoch: 0 | batch: 3200/10010 ] | Loss: 1.222 | Acc: 70.495% (288837/409728)
+01/12/2023 15:58:02 - INFO - __main__ -   test: [epoch: 0 | batch: 3300/10010 ] | Loss: 1.222 | Acc: 70.496% (297864/422528)
+01/12/2023 15:58:45 - INFO - __main__ -   test: [epoch: 0 | batch: 3400/10010 ] | Loss: 1.222 | Acc: 70.501% (306910/435328)
+01/12/2023 15:59:27 - INFO - __main__ -   test: [epoch: 0 | batch: 3500/10010 ] | Loss: 1.222 | Acc: 70.511% (315980/448128)
+01/12/2023 16:00:09 - INFO - __main__ -   test: [epoch: 0 | batch: 3600/10010 ] | Loss: 1.222 | Acc: 70.513% (325012/460928)
+01/12/2023 16:00:50 - INFO - __main__ -   test: [epoch: 0 | batch: 3700/10010 ] | Loss: 1.222 | Acc: 70.522% (334082/473728)
+01/12/2023 16:01:34 - INFO - __main__ -   test: [epoch: 0 | batch: 3800/10010 ] | Loss: 1.222 | Acc: 70.520% (343101/486528)
+01/12/2023 16:02:17 - INFO - __main__ -   test: [epoch: 0 | batch: 3900/10010 ] | Loss: 1.222 | Acc: 70.516% (352104/499328)
+01/12/2023 16:02:59 - INFO - __main__ -   test: [epoch: 0 | batch: 4000/10010 ] | Loss: 1.222 | Acc: 70.514% (361123/512128)
+01/12/2023 16:03:40 - INFO - __main__ -   test: [epoch: 0 | batch: 4100/10010 ] | Loss: 1.222 | Acc: 70.512% (370139/524928)
+01/12/2023 16:04:24 - INFO - __main__ -   test: [epoch: 0 | batch: 4200/10010 ] | Loss: 1.222 | Acc: 70.503% (379117/537728)
+01/12/2023 16:05:05 - INFO - __main__ -   test: [epoch: 0 | batch: 4300/10010 ] | Loss: 1.222 | Acc: 70.502% (388136/550528)
+01/12/2023 16:05:49 - INFO - __main__ -   test: [epoch: 0 | batch: 4400/10010 ] | Loss: 1.222 | Acc: 70.507% (397183/563328)
+01/12/2023 16:06:31 - INFO - __main__ -   test: [epoch: 0 | batch: 4500/10010 ] | Loss: 1.222 | Acc: 70.495% (406140/576128)
+01/12/2023 16:07:12 - INFO - __main__ -   test: [epoch: 0 | batch: 4600/10010 ] | Loss: 1.222 | Acc: 70.508% (415243/588928)
+01/12/2023 16:07:56 - INFO - __main__ -   test: [epoch: 0 | batch: 4700/10010 ] | Loss: 1.222 | Acc: 70.491% (424167/601728)
+01/12/2023 16:08:38 - INFO - __main__ -   test: [epoch: 0 | batch: 4800/10010 ] | Loss: 1.222 | Acc: 70.485% (433149/614528)
+01/12/2023 16:09:18 - INFO - __main__ -   test: [epoch: 0 | batch: 4900/10010 ] | Loss: 1.222 | Acc: 70.488% (442191/627328)
+01/12/2023 16:09:58 - INFO - __main__ -   test: [epoch: 0 | batch: 5000/10010 ] | Loss: 1.221 | Acc: 70.510% (451354/640128)
+01/12/2023 16:10:40 - INFO - __main__ -   test: [epoch: 0 | batch: 5100/10010 ] | Loss: 1.221 | Acc: 70.514% (460404/652928)
+01/12/2023 16:11:22 - INFO - __main__ -   test: [epoch: 0 | batch: 5200/10010 ] | Loss: 1.221 | Acc: 70.513% (469424/665728)
+01/12/2023 16:12:03 - INFO - __main__ -   test: [epoch: 0 | batch: 5300/10010 ] | Loss: 1.222 | Acc: 70.510% (478431/678528)
+01/12/2023 16:12:45 - INFO - __main__ -   test: [epoch: 0 | batch: 5400/10010 ] | Loss: 1.222 | Acc: 70.506% (487425/691328)
+01/12/2023 16:13:27 - INFO - __main__ -   test: [epoch: 0 | batch: 5500/10010 ] | Loss: 1.222 | Acc: 70.504% (496441/704128)
+01/12/2023 16:14:10 - INFO - __main__ -   test: [epoch: 0 | batch: 5600/10010 ] | Loss: 1.222 | Acc: 70.519% (505574/716928)
+01/12/2023 16:14:45 - INFO - __main__ -   test: [epoch: 0 | batch: 5700/10010 ] | Loss: 1.221 | Acc: 70.521% (514612/729728)
+01/12/2023 16:15:10 - INFO - __main__ -   test: [epoch: 0 | batch: 5800/10010 ] | Loss: 1.221 | Acc: 70.524% (523658/742528)
+01/12/2023 16:15:34 - INFO - __main__ -   test: [epoch: 0 | batch: 5900/10010 ] | Loss: 1.221 | Acc: 70.521% (532667/755328)
+01/12/2023 16:15:58 - INFO - __main__ -   test: [epoch: 0 | batch: 6000/10010 ] | Loss: 1.222 | Acc: 70.518% (541666/768128)
+01/12/2023 16:16:22 - INFO - __main__ -   test: [epoch: 0 | batch: 6100/10010 ] | Loss: 1.222 | Acc: 70.514% (550663/780928)
+01/12/2023 16:16:45 - INFO - __main__ -   test: [epoch: 0 | batch: 6200/10010 ] | Loss: 1.222 | Acc: 70.514% (559686/793728)
+01/12/2023 16:17:08 - INFO - __main__ -   test: [epoch: 0 | batch: 6300/10010 ] | Loss: 1.222 | Acc: 70.511% (568688/806528)
+01/12/2023 16:17:31 - INFO - __main__ -   test: [epoch: 0 | batch: 6400/10010 ] | Loss: 1.222 | Acc: 70.504% (577657/819328)
+01/12/2023 16:17:55 - INFO - __main__ -   test: [epoch: 0 | batch: 6500/10010 ] | Loss: 1.222 | Acc: 70.503% (586677/832128)
+01/12/2023 16:18:19 - INFO - __main__ -   test: [epoch: 0 | batch: 6600/10010 ] | Loss: 1.222 | Acc: 70.506% (595724/844928)
+01/12/2023 16:18:43 - INFO - __main__ -   test: [epoch: 0 | batch: 6700/10010 ] | Loss: 1.222 | Acc: 70.504% (604734/857728)
+01/12/2023 16:19:06 - INFO - __main__ -   test: [epoch: 0 | batch: 6800/10010 ] | Loss: 1.222 | Acc: 70.504% (613760/870528)
+01/12/2023 16:19:30 - INFO - __main__ -   test: [epoch: 0 | batch: 6900/10010 ] | Loss: 1.222 | Acc: 70.508% (622817/883328)
+01/12/2023 16:19:54 - INFO - __main__ -   test: [epoch: 0 | batch: 7000/10010 ] | Loss: 1.222 | Acc: 70.502% (631791/896128)
+01/12/2023 16:20:17 - INFO - __main__ -   test: [epoch: 0 | batch: 7100/10010 ] | Loss: 1.222 | Acc: 70.515% (640928/908928)
+01/12/2023 16:20:41 - INFO - __main__ -   test: [epoch: 0 | batch: 7200/10010 ] | Loss: 1.221 | Acc: 70.520% (650003/921728)
+01/12/2023 16:21:04 - INFO - __main__ -   test: [epoch: 0 | batch: 7300/10010 ] | Loss: 1.222 | Acc: 70.515% (658985/934528)
+01/12/2023 16:21:28 - INFO - __main__ -   test: [epoch: 0 | batch: 7400/10010 ] | Loss: 1.222 | Acc: 70.517% (668031/947328)
+01/12/2023 16:21:51 - INFO - __main__ -   test: [epoch: 0 | batch: 7500/10010 ] | Loss: 1.222 | Acc: 70.523% (677112/960128)
+01/12/2023 16:22:14 - INFO - __main__ -   test: [epoch: 0 | batch: 7600/10010 ] | Loss: 1.222 | Acc: 70.524% (686148/972928)
+01/12/2023 16:22:37 - INFO - __main__ -   test: [epoch: 0 | batch: 7700/10010 ] | Loss: 1.222 | Acc: 70.518% (695113/985728)
+01/12/2023 16:23:00 - INFO - __main__ -   test: [epoch: 0 | batch: 7800/10010 ] | Loss: 1.222 | Acc: 70.513% (704093/998528)
+01/12/2023 16:23:24 - INFO - __main__ -   test: [epoch: 0 | batch: 7900/10010 ] | Loss: 1.222 | Acc: 70.517% (713162/1011328)
+01/12/2023 16:23:47 - INFO - __main__ -   test: [epoch: 0 | batch: 8000/10010 ] | Loss: 1.223 | Acc: 70.512% (722136/1024128)
+01/12/2023 16:24:11 - INFO - __main__ -   test: [epoch: 0 | batch: 8100/10010 ] | Loss: 1.222 | Acc: 70.515% (731189/1036928)
+01/12/2023 16:24:34 - INFO - __main__ -   test: [epoch: 0 | batch: 8200/10010 ] | Loss: 1.222 | Acc: 70.514% (740206/1049728)
+01/12/2023 16:24:57 - INFO - __main__ -   test: [epoch: 0 | batch: 8300/10010 ] | Loss: 1.222 | Acc: 70.519% (749281/1062528)
+01/12/2023 16:25:21 - INFO - __main__ -   test: [epoch: 0 | batch: 8400/10010 ] | Loss: 1.222 | Acc: 70.518% (758299/1075328)
+01/12/2023 16:25:44 - INFO - __main__ -   test: [epoch: 0 | batch: 8500/10010 ] | Loss: 1.222 | Acc: 70.522% (767366/1088128)
+01/12/2023 16:26:08 - INFO - __main__ -   test: [epoch: 0 | batch: 8600/10010 ] | Loss: 1.222 | Acc: 70.515% (776319/1100928)
+01/12/2023 16:26:31 - INFO - __main__ -   test: [epoch: 0 | batch: 8700/10010 ] | Loss: 1.222 | Acc: 70.515% (785340/1113728)
+01/12/2023 16:26:55 - INFO - __main__ -   test: [epoch: 0 | batch: 8800/10010 ] | Loss: 1.222 | Acc: 70.516% (794381/1126528)
+01/12/2023 16:27:18 - INFO - __main__ -   test: [epoch: 0 | batch: 8900/10010 ] | Loss: 1.222 | Acc: 70.517% (803425/1139328)
+01/12/2023 16:27:42 - INFO - __main__ -   test: [epoch: 0 | batch: 9000/10010 ] | Loss: 1.222 | Acc: 70.516% (812429/1152128)
+01/12/2023 16:28:05 - INFO - __main__ -   test: [epoch: 0 | batch: 9100/10010 ] | Loss: 1.222 | Acc: 70.517% (821477/1164928)
+01/12/2023 16:28:29 - INFO - __main__ -   test: [epoch: 0 | batch: 9200/10010 ] | Loss: 1.222 | Acc: 70.515% (830475/1177728)
+01/12/2023 16:28:53 - INFO - __main__ -   test: [epoch: 0 | batch: 9300/10010 ] | Loss: 1.222 | Acc: 70.513% (839472/1190528)
+01/12/2023 16:29:16 - INFO - __main__ -   test: [epoch: 0 | batch: 9400/10010 ] | Loss: 1.222 | Acc: 70.516% (848535/1203328)
+01/12/2023 16:29:40 - INFO - __main__ -   test: [epoch: 0 | batch: 9500/10010 ] | Loss: 1.222 | Acc: 70.515% (857547/1216128)
+01/12/2023 16:30:03 - INFO - __main__ -   test: [epoch: 0 | batch: 9600/10010 ] | Loss: 1.222 | Acc: 70.511% (866532/1228928)
+01/12/2023 16:30:27 - INFO - __main__ -   test: [epoch: 0 | batch: 9700/10010 ] | Loss: 1.222 | Acc: 70.510% (875546/1241728)
+01/12/2023 16:30:50 - INFO - __main__ -   test: [epoch: 0 | batch: 9800/10010 ] | Loss: 1.222 | Acc: 70.513% (884600/1254528)
+01/12/2023 16:31:14 - INFO - __main__ -   test: [epoch: 0 | batch: 9900/10010 ] | Loss: 1.222 | Acc: 70.512% (893617/1267328)
+01/12/2023 16:31:38 - INFO - __main__ -   test: [epoch: 0 | batch: 10000/10010 ] | Loss: 1.222 | Acc: 70.508% (902591/1280128)
+01/12/2023 16:31:40 - INFO - __main__ -   Saving Checkpoint
+01/12/2023 16:31:40 - INFO - __main__ -   test: [batch: 0/391 ] | Loss: 0.590 | Acc: 82.812% (106/128)/ 96.094% (123/128)
+01/12/2023 16:31:41 - INFO - __main__ -   test: [batch: 1/391 ] | Loss: 0.677 | Acc: 81.250% (208/256)/ 96.094% (246/256)
+01/12/2023 16:31:41 - INFO - __main__ -   test: [batch: 2/391 ] | Loss: 0.815 | Acc: 77.865% (299/384)/ 93.750% (360/384)
+01/12/2023 16:31:41 - INFO - __main__ -   test: [batch: 3/391 ] | Loss: 0.727 | Acc: 80.078% (410/512)/ 94.531% (484/512)
+01/12/2023 16:31:41 - INFO - __main__ -   test: [batch: 4/391 ] | Loss: 0.659 | Acc: 82.500% (528/640)/ 95.000% (608/640)
+01/12/2023 16:31:41 - INFO - __main__ -   test: [batch: 5/391 ] | Loss: 0.592 | Acc: 84.245% (647/768)/ 95.443% (733/768)
+01/12/2023 16:31:42 - INFO - __main__ -   test: [batch: 6/391 ] | Loss: 0.586 | Acc: 84.710% (759/896)/ 95.201% (853/896)
+01/12/2023 16:31:42 - INFO - __main__ -   test: [batch: 7/391 ] | Loss: 0.576 | Acc: 85.547% (876/1024)/ 95.410% (977/1024)
+01/12/2023 16:31:42 - INFO - __main__ -   test: [batch: 8/391 ] | Loss: 0.585 | Acc: 85.417% (984/1152)/ 95.399% (1099/1152)
+01/12/2023 16:31:42 - INFO - __main__ -   test: [batch: 9/391 ] | Loss: 0.557 | Acc: 86.094% (1102/1280)/ 95.625% (1224/1280)
+01/12/2023 16:31:43 - INFO - __main__ -   test: [batch: 10/391 ] | Loss: 0.605 | Acc: 84.801% (1194/1408)/ 95.241% (1341/1408)
+01/12/2023 16:31:43 - INFO - __main__ -   test: [batch: 11/391 ] | Loss: 0.610 | Acc: 85.026% (1306/1536)/ 95.117% (1461/1536)
+01/12/2023 16:31:43 - INFO - __main__ -   test: [batch: 12/391 ] | Loss: 0.673 | Acc: 83.413% (1388/1664)/ 94.651% (1575/1664)
+01/12/2023 16:31:43 - INFO - __main__ -   test: [batch: 13/391 ] | Loss: 0.726 | Acc: 81.920% (1468/1792)/ 94.085% (1686/1792)
+01/12/2023 16:31:43 - INFO - __main__ -   test: [batch: 14/391 ] | Loss: 0.745 | Acc: 81.042% (1556/1920)/ 94.219% (1809/1920)
+01/12/2023 16:31:44 - INFO - __main__ -   test: [batch: 15/391 ] | Loss: 0.756 | Acc: 80.322% (1645/2048)/ 94.287% (1931/2048)
+01/12/2023 16:31:44 - INFO - __main__ -   test: [batch: 16/391 ] | Loss: 0.759 | Acc: 80.239% (1746/2176)/ 94.210% (2050/2176)
+01/12/2023 16:31:44 - INFO - __main__ -   test: [batch: 17/391 ] | Loss: 0.796 | Acc: 79.644% (1835/2304)/ 93.663% (2158/2304)
+01/12/2023 16:31:44 - INFO - __main__ -   test: [batch: 18/391 ] | Loss: 0.817 | Acc: 79.030% (1922/2432)/ 93.544% (2275/2432)
+01/12/2023 16:31:45 - INFO - __main__ -   test: [batch: 19/391 ] | Loss: 0.832 | Acc: 78.828% (2018/2560)/ 93.398% (2391/2560)
+01/12/2023 16:31:45 - INFO - __main__ -   test: [batch: 20/391 ] | Loss: 0.827 | Acc: 79.018% (2124/2688)/ 93.378% (2510/2688)
+01/12/2023 16:31:45 - INFO - __main__ -   test: [batch: 21/391 ] | Loss: 0.858 | Acc: 78.196% (2202/2816)/ 93.253% (2626/2816)
+01/12/2023 16:31:45 - INFO - __main__ -   test: [batch: 22/391 ] | Loss: 0.852 | Acc: 78.329% (2306/2944)/ 93.308% (2747/2944)
+01/12/2023 16:31:45 - INFO - __main__ -   test: [batch: 23/391 ] | Loss: 0.903 | Acc: 77.311% (2375/3072)/ 92.904% (2854/3072)
+01/12/2023 16:31:46 - INFO - __main__ -   test: [batch: 24/391 ] | Loss: 0.915 | Acc: 77.000% (2464/3200)/ 92.750% (2968/3200)
+01/12/2023 16:31:46 - INFO - __main__ -   test: [batch: 25/391 ] | Loss: 0.943 | Acc: 76.292% (2539/3328)/ 92.428% (3076/3328)
+01/12/2023 16:31:46 - INFO - __main__ -   test: [batch: 26/391 ] | Loss: 0.967 | Acc: 75.434% (2607/3456)/ 92.274% (3189/3456)
+01/12/2023 16:31:46 - INFO - __main__ -   test: [batch: 27/391 ] | Loss: 0.954 | Acc: 75.865% (2719/3584)/ 92.355% (3310/3584)
+01/12/2023 16:31:47 - INFO - __main__ -   test: [batch: 28/391 ] | Loss: 0.958 | Acc: 75.566% (2805/3712)/ 92.484% (3433/3712)
+01/12/2023 16:31:47 - INFO - __main__ -   test: [batch: 29/391 ] | Loss: 0.949 | Acc: 75.755% (2909/3840)/ 92.604% (3556/3840)
+01/12/2023 16:31:47 - INFO - __main__ -   test: [batch: 30/391 ] | Loss: 0.962 | Acc: 75.706% (3004/3968)/ 92.440% (3668/3968)
+01/12/2023 16:31:47 - INFO - __main__ -   test: [batch: 31/391 ] | Loss: 0.958 | Acc: 75.928% (3110/4096)/ 92.383% (3784/4096)
+01/12/2023 16:31:47 - INFO - __main__ -   test: [batch: 32/391 ] | Loss: 0.941 | Acc: 76.349% (3225/4224)/ 92.472% (3906/4224)
+01/12/2023 16:31:48 - INFO - __main__ -   test: [batch: 33/391 ] | Loss: 0.935 | Acc: 76.562% (3332/4352)/ 92.555% (4028/4352)
+01/12/2023 16:31:48 - INFO - __main__ -   test: [batch: 34/391 ] | Loss: 0.919 | Acc: 76.964% (3448/4480)/ 92.701% (4153/4480)
+01/12/2023 16:31:48 - INFO - __main__ -   test: [batch: 35/391 ] | Loss: 0.907 | Acc: 77.365% (3565/4608)/ 92.773% (4275/4608)
+01/12/2023 16:31:48 - INFO - __main__ -   test: [batch: 36/391 ] | Loss: 0.891 | Acc: 77.766% (3683/4736)/ 92.948% (4402/4736)
+01/12/2023 16:31:49 - INFO - __main__ -   test: [batch: 37/391 ] | Loss: 0.880 | Acc: 78.084% (3798/4864)/ 93.030% (4525/4864)
+01/12/2023 16:31:49 - INFO - __main__ -   test: [batch: 38/391 ] | Loss: 0.875 | Acc: 78.165% (3902/4992)/ 93.029% (4644/4992)
+01/12/2023 16:31:49 - INFO - __main__ -   test: [batch: 39/391 ] | Loss: 0.869 | Acc: 78.281% (4008/5120)/ 93.086% (4766/5120)
+01/12/2023 16:31:49 - INFO - __main__ -   test: [batch: 40/391 ] | Loss: 0.867 | Acc: 78.354% (4112/5248)/ 93.045% (4883/5248)
+01/12/2023 16:31:49 - INFO - __main__ -   test: [batch: 41/391 ] | Loss: 0.870 | Acc: 78.460% (4218/5376)/ 92.969% (4998/5376)
+01/12/2023 16:31:50 - INFO - __main__ -   test: [batch: 42/391 ] | Loss: 0.869 | Acc: 78.488% (4320/5504)/ 93.023% (5120/5504)
+01/12/2023 16:31:50 - INFO - __main__ -   test: [batch: 43/391 ] | Loss: 0.866 | Acc: 78.533% (4423/5632)/ 93.075% (5242/5632)
+01/12/2023 16:31:50 - INFO - __main__ -   test: [batch: 44/391 ] | Loss: 0.871 | Acc: 78.385% (4515/5760)/ 92.969% (5355/5760)
+01/12/2023 16:31:50 - INFO - __main__ -   test: [batch: 45/391 ] | Loss: 0.870 | Acc: 78.499% (4622/5888)/ 93.020% (5477/5888)
+01/12/2023 16:31:51 - INFO - __main__ -   test: [batch: 46/391 ] | Loss: 0.876 | Acc: 78.358% (4714/6016)/ 93.019% (5596/6016)
+01/12/2023 16:31:51 - INFO - __main__ -   test: [batch: 47/391 ] | Loss: 0.873 | Acc: 78.402% (4817/6144)/ 93.034% (5716/6144)
+01/12/2023 16:31:51 - INFO - __main__ -   test: [batch: 48/391 ] | Loss: 0.883 | Acc: 78.157% (4902/6272)/ 92.985% (5832/6272)
+01/12/2023 16:31:51 - INFO - __main__ -   test: [batch: 49/391 ] | Loss: 0.891 | Acc: 78.125% (5000/6400)/ 92.859% (5943/6400)
+01/12/2023 16:31:51 - INFO - __main__ -   test: [batch: 50/391 ] | Loss: 0.882 | Acc: 78.339% (5114/6528)/ 92.938% (6067/6528)
+01/12/2023 16:31:52 - INFO - __main__ -   test: [batch: 51/391 ] | Loss: 0.874 | Acc: 78.576% (5230/6656)/ 93.014% (6191/6656)
+01/12/2023 16:31:52 - INFO - __main__ -   test: [batch: 52/391 ] | Loss: 0.869 | Acc: 78.626% (5334/6784)/ 93.057% (6313/6784)
+01/12/2023 16:31:52 - INFO - __main__ -   test: [batch: 53/391 ] | Loss: 0.860 | Acc: 78.834% (5449/6912)/ 93.128% (6437/6912)
+01/12/2023 16:31:52 - INFO - __main__ -   test: [batch: 54/391 ] | Loss: 0.850 | Acc: 79.020% (5563/7040)/ 93.210% (6562/7040)
+01/12/2023 16:31:53 - INFO - __main__ -   test: [batch: 55/391 ] | Loss: 0.846 | Acc: 79.088% (5669/7168)/ 93.206% (6681/7168)
+01/12/2023 16:31:53 - INFO - __main__ -   test: [batch: 56/391 ] | Loss: 0.836 | Acc: 79.317% (5787/7296)/ 93.257% (6804/7296)
+01/12/2023 16:31:53 - INFO - __main__ -   test: [batch: 57/391 ] | Loss: 0.829 | Acc: 79.499% (5902/7424)/ 93.319% (6928/7424)
+01/12/2023 16:31:53 - INFO - __main__ -   test: [batch: 58/391 ] | Loss: 0.826 | Acc: 79.582% (6010/7552)/ 93.313% (7047/7552)
+01/12/2023 16:31:53 - INFO - __main__ -   test: [batch: 59/391 ] | Loss: 0.828 | Acc: 79.388% (6097/7680)/ 93.346% (7169/7680)
+01/12/2023 16:31:54 - INFO - __main__ -   test: [batch: 60/391 ] | Loss: 0.831 | Acc: 79.303% (6192/7808)/ 93.315% (7286/7808)
+01/12/2023 16:31:54 - INFO - __main__ -   test: [batch: 61/391 ] | Loss: 0.828 | Acc: 79.385% (6300/7936)/ 93.359% (7409/7936)
+01/12/2023 16:31:54 - INFO - __main__ -   test: [batch: 62/391 ] | Loss: 0.827 | Acc: 79.353% (6399/8064)/ 93.415% (7533/8064)
+01/12/2023 16:31:54 - INFO - __main__ -   test: [batch: 63/391 ] | Loss: 0.835 | Acc: 79.224% (6490/8192)/ 93.359% (7648/8192)
+01/12/2023 16:31:54 - INFO - __main__ -   test: [batch: 64/391 ] | Loss: 0.844 | Acc: 79.038% (6576/8320)/ 93.281% (7761/8320)
+01/12/2023 16:31:55 - INFO - __main__ -   test: [batch: 65/391 ] | Loss: 0.855 | Acc: 78.563% (6637/8448)/ 93.241% (7877/8448)
+01/12/2023 16:31:55 - INFO - __main__ -   test: [batch: 66/391 ] | Loss: 0.860 | Acc: 78.568% (6738/8576)/ 93.225% (7995/8576)
+01/12/2023 16:31:55 - INFO - __main__ -   test: [batch: 67/391 ] | Loss: 0.861 | Acc: 78.447% (6828/8704)/ 93.256% (8117/8704)
+01/12/2023 16:31:55 - INFO - __main__ -   test: [batch: 68/391 ] | Loss: 0.863 | Acc: 78.408% (6925/8832)/ 93.297% (8240/8832)
+01/12/2023 16:31:56 - INFO - __main__ -   test: [batch: 69/391 ] | Loss: 0.859 | Acc: 78.471% (7031/8960)/ 93.326% (8362/8960)
+01/12/2023 16:31:56 - INFO - __main__ -   test: [batch: 70/391 ] | Loss: 0.863 | Acc: 78.323% (7118/9088)/ 93.343% (8483/9088)
+01/12/2023 16:31:56 - INFO - __main__ -   test: [batch: 71/391 ] | Loss: 0.863 | Acc: 78.266% (7213/9216)/ 93.359% (8604/9216)
+01/12/2023 16:31:56 - INFO - __main__ -   test: [batch: 72/391 ] | Loss: 0.867 | Acc: 78.136% (7301/9344)/ 93.375% (8725/9344)
+01/12/2023 16:31:56 - INFO - __main__ -   test: [batch: 73/391 ] | Loss: 0.873 | Acc: 77.903% (7379/9472)/ 93.370% (8844/9472)
+01/12/2023 16:31:56 - INFO - __main__ -   test: [batch: 74/391 ] | Loss: 0.874 | Acc: 77.906% (7479/9600)/ 93.333% (8960/9600)
+01/12/2023 16:31:57 - INFO - __main__ -   test: [batch: 75/391 ] | Loss: 0.879 | Acc: 77.724% (7561/9728)/ 93.267% (9073/9728)
+01/12/2023 16:31:57 - INFO - __main__ -   test: [batch: 76/391 ] | Loss: 0.879 | Acc: 77.750% (7663/9856)/ 93.293% (9195/9856)
+01/12/2023 16:31:57 - INFO - __main__ -   test: [batch: 77/391 ] | Loss: 0.878 | Acc: 77.714% (7759/9984)/ 93.359% (9321/9984)
+01/12/2023 16:31:57 - INFO - __main__ -   test: [batch: 78/391 ] | Loss: 0.879 | Acc: 77.650% (7852/10112)/ 93.414% (9446/10112)
+01/12/2023 16:31:57 - INFO - __main__ -   test: [batch: 79/391 ] | Loss: 0.879 | Acc: 77.578% (7944/10240)/ 93.477% (9572/10240)
+01/12/2023 16:31:58 - INFO - __main__ -   test: [batch: 80/391 ] | Loss: 0.878 | Acc: 77.566% (8042/10368)/ 93.480% (9692/10368)
+01/12/2023 16:31:58 - INFO - __main__ -   test: [batch: 81/391 ] | Loss: 0.876 | Acc: 77.658% (8151/10496)/ 93.531% (9817/10496)
+01/12/2023 16:31:58 - INFO - __main__ -   test: [batch: 82/391 ] | Loss: 0.876 | Acc: 77.654% (8250/10624)/ 93.515% (9935/10624)
+01/12/2023 16:31:58 - INFO - __main__ -   test: [batch: 83/391 ] | Loss: 0.877 | Acc: 77.641% (8348/10752)/ 93.480% (10051/10752)
+01/12/2023 16:31:59 - INFO - __main__ -   test: [batch: 84/391 ] | Loss: 0.872 | Acc: 77.767% (8461/10880)/ 93.539% (10177/10880)
+01/12/2023 16:31:59 - INFO - __main__ -   test: [batch: 85/391 ] | Loss: 0.869 | Acc: 77.834% (8568/11008)/ 93.586% (10302/11008)
+01/12/2023 16:31:59 - INFO - __main__ -   test: [batch: 86/391 ] | Loss: 0.873 | Acc: 77.775% (8661/11136)/ 93.543% (10417/11136)
+01/12/2023 16:31:59 - INFO - __main__ -   test: [batch: 87/391 ] | Loss: 0.873 | Acc: 77.743% (8757/11264)/ 93.528% (10535/11264)
+01/12/2023 16:31:59 - INFO - __main__ -   test: [batch: 88/391 ] | Loss: 0.880 | Acc: 77.651% (8846/11392)/ 93.487% (10650/11392)
+01/12/2023 16:31:59 - INFO - __main__ -   test: [batch: 89/391 ] | Loss: 0.878 | Acc: 77.708% (8952/11520)/ 93.498% (10771/11520)
+01/12/2023 16:32:00 - INFO - __main__ -   test: [batch: 90/391 ] | Loss: 0.879 | Acc: 77.610% (9040/11648)/ 93.510% (10892/11648)
+01/12/2023 16:32:00 - INFO - __main__ -   test: [batch: 91/391 ] | Loss: 0.880 | Acc: 77.590% (9137/11776)/ 93.521% (11013/11776)
+01/12/2023 16:32:00 - INFO - __main__ -   test: [batch: 92/391 ] | Loss: 0.883 | Acc: 77.487% (9224/11904)/ 93.473% (11127/11904)
+01/12/2023 16:32:00 - INFO - __main__ -   test: [batch: 93/391 ] | Loss: 0.885 | Acc: 77.344% (9306/12032)/ 93.501% (11250/12032)
+01/12/2023 16:32:01 - INFO - __main__ -   test: [batch: 94/391 ] | Loss: 0.887 | Acc: 77.220% (9390/12160)/ 93.512% (11371/12160)
+01/12/2023 16:32:01 - INFO - __main__ -   test: [batch: 95/391 ] | Loss: 0.883 | Acc: 77.311% (9500/12288)/ 93.530% (11493/12288)
+01/12/2023 16:32:01 - INFO - __main__ -   test: [batch: 96/391 ] | Loss: 0.884 | Acc: 77.303% (9598/12416)/ 93.533% (11613/12416)
+01/12/2023 16:32:01 - INFO - __main__ -   test: [batch: 97/391 ] | Loss: 0.887 | Acc: 77.073% (9668/12544)/ 93.575% (11738/12544)
+01/12/2023 16:32:01 - INFO - __main__ -   test: [batch: 98/391 ] | Loss: 0.884 | Acc: 77.186% (9781/12672)/ 93.600% (11861/12672)
+01/12/2023 16:32:02 - INFO - __main__ -   test: [batch: 99/391 ] | Loss: 0.878 | Acc: 77.336% (9899/12800)/ 93.648% (11987/12800)
+01/12/2023 16:32:02 - INFO - __main__ -   test: [batch: 100/391 ] | Loss: 0.877 | Acc: 77.351% (10000/12928)/ 93.657% (12108/12928)
+01/12/2023 16:32:02 - INFO - __main__ -   test: [batch: 101/391 ] | Loss: 0.872 | Acc: 77.474% (10115/13056)/ 93.704% (12234/13056)
+01/12/2023 16:32:02 - INFO - __main__ -   test: [batch: 102/391 ] | Loss: 0.869 | Acc: 77.571% (10227/13184)/ 93.742% (12359/13184)
+01/12/2023 16:32:02 - INFO - __main__ -   test: [batch: 103/391 ] | Loss: 0.871 | Acc: 77.449% (10310/13312)/ 93.742% (12479/13312)
+01/12/2023 16:32:03 - INFO - __main__ -   test: [batch: 104/391 ] | Loss: 0.870 | Acc: 77.440% (10408/13440)/ 93.750% (12600/13440)
+01/12/2023 16:32:03 - INFO - __main__ -   test: [batch: 105/391 ] | Loss: 0.871 | Acc: 77.425% (10505/13568)/ 93.750% (12720/13568)
+01/12/2023 16:32:03 - INFO - __main__ -   test: [batch: 106/391 ] | Loss: 0.878 | Acc: 77.293% (10586/13696)/ 93.677% (12830/13696)
+01/12/2023 16:32:03 - INFO - __main__ -   test: [batch: 107/391 ] | Loss: 0.874 | Acc: 77.409% (10701/13824)/ 93.707% (12954/13824)
+01/12/2023 16:32:04 - INFO - __main__ -   test: [batch: 108/391 ] | Loss: 0.876 | Acc: 77.351% (10792/13952)/ 93.707% (13074/13952)
+01/12/2023 16:32:04 - INFO - __main__ -   test: [batch: 109/391 ] | Loss: 0.876 | Acc: 77.315% (10886/14080)/ 93.722% (13196/14080)
+01/12/2023 16:32:04 - INFO - __main__ -   test: [batch: 110/391 ] | Loss: 0.879 | Acc: 77.083% (10952/14208)/ 93.715% (13315/14208)
+01/12/2023 16:32:04 - INFO - __main__ -   test: [batch: 111/391 ] | Loss: 0.881 | Acc: 77.065% (11048/14336)/ 93.687% (13431/14336)
+01/12/2023 16:32:05 - INFO - __main__ -   test: [batch: 112/391 ] | Loss: 0.881 | Acc: 77.088% (11150/14464)/ 93.709% (13554/14464)
+01/12/2023 16:32:05 - INFO - __main__ -   test: [batch: 113/391 ] | Loss: 0.880 | Acc: 77.111% (11252/14592)/ 93.736% (13678/14592)
+01/12/2023 16:32:05 - INFO - __main__ -   test: [batch: 114/391 ] | Loss: 0.875 | Acc: 77.262% (11373/14720)/ 93.791% (13806/14720)
+01/12/2023 16:32:05 - INFO - __main__ -   test: [batch: 115/391 ] | Loss: 0.872 | Acc: 77.330% (11482/14848)/ 93.811% (13929/14848)
+01/12/2023 16:32:06 - INFO - __main__ -   test: [batch: 116/391 ] | Loss: 0.875 | Acc: 77.310% (11578/14976)/ 93.777% (14044/14976)
+01/12/2023 16:32:06 - INFO - __main__ -   test: [batch: 117/391 ] | Loss: 0.872 | Acc: 77.364% (11685/15104)/ 93.803% (14168/15104)
+01/12/2023 16:32:06 - INFO - __main__ -   test: [batch: 118/391 ] | Loss: 0.877 | Acc: 77.226% (11763/15232)/ 93.816% (14290/15232)
+01/12/2023 16:32:06 - INFO - __main__ -   test: [batch: 119/391 ] | Loss: 0.875 | Acc: 77.285% (11871/15360)/ 93.848% (14415/15360)
+01/12/2023 16:32:06 - INFO - __main__ -   test: [batch: 120/391 ] | Loss: 0.874 | Acc: 77.292% (11971/15488)/ 93.860% (14537/15488)
+01/12/2023 16:32:07 - INFO - __main__ -   test: [batch: 121/391 ] | Loss: 0.879 | Acc: 77.158% (12049/15616)/ 93.820% (14651/15616)
+01/12/2023 16:32:07 - INFO - __main__ -   test: [batch: 122/391 ] | Loss: 0.882 | Acc: 77.083% (12136/15744)/ 93.794% (14767/15744)
+01/12/2023 16:32:07 - INFO - __main__ -   test: [batch: 123/391 ] | Loss: 0.883 | Acc: 77.085% (12235/15872)/ 93.769% (14883/15872)
+01/12/2023 16:32:07 - INFO - __main__ -   test: [batch: 124/391 ] | Loss: 0.883 | Acc: 77.081% (12333/16000)/ 93.775% (15004/16000)
+01/12/2023 16:32:07 - INFO - __main__ -   test: [batch: 125/391 ] | Loss: 0.878 | Acc: 77.207% (12452/16128)/ 93.812% (15130/16128)
+01/12/2023 16:32:08 - INFO - __main__ -   test: [batch: 126/391 ] | Loss: 0.874 | Acc: 77.313% (12568/16256)/ 93.842% (15255/16256)
+01/12/2023 16:32:08 - INFO - __main__ -   test: [batch: 127/391 ] | Loss: 0.871 | Acc: 77.405% (12682/16384)/ 93.872% (15380/16384)
+01/12/2023 16:32:08 - INFO - __main__ -   test: [batch: 128/391 ] | Loss: 0.872 | Acc: 77.398% (12780/16512)/ 93.859% (15498/16512)
+01/12/2023 16:32:08 - INFO - __main__ -   test: [batch: 129/391 ] | Loss: 0.869 | Acc: 77.440% (12886/16640)/ 93.888% (15623/16640)
+01/12/2023 16:32:08 - INFO - __main__ -   test: [batch: 130/391 ] | Loss: 0.866 | Acc: 77.535% (13001/16768)/ 93.923% (15749/16768)
+01/12/2023 16:32:09 - INFO - __main__ -   test: [batch: 131/391 ] | Loss: 0.866 | Acc: 77.557% (13104/16896)/ 93.939% (15872/16896)
+01/12/2023 16:32:09 - INFO - __main__ -   test: [batch: 132/391 ] | Loss: 0.863 | Acc: 77.637% (13217/17024)/ 93.950% (15994/17024)
+01/12/2023 16:32:09 - INFO - __main__ -   test: [batch: 133/391 ] | Loss: 0.864 | Acc: 77.612% (13312/17152)/ 93.942% (16113/17152)
+01/12/2023 16:32:09 - INFO - __main__ -   test: [batch: 134/391 ] | Loss: 0.863 | Acc: 77.662% (13420/17280)/ 93.964% (16237/17280)
+01/12/2023 16:32:10 - INFO - __main__ -   test: [batch: 135/391 ] | Loss: 0.862 | Acc: 77.654% (13518/17408)/ 93.963% (16357/17408)
+01/12/2023 16:32:10 - INFO - __main__ -   test: [batch: 136/391 ] | Loss: 0.862 | Acc: 77.595% (13607/17536)/ 93.984% (16481/17536)
+01/12/2023 16:32:10 - INFO - __main__ -   test: [batch: 137/391 ] | Loss: 0.859 | Acc: 77.666% (13719/17664)/ 94.010% (16606/17664)
+01/12/2023 16:32:10 - INFO - __main__ -   test: [batch: 138/391 ] | Loss: 0.858 | Acc: 77.687% (13822/17792)/ 94.009% (16726/17792)
+01/12/2023 16:32:10 - INFO - __main__ -   test: [batch: 139/391 ] | Loss: 0.864 | Acc: 77.539% (13895/17920)/ 93.996% (16844/17920)
+01/12/2023 16:32:11 - INFO - __main__ -   test: [batch: 140/391 ] | Loss: 0.865 | Acc: 77.488% (13985/18048)/ 94.021% (16969/18048)
+01/12/2023 16:32:11 - INFO - __main__ -   test: [batch: 141/391 ] | Loss: 0.863 | Acc: 77.547% (14095/18176)/ 94.025% (17090/18176)
+01/12/2023 16:32:11 - INFO - __main__ -   test: [batch: 142/391 ] | Loss: 0.860 | Acc: 77.633% (14210/18304)/ 94.029% (17211/18304)
+01/12/2023 16:32:11 - INFO - __main__ -   test: [batch: 143/391 ] | Loss: 0.861 | Acc: 77.615% (14306/18432)/ 94.027% (17331/18432)
+01/12/2023 16:32:11 - INFO - __main__ -   test: [batch: 144/391 ] | Loss: 0.862 | Acc: 77.608% (14404/18560)/ 94.009% (17448/18560)
+01/12/2023 16:32:12 - INFO - __main__ -   test: [batch: 145/391 ] | Loss: 0.865 | Acc: 77.601% (14502/18688)/ 93.975% (17562/18688)
+01/12/2023 16:32:12 - INFO - __main__ -   test: [batch: 146/391 ] | Loss: 0.867 | Acc: 77.588% (14599/18816)/ 93.941% (17676/18816)
+01/12/2023 16:32:12 - INFO - __main__ -   test: [batch: 147/391 ] | Loss: 0.867 | Acc: 77.602% (14701/18944)/ 93.940% (17796/18944)
+01/12/2023 16:32:12 - INFO - __main__ -   test: [batch: 148/391 ] | Loss: 0.869 | Acc: 77.517% (14784/19072)/ 93.949% (17918/19072)
+01/12/2023 16:32:13 - INFO - __main__ -   test: [batch: 149/391 ] | Loss: 0.872 | Acc: 77.453% (14871/19200)/ 93.911% (18031/19200)
+01/12/2023 16:32:13 - INFO - __main__ -   test: [batch: 150/391 ] | Loss: 0.872 | Acc: 77.395% (14959/19328)/ 93.916% (18152/19328)
+01/12/2023 16:32:13 - INFO - __main__ -   test: [batch: 151/391 ] | Loss: 0.871 | Acc: 77.441% (15067/19456)/ 93.914% (18272/19456)
+01/12/2023 16:32:13 - INFO - __main__ -   test: [batch: 152/391 ] | Loss: 0.873 | Acc: 77.415% (15161/19584)/ 93.908% (18391/19584)
+01/12/2023 16:32:13 - INFO - __main__ -   test: [batch: 153/391 ] | Loss: 0.870 | Acc: 77.476% (15272/19712)/ 93.922% (18514/19712)
+01/12/2023 16:32:14 - INFO - __main__ -   test: [batch: 154/391 ] | Loss: 0.871 | Acc: 77.450% (15366/19840)/ 93.911% (18632/19840)
+01/12/2023 16:32:14 - INFO - __main__ -   test: [batch: 155/391 ] | Loss: 0.872 | Acc: 77.464% (15468/19968)/ 93.885% (18747/19968)
+01/12/2023 16:32:14 - INFO - __main__ -   test: [batch: 156/391 ] | Loss: 0.875 | Acc: 77.379% (15550/20096)/ 93.845% (18859/20096)
+01/12/2023 16:32:14 - INFO - __main__ -   test: [batch: 157/391 ] | Loss: 0.878 | Acc: 77.304% (15634/20224)/ 93.814% (18973/20224)
+01/12/2023 16:32:14 - INFO - __main__ -   test: [batch: 158/391 ] | Loss: 0.879 | Acc: 77.265% (15725/20352)/ 93.804% (19091/20352)
+01/12/2023 16:32:15 - INFO - __main__ -   test: [batch: 159/391 ] | Loss: 0.880 | Acc: 77.256% (15822/20480)/ 93.809% (19212/20480)
+01/12/2023 16:32:15 - INFO - __main__ -   test: [batch: 160/391 ] | Loss: 0.881 | Acc: 77.227% (15915/20608)/ 93.813% (19333/20608)
+01/12/2023 16:32:15 - INFO - __main__ -   test: [batch: 161/391 ] | Loss: 0.890 | Acc: 77.011% (15969/20736)/ 93.721% (19434/20736)
+01/12/2023 16:32:15 - INFO - __main__ -   test: [batch: 162/391 ] | Loss: 0.896 | Acc: 76.898% (16044/20864)/ 93.635% (19536/20864)
+01/12/2023 16:32:16 - INFO - __main__ -   test: [batch: 163/391 ] | Loss: 0.898 | Acc: 76.844% (16131/20992)/ 93.607% (19650/20992)
+01/12/2023 16:32:16 - INFO - __main__ -   test: [batch: 164/391 ] | Loss: 0.899 | Acc: 76.823% (16225/21120)/ 93.613% (19771/21120)
+01/12/2023 16:32:16 - INFO - __main__ -   test: [batch: 165/391 ] | Loss: 0.902 | Acc: 76.732% (16304/21248)/ 93.585% (19885/21248)
+01/12/2023 16:32:16 - INFO - __main__ -   test: [batch: 166/391 ] | Loss: 0.902 | Acc: 76.754% (16407/21376)/ 93.600% (20008/21376)
+01/12/2023 16:32:16 - INFO - __main__ -   test: [batch: 167/391 ] | Loss: 0.904 | Acc: 76.721% (16498/21504)/ 93.587% (20125/21504)
+01/12/2023 16:32:17 - INFO - __main__ -   test: [batch: 168/391 ] | Loss: 0.903 | Acc: 76.752% (16603/21632)/ 93.593% (20246/21632)
+01/12/2023 16:32:17 - INFO - __main__ -   test: [batch: 169/391 ] | Loss: 0.908 | Acc: 76.659% (16681/21760)/ 93.520% (20350/21760)
+01/12/2023 16:32:17 - INFO - __main__ -   test: [batch: 170/391 ] | Loss: 0.913 | Acc: 76.535% (16752/21888)/ 93.471% (20459/21888)
+01/12/2023 16:32:17 - INFO - __main__ -   test: [batch: 171/391 ] | Loss: 0.916 | Acc: 76.476% (16837/22016)/ 93.423% (20568/22016)
+01/12/2023 16:32:18 - INFO - __main__ -   test: [batch: 172/391 ] | Loss: 0.918 | Acc: 76.418% (16922/22144)/ 93.398% (20682/22144)
+01/12/2023 16:32:18 - INFO - __main__ -   test: [batch: 173/391 ] | Loss: 0.921 | Acc: 76.365% (17008/22272)/ 93.373% (20796/22272)
+01/12/2023 16:32:18 - INFO - __main__ -   test: [batch: 174/391 ] | Loss: 0.926 | Acc: 76.254% (17081/22400)/ 93.317% (20903/22400)
+01/12/2023 16:32:18 - INFO - __main__ -   test: [batch: 175/391 ] | Loss: 0.925 | Acc: 76.278% (17184/22528)/ 93.324% (21024/22528)
+01/12/2023 16:32:19 - INFO - __main__ -   test: [batch: 176/391 ] | Loss: 0.926 | Acc: 76.280% (17282/22656)/ 93.291% (21136/22656)
+01/12/2023 16:32:19 - INFO - __main__ -   test: [batch: 177/391 ] | Loss: 0.930 | Acc: 76.150% (17350/22784)/ 93.245% (21245/22784)
+01/12/2023 16:32:19 - INFO - __main__ -   test: [batch: 178/391 ] | Loss: 0.933 | Acc: 76.095% (17435/22912)/ 93.218% (21358/22912)
+01/12/2023 16:32:19 - INFO - __main__ -   test: [batch: 179/391 ] | Loss: 0.936 | Acc: 76.024% (17516/23040)/ 93.168% (21466/23040)
+01/12/2023 16:32:20 - INFO - __main__ -   test: [batch: 180/391 ] | Loss: 0.942 | Acc: 75.911% (17587/23168)/ 93.120% (21574/23168)
+01/12/2023 16:32:20 - INFO - __main__ -   test: [batch: 181/391 ] | Loss: 0.948 | Acc: 75.803% (17659/23296)/ 93.029% (21672/23296)
+01/12/2023 16:32:20 - INFO - __main__ -   test: [batch: 182/391 ] | Loss: 0.947 | Acc: 75.832% (17763/23424)/ 93.024% (21790/23424)
+01/12/2023 16:32:20 - INFO - __main__ -   test: [batch: 183/391 ] | Loss: 0.954 | Acc: 75.726% (17835/23552)/ 92.922% (21885/23552)
+01/12/2023 16:32:20 - INFO - __main__ -   test: [batch: 184/391 ] | Loss: 0.954 | Acc: 75.747% (17937/23680)/ 92.914% (22002/23680)
+01/12/2023 16:32:21 - INFO - __main__ -   test: [batch: 185/391 ] | Loss: 0.954 | Acc: 75.777% (18041/23808)/ 92.897% (22117/23808)
+01/12/2023 16:32:21 - INFO - __main__ -   test: [batch: 186/391 ] | Loss: 0.958 | Acc: 75.731% (18127/23936)/ 92.827% (22219/23936)
+01/12/2023 16:32:21 - INFO - __main__ -   test: [batch: 187/391 ] | Loss: 0.962 | Acc: 75.619% (18197/24064)/ 92.786% (22328/24064)
+01/12/2023 16:32:21 - INFO - __main__ -   test: [batch: 188/391 ] | Loss: 0.966 | Acc: 75.475% (18259/24192)/ 92.754% (22439/24192)
+01/12/2023 16:32:22 - INFO - __main__ -   test: [batch: 189/391 ] | Loss: 0.967 | Acc: 75.419% (18342/24320)/ 92.759% (22559/24320)
+01/12/2023 16:32:22 - INFO - __main__ -   test: [batch: 190/391 ] | Loss: 0.973 | Acc: 75.327% (18416/24448)/ 92.715% (22667/24448)
+01/12/2023 16:32:22 - INFO - __main__ -   test: [batch: 191/391 ] | Loss: 0.975 | Acc: 75.293% (18504/24576)/ 92.696% (22781/24576)
+01/12/2023 16:32:22 - INFO - __main__ -   test: [batch: 192/391 ] | Loss: 0.981 | Acc: 75.186% (18574/24704)/ 92.604% (22877/24704)
+01/12/2023 16:32:23 - INFO - __main__ -   test: [batch: 193/391 ] | Loss: 0.982 | Acc: 75.149% (18661/24832)/ 92.586% (22991/24832)
+01/12/2023 16:32:23 - INFO - __main__ -   test: [batch: 194/391 ] | Loss: 0.985 | Acc: 75.088% (18742/24960)/ 92.564% (23104/24960)
+01/12/2023 16:32:23 - INFO - __main__ -   test: [batch: 195/391 ] | Loss: 0.991 | Acc: 74.976% (18810/25088)/ 92.486% (23203/25088)
+01/12/2023 16:32:23 - INFO - __main__ -   test: [batch: 196/391 ] | Loss: 0.996 | Acc: 74.841% (18872/25216)/ 92.406% (23301/25216)
+01/12/2023 16:32:23 - INFO - __main__ -   test: [batch: 197/391 ] | Loss: 1.001 | Acc: 74.775% (18951/25344)/ 92.365% (23409/25344)
+01/12/2023 16:32:24 - INFO - __main__ -   test: [batch: 198/391 ] | Loss: 1.003 | Acc: 74.721% (19033/25472)/ 92.325% (23517/25472)
+01/12/2023 16:32:24 - INFO - __main__ -   test: [batch: 199/391 ] | Loss: 1.002 | Acc: 74.703% (19124/25600)/ 92.340% (23639/25600)
+01/12/2023 16:32:24 - INFO - __main__ -   test: [batch: 200/391 ] | Loss: 1.003 | Acc: 74.677% (19213/25728)/ 92.335% (23756/25728)
+01/12/2023 16:32:24 - INFO - __main__ -   test: [batch: 201/391 ] | Loss: 1.008 | Acc: 74.559% (19278/25856)/ 92.288% (23862/25856)
+01/12/2023 16:32:24 - INFO - __main__ -   test: [batch: 202/391 ] | Loss: 1.008 | Acc: 74.569% (19376/25984)/ 92.276% (23977/25984)
+01/12/2023 16:32:25 - INFO - __main__ -   test: [batch: 203/391 ] | Loss: 1.009 | Acc: 74.548% (19466/26112)/ 92.260% (24091/26112)
+01/12/2023 16:32:25 - INFO - __main__ -   test: [batch: 204/391 ] | Loss: 1.012 | Acc: 74.459% (19538/26240)/ 92.210% (24196/26240)
+01/12/2023 16:32:25 - INFO - __main__ -   test: [batch: 205/391 ] | Loss: 1.014 | Acc: 74.427% (19625/26368)/ 92.195% (24310/26368)
+01/12/2023 16:32:25 - INFO - __main__ -   test: [batch: 206/391 ] | Loss: 1.016 | Acc: 74.396% (19712/26496)/ 92.176% (24423/26496)
+01/12/2023 16:32:26 - INFO - __main__ -   test: [batch: 207/391 ] | Loss: 1.019 | Acc: 74.328% (19789/26624)/ 92.135% (24530/26624)
+01/12/2023 16:32:26 - INFO - __main__ -   test: [batch: 208/391 ] | Loss: 1.020 | Acc: 74.294% (19875/26752)/ 92.109% (24641/26752)
+01/12/2023 16:32:26 - INFO - __main__ -   test: [batch: 209/391 ] | Loss: 1.019 | Acc: 74.301% (19972/26880)/ 92.135% (24766/26880)
+01/12/2023 16:32:26 - INFO - __main__ -   test: [batch: 210/391 ] | Loss: 1.021 | Acc: 74.267% (20058/27008)/ 92.106% (24876/27008)
+01/12/2023 16:32:26 - INFO - __main__ -   test: [batch: 211/391 ] | Loss: 1.024 | Acc: 74.204% (20136/27136)/ 92.044% (24977/27136)
+01/12/2023 16:32:27 - INFO - __main__ -   test: [batch: 212/391 ] | Loss: 1.026 | Acc: 74.127% (20210/27264)/ 92.011% (25086/27264)
+01/12/2023 16:32:27 - INFO - __main__ -   test: [batch: 213/391 ] | Loss: 1.026 | Acc: 74.138% (20308/27392)/ 92.016% (25205/27392)
+01/12/2023 16:32:27 - INFO - __main__ -   test: [batch: 214/391 ] | Loss: 1.027 | Acc: 74.146% (20405/27520)/ 92.024% (25325/27520)
+01/12/2023 16:32:27 - INFO - __main__ -   test: [batch: 215/391 ] | Loss: 1.027 | Acc: 74.132% (20496/27648)/ 92.007% (25438/27648)
+01/12/2023 16:32:28 - INFO - __main__ -   test: [batch: 216/391 ] | Loss: 1.025 | Acc: 74.176% (20603/27776)/ 92.022% (25560/27776)
+01/12/2023 16:32:28 - INFO - __main__ -   test: [batch: 217/391 ] | Loss: 1.029 | Acc: 74.122% (20683/27904)/ 91.969% (25663/27904)
+01/12/2023 16:32:28 - INFO - __main__ -   test: [batch: 218/391 ] | Loss: 1.034 | Acc: 74.051% (20758/28032)/ 91.902% (25762/28032)
+01/12/2023 16:32:28 - INFO - __main__ -   test: [batch: 219/391 ] | Loss: 1.032 | Acc: 74.091% (20864/28160)/ 91.918% (25884/28160)
+01/12/2023 16:32:28 - INFO - __main__ -   test: [batch: 220/391 ] | Loss: 1.030 | Acc: 74.145% (20974/28288)/ 91.929% (26005/28288)
+01/12/2023 16:32:29 - INFO - __main__ -   test: [batch: 221/391 ] | Loss: 1.033 | Acc: 74.096% (21055/28416)/ 91.895% (26113/28416)
+01/12/2023 16:32:29 - INFO - __main__ -   test: [batch: 222/391 ] | Loss: 1.031 | Acc: 74.135% (21161/28544)/ 91.904% (26233/28544)
+01/12/2023 16:32:29 - INFO - __main__ -   test: [batch: 223/391 ] | Loss: 1.031 | Acc: 74.142% (21258/28672)/ 91.898% (26349/28672)
+01/12/2023 16:32:29 - INFO - __main__ -   test: [batch: 224/391 ] | Loss: 1.030 | Acc: 74.181% (21364/28800)/ 91.899% (26467/28800)
+01/12/2023 16:32:29 - INFO - __main__ -   test: [batch: 225/391 ] | Loss: 1.029 | Acc: 74.222% (21471/28928)/ 91.914% (26589/28928)
+01/12/2023 16:32:30 - INFO - __main__ -   test: [batch: 226/391 ] | Loss: 1.029 | Acc: 74.219% (21565/29056)/ 91.922% (26709/29056)
+01/12/2023 16:32:30 - INFO - __main__ -   test: [batch: 227/391 ] | Loss: 1.031 | Acc: 74.198% (21654/29184)/ 91.920% (26826/29184)
+01/12/2023 16:32:30 - INFO - __main__ -   test: [batch: 228/391 ] | Loss: 1.036 | Acc: 74.089% (21717/29312)/ 91.836% (26919/29312)
+01/12/2023 16:32:30 - INFO - __main__ -   test: [batch: 229/391 ] | Loss: 1.040 | Acc: 74.029% (21794/29440)/ 91.790% (27023/29440)
+01/12/2023 16:32:31 - INFO - __main__ -   test: [batch: 230/391 ] | Loss: 1.044 | Acc: 73.925% (21858/29568)/ 91.734% (27124/29568)
+01/12/2023 16:32:31 - INFO - __main__ -   test: [batch: 231/391 ] | Loss: 1.045 | Acc: 73.906% (21947/29696)/ 91.709% (27234/29696)
+01/12/2023 16:32:31 - INFO - __main__ -   test: [batch: 232/391 ] | Loss: 1.044 | Acc: 73.920% (22046/29824)/ 91.715% (27353/29824)
+01/12/2023 16:32:31 - INFO - __main__ -   test: [batch: 233/391 ] | Loss: 1.047 | Acc: 73.865% (22124/29952)/ 91.683% (27461/29952)
+01/12/2023 16:32:31 - INFO - __main__ -   test: [batch: 234/391 ] | Loss: 1.053 | Acc: 73.733% (22179/30080)/ 91.612% (27557/30080)
+01/12/2023 16:32:31 - INFO - __main__ -   test: [batch: 235/391 ] | Loss: 1.054 | Acc: 73.719% (22269/30208)/ 91.608% (27673/30208)
+01/12/2023 16:32:32 - INFO - __main__ -   test: [batch: 236/391 ] | Loss: 1.053 | Acc: 73.751% (22373/30336)/ 91.607% (27790/30336)
+01/12/2023 16:32:32 - INFO - __main__ -   test: [batch: 237/391 ] | Loss: 1.053 | Acc: 73.769% (22473/30464)/ 91.584% (27900/30464)
+01/12/2023 16:32:32 - INFO - __main__ -   test: [batch: 238/391 ] | Loss: 1.053 | Acc: 73.797% (22576/30592)/ 91.593% (28020/30592)
+01/12/2023 16:32:32 - INFO - __main__ -   test: [batch: 239/391 ] | Loss: 1.052 | Acc: 73.838% (22683/30720)/ 91.592% (28137/30720)
+01/12/2023 16:32:32 - INFO - __main__ -   test: [batch: 240/391 ] | Loss: 1.053 | Acc: 73.817% (22771/30848)/ 91.585% (28252/30848)
+01/12/2023 16:32:33 - INFO - __main__ -   test: [batch: 241/391 ] | Loss: 1.056 | Acc: 73.731% (22839/30976)/ 91.532% (28353/30976)
+01/12/2023 16:32:33 - INFO - __main__ -   test: [batch: 242/391 ] | Loss: 1.058 | Acc: 73.643% (22906/31104)/ 91.516% (28465/31104)
+01/12/2023 16:32:33 - INFO - __main__ -   test: [batch: 243/391 ] | Loss: 1.065 | Acc: 73.514% (22960/31232)/ 91.422% (28553/31232)
+01/12/2023 16:32:33 - INFO - __main__ -   test: [batch: 244/391 ] | Loss: 1.066 | Acc: 73.498% (23049/31360)/ 91.397% (28662/31360)
+01/12/2023 16:32:33 - INFO - __main__ -   test: [batch: 245/391 ] | Loss: 1.065 | Acc: 73.520% (23150/31488)/ 91.394% (28778/31488)
+01/12/2023 16:32:34 - INFO - __main__ -   test: [batch: 246/391 ] | Loss: 1.066 | Acc: 73.507% (23240/31616)/ 91.378% (28890/31616)
+01/12/2023 16:32:34 - INFO - __main__ -   test: [batch: 247/391 ] | Loss: 1.074 | Acc: 73.419% (23306/31744)/ 91.274% (28974/31744)
+01/12/2023 16:32:34 - INFO - __main__ -   test: [batch: 248/391 ] | Loss: 1.075 | Acc: 73.365% (23383/31872)/ 91.253% (29084/31872)
+01/12/2023 16:32:34 - INFO - __main__ -   test: [batch: 249/391 ] | Loss: 1.077 | Acc: 73.253% (23441/32000)/ 91.250% (29200/32000)
+01/12/2023 16:32:34 - INFO - __main__ -   test: [batch: 250/391 ] | Loss: 1.077 | Acc: 73.266% (23539/32128)/ 91.263% (29321/32128)
+01/12/2023 16:32:35 - INFO - __main__ -   test: [batch: 251/391 ] | Loss: 1.079 | Acc: 73.224% (23619/32256)/ 91.226% (29426/32256)
+01/12/2023 16:32:35 - INFO - __main__ -   test: [batch: 252/391 ] | Loss: 1.078 | Acc: 73.252% (23722/32384)/ 91.230% (29544/32384)
+01/12/2023 16:32:35 - INFO - __main__ -   test: [batch: 253/391 ] | Loss: 1.080 | Acc: 73.198% (23798/32512)/ 91.206% (29653/32512)
+01/12/2023 16:32:35 - INFO - __main__ -   test: [batch: 254/391 ] | Loss: 1.085 | Acc: 73.128% (23869/32640)/ 91.143% (29749/32640)
+01/12/2023 16:32:35 - INFO - __main__ -   test: [batch: 255/391 ] | Loss: 1.087 | Acc: 73.096% (23952/32768)/ 91.125% (29860/32768)
+01/12/2023 16:32:36 - INFO - __main__ -   test: [batch: 256/391 ] | Loss: 1.091 | Acc: 72.975% (24006/32896)/ 91.081% (29962/32896)
+01/12/2023 16:32:36 - INFO - __main__ -   test: [batch: 257/391 ] | Loss: 1.091 | Acc: 72.965% (24096/33024)/ 91.070% (30075/33024)
+01/12/2023 16:32:36 - INFO - __main__ -   test: [batch: 258/391 ] | Loss: 1.092 | Acc: 72.952% (24185/33152)/ 91.053% (30186/33152)
+01/12/2023 16:32:36 - INFO - __main__ -   test: [batch: 259/391 ] | Loss: 1.095 | Acc: 72.864% (24249/33280)/ 91.049% (30301/33280)
+01/12/2023 16:32:36 - INFO - __main__ -   test: [batch: 260/391 ] | Loss: 1.096 | Acc: 72.821% (24328/33408)/ 91.041% (30415/33408)
+01/12/2023 16:32:37 - INFO - __main__ -   test: [batch: 261/391 ] | Loss: 1.094 | Acc: 72.871% (24438/33536)/ 91.072% (30542/33536)
+01/12/2023 16:32:37 - INFO - __main__ -   test: [batch: 262/391 ] | Loss: 1.093 | Acc: 72.885% (24536/33664)/ 91.079% (30661/33664)
+01/12/2023 16:32:37 - INFO - __main__ -   test: [batch: 263/391 ] | Loss: 1.096 | Acc: 72.816% (24606/33792)/ 91.051% (30768/33792)
+01/12/2023 16:32:37 - INFO - __main__ -   test: [batch: 264/391 ] | Loss: 1.101 | Acc: 72.727% (24669/33920)/ 90.982% (30861/33920)
+01/12/2023 16:32:38 - INFO - __main__ -   test: [batch: 265/391 ] | Loss: 1.100 | Acc: 72.753% (24771/34048)/ 90.986% (30979/34048)
+01/12/2023 16:32:38 - INFO - __main__ -   test: [batch: 266/391 ] | Loss: 1.103 | Acc: 72.686% (24841/34176)/ 90.959% (31086/34176)
+01/12/2023 16:32:38 - INFO - __main__ -   test: [batch: 267/391 ] | Loss: 1.102 | Acc: 72.720% (24946/34304)/ 90.972% (31207/34304)
+01/12/2023 16:32:38 - INFO - __main__ -   test: [batch: 268/391 ] | Loss: 1.102 | Acc: 72.726% (25041/34432)/ 90.974% (31324/34432)
+01/12/2023 16:32:39 - INFO - __main__ -   test: [batch: 269/391 ] | Loss: 1.104 | Acc: 72.662% (25112/34560)/ 90.955% (31434/34560)
+01/12/2023 16:32:39 - INFO - __main__ -   test: [batch: 270/391 ] | Loss: 1.107 | Acc: 72.601% (25184/34688)/ 90.919% (31538/34688)
+01/12/2023 16:32:39 - INFO - __main__ -   test: [batch: 271/391 ] | Loss: 1.108 | Acc: 72.599% (25276/34816)/ 90.906% (31650/34816)
+01/12/2023 16:32:39 - INFO - __main__ -   test: [batch: 272/391 ] | Loss: 1.109 | Acc: 72.562% (25356/34944)/ 90.905% (31766/34944)
+01/12/2023 16:32:40 - INFO - __main__ -   test: [batch: 273/391 ] | Loss: 1.110 | Acc: 72.568% (25451/35072)/ 90.882% (31874/35072)
+01/12/2023 16:32:40 - INFO - __main__ -   test: [batch: 274/391 ] | Loss: 1.109 | Acc: 72.571% (25545/35200)/ 90.884% (31991/35200)
+01/12/2023 16:32:40 - INFO - __main__ -   test: [batch: 275/391 ] | Loss: 1.111 | Acc: 72.537% (25626/35328)/ 90.857% (32098/35328)
+01/12/2023 16:32:40 - INFO - __main__ -   test: [batch: 276/391 ] | Loss: 1.113 | Acc: 72.498% (25705/35456)/ 90.842% (32209/35456)
+01/12/2023 16:32:40 - INFO - __main__ -   test: [batch: 277/391 ] | Loss: 1.115 | Acc: 72.471% (25788/35584)/ 90.819% (32317/35584)
+01/12/2023 16:32:41 - INFO - __main__ -   test: [batch: 278/391 ] | Loss: 1.115 | Acc: 72.466% (25879/35712)/ 90.818% (32433/35712)
+01/12/2023 16:32:41 - INFO - __main__ -   test: [batch: 279/391 ] | Loss: 1.115 | Acc: 72.492% (25981/35840)/ 90.818% (32549/35840)
+01/12/2023 16:32:41 - INFO - __main__ -   test: [batch: 280/391 ] | Loss: 1.116 | Acc: 72.462% (26063/35968)/ 90.817% (32665/35968)
+01/12/2023 16:32:41 - INFO - __main__ -   test: [batch: 281/391 ] | Loss: 1.116 | Acc: 72.468% (26158/36096)/ 90.808% (32778/36096)
+01/12/2023 16:32:42 - INFO - __main__ -   test: [batch: 282/391 ] | Loss: 1.115 | Acc: 72.507% (26265/36224)/ 90.813% (32896/36224)
+01/12/2023 16:32:42 - INFO - __main__ -   test: [batch: 283/391 ] | Loss: 1.116 | Acc: 72.502% (26356/36352)/ 90.807% (33010/36352)
+01/12/2023 16:32:42 - INFO - __main__ -   test: [batch: 284/391 ] | Loss: 1.120 | Acc: 72.440% (26426/36480)/ 90.743% (33103/36480)
+01/12/2023 16:32:42 - INFO - __main__ -   test: [batch: 285/391 ] | Loss: 1.123 | Acc: 72.397% (26503/36608)/ 90.707% (33206/36608)
+01/12/2023 16:32:42 - INFO - __main__ -   test: [batch: 286/391 ] | Loss: 1.124 | Acc: 72.370% (26586/36736)/ 90.696% (33318/36736)
+01/12/2023 16:32:43 - INFO - __main__ -   test: [batch: 287/391 ] | Loss: 1.124 | Acc: 72.377% (26681/36864)/ 90.685% (33430/36864)
+01/12/2023 16:32:43 - INFO - __main__ -   test: [batch: 288/391 ] | Loss: 1.123 | Acc: 72.394% (26780/36992)/ 90.701% (33552/36992)
+01/12/2023 16:32:43 - INFO - __main__ -   test: [batch: 289/391 ] | Loss: 1.126 | Acc: 72.344% (26854/37120)/ 90.657% (33652/37120)
+01/12/2023 16:32:43 - INFO - __main__ -   test: [batch: 290/391 ] | Loss: 1.128 | Acc: 72.267% (26918/37248)/ 90.649% (33765/37248)
+01/12/2023 16:32:44 - INFO - __main__ -   test: [batch: 291/391 ] | Loss: 1.128 | Acc: 72.260% (27008/37376)/ 90.630% (33874/37376)
+01/12/2023 16:32:44 - INFO - __main__ -   test: [batch: 292/391 ] | Loss: 1.130 | Acc: 72.195% (27076/37504)/ 90.593% (33976/37504)
+01/12/2023 16:32:44 - INFO - __main__ -   test: [batch: 293/391 ] | Loss: 1.131 | Acc: 72.189% (27166/37632)/ 90.598% (34094/37632)
+01/12/2023 16:32:44 - INFO - __main__ -   test: [batch: 294/391 ] | Loss: 1.132 | Acc: 72.161% (27248/37760)/ 90.588% (34206/37760)
+01/12/2023 16:32:44 - INFO - __main__ -   test: [batch: 295/391 ] | Loss: 1.131 | Acc: 72.176% (27346/37888)/ 90.599% (34326/37888)
+01/12/2023 16:32:45 - INFO - __main__ -   test: [batch: 296/391 ] | Loss: 1.132 | Acc: 72.154% (27430/38016)/ 90.580% (34435/38016)
+01/12/2023 16:32:45 - INFO - __main__ -   test: [batch: 297/391 ] | Loss: 1.134 | Acc: 72.114% (27507/38144)/ 90.552% (34540/38144)
+01/12/2023 16:32:45 - INFO - __main__ -   test: [batch: 298/391 ] | Loss: 1.136 | Acc: 72.074% (27584/38272)/ 90.528% (34647/38272)
+01/12/2023 16:32:45 - INFO - __main__ -   test: [batch: 299/391 ] | Loss: 1.137 | Acc: 72.073% (27676/38400)/ 90.521% (34760/38400)
+01/12/2023 16:32:46 - INFO - __main__ -   test: [batch: 300/391 ] | Loss: 1.137 | Acc: 72.090% (27775/38528)/ 90.508% (34871/38528)
+01/12/2023 16:32:46 - INFO - __main__ -   test: [batch: 301/391 ] | Loss: 1.139 | Acc: 72.077% (27862/38656)/ 90.485% (34978/38656)
+01/12/2023 16:32:46 - INFO - __main__ -   test: [batch: 302/391 ] | Loss: 1.140 | Acc: 72.050% (27944/38784)/ 90.463% (35085/38784)
+01/12/2023 16:32:46 - INFO - __main__ -   test: [batch: 303/391 ] | Loss: 1.141 | Acc: 72.027% (28027/38912)/ 90.440% (35192/38912)
+01/12/2023 16:32:46 - INFO - __main__ -   test: [batch: 304/391 ] | Loss: 1.140 | Acc: 72.054% (28130/39040)/ 90.441% (35308/39040)
+01/12/2023 16:32:47 - INFO - __main__ -   test: [batch: 305/391 ] | Loss: 1.141 | Acc: 72.015% (28207/39168)/ 90.431% (35420/39168)
+01/12/2023 16:32:47 - INFO - __main__ -   test: [batch: 306/391 ] | Loss: 1.143 | Acc: 71.992% (28290/39296)/ 90.396% (35522/39296)
+01/12/2023 16:32:47 - INFO - __main__ -   test: [batch: 307/391 ] | Loss: 1.145 | Acc: 71.969% (28373/39424)/ 90.381% (35632/39424)
+01/12/2023 16:32:47 - INFO - __main__ -   test: [batch: 308/391 ] | Loss: 1.146 | Acc: 71.948% (28457/39552)/ 90.362% (35740/39552)
+01/12/2023 16:32:47 - INFO - __main__ -   test: [batch: 309/391 ] | Loss: 1.147 | Acc: 71.915% (28536/39680)/ 90.343% (35848/39680)
+01/12/2023 16:32:48 - INFO - __main__ -   test: [batch: 310/391 ] | Loss: 1.148 | Acc: 71.910% (28626/39808)/ 90.324% (35956/39808)
+01/12/2023 16:32:48 - INFO - __main__ -   test: [batch: 311/391 ] | Loss: 1.150 | Acc: 71.893% (28711/39936)/ 90.294% (36060/39936)
+01/12/2023 16:32:48 - INFO - __main__ -   test: [batch: 312/391 ] | Loss: 1.150 | Acc: 71.900% (28806/40064)/ 90.283% (36171/40064)
+01/12/2023 16:32:48 - INFO - __main__ -   test: [batch: 313/391 ] | Loss: 1.148 | Acc: 71.942% (28915/40192)/ 90.309% (36297/40192)
+01/12/2023 16:32:49 - INFO - __main__ -   test: [batch: 314/391 ] | Loss: 1.149 | Acc: 71.935% (29004/40320)/ 90.305% (36411/40320)
+01/12/2023 16:32:49 - INFO - __main__ -   test: [batch: 315/391 ] | Loss: 1.151 | Acc: 71.917% (29089/40448)/ 90.286% (36519/40448)
+01/12/2023 16:32:49 - INFO - __main__ -   test: [batch: 316/391 ] | Loss: 1.153 | Acc: 71.850% (29154/40576)/ 90.268% (36627/40576)
+01/12/2023 16:32:49 - INFO - __main__ -   test: [batch: 317/391 ] | Loss: 1.155 | Acc: 71.809% (29229/40704)/ 90.242% (36732/40704)
+01/12/2023 16:32:50 - INFO - __main__ -   test: [batch: 318/391 ] | Loss: 1.154 | Acc: 71.833% (29331/40832)/ 90.263% (36856/40832)
+01/12/2023 16:32:50 - INFO - __main__ -   test: [batch: 319/391 ] | Loss: 1.157 | Acc: 71.760% (29393/40960)/ 90.210% (36950/40960)
+01/12/2023 16:32:50 - INFO - __main__ -   test: [batch: 320/391 ] | Loss: 1.156 | Acc: 71.785% (29495/41088)/ 90.219% (37069/41088)
+01/12/2023 16:32:50 - INFO - __main__ -   test: [batch: 321/391 ] | Loss: 1.157 | Acc: 71.783% (29586/41216)/ 90.208% (37180/41216)
+01/12/2023 16:32:50 - INFO - __main__ -   test: [batch: 322/391 ] | Loss: 1.158 | Acc: 71.747% (29663/41344)/ 90.197% (37291/41344)
+01/12/2023 16:32:51 - INFO - __main__ -   test: [batch: 323/391 ] | Loss: 1.161 | Acc: 71.704% (29737/41472)/ 90.172% (37396/41472)
+01/12/2023 16:32:51 - INFO - __main__ -   test: [batch: 324/391 ] | Loss: 1.161 | Acc: 71.692% (29824/41600)/ 90.161% (37507/41600)
+01/12/2023 16:32:51 - INFO - __main__ -   test: [batch: 325/391 ] | Loss: 1.161 | Acc: 71.693% (29916/41728)/ 90.153% (37619/41728)
+01/12/2023 16:32:51 - INFO - __main__ -   test: [batch: 326/391 ] | Loss: 1.165 | Acc: 71.584% (29962/41856)/ 90.092% (37709/41856)
+01/12/2023 16:32:51 - INFO - __main__ -   test: [batch: 327/391 ] | Loss: 1.169 | Acc: 71.484% (30012/41984)/ 90.044% (37804/41984)
+01/12/2023 16:32:52 - INFO - __main__ -   test: [batch: 328/391 ] | Loss: 1.171 | Acc: 71.431% (30081/42112)/ 90.010% (37905/42112)
+01/12/2023 16:32:52 - INFO - __main__ -   test: [batch: 329/391 ] | Loss: 1.172 | Acc: 71.413% (30165/42240)/ 90.005% (38018/42240)
+01/12/2023 16:32:52 - INFO - __main__ -   test: [batch: 330/391 ] | Loss: 1.174 | Acc: 71.360% (30234/42368)/ 89.969% (38118/42368)
+01/12/2023 16:32:52 - INFO - __main__ -   test: [batch: 331/391 ] | Loss: 1.175 | Acc: 71.320% (30308/42496)/ 89.971% (38234/42496)
+01/12/2023 16:32:52 - INFO - __main__ -   test: [batch: 332/391 ] | Loss: 1.175 | Acc: 71.310% (30395/42624)/ 89.973% (38350/42624)
+01/12/2023 16:32:53 - INFO - __main__ -   test: [batch: 333/391 ] | Loss: 1.174 | Acc: 71.330% (30495/42752)/ 89.977% (38467/42752)
+01/12/2023 16:32:53 - INFO - __main__ -   test: [batch: 334/391 ] | Loss: 1.175 | Acc: 71.306% (30576/42880)/ 89.963% (38576/42880)
+01/12/2023 16:32:53 - INFO - __main__ -   test: [batch: 335/391 ] | Loss: 1.177 | Acc: 71.277% (30655/43008)/ 89.923% (38674/43008)
+01/12/2023 16:32:53 - INFO - __main__ -   test: [batch: 336/391 ] | Loss: 1.178 | Acc: 71.240% (30730/43136)/ 89.909% (38783/43136)
+01/12/2023 16:32:54 - INFO - __main__ -   test: [batch: 337/391 ] | Loss: 1.178 | Acc: 71.239% (30821/43264)/ 89.911% (38899/43264)
+01/12/2023 16:32:54 - INFO - __main__ -   test: [batch: 338/391 ] | Loss: 1.177 | Acc: 71.239% (30912/43392)/ 89.922% (39019/43392)
+01/12/2023 16:32:54 - INFO - __main__ -   test: [batch: 339/391 ] | Loss: 1.180 | Acc: 71.206% (30989/43520)/ 89.881% (39116/43520)
+01/12/2023 16:32:54 - INFO - __main__ -   test: [batch: 340/391 ] | Loss: 1.179 | Acc: 71.192% (31074/43648)/ 89.892% (39236/43648)
+01/12/2023 16:32:54 - INFO - __main__ -   test: [batch: 341/391 ] | Loss: 1.177 | Acc: 71.229% (31181/43776)/ 89.915% (39361/43776)
+01/12/2023 16:32:55 - INFO - __main__ -   test: [batch: 342/391 ] | Loss: 1.178 | Acc: 71.189% (31255/43904)/ 89.901% (39470/43904)
+01/12/2023 16:32:55 - INFO - __main__ -   test: [batch: 343/391 ] | Loss: 1.178 | Acc: 71.185% (31344/44032)/ 89.894% (39582/44032)
+01/12/2023 16:32:55 - INFO - __main__ -   test: [batch: 344/391 ] | Loss: 1.179 | Acc: 71.187% (31436/44160)/ 89.882% (39692/44160)
+01/12/2023 16:32:55 - INFO - __main__ -   test: [batch: 345/391 ] | Loss: 1.183 | Acc: 71.116% (31496/44288)/ 89.819% (39779/44288)
+01/12/2023 16:32:56 - INFO - __main__ -   test: [batch: 346/391 ] | Loss: 1.184 | Acc: 71.110% (31584/44416)/ 89.814% (39892/44416)
+01/12/2023 16:32:56 - INFO - __main__ -   test: [batch: 347/391 ] | Loss: 1.183 | Acc: 71.116% (31678/44544)/ 89.830% (40014/44544)
+01/12/2023 16:32:56 - INFO - __main__ -   test: [batch: 348/391 ] | Loss: 1.184 | Acc: 71.096% (31760/44672)/ 89.819% (40124/44672)
+01/12/2023 16:32:56 - INFO - __main__ -   test: [batch: 349/391 ] | Loss: 1.184 | Acc: 71.071% (31840/44800)/ 89.819% (40239/44800)
+01/12/2023 16:32:57 - INFO - __main__ -   test: [batch: 350/391 ] | Loss: 1.184 | Acc: 71.076% (31933/44928)/ 89.824% (40356/44928)
+01/12/2023 16:32:57 - INFO - __main__ -   test: [batch: 351/391 ] | Loss: 1.186 | Acc: 71.027% (32002/45056)/ 89.795% (40458/45056)
+01/12/2023 16:32:57 - INFO - __main__ -   test: [batch: 352/391 ] | Loss: 1.186 | Acc: 71.034% (32096/45184)/ 89.784% (40568/45184)
+01/12/2023 16:32:57 - INFO - __main__ -   test: [batch: 353/391 ] | Loss: 1.189 | Acc: 70.992% (32168/45312)/ 89.740% (40663/45312)
+01/12/2023 16:32:57 - INFO - __main__ -   test: [batch: 354/391 ] | Loss: 1.192 | Acc: 70.907% (32220/45440)/ 89.714% (40766/45440)
+01/12/2023 16:32:58 - INFO - __main__ -   test: [batch: 355/391 ] | Loss: 1.195 | Acc: 70.828% (32275/45568)/ 89.692% (40871/45568)
+01/12/2023 16:32:58 - INFO - __main__ -   test: [batch: 356/391 ] | Loss: 1.195 | Acc: 70.825% (32364/45696)/ 89.691% (40985/45696)
+01/12/2023 16:32:58 - INFO - __main__ -   test: [batch: 357/391 ] | Loss: 1.193 | Acc: 70.869% (32475/45824)/ 89.706% (41107/45824)
+01/12/2023 16:32:58 - INFO - __main__ -   test: [batch: 358/391 ] | Loss: 1.193 | Acc: 70.878% (32570/45952)/ 89.711% (41224/45952)
+01/12/2023 16:32:59 - INFO - __main__ -   test: [batch: 359/391 ] | Loss: 1.193 | Acc: 70.885% (32664/46080)/ 89.709% (41338/46080)
+01/12/2023 16:32:59 - INFO - __main__ -   test: [batch: 360/391 ] | Loss: 1.194 | Acc: 70.854% (32740/46208)/ 89.705% (41451/46208)
+01/12/2023 16:32:59 - INFO - __main__ -   test: [batch: 361/391 ] | Loss: 1.193 | Acc: 70.859% (32833/46336)/ 89.716% (41571/46336)
+01/12/2023 16:32:59 - INFO - __main__ -   test: [batch: 362/391 ] | Loss: 1.192 | Acc: 70.870% (32929/46464)/ 89.721% (41688/46464)
+01/12/2023 16:33:00 - INFO - __main__ -   test: [batch: 363/391 ] | Loss: 1.194 | Acc: 70.836% (33004/46592)/ 89.706% (41796/46592)
+01/12/2023 16:33:00 - INFO - __main__ -   test: [batch: 364/391 ] | Loss: 1.193 | Acc: 70.858% (33105/46720)/ 89.715% (41915/46720)
+01/12/2023 16:33:00 - INFO - __main__ -   test: [batch: 365/391 ] | Loss: 1.192 | Acc: 70.865% (33199/46848)/ 89.724% (42034/46848)
+01/12/2023 16:33:00 - INFO - __main__ -   test: [batch: 366/391 ] | Loss: 1.190 | Acc: 70.904% (33308/46976)/ 89.737% (42155/46976)
+01/12/2023 16:33:01 - INFO - __main__ -   test: [batch: 367/391 ] | Loss: 1.189 | Acc: 70.935% (33413/47104)/ 89.755% (42278/47104)
+01/12/2023 16:33:01 - INFO - __main__ -   test: [batch: 368/391 ] | Loss: 1.189 | Acc: 70.931% (33502/47232)/ 89.761% (42396/47232)
+01/12/2023 16:33:01 - INFO - __main__ -   test: [batch: 369/391 ] | Loss: 1.187 | Acc: 70.957% (33605/47360)/ 89.780% (42520/47360)
+01/12/2023 16:33:01 - INFO - __main__ -   test: [batch: 370/391 ] | Loss: 1.187 | Acc: 70.938% (33687/47488)/ 89.797% (42643/47488)
+01/12/2023 16:33:02 - INFO - __main__ -   test: [batch: 371/391 ] | Loss: 1.187 | Acc: 70.955% (33786/47616)/ 89.804% (42761/47616)
+01/12/2023 16:33:02 - INFO - __main__ -   test: [batch: 372/391 ] | Loss: 1.185 | Acc: 70.995% (33896/47744)/ 89.823% (42885/47744)
+01/12/2023 16:33:02 - INFO - __main__ -   test: [batch: 373/391 ] | Loss: 1.183 | Acc: 71.042% (34009/47872)/ 89.840% (43008/47872)
+01/12/2023 16:33:02 - INFO - __main__ -   test: [batch: 374/391 ] | Loss: 1.182 | Acc: 71.071% (34114/48000)/ 89.848% (43127/48000)
+01/12/2023 16:33:02 - INFO - __main__ -   test: [batch: 375/391 ] | Loss: 1.185 | Acc: 71.002% (34172/48128)/ 89.825% (43231/48128)
+01/12/2023 16:33:03 - INFO - __main__ -   test: [batch: 376/391 ] | Loss: 1.185 | Acc: 71.007% (34265/48256)/ 89.815% (43341/48256)
+01/12/2023 16:33:03 - INFO - __main__ -   test: [batch: 377/391 ] | Loss: 1.186 | Acc: 70.995% (34350/48384)/ 89.809% (43453/48384)
+01/12/2023 16:33:03 - INFO - __main__ -   test: [batch: 378/391 ] | Loss: 1.189 | Acc: 70.919% (34404/48512)/ 89.767% (43548/48512)
+01/12/2023 16:33:03 - INFO - __main__ -   test: [batch: 379/391 ] | Loss: 1.189 | Acc: 70.888% (34480/48640)/ 89.776% (43667/48640)
+01/12/2023 16:33:04 - INFO - __main__ -   test: [batch: 380/391 ] | Loss: 1.189 | Acc: 70.897% (34575/48768)/ 89.786% (43787/48768)
+01/12/2023 16:33:04 - INFO - __main__ -   test: [batch: 381/391 ] | Loss: 1.190 | Acc: 70.840% (34638/48896)/ 89.789% (43903/48896)
+01/12/2023 16:33:04 - INFO - __main__ -   test: [batch: 382/391 ] | Loss: 1.191 | Acc: 70.822% (34720/49024)/ 89.781% (44014/49024)
+01/12/2023 16:33:04 - INFO - __main__ -   test: [batch: 383/391 ] | Loss: 1.191 | Acc: 70.835% (34817/49152)/ 89.773% (44125/49152)
+01/12/2023 16:33:04 - INFO - __main__ -   test: [batch: 384/391 ] | Loss: 1.189 | Acc: 70.899% (34939/49280)/ 89.795% (44251/49280)
+01/12/2023 16:33:05 - INFO - __main__ -   test: [batch: 385/391 ] | Loss: 1.187 | Acc: 70.912% (35036/49408)/ 89.813% (44375/49408)
+01/12/2023 16:33:05 - INFO - __main__ -   test: [batch: 386/391 ] | Loss: 1.185 | Acc: 70.965% (35153/49536)/ 89.834% (44500/49536)
+01/12/2023 16:33:05 - INFO - __main__ -   test: [batch: 387/391 ] | Loss: 1.183 | Acc: 71.019% (35271/49664)/ 89.852% (44624/49664)
+01/12/2023 16:33:06 - INFO - __main__ -   test: [batch: 388/391 ] | Loss: 1.181 | Acc: 71.076% (35390/49792)/ 89.870% (44748/49792)
+01/12/2023 16:33:06 - INFO - __main__ -   test: [batch: 389/391 ] | Loss: 1.180 | Acc: 71.084% (35485/49920)/ 89.882% (44869/49920)
+01/12/2023 16:33:06 - INFO - __main__ -   test: [batch: 390/391 ] | Loss: 1.182 | Acc: 71.032% (35516/50000)/ 89.874% (44937/50000)
+01/12/2023 16:33:06 - INFO - __main__ -   Final accuracy: 71.032
+01/12/2023 16:33:06 - INFO - __main__ -   {'milestones': Counter({2: 1, 3: 1, 4: 1}), 'gamma': 0.1, 'base_lrs': [0.00025], 'last_epoch': 1, '_step_count': 2, 'verbose': False, '_get_lr_called_within_step': False, '_last_lr': [0.00025]}
+01/12/2023 16:33:06 - INFO - __main__ -   
+Epoch: 1
+01/12/2023 16:33:06 - INFO - __main__ -   test: [epoch: 1 | batch: 0/10010 ] | Loss: 0.788 | Acc: 80.469% (103/128)
+01/12/2023 16:33:30 - INFO - __main__ -   test: [epoch: 1 | batch: 100/10010 ] | Loss: 1.170 | Acc: 71.929% (9299/12928)
+01/12/2023 16:33:54 - INFO - __main__ -   test: [epoch: 1 | batch: 200/10010 ] | Loss: 1.177 | Acc: 71.214% (18322/25728)
+01/12/2023 16:34:17 - INFO - __main__ -   test: [epoch: 1 | batch: 300/10010 ] | Loss: 1.189 | Acc: 71.073% (27383/38528)
+01/12/2023 16:34:41 - INFO - __main__ -   test: [epoch: 1 | batch: 400/10010 ] | Loss: 1.203 | Acc: 70.784% (36332/51328)
+01/12/2023 16:35:04 - INFO - __main__ -   test: [epoch: 1 | batch: 500/10010 ] | Loss: 1.208 | Acc: 70.704% (45341/64128)
+01/12/2023 16:35:28 - INFO - __main__ -   test: [epoch: 1 | batch: 600/10010 ] | Loss: 1.213 | Acc: 70.678% (54371/76928)
+01/12/2023 16:35:52 - INFO - __main__ -   test: [epoch: 1 | batch: 700/10010 ] | Loss: 1.213 | Acc: 70.657% (63399/89728)
+01/12/2023 16:36:16 - INFO - __main__ -   test: [epoch: 1 | batch: 800/10010 ] | Loss: 1.213 | Acc: 70.580% (72364/102528)
+01/12/2023 16:36:40 - INFO - __main__ -   test: [epoch: 1 | batch: 900/10010 ] | Loss: 1.214 | Acc: 70.563% (81379/115328)
+01/12/2023 16:37:03 - INFO - __main__ -   test: [epoch: 1 | batch: 1000/10010 ] | Loss: 1.215 | Acc: 70.583% (90436/128128)
+01/12/2023 16:37:27 - INFO - __main__ -   test: [epoch: 1 | batch: 1100/10010 ] | Loss: 1.218 | Acc: 70.550% (99425/140928)
+01/12/2023 16:37:50 - INFO - __main__ -   test: [epoch: 1 | batch: 1200/10010 ] | Loss: 1.219 | Acc: 70.530% (108424/153728)
+01/12/2023 16:38:14 - INFO - __main__ -   test: [epoch: 1 | batch: 1300/10010 ] | Loss: 1.216 | Acc: 70.639% (117633/166528)
+01/12/2023 16:38:37 - INFO - __main__ -   test: [epoch: 1 | batch: 1400/10010 ] | Loss: 1.216 | Acc: 70.620% (126641/179328)
+01/12/2023 16:39:00 - INFO - __main__ -   test: [epoch: 1 | batch: 1500/10010 ] | Loss: 1.216 | Acc: 70.611% (135664/192128)
+01/12/2023 16:39:24 - INFO - __main__ -   test: [epoch: 1 | batch: 1600/10010 ] | Loss: 1.218 | Acc: 70.574% (144626/204928)
+01/12/2023 16:39:48 - INFO - __main__ -   test: [epoch: 1 | batch: 1700/10010 ] | Loss: 1.216 | Acc: 70.607% (153732/217728)
+01/12/2023 16:40:11 - INFO - __main__ -   test: [epoch: 1 | batch: 1800/10010 ] | Loss: 1.216 | Acc: 70.604% (162762/230528)
+01/12/2023 16:40:35 - INFO - __main__ -   test: [epoch: 1 | batch: 1900/10010 ] | Loss: 1.215 | Acc: 70.636% (171877/243328)
+01/12/2023 16:40:59 - INFO - __main__ -   test: [epoch: 1 | batch: 2000/10010 ] | Loss: 1.215 | Acc: 70.627% (180895/256128)
+01/12/2023 16:41:22 - INFO - __main__ -   test: [epoch: 1 | batch: 2100/10010 ] | Loss: 1.215 | Acc: 70.623% (189925/268928)
+01/12/2023 16:41:46 - INFO - __main__ -   test: [epoch: 1 | batch: 2200/10010 ] | Loss: 1.217 | Acc: 70.591% (198874/281728)
+01/12/2023 16:42:10 - INFO - __main__ -   test: [epoch: 1 | batch: 2300/10010 ] | Loss: 1.218 | Acc: 70.591% (207910/294528)
+01/12/2023 16:42:33 - INFO - __main__ -   test: [epoch: 1 | batch: 2400/10010 ] | Loss: 1.217 | Acc: 70.613% (217015/307328)
+01/12/2023 16:42:58 - INFO - __main__ -   test: [epoch: 1 | batch: 2500/10010 ] | Loss: 1.218 | Acc: 70.598% (226003/320128)
+01/12/2023 16:43:21 - INFO - __main__ -   test: [epoch: 1 | batch: 2600/10010 ] | Loss: 1.219 | Acc: 70.583% (234989/332928)
+01/12/2023 16:43:46 - INFO - __main__ -   test: [epoch: 1 | batch: 2700/10010 ] | Loss: 1.219 | Acc: 70.585% (244031/345728)
+01/12/2023 16:44:09 - INFO - __main__ -   test: [epoch: 1 | batch: 2800/10010 ] | Loss: 1.219 | Acc: 70.584% (253062/358528)
+01/12/2023 16:44:32 - INFO - __main__ -   test: [epoch: 1 | batch: 2900/10010 ] | Loss: 1.219 | Acc: 70.579% (262079/371328)
+01/12/2023 16:44:56 - INFO - __main__ -   test: [epoch: 1 | batch: 3000/10010 ] | Loss: 1.219 | Acc: 70.584% (271131/384128)
+01/12/2023 16:45:20 - INFO - __main__ -   test: [epoch: 1 | batch: 3100/10010 ] | Loss: 1.219 | Acc: 70.566% (280098/396928)
+01/12/2023 16:45:44 - INFO - __main__ -   test: [epoch: 1 | batch: 3200/10010 ] | Loss: 1.220 | Acc: 70.543% (289036/409728)
+01/12/2023 16:46:07 - INFO - __main__ -   test: [epoch: 1 | batch: 3300/10010 ] | Loss: 1.220 | Acc: 70.530% (298010/422528)
+01/12/2023 16:46:32 - INFO - __main__ -   test: [epoch: 1 | batch: 3400/10010 ] | Loss: 1.220 | Acc: 70.527% (307022/435328)
+01/12/2023 16:46:56 - INFO - __main__ -   test: [epoch: 1 | batch: 3500/10010 ] | Loss: 1.220 | Acc: 70.512% (315984/448128)
+01/12/2023 16:47:19 - INFO - __main__ -   test: [epoch: 1 | batch: 3600/10010 ] | Loss: 1.220 | Acc: 70.519% (325043/460928)
+01/12/2023 16:47:43 - INFO - __main__ -   test: [epoch: 1 | batch: 3700/10010 ] | Loss: 1.221 | Acc: 70.492% (333942/473728)
+01/12/2023 16:48:07 - INFO - __main__ -   test: [epoch: 1 | batch: 3800/10010 ] | Loss: 1.221 | Acc: 70.491% (342957/486528)
+01/12/2023 16:48:31 - INFO - __main__ -   test: [epoch: 1 | batch: 3900/10010 ] | Loss: 1.221 | Acc: 70.495% (352000/499328)
+01/12/2023 16:48:55 - INFO - __main__ -   test: [epoch: 1 | batch: 4000/10010 ] | Loss: 1.222 | Acc: 70.479% (360941/512128)
+01/12/2023 16:49:18 - INFO - __main__ -   test: [epoch: 1 | batch: 4100/10010 ] | Loss: 1.222 | Acc: 70.481% (369972/524928)
+01/12/2023 16:49:41 - INFO - __main__ -   test: [epoch: 1 | batch: 4200/10010 ] | Loss: 1.221 | Acc: 70.484% (379014/537728)
+01/12/2023 16:50:04 - INFO - __main__ -   test: [epoch: 1 | batch: 4300/10010 ] | Loss: 1.221 | Acc: 70.491% (388071/550528)
+01/12/2023 16:50:28 - INFO - __main__ -   test: [epoch: 1 | batch: 4400/10010 ] | Loss: 1.221 | Acc: 70.496% (397122/563328)
+01/12/2023 16:50:51 - INFO - __main__ -   test: [epoch: 1 | batch: 4500/10010 ] | Loss: 1.221 | Acc: 70.501% (406175/576128)
+01/12/2023 16:51:15 - INFO - __main__ -   test: [epoch: 1 | batch: 4600/10010 ] | Loss: 1.221 | Acc: 70.505% (415221/588928)
+01/12/2023 16:51:39 - INFO - __main__ -   test: [epoch: 1 | batch: 4700/10010 ] | Loss: 1.221 | Acc: 70.503% (424235/601728)
+01/12/2023 16:52:03 - INFO - __main__ -   test: [epoch: 1 | batch: 4800/10010 ] | Loss: 1.220 | Acc: 70.519% (433356/614528)
+01/12/2023 16:52:27 - INFO - __main__ -   test: [epoch: 1 | batch: 4900/10010 ] | Loss: 1.220 | Acc: 70.527% (442435/627328)
+01/12/2023 16:52:52 - INFO - __main__ -   test: [epoch: 1 | batch: 5000/10010 ] | Loss: 1.219 | Acc: 70.538% (451535/640128)
+01/12/2023 16:53:15 - INFO - __main__ -   test: [epoch: 1 | batch: 5100/10010 ] | Loss: 1.220 | Acc: 70.532% (460526/652928)
+01/12/2023 16:53:39 - INFO - __main__ -   test: [epoch: 1 | batch: 5200/10010 ] | Loss: 1.220 | Acc: 70.527% (469516/665728)
+01/12/2023 16:54:04 - INFO - __main__ -   test: [epoch: 1 | batch: 5300/10010 ] | Loss: 1.220 | Acc: 70.524% (478523/678528)
+01/12/2023 16:54:28 - INFO - __main__ -   test: [epoch: 1 | batch: 5400/10010 ] | Loss: 1.220 | Acc: 70.524% (487555/691328)
+01/12/2023 16:54:52 - INFO - __main__ -   test: [epoch: 1 | batch: 5500/10010 ] | Loss: 1.220 | Acc: 70.512% (496495/704128)
+01/12/2023 16:55:16 - INFO - __main__ -   test: [epoch: 1 | batch: 5600/10010 ] | Loss: 1.220 | Acc: 70.525% (505616/716928)
+01/12/2023 16:55:40 - INFO - __main__ -   test: [epoch: 1 | batch: 5700/10010 ] | Loss: 1.220 | Acc: 70.524% (514636/729728)
+01/12/2023 16:56:02 - INFO - __main__ -   test: [epoch: 1 | batch: 5800/10010 ] | Loss: 1.220 | Acc: 70.528% (523690/742528)
+01/12/2023 16:56:26 - INFO - __main__ -   test: [epoch: 1 | batch: 5900/10010 ] | Loss: 1.220 | Acc: 70.532% (532746/755328)
+01/12/2023 16:56:50 - INFO - __main__ -   test: [epoch: 1 | batch: 6000/10010 ] | Loss: 1.220 | Acc: 70.537% (541811/768128)
+01/12/2023 16:57:14 - INFO - __main__ -   test: [epoch: 1 | batch: 6100/10010 ] | Loss: 1.220 | Acc: 70.526% (550760/780928)
+01/12/2023 16:57:37 - INFO - __main__ -   test: [epoch: 1 | batch: 6200/10010 ] | Loss: 1.220 | Acc: 70.529% (559809/793728)
+01/12/2023 16:58:01 - INFO - __main__ -   test: [epoch: 1 | batch: 6300/10010 ] | Loss: 1.220 | Acc: 70.524% (568793/806528)
+01/12/2023 16:58:24 - INFO - __main__ -   test: [epoch: 1 | batch: 6400/10010 ] | Loss: 1.221 | Acc: 70.512% (577721/819328)
+01/12/2023 16:58:48 - INFO - __main__ -   test: [epoch: 1 | batch: 6500/10010 ] | Loss: 1.220 | Acc: 70.516% (586783/832128)
+WARNING:torch.distributed.elastic.agent.server.api:Received 2 death signal, shutting down workers
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 2011291 closing signal SIGINT
+Traceback (most recent call last):
+  File "main.py", line 306, in <module>
+    train(epoch)
+  File "main.py", line 210, in train
+    outputs = model(inputs)
+  File "/home/jjc/miniconda3/envs/ant_quant/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/jjc/miniconda3/envs/ant_quant/lib/python3.8/site-packages/torch/nn/parallel/distributed.py", line 965, in forward
+    output = self.module(*inputs, **kwargs)
+  File "/home/jjc/miniconda3/envs/ant_quant/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/jjc/miniconda3/envs/ant_quant/lib/python3.8/site-packages/torchvision/models/mobilenetv2.py", line 195, in forward
+    return self._forward_impl(x)
+  File "/home/jjc/miniconda3/envs/ant_quant/lib/python3.8/site-packages/torchvision/models/mobilenetv2.py", line 187, in _forward_impl
+    x = self.features(x)
+  File "/home/jjc/miniconda3/envs/ant_quant/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/jjc/miniconda3/envs/ant_quant/lib/python3.8/site-packages/torch/nn/modules/container.py", line 141, in forward
+    input = module(input)
+  File "/home/jjc/miniconda3/envs/ant_quant/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/jjc/miniconda3/envs/ant_quant/lib/python3.8/site-packages/torchvision/models/mobilenetv2.py", line 83, in forward
+    return x + self.conv(x)
+  File "/home/jjc/miniconda3/envs/ant_quant/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/jjc/miniconda3/envs/ant_quant/lib/python3.8/site-packages/torch/nn/modules/container.py", line 141, in forward
+    input = module(input)
+  File "/home/jjc/miniconda3/envs/ant_quant/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/jjc/hamha_quant/hamha_quant/ant_quantization/ImageNet/../antquant/quant_modules.py", line 1700, in forward
+    fake_weight = torch.zeros([self.weight.shape[1],self.weight.shape[1],self.weight.shape[2],self.weight.shape[3]])
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/jjc/miniconda3/envs/ant_quant/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/jjc/miniconda3/envs/ant_quant/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/jjc/miniconda3/envs/ant_quant/lib/python3.8/site-packages/torch/distributed/launch.py", line 193, in <module>
+    main()
+  File "/home/jjc/miniconda3/envs/ant_quant/lib/python3.8/site-packages/torch/distributed/launch.py", line 189, in main
+    launch(args)
+  File "/home/jjc/miniconda3/envs/ant_quant/lib/python3.8/site-packages/torch/distributed/launch.py", line 174, in launch
+    run(args)
+  File "/home/jjc/miniconda3/envs/ant_quant/lib/python3.8/site-packages/torch/distributed/run.py", line 715, in run
+    elastic_launch(
+  File "/home/jjc/miniconda3/envs/ant_quant/lib/python3.8/site-packages/torch/distributed/launcher/api.py", line 131, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/jjc/miniconda3/envs/ant_quant/lib/python3.8/site-packages/torch/distributed/launcher/api.py", line 236, in launch_agent
+    result = agent.run()
+  File "/home/jjc/miniconda3/envs/ant_quant/lib/python3.8/site-packages/torch/distributed/elastic/metrics/api.py", line 125, in wrapper
+    result = f(*args, **kwargs)
+  File "/home/jjc/miniconda3/envs/ant_quant/lib/python3.8/site-packages/torch/distributed/elastic/agent/server/api.py", line 709, in run
+    result = self._invoke_run(role)
+  File "/home/jjc/miniconda3/envs/ant_quant/lib/python3.8/site-packages/torch/distributed/elastic/agent/server/api.py", line 850, in _invoke_run
+    time.sleep(monitor_interval)
+  File "/home/jjc/miniconda3/envs/ant_quant/lib/python3.8/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 60, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 2011283 got signal: 2
