@@ -27,7 +27,7 @@ The image classification tasks include five models, i.e., VGG16, ResNet18, ResNe
 For reproducing the results in Table III, please refer to `./ImageNet`.
 
 
-## Project Structure
+## Structure
 
 ```
 ├── msd_quantization                        # The MSD framework with PyTorch.

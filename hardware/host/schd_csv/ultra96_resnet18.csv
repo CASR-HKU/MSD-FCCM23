@@ -1,0 +1,23 @@
+Conv1, 116092, 64, 1, 3, 1, 8, 14, 7,2,0.5,2,memory bound
+Conv2_1a, 113440, 64, 1, 8, 8, 8, 7, 3,1,0.5,2,memory bound
+Conv2_1b, 113440, 64, 1, 8, 8, 8, 7, 3,1,0.5,2,memory bound
+Conv2_2a, 113440, 64, 1, 8, 8, 8, 7, 3,1,0.5,2,memory bound
+Conv2_2b, 113440, 64, 1, 8, 8, 8, 7, 3,1,0.5,2,memory bound
+Conv3_1a, 51104, 128, 1, 16, 4, 14, 2, 3,2,0.625,2,compute bound
+Conv3_1b, 82592, 128, 1, 16, 8, 26, 1, 3,1,0.625,2,compute bound
+Conv3_s, 13600, 128, 1, 64, 1, 6, 5, 1,2,0.5,2,memory bound
+Conv3_2a, 82592, 128, 1, 16, 8, 26, 1, 3,1,0.625,2,compute bound
+Conv3_2b, 82592, 128, 1, 16, 8, 26, 1, 3,1,0.625,2,compute bound
+Conv4_1a, 51104, 128, 2, 16, 8, 14, 1, 3,2,0.625,2,compute bound
+Conv4_1b, 62208, 256, 1, 16, 16, 12, 1, 3,1,0.6875,2,compute bound
+Conv4_s, 10240, 256, 1, 64, 2, 8, 2, 1,2,0.5,2,memory bound
+Conv4_2a, 62208, 256, 1, 16, 16, 12, 1, 3,1,0.6875,2,compute bound
+Conv4_2b, 62208, 256, 1, 16, 16, 12, 1, 3,1,0.6875,2,compute bound
+Conv5_1a, 74212, 64, 8, 8, 32, 7, 1, 3,2,0.5,2,memory bound
+Conv5_1b, 147578, 32, 16, 4, 128, 5, 1, 3,1,0.1875,2,memory bound
+Conv5_s, 10240, 256, 2, 64, 4, 8, 1, 1,2,0.5,2,memory bound
+Conv5_2a, 147578, 32, 16, 4, 128, 5, 1, 3,1,0.1875,2,memory bound
+Conv5_2b, 147578, 32, 16, 4, 128, 5, 1, 3,1,0.1875,2,memory bound
+FC, 32013, 40, 25, 4, 128, 1, 1, 1,1,0.2,2,memory bound
+latency cycles: 1689499
+latency: 7.894855140186917 ms

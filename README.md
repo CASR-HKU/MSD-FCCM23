@@ -8,7 +8,11 @@ DSP-only acceleration. The MSD approach ensures the number representation capabi
 computation scheme based on restricted signed digit (RSD).
 
 ## Outlines
-To be updated
+* `./hardware`: MSD hardware projects based on Xilinx Vivado 2021.2 with the RTL source codes, bitstream, handoff file and host CPU codes.
+* `./software`: MSD quantization and hardware scheduler with the Python source codes, running scripts, QAT checkpoints and scheduling results for different DNN models & hardware platforms.
 
-## Dependency
+## Environment
+The the hardware and software running enviroments are specified in `./hardware/README.md` and `./software/README.md`, respectively.
+
+## Example Run
 To be updated

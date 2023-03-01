@@ -1,0 +1,6 @@
+Layer Name,IFMAP Height,IFMAP Width,Filter Height,Filter Height,Channels,Num Filter,Stride,
+Conv_proj,224,224,16,16,3,768,16,
+Encoder_0_attention,1,1,1,1,768,768,1,
+Encoder_0_mlp_linear1,1,1,1,1,768,3072,1,
+Encoder_0_mlp_linear2,1,1,1,1,3072,768,1,
+head_linear,1,1,1,1,768,1000,1,
