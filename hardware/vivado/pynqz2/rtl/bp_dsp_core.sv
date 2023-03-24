@@ -19,14 +19,14 @@ module bp_dsp_core #(
     input  logic                                    rst_n,
     // act stream
     output logic                                    s_axis_bp_act_ld_tready,
-    input  logic [127:0]                            s_axis_bp_act_ld_tdata,
+    input  logic [63:0]                             s_axis_bp_act_ld_tdata,
     input  logic                                    s_axis_bp_act_ld_tvalid,
     // wgt stream
     output logic                                    s_axis_bp_wgt_ld_tready,
-    input  logic [127:0]                            s_axis_bp_wgt_ld_tdata,
+    input  logic [63:0]                             s_axis_bp_wgt_ld_tdata,
     input  logic                                    s_axis_bp_wgt_ld_tvalid,
     // output activations for wb
-    output logic [127:0]                            bp_out_wb_data,
+    output logic [63:0]                             bp_out_wb_data,
     // dsp ld
     input  logic [BP_COLS-1:0]                      bp_act_buf_ld_en,
     input  logic [BP_COLS-1:0][BP_ACT_BUF_DEPTH-1:0]bp_act_buf_ld_addr,
@@ -133,34 +133,47 @@ module bp_dsp_core #(
     // assign the input stream to buffers
     genvar col_grp_idx, col_buf_idx;
     generate
-        for (col_grp_idx = 0; col_grp_idx < BP_COLS/8; col_grp_idx ++) begin
-            for (col_buf_idx = 0; col_buf_idx < 8; col_buf_idx ++) begin
-                assign bp_dsp_ld_act_data[col_grp_idx*8+col_buf_idx] = s_axis_bp_act_ld_tdata[16*(col_buf_idx+1)-1:16*col_buf_idx];
+        for (col_grp_idx = 0; col_grp_idx < BP_COLS/4; col_grp_idx ++) begin
+            for (col_buf_idx = 0; col_buf_idx < 4; col_buf_idx ++) begin
+                assign bp_dsp_ld_act_data[col_grp_idx*4+col_buf_idx] = s_axis_bp_act_ld_tdata[16*(col_buf_idx+1)-1:16*col_buf_idx];
             end
         end
     endgenerate
+    assign bp_dsp_ld_act_data[12] = s_axis_bp_act_ld_tdata[15:0];
+    assign bp_dsp_ld_act_data[13] = s_axis_bp_act_ld_tdata[31:16];
+    assign bp_dsp_ld_act_data[14] = s_axis_bp_act_ld_tdata[47:32];
 
     genvar row_grp_idx, row_buf_idx;
     generate
-        for (row_grp_idx = 0; row_grp_idx < BP_ROWS/16; row_grp_idx ++) begin
-            for (row_buf_idx = 0; row_buf_idx < 16; row_buf_idx ++) begin
-                assign bp_dsp_ld_wgt_data[row_grp_idx*16+row_buf_idx] = s_axis_bp_wgt_ld_tdata[8*(row_buf_idx+1)-1:8*row_buf_idx];
+        for (row_grp_idx = 0; row_grp_idx < BP_ROWS/8; row_grp_idx ++) begin
+            for (row_buf_idx = 0; row_buf_idx < 8; row_buf_idx ++) begin
+                assign bp_dsp_ld_wgt_data[row_grp_idx*8+row_buf_idx] = s_axis_bp_wgt_ld_tdata[8*(row_buf_idx+1)-1:8*row_buf_idx];
             end
         end
     endgenerate
+    assign bp_dsp_ld_wgt_data[8]    = s_axis_bp_wgt_ld_tdata[7:0];
+    assign bp_dsp_ld_wgt_data[9]    = s_axis_bp_wgt_ld_tdata[15:8];
+    assign bp_dsp_ld_wgt_data[10]   = s_axis_bp_wgt_ld_tdata[23:16];
+    assign bp_dsp_ld_wgt_data[11]   = s_axis_bp_wgt_ld_tdata[31:24];
+    assign bp_dsp_ld_wgt_data[12]   = s_axis_bp_wgt_ld_tdata[39:32];
+    assign bp_dsp_ld_wgt_data[13]   = s_axis_bp_wgt_ld_tdata[47:40];
 
     // assign the output stream to buffers
-    logic [BP_COLS/8-1:0][7:0][PSU_DW-1:0] grp_out_wb_data;    
+    logic [BP_COLS/4:0][3:0][PSU_DW-1:0] grp_out_wb_data;    
     generate
-        for (col_grp_idx = 0; col_grp_idx < BP_COLS/8; col_grp_idx ++) begin
-            for (col_buf_idx = 0; col_buf_idx < 8; col_buf_idx ++) begin
-                assign grp_out_wb_data[col_grp_idx][col_buf_idx] = bp_dsp_out_wb_data[col_grp_idx*8+col_buf_idx];
+        for (col_grp_idx = 0; col_grp_idx < BP_COLS/4; col_grp_idx ++) begin
+            for (col_buf_idx = 0; col_buf_idx < 4; col_buf_idx ++) begin
+                assign grp_out_wb_data[col_grp_idx][col_buf_idx] = bp_dsp_out_wb_data[col_grp_idx*4+col_buf_idx];
             end
         end
     endgenerate
+    assign grp_out_wb_data[BP_COLS/4][0] = bp_dsp_out_wb_data[12];
+    assign grp_out_wb_data[BP_COLS/4][1] = bp_dsp_out_wb_data[13];
+    assign grp_out_wb_data[BP_COLS/4][2] = bp_dsp_out_wb_data[14];
+    assign grp_out_wb_data[BP_COLS/4][3] = 16'd0;
 
     generate
-        for (col_buf_idx = 0; col_buf_idx < 8; col_buf_idx ++) begin
+        for (col_buf_idx = 0; col_buf_idx < 4; col_buf_idx ++) begin
             always_ff @( posedge clk ) begin
                 if (~rst_n) begin
                     bp_out_wb_data[16*(col_buf_idx+1)-1:16*col_buf_idx] <= 0;

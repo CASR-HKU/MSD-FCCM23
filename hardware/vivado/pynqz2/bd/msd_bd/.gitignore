@@ -1,0 +1,5 @@
+*
+!/.gitignore
+!/msd_bd.bd
+!/hdl
+!/hdl/msd_bd_wrapper.v

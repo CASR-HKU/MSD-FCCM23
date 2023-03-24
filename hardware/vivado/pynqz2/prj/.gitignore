@@ -1,0 +1,5 @@
+*
+!/.gitignore
+!/msd_hw_pynq.tcl
+!/update_prj.tcl
+!/output_gen.tcl
