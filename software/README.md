@@ -43,11 +43,11 @@ MSD software part is responsible for quantization-aware training (QAT) and the s
 
     ```
 
-- *Accuracy-speedup trade-off* based on quantization-aware training (QAT), with mixed EBs. (The results in Fig. 10 in the paper). This part includes 2 steps. Firstly, scheduler will search the differnet latency results based on various EBs for each layer (results will be in `./msd_scheduler/aux` and be copied to `./msd_quant`). Secondly, QAT framework will be run based on the searched EBs.
+- *Accuracy-speedup trade-off* based on quantization-aware training (QAT), with mixed EBs. (The results in Fig. 10 in the paper). This part includes 2 steps. Firstly, scheduler will search the differnet latency results based on various EBs for each layer (results will be in `./msd_scheduler/aux` and `./msd_analysis/adaptive_search_xxx` are be copied to `./msd_quant_latency_search`). Secondly, QAT framework will be run based on the searched EBs.
 
     To run the mixed-EB search and corresponding QAT based on searched results, follow the steps in command line:
     ```
-    ./msd_latency_framework/adaptive_search_(resnet18/resnet50/vgg16).py # A set of mixed-EB strategies that meet the speedup ratio will be searched out, and then the required information will be manually imported into the ./msd_quant_latency_search.sh for QAT.
+    ./msd_analysis/adaptive_search_(resnet18/resnet50/vgg16).py # A set of mixed-EB strategies that meet the speedup ratio will be searched out, and then the required information will be manually imported into the ./msd_quant_latency_search.sh for QAT.
 
     ```
 
