@@ -1,4 +1,4 @@
-set bd_name chip_bd
+set bd_name msd_bd
 set fileset_name sources_1
 set synth_name synth_1
 set impl_name impl_1
