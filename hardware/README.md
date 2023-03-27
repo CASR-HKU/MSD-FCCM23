@@ -12,12 +12,15 @@ In MSD experiments, we set up three FPGA platforms for the evaluations: Pynq-Z2,
 - [pynq.io](http://www.pynq.io/board.html)
 - [PYNQ SD Card Image](https://pynq.readthedocs.io/en/latest/pynq_sd_card.html)
 
+**NOTE: If the hardware enviroment is not available, you can also run the hardware evaluation on our platforms. Please contact the authors for the access to the platform (jjwu@eee.hku.hk). We have prepared the host codes in the FPGA platforms.**
+
 ## Structure
 * `./host`: Host codes to drive and test the accelerator.
 * `./vivado`: Vivado projects, including Pynq-Z2 project and ultrascale (for the Ultra96 and ZCU102) project, with a makefile to automatically run the hardware synthesis & implementation & generate bitstream. We also provide the bitstream and handoff files that can be directly used.
 
 ## Hardware Evaluation Steps
-To be updated
+- Preparation: you should already run the *Scheduler for hardware evaluation* step in the software evaluation, please refer to `../software/README.md`.
+
 
 ## Expected Results
 To be updated

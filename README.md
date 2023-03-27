@@ -14,5 +14,13 @@ computation scheme based on restricted signed digit (RSD).
 ## Environment
 The the hardware and software running enviroments are specified in `./hardware/README.md` and `./software/README.md`, respectively.
 
-## Example Run
-To be updated
+## Example Run (Artifact Evaluation)
+*Note: ONLY for the Artifact Evaluation of the paper.*
+
+- Software:
+    - To run the software evaluation, follow the evaluation steps in `./software/README.md`.
+    - Please ensure the software enviroment is ready before running.
+
+- Hardware: 
+    - To run the hardware evaluation, follow the evaluation steps in `./hardware/README.md`.
+    - **NOTE: If the hardware enviroment is not available, you can also run the hardware evaluation on our platforms. Please contact the authors for the access to the platform (jjwu@eee.hku.hk). We have prepared the host codes in the FPGA platforms.**

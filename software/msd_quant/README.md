@@ -39,4 +39,4 @@ For reproducing the results in Table III, please refer to `./ImageNet`.
 ```
 
 ## License
-Licensed under an Apache-2.0 license.
+Licensed under MIT License.
