@@ -11,7 +11,7 @@ import argparse
 import pickle
 import numpy as np
 import copy
-sys.path.append("../antquant")
+sys.path.append("../msdquant")
 from quant_model import *
 from quant_utils import *
 from dataloader import get_dataloader, get_imagenet_dataloader

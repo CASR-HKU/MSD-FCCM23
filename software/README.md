@@ -47,7 +47,11 @@ MSD software part is responsible for quantization-aware training (QAT) and the s
 
     To run the mixed-EB search and corresponding QAT based on searched results, follow the steps in command line:
     ```
-    ./msd_analysis/adaptive_search_(resnet18/resnet50/vgg16).py # A set of mixed-EB strategies that meet the speedup ratio will be searched out, and then the required information will be manually imported into the ./msd_quant_latency_search.sh for QAT.
+    Step 1: Mixed-EB search methodology
+    ./msd_analysis/adaptive_search_(resnet18/resnet50/vgg16).py # A set of mixed-EB strategies that meet the speedup ratio will be searched out, 
+    
+    Step 2: QAT under the latency constrained
+    The required information will be manually imported into the ./msd_quant_latency_search.sh for QAT.
 
     ```
 

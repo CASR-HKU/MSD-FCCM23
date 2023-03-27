@@ -4,8 +4,10 @@ import csv
 import numpy as np
 import matplotlib.pyplot as plt
 
-
-with open('/home/jjc/hamha_quant/hamha_quant/hamha_analysis/csv/ultra96_vgg16.csv', 'r') as f:
+# latency
+# first, we quantize the weight with the smallest error -> EB3 to EB2
+# second, we quantize the activation with the smallest error -> EB2 to EB1
+with open('../MSD-FCCM23/software/msd_quant/msd_analysis/csv/ultra96_vgg16.csv', 'r') as f:
     reader = csv.reader(f)
     all = []
     latency_eb1 = []
@@ -13,7 +15,7 @@ with open('/home/jjc/hamha_quant/hamha_quant/hamha_analysis/csv/ultra96_vgg16.cs
     latency_eb3 = []
 
     latency_number = []
-    hamha_quantized_layer = []
+    msd_quantized_layer = []
     s = []
     for row in reader:
         # print(row)
@@ -37,14 +39,14 @@ with open('/home/jjc/hamha_quant/hamha_quant/hamha_analysis/csv/ultra96_vgg16.cs
     # small latency -> big latency
     print("8-bit model EB1 latency idx :", np.argsort(latency_eb1))
 
-    # in_w_out : 8_4_8
+
     for i in range(0, 16):
         n = i*3 + 1
         x = s[n]
         latency_eb2.append(x)
         # print(latency8_4_8)
 
-    # in_w_out : 4_4_8
+
     for i in range(0, 16):
         n = i*3 + 2
         x = s[n]
@@ -71,18 +73,14 @@ with open('/home/jjc/hamha_quant/hamha_quant/hamha_analysis/csv/ultra96_vgg16.cs
 
     baseline_latency = 30873684
 
-
-
-    # strategy: 8_8_8 -> 8_4_8  -> 8_4_4 -> 4_4_4 -> 4_2_4
+    # strategy: EB3 -> EB2 -> EB1
     print('Baseline -> EB3 speed up :', baseline_latency/total_latency_eb3)
     print('Baseline -> EB2 speed up :', baseline_latency/total_latency_eb2)
     print('Baseline -> EB1 speed up :', baseline_latency/total_latency_eb1)
 
-    # print('max :', max(total_latency_eb3))
 
-    # Speed Up : 8_8_8 -> 8_4_8
     speed_up_exp = 2
-    # speed_up = total_latency8_8_8/expect_latency
+
 
     if speed_up_exp < 5:
         renew_latency = latency_eb3
@@ -112,7 +110,7 @@ with open('/home/jjc/hamha_quant/hamha_quant/hamha_analysis/csv/ultra96_vgg16.cs
             for i in range(0, len(latency_eb3)):
                 new_total_latency += float(renew_latency[i])
             latency_number.append(baseline_latency/new_total_latency)
-            hamha_quantized_layer.append(quantize_layer)
+            msd_quantized_layer.append(quantize_layer)
             print('After eb2 weight-quantized cycles',
                   new_total_latency)
             speed_up = baseline_latency/new_total_latency
@@ -120,7 +118,7 @@ with open('/home/jjc/hamha_quant/hamha_quant/hamha_analysis/csv/ultra96_vgg16.cs
                   speed_up)
             if(speed_up > speed_up_exp):
                 break
-        print('quantized layer to eb2 :', hamha_quantized_layer)
+        print('quantized layer to eb2 :', msd_quantized_layer)
 
     # Speed Up : eb2 -> eb1
         renew_latency = latency_eb2
@@ -140,7 +138,7 @@ with open('/home/jjc/hamha_quant/hamha_quant/hamha_analysis/csv/ultra96_vgg16.cs
             for i in range(0, len(latency_eb1)):
                 new_total_latency += float(renew_latency[i])
             latency_number.append(baseline_latency/new_total_latency)
-            hamha_quantized_layer.append(quantize_layer)
+            msd_quantized_layer.append(quantize_layer)
 
             print('After EB1 weight-quantized cycles',
                   new_total_latency)
@@ -149,4 +147,4 @@ with open('/home/jjc/hamha_quant/hamha_quant/hamha_analysis/csv/ultra96_vgg16.cs
                   speed_up)
             if(speed_up > speed_up_exp):
                 break
-        print('quantized layer to EB1 :', hamha_quantized_layer)
+        print('quantized layer to EB1 :', msd_quantized_layer)
