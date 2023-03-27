@@ -24,3 +24,4 @@ The the hardware and software running enviroments are specified in `./hardware/R
 - Hardware: 
     - To run the hardware evaluation, follow the evaluation steps in `./hardware/README.md`.
     - **NOTE: If the hardware enviroment is not available, you can also run the hardware evaluation on our platforms. Please contact the authors for the access to the platform (jjwu@eee.hku.hk). We have prepared the host codes in the FPGA platforms.**
+    - **The hardware evaluation part is still under development, we hope to finish it ASAP before April 1st.**

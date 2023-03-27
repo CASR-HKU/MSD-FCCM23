@@ -19,8 +19,13 @@ In MSD experiments, we set up three FPGA platforms for the evaluations: Pynq-Z2,
 * `./vivado`: Vivado projects, including Pynq-Z2 project and ultrascale (for the Ultra96 and ZCU102) project, with a makefile to automatically run the hardware synthesis & implementation & generate bitstream. We also provide the bitstream and handoff files that can be directly used.
 
 ## Hardware Evaluation Steps
-- Preparation: you should already run the *Scheduler for hardware evaluation* step in the software evaluation, please refer to `../software/README.md`.
+- Preparation: you should already run the *Scheduler for hardware evaluation* step in the software evaluation to get the dataflow and schedule *.csv* files, please refer to `../software/README.md`. The dataflow should be copied to the `./host/schd_csv`.
 
+- *(Optional) Vivado project with synthesis & Implementation*. There are three Vivado projects in the `./vivado`. We provide a *.tcl* file and a makefile for each project, by which you can automatically run the synthesis and implementation. The makefile will generate the project, bitstream and handoff files.
+
+- *Directly use*. You can also directly use the bitstream and handoff files in the `./vivado/handoff` folder to test the results in the host.
+
+- *Host setup*. The host code which is responsible of driving the accelerator (including compilation based on the dataflow) is in the `./host` folder. If you have already set up the environment successfully, you can directly run the jupyter notebooks to get the latency results. **Otherwise, we strongly recommend the evaluators using our platforms remotely, and we will prepare everything done for you.**
 
 ## Expected Results
 To be updated
