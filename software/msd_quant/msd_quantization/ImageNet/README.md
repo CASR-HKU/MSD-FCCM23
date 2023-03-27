@@ -6,22 +6,23 @@ Please prepare your dataset with [this script](https://github.com/pytorch/exampl
 
 ## Evaluation 
 
-### Results of 8-bit quantization without fine-tuning (Table V).
+
+### Results of 8-bit quantization with fine-tuning (Table IV).
 ---
 
 ```shell
-./scripts/quant_MSD_ptq.sh         # About __ minutes
+./scripts/msd_quant_standard_eb.sh         # Different models with same EB configuration
 ```
 The accuracy results under our configuration are listed in the following table. 
 
 | Model | MSD  | Model | MSD | 
 | :----:| :----: | :----: | :----: | 
-| MobileNet V2 | **xx%** | VGG16 | **xx%** | 
-| ResNet50 | **xx%** | ResNet152 | **xx%** |
+| MobileNet V2 | **71.156%** | VGG16 | **xx%** | 
+| ResNet18 | **70.08%** | ResNet50 | **76.464%** |
 
 Results of 8-bit quantization can be reproduced with slight random error. 
 
-There are relatively large errors and unacceptable accuracy losses (10%-50%) in the results of 8-bit quantization without fine-tuning.
+There are relatively large errors and unacceptable accuracy losses (10%-50%) in the results of 8-bit quantization with fine-tuning.
 
 ### Results of RSD quantization with fine-tuning (Table III).
 ---
@@ -45,7 +46,7 @@ You can find the log files in the directory `./log`. You can run the following s
 If it occurs the error "RuntimeError: CUDA out of memory.", you can reduce the batch size.
 
 ```shell
-./scripts/msd_quant.sh         
+./scripts/msd_quant_xxx.sh         
 ```
 Notice that the complete fine-tuning process will take dozens of hours for all above models. 
 

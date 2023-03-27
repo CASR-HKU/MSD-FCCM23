@@ -9,8 +9,8 @@ We evaluate the results with models in image classification.
 ```
 
 # PyTorch 1.12
-conda create -n hamha_quant python=3.8 
-conda activate hamha_quant
+conda create -n msd_quant python=3.8 
+conda activate msd_quant
 conda install  pytorch=1.12.0 torchvision torchaudio cudatoolkit=11.3 -c pytorch
 # Quantization CUDA kernel
 pip install ./quant
