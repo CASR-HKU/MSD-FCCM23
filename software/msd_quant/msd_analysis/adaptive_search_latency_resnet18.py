@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 # latency
 # first, we quantize the weight with the smallest error -> EB3 to EB2
 # second, we quantize the activation with the smallest error -> EB2 to EB1
-with open('MSD-FCCM23/software/msd_quant/msd_analysis/csv/ultra96_resnet18.csv') as f:
+with open('csv/ultra96_resnet18.csv') as f:
     reader = csv.reader(f)
     all = []
     latency_eb1 = []
