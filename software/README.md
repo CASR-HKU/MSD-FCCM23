@@ -179,6 +179,6 @@ MSD software part is responsible for quantization-aware training (QAT) and the s
         <td></td>
         <td>73.568%</td>
         <td>3</td>
-        <td>3.2263/td>
+        <td>3.2263</td>
     </tr>
     </tbody>
