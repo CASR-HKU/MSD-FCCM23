@@ -78,7 +78,7 @@ MSD software part is responsible for quantization-aware training (QAT) and the s
 
     | Models | VGG-16 | ResNet-18 | ResNet-50 | MobileNet-V2 | Vision Transformer |
     |:---:|:---:|:---:|:---:|:---:|:---:|
-    | Top-1 Accuracy | **73.37%** |  | **76.05%** |  **71.16%** |  |
+    | Top-1 Accuracy | **73.37%** | **69.72%** | **76.05%** |  **71.16%** |  |
     | Epochs | **3** | **5** | **5** | **5** | **5** |
 
 - Accuracy-speedup trade-off results (corresponding to Fig. 10 in the paper):
@@ -98,87 +98,87 @@ MSD software part is responsible for quantization-aware training (QAT) and the s
     <tr>
         <td rowspan="6">VGG-16</td>
         <td>1.7</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>[2,3,2,2,2,3,2,2,3,2,3,2,2,2,2,2]</td>
+        <td>73.358%</td>
+        <td>3</td>
         <td></td>
     </tr>
     <tr>
         <td>1.75</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]</td>
+        <td>73.334%</td>
+        <td>3</td>
         <td></td>
     </tr>
     <tr>
         <td>2</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>[2,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2]</td>
+        <td>73.35%</td>
+        <td>3</td>
         <td></td>
     </tr>
     <tr>
         <td>2.1</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>[1,1,2,1,1,2,1,2,2,2,2,1,2,1,2,1]</td>
+        <td>72.59%</td>
+        <td>3</td>
         <td></td>
     </tr>
     <tr>
         <td>2.2</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>[1,1,2,1,1,1,1,2,2,1,2,1,2,1,2,1]</td>
+        <td>72.462%</td>
+        <td>3</td>
         <td></td>
     </tr>
     <tr>
         <td>2.5</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]</td>
+        <td>72.186%</td>
+        <td>3</td>
         <td></td>
     </tr>
     <tr>
         <td rowspan="6">ResNet-50</td>
         <td>2.35</td>
         <td></td>
-        <td></td>
-        <td></td>
+        <td>76.114%</td>
+        <td>3</td>
         <td></td>
     </tr>
     <tr>
         <td>2.5</td>
         <td></td>
-        <td></td>
-        <td></td>
+        <td>76.088%</td>
+        <td>3</td>
         <td></td>
     </tr>
     <tr>
         <td>2.6</td>
         <td></td>
-        <td></td>
-        <td></td>
+        <td>76.074%</td>
+        <td>3</td>
         <td></td>
     </tr>
     <tr>
         <td>2.75</td>
         <td></td>
-        <td></td>
-        <td></td>
+        <td>76.026%</td>
+        <td>3</td>
         <td></td>
     </tr>
     <tr>
         <td>3.1</td>
         <td></td>
-        <td></td>
-        <td></td>
+        <td>74.346%</td>
+        <td>3</td>
         <td></td>
     </tr>
     <tr>
         <td>3.5</td>
         <td></td>
-        <td></td>
-        <td></td>
+        <td>73.568%</td>
+        <td>3</td>
         <td></td>
     </tr>
     </tbody>
