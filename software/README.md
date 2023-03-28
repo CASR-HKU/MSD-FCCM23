@@ -78,7 +78,7 @@ MSD software part is responsible for quantization-aware training (QAT) and the s
 
     | Models | VGG-16 | ResNet-18 | ResNet-50 | MobileNet-V2 | Vision Transformer |
     |:---:|:---:|:---:|:---:|:---:|:---:|
-    | Top-1 Accuracy | **73.37%** | **69.72%** | **76.05%** |  **71.16%** |  |
+    | Top-1 Accuracy | **73.37%** | **69.72%** | **76.05%** |  **71.16%** | **79.28%** |
     | Epochs | **3** | **5** | **5** | **5** | **5** |
 
 - Accuracy-speedup trade-off results (corresponding to Fig. 10 in the paper):
