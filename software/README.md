@@ -101,42 +101,42 @@ MSD software part is responsible for quantization-aware training (QAT) and the s
         <td>[2,3,2,2,2,3,2,2,3,2,3,2,2,2,2,2]</td>
         <td>73.358%</td>
         <td>3</td>
-        <td></td>
+        <td>1.6814</td>
     </tr>
     <tr>
         <td>1.75</td>
         <td>[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]</td>
         <td>73.334%</td>
         <td>3</td>
-        <td></td>
+        <td>1.7376</td>
     </tr>
     <tr>
         <td>2</td>
         <td>[2,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2]</td>
         <td>73.35%</td>
         <td>3</td>
-        <td></td>
+        <td>1.9880</td>
     </tr>
     <tr>
         <td>2.1</td>
         <td>[1,1,2,1,1,2,1,2,2,2,2,1,2,1,2,1]</td>
         <td>72.59%</td>
         <td>3</td>
-        <td></td>
+        <td>2.0586</td>
     </tr>
     <tr>
         <td>2.2</td>
         <td>[1,1,2,1,1,1,1,2,2,1,2,1,2,1,2,1]</td>
         <td>72.462%</td>
         <td>3</td>
-        <td></td>
+        <td>2.1365</td>
     </tr>
     <tr>
         <td>2.5</td>
         <td>[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]</td>
         <td>72.186%</td>
         <td>3</td>
-        <td></td>
+        <td>2.2849</td>
     </tr>
     <tr>
         <td rowspan="6">ResNet-50</td>
@@ -144,41 +144,41 @@ MSD software part is responsible for quantization-aware training (QAT) and the s
         <td></td>
         <td>76.114%</td>
         <td>3</td>
-        <td></td>
+        <td>2.3269</td>
     </tr>
     <tr>
         <td>2.5</td>
         <td></td>
         <td>76.088%</td>
         <td>3</td>
-        <td></td>
+        <td>2.4334</td>
     </tr>
     <tr>
         <td>2.6</td>
         <td></td>
         <td>76.074%</td>
         <td>3</td>
-        <td></td>
+        <td>2.5786</td>
     </tr>
     <tr>
         <td>2.75</td>
         <td></td>
         <td>76.026%</td>
         <td>3</td>
-        <td></td>
+        <td>2.7428</td>
     </tr>
     <tr>
         <td>3.1</td>
         <td></td>
         <td>74.346%</td>
         <td>3</td>
-        <td></td>
+        <td>3.0088</td>
     </tr>
     <tr>
         <td>3.5</td>
         <td></td>
         <td>73.568%</td>
         <td>3</td>
-        <td></td>
+        <td>3.2263/td>
     </tr>
     </tbody>
