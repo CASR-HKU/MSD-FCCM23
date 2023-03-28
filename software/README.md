@@ -50,8 +50,8 @@ MSD software part is responsible for quantization-aware training (QAT) and the s
     Step 1: Mixed-EB search methodology
     ../msd_analysis/adaptive_search_(resnet18/resnet50/vgg16).py  # A set of mixed-EB strategies that meet the speedup ratio will be searched out. 
     
-    Step 2: QAT under the latency constrained
-    ../msd_quant_latency_search.sh  # The required information will be manually imported from step 1 into it for QAT.
+    Step 2: QAT under the different latency constrained
+    ../scripts/msd_quant_latency_search.sh  # The required information will be manually imported from step 1 into it for QAT.
 
     ```
 
@@ -78,8 +78,8 @@ MSD software part is responsible for quantization-aware training (QAT) and the s
 
     | Models | VGG-16 | ResNet-18 | ResNet-50 | MobileNet-V2 | Vision Transformer |
     |:---:|:---:|:---:|:---:|:---:|:---:|
-    | Top-1 Accuracy |  |  |  |  |  |
-    | Epochs |  |  |  |  |  |
+    | Top-1 Accuracy | **73.37%** |  | **76.05%** |  **71.16%** |  |
+    | Epochs | **3** | **5** | **5** | **5** | **5** |
 
 - Accuracy-speedup trade-off results (corresponding to Fig. 10 in the paper):
 
