@@ -17,7 +17,7 @@ The accuracy results under our configuration are listed in the following table.
 
 | Model | MSD  | Model | MSD | 
 | :----:| :----: | :----: | :----: | 
-| MobileNet V2 | **71.156%** | VGG16 | **xx%** | 
+| MobileNet V2 | **71.156%** | VGG16 | **73.43%** | 
 | ResNet18 | **70.08%** | ResNet50 | **76.464%** |
 
 Results of 8-bit quantization can be reproduced with slight random error. 
