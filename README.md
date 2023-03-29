@@ -20,6 +20,7 @@ The the hardware and software running enviroments are specified in `./hardware/R
 - Software:
     - To run the software evaluation, follow the evaluation steps in `./software/README.md`.
     - Please ensure the software enviroment is ready before running.
+    - **To the evaluator: everything is done and you can start software evaluation now.**
 
 - Hardware: 
     - To run the hardware evaluation, follow the evaluation steps in `./hardware/README.md`.

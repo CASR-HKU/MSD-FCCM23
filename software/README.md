@@ -5,26 +5,31 @@ MSD software part is responsible for quantization-aware training (QAT) and the s
 * `./msd_quant`: QAT and the accuracy-speedup trade-off of MSD framework, including the quantization functions and Pytorch training framework.
 * `./msd_scheduler`: The scheduler that receives DNN models and hardware constraints as inputs, and generates the optimal schedule & dataflow including the workload partitioning between LUTs and DSPs.
 * `./scripts`: The scripts for running evaluation.
+* `./training_logs`: The training logs for the accuracy results in the paper, for directly checking.
 
 ## Environment
 
+**Before running, make sure you are in the `MSD-FCCM23/software` path (``cd software/`` in the root path of this project)**
+
 - **If you want to run the retraining**
 
-    ```
+    ``` bash
     # PyTorch 1.12
     conda create -n msd_env python=3.8 
     conda activate msd_env
     conda install  pytorch=1.12.0 torchvision torchaudio cudatoolkit=11.3 -c pytorch
     # Quantization CUDA kernel
+    cd msd_quant/msd_quantization/
     pip install ./quant
 
-    #ImageNet
+    # ImageNet Loader, MUST DO THIS!
     pip install --extra-index-url https://developer.download.nvidia.com/compute/redist nvidia-dali-cuda110
     ```
+    You should also modify the dataset path (your ImageNet location) in `./msd_quant/msd_quantization/ImageNet/main.py` line 28.
 
 - **If not, no need for pytorch**
 
-    ```
+    ``` bash
     conda create -n msd_env
     conda activate msd_env
     ```
@@ -33,18 +38,17 @@ MSD software part is responsible for quantization-aware training (QAT) and the s
 
 ## Software Evaluation Steps
 
-**Before running, make sure you are in the `MSD-FCCM23/software` path (```cd software/ ```)**
+**Before running, make sure you are in the `MSD-FCCM23/software` path (``cd software/`` in the root path of this project)**
 
 - *Quantization Accuracy* based on quantization-aware training (QAT), with all the EB = 2. (The results in Table IV in the paper)
 
     To run the QAT, follow the steps in command line:
     ``` bash
-    ./msd_quant/msd_quantization/scripts/msd_quant_standard_eb.sh  # Each line stands for one experiment 
+    ./scripts/msd_quant_standard_eb.sh  # Each line stands for one experiment 
     
     # e.g. You can run them individually, ResNet18 with EB2 quantization:
     
     CUDA_VISIBLE_DEVICES=0 python -u -m torch.distributed.launch --nproc_per_node=1 --master_port 46671 main.py --dataset=imagenet --model=resnet18 --epoch=5 --mode=int --wbit=8 --abit=8 --batch_size=128 --eb=csd_eb2 --lr=0.0005 --train > ./checkpoint_log/ResNet18_EB2_MSD.log 2>&1
-
     ```
 
 - *Accuracy-speedup trade-off* based on quantization-aware training (QAT), with mixed EBs. (The results in Fig. 10 in the paper). This part includes 2 steps. Firstly, scheduler will search the differnet latency results based on various EBs for each layer (results will be in `./msd_scheduler/aux` and they are be copied to `./msd_quant/msd_analysis/csv`), **we have already finished this step for the evaluators**. Then, QAT framework will be run based on the searched EBs.
@@ -58,12 +62,11 @@ MSD software part is responsible for quantization-aware training (QAT) and the s
 
     # Step 2: QAT under the different latency constrained
     ./scripts/msd_quant_latency_search.sh  # The required information will be manually imported from step 1 into it for QAT.
-
-    # After training is done, you can check results in the log files
-
     ```
 
-- *Direct check*. **ONLY for the artifact evaluation of the paper.** If you want to evaluate the results for the accuracy only and do not want to retrain the models, we provide all the training logs in `./msd_quant/msd_quantization/logs`. 
+    After training is done, you can check results in the log files, generated in `./msd_quant/msd_quantization/ImageNet/logs`.
+
+- *Direct check*. **ONLY for the Artifact Evaluation of the paper.** If you want to evaluate the results for the accuracy only and do not want to retrain the models, we provide all the training logs in `./traning_logs`. 
 
     - Log files in `training_logs/standard_eb` are for the accuracy results with EB=2, which refer to the step 1 (*Quantization Accuracy*).
     - Log files in `training_logs/mixed_eb` are for the accuracy results with mixed-EB search, which refer to the step 2 (*Accuracy-speedup trade-off*).
@@ -79,7 +82,7 @@ MSD software part is responsible for quantization-aware training (QAT) and the s
 
     After running, the results will be saved in `./msd_scheduler/results`. The latency results and the corresponding layer-wise schedules are stored in the csv file. Also, the csv files will be copied to `../hardware/host/schd_csv` for the hardware evaluation. If you want to check the details of the scheduler, please refer to `./msd_scheduler/README.md`.
 
-    **NOTE: the results generated in this step are based on cycle-accurate simulator in our scheduler, not the real hardware. The hardware evaluation will generate the final results in Table IV.**
+    **NOTE: the results generated in this step are based on cycle-accurate simulator in our scheduler, not the real hardware. But the latency results can still be a reference.**
 
 ## Expected Results
 - The expected accuracy results based on EB=2 mode are listed here (corresponding to Table IV in the paper):

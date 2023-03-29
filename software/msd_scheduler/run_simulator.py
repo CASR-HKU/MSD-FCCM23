@@ -38,11 +38,11 @@ eb_list_dict = {'resnet18': eb_list_resnet18,
                 'resnet50': eb_list_resnet50}
 
 if 'baseline' in arch_str:
-    print("baseline")
+    # print("baseline")
     total_latency, total_latency_ms = hw_simulator.generate_stats_csv_baseline([1]*54,
                                                                                model_file_str, result_file_str, False)
 else:
     total_latency, total_latency_ms = hw_simulator.generate_stats_csv_opt(eb_list_dict[model_str],
                                                                           model_file_str, result_file_str, False)
-print("total latency cycle is: ", total_latency)
-print("total latency ms is: ", total_latency_ms)
+# print("total latency cycle is: ", total_latency)
+# print("total latency ms is: ", total_latency_ms)

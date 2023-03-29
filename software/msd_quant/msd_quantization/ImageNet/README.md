@@ -46,7 +46,7 @@ You can find the log files in the directory `./log`. You can run the following s
 If it occurs the error "RuntimeError: CUDA out of memory.", you can reduce the batch size.
 
 ```shell
-./scripts/msd_quant_xxx.sh         
+MSD_FCCM23/scripts/
 ```
 Notice that the complete fine-tuning process will take dozens of hours for all above models. 
 

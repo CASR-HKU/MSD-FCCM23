@@ -68,7 +68,7 @@ class Simulator(object):
         best_schedule_layer = {}
         best_ratio = 0.0
         if layer_conv_params[3] == 1:
-            print("dpws layer")
+            # print("dpws layer")
             layer_conv_params[3] = layer_conv_params[0]
             best_latency_layer, best_schedule_layer, best_ratio, best_roof = self.scheduler.get_best_schedule_dpws(
                 layer_conv_params, ess_bit, verbose)
@@ -180,7 +180,7 @@ class Simulator(object):
         return total_latency, total_latency_ms
 
     def generate_stats_csv_opt(self, eb_list: list, model_csv="", stats_csv="", verbose=False):
-        self.get_hw_info()
+        # self.get_hw_info()
         ff = open(stats_csv, "w")
         self.dnn_model.load_model_csv(model_csv)
         conv_params_array = self.dnn_model.calc_model_conv_params()
@@ -190,12 +190,15 @@ class Simulator(object):
             eb_list), "Make sure each layer has an essential bit number."
         for layer_idx in range(len(conv_params_array)):
             str_layer_name = layer_names[layer_idx]
-            print("Starting schedule: " + str_layer_name)
+            # print("Starting schedule: " + str_layer_name)
             wr_line = str_layer_name + ', '
             layer_conv_params = conv_params_array[layer_idx]
             stats_latency, stats_schedule, stats_ratio, best_roof = self.get_layer_latency_opt(
                 layer_conv_params, eb_list[layer_idx], verbose)
-            total_latency += stats_latency
+            if "Encoder_0" in str_layer_name:
+                total_latency += stats_latency * 12
+            else:
+                total_latency += stats_latency
             wr_line += str(stats_latency) + ', '
             wr_line += str(stats_schedule['k_size, k_tiles'][0]) + ', '
             wr_line += str(stats_schedule['k_size, k_tiles'][1]) + ', '
