@@ -1,5 +1,5 @@
-mkdir -p log
 
+mkdir -p log
 
 #ResNet18
 CUDA_VISIBLE_DEVICES=0 python -u -m torch.distributed.launch --nproc_per_node=1 --master_port 46666 main.py --dataset=imagenet --model=resnet18 --epoch=5 --mode=int --wbit=8 --abit=8 --batch_size=256 --lr=0.00005 --train > ./log/resnet18_Int.log 2>&1

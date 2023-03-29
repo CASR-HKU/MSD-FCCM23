@@ -44,11 +44,13 @@ MSD software part is responsible for quantization-aware training (QAT) and the s
 
     To run the QAT, follow the steps in command line:
     ``` bash
-    ./scripts/msd_quant_standard_eb.sh  # Each line stands for one experiment 
-    
-    # e.g. You can run them individually, ResNet18 with EB2 quantization:
+    ./scripts/msd_quant_standard_eb.sh  
+
+    # In the shell, aach line stands for one experiment 
+    # e.g. You can run them individually, like ResNet18 with EB2 quantization:
     
     CUDA_VISIBLE_DEVICES=0 python -u -m torch.distributed.launch --nproc_per_node=1 --master_port 46671 main.py --dataset=imagenet --model=resnet18 --epoch=5 --mode=int --wbit=8 --abit=8 --batch_size=128 --eb=csd_eb2 --lr=0.0005 --train > ./checkpoint_log/ResNet18_EB2_MSD.log 2>&1
+
     ```
 
 - *Accuracy-speedup trade-off* based on quantization-aware training (QAT), with mixed EBs. (The results in Fig. 10 in the paper). This part includes 2 steps. Firstly, scheduler will search the differnet latency results based on various EBs for each layer (results will be in `./msd_scheduler/aux` and they are be copied to `./msd_quant/msd_analysis/csv`), **we have already finished this step for the evaluators**. Then, QAT framework will be run based on the searched EBs.
