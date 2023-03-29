@@ -4,6 +4,7 @@ MSD software part is responsible for quantization-aware training (QAT) and the s
 ## Structure
 * `./msd_quant`: QAT and the accuracy-speedup trade-off of MSD framework, including the quantization functions and Pytorch training framework.
 * `./msd_scheduler`: The scheduler that receives DNN models and hardware constraints as inputs, and generates the optimal schedule & dataflow including the workload partitioning between LUTs and DSPs.
+* `./scripts`: The scripts for running evaluation.
 
 ## Environment
 
@@ -31,45 +32,52 @@ MSD software part is responsible for quantization-aware training (QAT) and the s
     Any version of **Python3** should be fine.
 
 ## Software Evaluation Steps
+
+**Before running, make sure you are in the `MSD-FCCM23/software` path (```cd software/ ```)**
+
 - *Quantization Accuracy* based on quantization-aware training (QAT), with all the EB = 2. (The results in Table IV in the paper)
 
     To run the QAT, follow the steps in command line:
-    ```
-    ./scripts/msd_quant_standard_eb.sh    #Each line stands for one experiment 
+    ``` bash
+    ./msd_quant/msd_quantization/scripts/msd_quant_standard_eb.sh  # Each line stands for one experiment 
     
-    i.e. ResNet18 with EB2 quantization:
+    # e.g. You can run them individually, ResNet18 with EB2 quantization:
     
     CUDA_VISIBLE_DEVICES=0 python -u -m torch.distributed.launch --nproc_per_node=1 --master_port 46671 main.py --dataset=imagenet --model=resnet18 --epoch=5 --mode=int --wbit=8 --abit=8 --batch_size=128 --eb=csd_eb2 --lr=0.0005 --train > ./checkpoint_log/ResNet18_EB2_MSD.log 2>&1
 
     ```
 
-- *Accuracy-speedup trade-off* based on quantization-aware training (QAT), with mixed EBs. (The results in Fig. 10 in the paper). This part includes 2 steps. Firstly, scheduler will search the differnet latency results based on various EBs for each layer (results will be in `./msd_scheduler/aux` and `./msd_analysis/adaptive_search_xxx` are be copied to `./msd_quant_latency_search`). Secondly, QAT framework will be run based on the searched EBs.
+- *Accuracy-speedup trade-off* based on quantization-aware training (QAT), with mixed EBs. (The results in Fig. 10 in the paper). This part includes 2 steps. Firstly, scheduler will search the differnet latency results based on various EBs for each layer (results will be in `./msd_scheduler/aux` and they are be copied to `./msd_quant/msd_analysis/csv`), **we have already finished this step for the evaluators**. Then, QAT framework will be run based on the searched EBs.
 
     To run the mixed-EB search and corresponding QAT based on searched results, follow the steps in command line:
-    ```
-    Step 1: Mixed-EB search methodology
-    ../msd_analysis/adaptive_search_(resnet18/resnet50/vgg16).py  # A set of mixed-EB strategies that meet the speedup ratio will be searched out. 
-    
-    Step 2: QAT under the different latency constrained
-    ../scripts/msd_quant_latency_search.sh  # The required information will be manually imported from step 1 into it for QAT.
+    ``` bash
+    # Step 1: Mixed-EB search methodology
+    python msd_quant/msd_analysis/adaptive_search_resnet50.py
+
+    python msd_quant/msd_analysis/adaptive_search_vgg16.py
+
+    # Step 2: QAT under the different latency constrained
+    ./scripts/msd_quant_latency_search.sh  # The required information will be manually imported from step 1 into it for QAT.
+
+    # After training is done, you can check results in the log files
 
     ```
 
-- *Direct check*. **ONLY for the artifact evaluation of the paper.** If you want to evaluate the results for the accuracy only and do not want to retrain the models, we provide all the training logs in `./msd_quant/msd_quantization/checkpoints`. 
+- *Direct check*. **ONLY for the artifact evaluation of the paper.** If you want to evaluate the results for the accuracy only and do not want to retrain the models, we provide all the training logs in `./msd_quant/msd_quantization/logs`. 
 
-    Also, if you want to check the training process by yourself and load our QAT process, you can directly run the following command to load the checkpoints and start training:
-    ```
+    - Log files in `training_logs/standard_eb` are for the accuracy results with EB=2, which refer to the step 1 (*Quantization Accuracy*).
+    - Log files in `training_logs/mixed_eb` are for the accuracy results with mixed-EB search, which refer to the step 2 (*Accuracy-speedup trade-off*).
 
-    ```
+    Also, if you want to check the training process by yourself and load our QAT process, you can directly run the following command to load the checkpoints and start training. The loading process is easy to be implemented. Checkpoints are uploaded to the Google Drive: https://drive.google.com/drive/folders/1P2mohQ-MckCwfwl8FRYUzIO5q7WpUiUe?usp=sharing
 
-- *Scheduler for hardware evaluation*, with various DNN models and hardware platforms. The scheduled results are not final ones in Table IV, but for the hardware evaluation in `../hardware`.
+- *Scheduler*, with various DNN models and hardware platforms. The scheduled results are not final ones in Table IV, but for the hardware evaluation in `../hardware`.
 
     To run the scheduler, follow the steps in command line:
+    ``` bash
+    ./scripts/run_scheduler.sh
     ```
 
-    ```
-
-    After running, the results will be saved in `./msd_scheduler/results`. The latency results searched by the scheduler are in the format of `format.txt`, which contains the optimal schedule and dataflow for the model. Also, the layer-wise optimal schedule and dataflow with csv files will be copied to `../hardware/host/` for the hardware evaluation.
+    After running, the results will be saved in `./msd_scheduler/results`. The latency results and the corresponding layer-wise schedules are stored in the csv file. Also, the csv files will be copied to `../hardware/host/schd_csv` for the hardware evaluation. If you want to check the details of the scheduler, please refer to `./msd_scheduler/README.md`.
 
     **NOTE: the results generated in this step are based on cycle-accurate simulator in our scheduler, not the real hardware. The hardware evaluation will generate the final results in Table IV.**
 
