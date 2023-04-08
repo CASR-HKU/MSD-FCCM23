@@ -41,7 +41,7 @@ module ps_ctrl #(
     output wire [                        63:0]       aux_debug_addr,
     input  wire [                        31:0]       aux_debug_status,
     output wire [                         3:0][31:0] core_scalar,
-    input  wire [                         1:0][31:0] core_status
+    input  wire [                         3:0][31:0] core_status
 );
     //------------------------System Address Info-------------------
     // 0x00 : Control signals
@@ -84,6 +84,8 @@ module ps_ctrl #(
 
     // core_status[0]:   0x40 (Read)
     // core_status[1]:   0x44 (Read)
+    // core_status[2]:   0x48 (Read)
+    // core_status[3]:   0x4C (Read)
 
     // 0x50 : reserved
     // ...
@@ -109,7 +111,9 @@ module ps_ctrl #(
     ADDR_CORE_SCALAR_2      = 8'h38,
     ADDR_CORE_SCALAR_3      = 8'h3c,
     ADDR_CORE_STATUS_0      = 8'h40,
-    ADDR_CORE_STATUS_1      = 8'h44;
+    ADDR_CORE_STATUS_1      = 8'h44,
+    ADDR_CORE_STATUS_2      = 8'h48,
+    ADDR_CORE_STATUS_3      = 8'h4c;
     //------------------------FSM Parameter----------------------
     localparam
     WRIDLE               = 2'd0,
@@ -279,6 +283,12 @@ module ps_ctrl #(
                     end
                     ADDR_CORE_STATUS_1: begin
                         rdata <= core_status[1];
+                    end
+                    ADDR_CORE_STATUS_2: begin
+                        rdata <= core_status[2];
+                    end
+                    ADDR_CORE_STATUS_3: begin
+                        rdata <= core_status[3];
                     end
                 endcase
             end

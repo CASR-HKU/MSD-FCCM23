@@ -85,7 +85,7 @@ module bp_dsp_core #(
                 .BUF_LD_DATA_WIDTH  (WGT_DW),
                 .BUF_EX_ADDR_WIDTH  (BP_WGT_BUF_DEPTH),
                 .BUF_EX_DATA_WIDTH  (WGT_DW),
-                .BUF_MEM_SIZE       (BP_BUF_SIZE)
+                .BUF_MEM_SIZE       (16384)
             ) bp_dsp_wgt_buf (
                 .clk                (clk),
                 .buf_ld_wr_en       (bp_wgt_buf_ld_en[bp_row_idx]),

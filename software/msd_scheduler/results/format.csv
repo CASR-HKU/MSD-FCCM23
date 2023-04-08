@@ -1,0 +1,1 @@
+layer_name, latency_cycles, K_tile_size, K_tile_num, C_tile_size, C_tile_num, HW_tile_size, HW_tile_num, I,J,partition ratio r,EB_L,computation or memory bound

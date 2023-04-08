@@ -19,7 +19,7 @@ module glb_ctrl #(
     // input axis_instr
     output logic                                    s_axis_instr_tready,
     input  logic                                    s_axis_instr_tvalid,
-    input  logic [127:0]                            s_axis_instr_tdata,
+    input  logic [63:0]                             s_axis_instr_tdata,
     // output stream - mm2s cmd act
     output logic [79: 0]                            m_axis_mm2s_cmd_act_tdata,
     output logic                                    m_axis_mm2s_cmd_act_tvalid,
@@ -101,7 +101,7 @@ module glb_ctrl #(
 
     // decode the instructions
     logic hs_axis_instr;
-    assign hs_axis_instr = s_axis_instr_tvalid & s_axis_instr_tready & (s_axis_instr_tdata[127] == 1'b1);
+    assign hs_axis_instr = s_axis_instr_tvalid & s_axis_instr_tready & (s_axis_instr_tdata[63] == 1'b1);
 
     always_ff @( posedge clk ) begin
         if (~rst_n) begin
@@ -123,44 +123,54 @@ module glb_ctrl #(
             param_btt_tile_wgt          <= 0;
             param_btt_tile_out          <= 0;
             ext_addr_act_tile           <= 0;
+            ext_addr_wgt_tile           <= 0;
+            ext_addr_out_tile           <= 0;
             param_tile_cij_ceilhw_bp    <= 0;
             last_layer                  <= 0;
         end
-        else if (hs_axis_instr && (s_axis_instr_tdata[126:125] == 2'b00)) begin
+        else if (hs_axis_instr && (s_axis_instr_tdata[62:60] == 3'b000)) begin
             param_bw_tile_times_act     <= s_axis_instr_tdata[15:0];
             param_bw_tile_times_bs_wgt  <= s_axis_instr_tdata[31:16];
             param_bw_tile_times_bp_wgt  <= s_axis_instr_tdata[47:32];
             bs_ceil_k_rows              <= s_axis_instr_tdata[55:48];
-            bp_ceil_k_rows              <= s_axis_instr_tdata[63:56];
-            bs_ceil_hw_cols             <= s_axis_instr_tdata[71:64];
-            bp_ceil_hw_cols             <= s_axis_instr_tdata[79:72];
-            param_tile_cij              <= s_axis_instr_tdata[95:80];
-            param_tile_cij_ceilhw_bs    <= s_axis_instr_tdata[119:96];
-            last_layer                  <= s_axis_instr_tdata[120];
         end
-        else if (hs_axis_instr && (s_axis_instr_tdata[126:125] == 2'b01)) begin
-            tile_bs_eb                  <= s_axis_instr_tdata[2:0];
-            param_tile_cij_eb           <= s_axis_instr_tdata[31:8];
-            param_bs_bw_out_times       <= s_axis_instr_tdata[47:32];
-            param_bp_bw_out_times       <= s_axis_instr_tdata[63:48];
-            param_tile_number           <= s_axis_instr_tdata[79:64];
-            param_tile_cij_ceilhw_bp    <= s_axis_instr_tdata[103:80];
+        else if (hs_axis_instr && (s_axis_instr_tdata[62:60] == 3'b001)) begin
+            param_tile_cij_eb           <= s_axis_instr_tdata[23:0];
+            param_tile_cij              <= s_axis_instr_tdata[39:24];
+            param_tile_number           <= s_axis_instr_tdata[55:40];
+            tile_bs_eb                  <= s_axis_instr_tdata[58:56];
         end
-        else if (hs_axis_instr && (s_axis_instr_tdata[126:125] == 2'b10)) begin
+        else if (hs_axis_instr && (s_axis_instr_tdata[62:60] == 3'b010)) begin
+            param_tile_cij_ceilhw_bs    <= s_axis_instr_tdata[23:0];
+            param_tile_cij_ceilhw_bp    <= s_axis_instr_tdata[47:24];
+            bp_ceil_k_rows              <= s_axis_instr_tdata[55:48];
+        end
+        else if (hs_axis_instr && (s_axis_instr_tdata[62:60] == 3'b011)) begin
             param_btt_tile_act          <= s_axis_instr_tdata[23:0];
-            param_btt_tile_wgt          <= s_axis_instr_tdata[47:24];
-            param_btt_tile_out          <= s_axis_instr_tdata[87:64];
+            param_bs_bw_out_times       <= s_axis_instr_tdata[39:24];
+            param_bp_bw_out_times       <= s_axis_instr_tdata[55:40];
         end
-        else if (hs_axis_instr && (s_axis_instr_tdata[126:125] == 2'b11)) begin
+        else if (hs_axis_instr && (s_axis_instr_tdata[62:60] == 3'b100)) begin
+            param_btt_tile_wgt          <= s_axis_instr_tdata[23:0];
+            bs_ceil_hw_cols             <= s_axis_instr_tdata[31:24];
+            bp_ceil_hw_cols             <= s_axis_instr_tdata[39:32];
+        end
+        else if (hs_axis_instr && (s_axis_instr_tdata[62:60] == 3'b101)) begin
             ext_addr_act_tile           <= s_axis_instr_tdata[31:0];
-            ext_addr_wgt_tile           <= s_axis_instr_tdata[63:32];
-            ext_addr_out_tile           <= s_axis_instr_tdata[95:64];
+            param_btt_tile_out          <= s_axis_instr_tdata[55:32];
+            last_layer                  <= s_axis_instr_tdata[56];
+        end
+        else if (hs_axis_instr && (s_axis_instr_tdata[62:60] == 3'b110)) begin
+            ext_addr_wgt_tile           <= s_axis_instr_tdata[31:0];
+        end
+        else if (hs_axis_instr && (s_axis_instr_tdata[62:60] == 3'b111)) begin
+            ext_addr_out_tile           <= s_axis_instr_tdata[31:0];
         end
     end
-
+            
     // when one layer is running, it cannot receive new instructions
     logic layer_running_begin, layer_running_sts, layer_running_end;
-    assign layer_running_begin = hs_axis_instr && (s_axis_instr_tdata[126:125] == 2'b11);
+    assign layer_running_begin = hs_axis_instr && (s_axis_instr_tdata[62:60] == 3'b111);
     always_ff @( posedge clk ) begin
         if (~rst_n) begin
             layer_running_sts <= 1'b0;
@@ -449,7 +459,7 @@ module glb_ctrl #(
     assign ld_act_cmd[23]    = 1'b1; // TYPE
     assign ld_act_cmd[29:24] = 0; // TYPE
     assign ld_act_cmd[30]    = 1'b1; // EOF
-    assign ld_act_cmd[31]    = 1'b1; // DRR
+    assign ld_act_cmd[31]    = 1'b0; // DRR
     assign ld_act_cmd[63:32] = ext_addr_act_tile; // SADDR
     assign ld_act_cmd[79:64] = 0;
 
@@ -459,7 +469,7 @@ module glb_ctrl #(
     assign ld_wgt_cmd[23]    = 1'b1; // TYPE
     assign ld_wgt_cmd[29:24] = 0; // TYPE
     assign ld_wgt_cmd[30]    = 1'b1; // EOF
-    assign ld_wgt_cmd[31]    = 1'b1; // DRR
+    assign ld_wgt_cmd[31]    = 1'b0; // DRR
     assign ld_wgt_cmd[63:32] = ext_addr_wgt_tile; // SADDR
     assign ld_wgt_cmd[79:64] = 0;
 
@@ -471,7 +481,7 @@ module glb_ctrl #(
     assign wb_out_cmd[23]    = 1'b1; // TYPE
     assign wb_out_cmd[29:24] = 0; // TYPE
     assign wb_out_cmd[30]    = 1'b1; // EOF
-    assign wb_out_cmd[31]    = 1'b1; // DRR
+    assign wb_out_cmd[31]    = 1'b0; // DRR
     assign wb_out_cmd[63:32] = ext_addr_out_tile; // SADDR
     assign wb_out_cmd[71:64] = 0;  // SADDR
     assign wb_out_cmd[75:72] = s2mm_sts_tag;

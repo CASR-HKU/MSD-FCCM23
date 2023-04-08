@@ -12,7 +12,8 @@ module mem_itf #(
     input  logic                            rst_n                       ,
     // variable signal
     input  logic [31:0]                     scalar                      ,
-    output logic [1:0][31:0]                status                      ,
+    input  logic                            first_instr                 ,
+    output logic [3:0][31:0]                status                      ,
     // m_axi for iofm
     input  logic                            m_axi_iofm_awready          ,
     output logic                            m_axi_iofm_awvalid          ,
@@ -117,7 +118,7 @@ module mem_itf #(
     logic                              i_axis_s2mm_sts_out_tlast;
 
     logic latency_cnt_start, latency_cnt_state, latency_cnt_end;
-    assign latency_cnt_start = (latency_cnt_state == 1'b0) & m_axis_mm2s_act_tready & m_axis_mm2s_act_tvalid;
+    assign latency_cnt_start = (latency_cnt_state == 1'b0) & first_instr;
     assign latency_cnt_end = i_axis_s2mm_sts_out_tready & i_axis_s2mm_sts_out_tvalid & (i_axis_s2mm_sts_out_tdata[3:0] == 4'b1111);
     assign i_axis_mm2s_sts_act_tready = 1'b1;
     assign i_axis_mm2s_sts_wgt_tready = 1'b1;
@@ -150,8 +151,28 @@ module mem_itf #(
         if (~rst_n) begin
             status[1] <= 0;
         end
-        else if (i_axis_s2mm_sts_out_tready & i_axis_s2mm_sts_out_tvalid) begin
-            status[1][7:0] <= i_axis_s2mm_sts_out_tdata;
+        else begin
+            status[1][7:0] <= (i_axis_s2mm_sts_out_tready & i_axis_s2mm_sts_out_tvalid) ? i_axis_s2mm_sts_out_tdata : status[1][7:0];
+        end
+    end
+
+    always_ff @( posedge clk ) begin
+        if (~rst_n) begin
+            status[2] <= 0;
+        end
+        else begin
+            status[2][15:0] <= (s_axis_mm2s_cmd_act_tvalid & s_axis_mm2s_cmd_act_tready) ? (status[2][15:0] + 1) : status[2][15:0];
+            status[2][31:16] <= (s_axis_mm2s_cmd_wgt_tvalid & s_axis_mm2s_cmd_wgt_tready) ? (status[2][31:16] + 1) : status[2][31:16];
+        end
+    end
+
+    always_ff @( posedge clk ) begin
+        if (~rst_n) begin
+            status[3] <= 0;
+        end
+        else begin
+            status[3][15:0] <= (i_axis_mm2s_sts_act_tready & i_axis_mm2s_sts_act_tvalid) ? (status[3][15:0] + 1) : status[3][15:0];
+            status[3][31:16] <= (i_axis_mm2s_sts_wgt_tready & i_axis_mm2s_sts_wgt_tvalid) ? (status[3][31:16] + 1) : status[3][31:16];
         end
     end
 

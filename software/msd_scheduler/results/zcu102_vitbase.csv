@@ -1,7 +1,7 @@
-Conv_proj, 43120, 192, 4, 1, 3, 14, 1, 16,16,0.19791666666666666,2,memory bound
-Encoder_0_attention, 36874, 32, 24, 4, 192, 1, 1, 1,1,0.1875,2,memory bound
-Encoder_0_mlp_linear1, 147466, 32, 96, 4, 192, 1, 1, 1,1,0.1875,2,memory bound
-Encoder_0_mlp_linear2, 147466, 32, 24, 4, 768, 1, 1, 1,1,0.1875,2,memory bound
-head_linear, 48013, 40, 25, 4, 192, 1, 1, 1,1,0.2,2,memory bound
-latency cycles: 4072805
-latency: 40.72805 ms
+Conv_proj, 49392, 192, 4, 3, 1, 14, 1, 16,16,0.19791666666666666,2,memory bound
+Encoder_0_attention, 36914, 32, 24, 24, 32, 1, 1, 1,1,0.1875,2,memory bound
+Encoder_0_mlp_linear1, 147506, 32, 96, 24, 32, 1, 1, 1,1,0.1875,2,memory bound
+Encoder_0_mlp_linear2, 147554, 32, 24, 48, 64, 1, 1, 1,1,0.1875,2,memory bound
+head_linear, 48063, 40, 25, 24, 32, 1, 1, 1,1,0.2,2,memory bound
+latency cycles: 4081143
+latency: 19.07076168224299 ms

@@ -21,7 +21,8 @@ module sys_top #(
     input  logic                            rst_n                       ,
     // variable signal
     input  logic [31:0]                     scalar                      ,
-    output logic [1:0][31:0]                status                      ,
+    output logic [3:0][31:0]                status                      ,
+    output logic [31:0]                     debug_status                ,
     // m_axi for iofm
     input  logic                            m_axi_iofm_awready          ,
     output logic                            m_axi_iofm_awvalid          ,
@@ -108,10 +109,13 @@ module sys_top #(
     logic [AXI_DATA_WIDTH/8-1:0]     i_axis_s2mm_out_tkeep       ;
     logic                            i_axis_s2mm_out_tlast       ;
 
+    logic                            first_instr                 ;
+
     mem_itf mem_itf_inst(
         .clk                         (clk                         ),
         .rst_n                       (rst_n                       ),
         .scalar                      (scalar                      ),
+        .first_instr                 (first_instr                 ),
         .status                      (status                      ),
         .m_axi_iofm_awready          (m_axi_iofm_awready          ),
         .m_axi_iofm_awvalid          (m_axi_iofm_awvalid          ),
@@ -235,6 +239,7 @@ module sys_top #(
     glb_ctrl glb_ctrl_inst (
         .clk                        (clk),
         .rst_n                      (rst_n),
+        .debug_status               (debug_status),
         .s_axis_instr_tready        (s_axis_instr_tready),
         .s_axis_instr_tvalid        (s_axis_instr_tvalid),
         .s_axis_instr_tdata         (s_axis_instr_tdata),
@@ -280,7 +285,8 @@ module sys_top #(
         .bp_out_buf_wb_addr         (bp_out_buf_wb_addr),
         .bp_out_buf_wb_sel          (bp_out_buf_wb_sel),
         .wb_tile_done               (wb_tile_done),
-        .wb_status                  (wb_status)
+        .wb_status                  (wb_status),
+        .first_instr                (first_instr)
     );
 
     logic [127:0] bs_out_wb_data, bp_out_wb_data;

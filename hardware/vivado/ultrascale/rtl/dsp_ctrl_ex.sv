@@ -14,8 +14,8 @@ module dsp_ctrl_ex #(
     // tile size, updated when bp_ex_tile_start asserted
     input  logic [7:0]                  bp_subtile_K, // subtile of K (COLS)
     input  logic [7:0]                  bp_subtile_HW, // subtile of HW (ROWS)
-    input  logic [BP_ACT_BUF_DEPTH+7:0] bp_opt_subtile_HWCIJ, // for better timing
-    input  logic [BP_ACT_BUF_DEPTH-1:0] bp_subtile_CIJ, // subtile of CIJ (dataflow depth)
+    input  logic [23:0]                 bp_opt_subtile_HWCIJ, // for better timing
+    input  logic [15:0]                 bp_subtile_CIJ, // subtile of CIJ (dataflow depth)
     // control signals
     input  logic                        bp_ex_tile_start,
     output logic [BP_ACT_BUF_DEPTH-1:0] bp_act_buf_ex_addr,
@@ -38,7 +38,7 @@ module dsp_ctrl_ex #(
         end
     end
 
-    logic [BP_ACT_BUF_DEPTH-1:0] cnt_dataflow_depth;
+    logic [15:0]                 cnt_dataflow_depth;
     logic [7:0]                  cnt_dataflow_k;
     logic [7:0]                  cnt_dataflow_hw;
     logic                        full_dataflow_depth;

@@ -1,0 +1,982 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="sys_top_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="\$unit_bit_serial_mul_sv " />
+            <top_module name="glbl" />
+            <top_module name="lib_pkg" />
+            <top_module name="sys_top_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="91,164.334 ns"></ZoomStartTime>
+      <ZoomEndTime time="91,650.835 ns"></ZoomEndTime>
+      <Cursor1Time time="91,230.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="360"></NameColumnWidth>
+      <ValueColumnWidth column_width="169"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="5" />
+   <wvobject type="group" fp_name="group108">
+      <obj_property name="label">memitf</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/clk">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/rst_n">
+         <obj_property name="ElementShortName">rst_n</obj_property>
+         <obj_property name="ObjectShortName">rst_n</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/scalar">
+         <obj_property name="ElementShortName">scalar[31:0]</obj_property>
+         <obj_property name="ObjectShortName">scalar[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/status">
+         <obj_property name="ElementShortName">status[1:0][31:0]</obj_property>
+         <obj_property name="ObjectShortName">status[1:0][31:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_awready">
+         <obj_property name="ElementShortName">m_axi_iofm_awready</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_awready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_awvalid">
+         <obj_property name="ElementShortName">m_axi_iofm_awvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_awvalid</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_awaddr">
+         <obj_property name="ElementShortName">m_axi_iofm_awaddr[63:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_awaddr[63:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_awlen">
+         <obj_property name="ElementShortName">m_axi_iofm_awlen[7:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_awlen[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_awid">
+         <obj_property name="ElementShortName">m_axi_iofm_awid[3:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_awid[3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_awsize">
+         <obj_property name="ElementShortName">m_axi_iofm_awsize[2:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_awsize[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_awburst">
+         <obj_property name="ElementShortName">m_axi_iofm_awburst[1:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_awburst[1:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_awprot">
+         <obj_property name="ElementShortName">m_axi_iofm_awprot[2:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_awprot[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_awcache">
+         <obj_property name="ElementShortName">m_axi_iofm_awcache[3:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_awcache[3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_awuser">
+         <obj_property name="ElementShortName">m_axi_iofm_awuser[3:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_awuser[3:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_wready">
+         <obj_property name="ElementShortName">m_axi_iofm_wready</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_wready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_wvalid">
+         <obj_property name="ElementShortName">m_axi_iofm_wvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_wvalid</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_wdata">
+         <obj_property name="ElementShortName">m_axi_iofm_wdata[63:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_wdata[63:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_wstrb">
+         <obj_property name="ElementShortName">m_axi_iofm_wstrb[7:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_wstrb[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_wlast">
+         <obj_property name="ElementShortName">m_axi_iofm_wlast</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_wlast</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_bready">
+         <obj_property name="ElementShortName">m_axi_iofm_bready</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_bready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_bvalid">
+         <obj_property name="ElementShortName">m_axi_iofm_bvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_bvalid</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_bresp">
+         <obj_property name="ElementShortName">m_axi_iofm_bresp[1:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_bresp[1:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_arready">
+         <obj_property name="ElementShortName">m_axi_iofm_arready</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_arready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_arvalid">
+         <obj_property name="ElementShortName">m_axi_iofm_arvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_arvalid</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_araddr">
+         <obj_property name="ElementShortName">m_axi_iofm_araddr[63:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_araddr[63:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_arlen">
+         <obj_property name="ElementShortName">m_axi_iofm_arlen[7:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_arlen[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_arid">
+         <obj_property name="ElementShortName">m_axi_iofm_arid[3:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_arid[3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_arsize">
+         <obj_property name="ElementShortName">m_axi_iofm_arsize[2:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_arsize[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_arburst">
+         <obj_property name="ElementShortName">m_axi_iofm_arburst[1:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_arburst[1:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_arprot">
+         <obj_property name="ElementShortName">m_axi_iofm_arprot[2:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_arprot[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_arcache">
+         <obj_property name="ElementShortName">m_axi_iofm_arcache[3:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_arcache[3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_aruser">
+         <obj_property name="ElementShortName">m_axi_iofm_aruser[3:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_aruser[3:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_rready">
+         <obj_property name="ElementShortName">m_axi_iofm_rready</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_rready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_rvalid">
+         <obj_property name="ElementShortName">m_axi_iofm_rvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_rvalid</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_rdata">
+         <obj_property name="ElementShortName">m_axi_iofm_rdata[63:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_rdata[63:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_rresp">
+         <obj_property name="ElementShortName">m_axi_iofm_rresp[1:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_rresp[1:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_iofm_rlast">
+         <obj_property name="ElementShortName">m_axi_iofm_rlast</obj_property>
+         <obj_property name="ObjectShortName">m_axi_iofm_rlast</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_wgt_arready">
+         <obj_property name="ElementShortName">m_axi_wgt_arready</obj_property>
+         <obj_property name="ObjectShortName">m_axi_wgt_arready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_wgt_arvalid">
+         <obj_property name="ElementShortName">m_axi_wgt_arvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axi_wgt_arvalid</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_wgt_araddr">
+         <obj_property name="ElementShortName">m_axi_wgt_araddr[63:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_wgt_araddr[63:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_wgt_arlen">
+         <obj_property name="ElementShortName">m_axi_wgt_arlen[7:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_wgt_arlen[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_wgt_arid">
+         <obj_property name="ElementShortName">m_axi_wgt_arid[3:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_wgt_arid[3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_wgt_arsize">
+         <obj_property name="ElementShortName">m_axi_wgt_arsize[2:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_wgt_arsize[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_wgt_arburst">
+         <obj_property name="ElementShortName">m_axi_wgt_arburst[1:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_wgt_arburst[1:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_wgt_arprot">
+         <obj_property name="ElementShortName">m_axi_wgt_arprot[2:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_wgt_arprot[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_wgt_arcache">
+         <obj_property name="ElementShortName">m_axi_wgt_arcache[3:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_wgt_arcache[3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_wgt_aruser">
+         <obj_property name="ElementShortName">m_axi_wgt_aruser[3:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_wgt_aruser[3:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_wgt_rready">
+         <obj_property name="ElementShortName">m_axi_wgt_rready</obj_property>
+         <obj_property name="ObjectShortName">m_axi_wgt_rready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_wgt_rvalid">
+         <obj_property name="ElementShortName">m_axi_wgt_rvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axi_wgt_rvalid</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_wgt_rdata">
+         <obj_property name="ElementShortName">m_axi_wgt_rdata[63:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_wgt_rdata[63:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_wgt_rresp">
+         <obj_property name="ElementShortName">m_axi_wgt_rresp[1:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axi_wgt_rresp[1:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axi_wgt_rlast">
+         <obj_property name="ElementShortName">m_axi_wgt_rlast</obj_property>
+         <obj_property name="ObjectShortName">m_axi_wgt_rlast</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/s_axis_mm2s_cmd_act_tready">
+         <obj_property name="ElementShortName">s_axis_mm2s_cmd_act_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_mm2s_cmd_act_tready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/s_axis_mm2s_cmd_act_tvalid">
+         <obj_property name="ElementShortName">s_axis_mm2s_cmd_act_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_mm2s_cmd_act_tvalid</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/s_axis_mm2s_cmd_act_tdata">
+         <obj_property name="ElementShortName">s_axis_mm2s_cmd_act_tdata[79:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_mm2s_cmd_act_tdata[79:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/s_axis_mm2s_cmd_wgt_tready">
+         <obj_property name="ElementShortName">s_axis_mm2s_cmd_wgt_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_mm2s_cmd_wgt_tready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/s_axis_mm2s_cmd_wgt_tvalid">
+         <obj_property name="ElementShortName">s_axis_mm2s_cmd_wgt_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_mm2s_cmd_wgt_tvalid</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/s_axis_mm2s_cmd_wgt_tdata">
+         <obj_property name="ElementShortName">s_axis_mm2s_cmd_wgt_tdata[79:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_mm2s_cmd_wgt_tdata[79:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/s_axis_s2mm_cmd_out_tready">
+         <obj_property name="ElementShortName">s_axis_s2mm_cmd_out_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_s2mm_cmd_out_tready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/s_axis_s2mm_cmd_out_tvalid">
+         <obj_property name="ElementShortName">s_axis_s2mm_cmd_out_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_s2mm_cmd_out_tvalid</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/s_axis_s2mm_cmd_out_tdata">
+         <obj_property name="ElementShortName">s_axis_s2mm_cmd_out_tdata[79:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_s2mm_cmd_out_tdata[79:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axis_mm2s_act_tready">
+         <obj_property name="ElementShortName">m_axis_mm2s_act_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_mm2s_act_tready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axis_mm2s_act_tvalid">
+         <obj_property name="ElementShortName">m_axis_mm2s_act_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_mm2s_act_tvalid</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axis_mm2s_act_tdata">
+         <obj_property name="ElementShortName">m_axis_mm2s_act_tdata[63:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_mm2s_act_tdata[63:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axis_mm2s_act_tkeep">
+         <obj_property name="ElementShortName">m_axis_mm2s_act_tkeep[7:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_mm2s_act_tkeep[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axis_mm2s_act_tlast">
+         <obj_property name="ElementShortName">m_axis_mm2s_act_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_mm2s_act_tlast</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axis_mm2s_wgt_tready">
+         <obj_property name="ElementShortName">m_axis_mm2s_wgt_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_mm2s_wgt_tready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axis_mm2s_wgt_tvalid">
+         <obj_property name="ElementShortName">m_axis_mm2s_wgt_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_mm2s_wgt_tvalid</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axis_mm2s_wgt_tdata">
+         <obj_property name="ElementShortName">m_axis_mm2s_wgt_tdata[63:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_mm2s_wgt_tdata[63:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axis_mm2s_wgt_tkeep">
+         <obj_property name="ElementShortName">m_axis_mm2s_wgt_tkeep[7:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_mm2s_wgt_tkeep[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/m_axis_mm2s_wgt_tlast">
+         <obj_property name="ElementShortName">m_axis_mm2s_wgt_tlast</obj_property>
+         <obj_property name="ObjectShortName">m_axis_mm2s_wgt_tlast</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/s_axis_s2mm_out_tready">
+         <obj_property name="ElementShortName">s_axis_s2mm_out_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_s2mm_out_tready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/s_axis_s2mm_out_tvalid">
+         <obj_property name="ElementShortName">s_axis_s2mm_out_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_s2mm_out_tvalid</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/s_axis_s2mm_out_tdata">
+         <obj_property name="ElementShortName">s_axis_s2mm_out_tdata[63:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_s2mm_out_tdata[63:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/s_axis_s2mm_out_tkeep">
+         <obj_property name="ElementShortName">s_axis_s2mm_out_tkeep[7:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_s2mm_out_tkeep[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/s_axis_s2mm_out_tlast">
+         <obj_property name="ElementShortName">s_axis_s2mm_out_tlast</obj_property>
+         <obj_property name="ObjectShortName">s_axis_s2mm_out_tlast</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/i_axis_mm2s_sts_act_tready">
+         <obj_property name="ElementShortName">i_axis_mm2s_sts_act_tready</obj_property>
+         <obj_property name="ObjectShortName">i_axis_mm2s_sts_act_tready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/i_axis_mm2s_sts_act_tvalid">
+         <obj_property name="ElementShortName">i_axis_mm2s_sts_act_tvalid</obj_property>
+         <obj_property name="ObjectShortName">i_axis_mm2s_sts_act_tvalid</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/i_axis_mm2s_sts_act_tdata">
+         <obj_property name="ElementShortName">i_axis_mm2s_sts_act_tdata[7:0]</obj_property>
+         <obj_property name="ObjectShortName">i_axis_mm2s_sts_act_tdata[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/i_axis_mm2s_sts_act_tkeep">
+         <obj_property name="ElementShortName">i_axis_mm2s_sts_act_tkeep[0:0]</obj_property>
+         <obj_property name="ObjectShortName">i_axis_mm2s_sts_act_tkeep[0:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/i_axis_mm2s_sts_act_tlast">
+         <obj_property name="ElementShortName">i_axis_mm2s_sts_act_tlast</obj_property>
+         <obj_property name="ObjectShortName">i_axis_mm2s_sts_act_tlast</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/i_axis_mm2s_sts_wgt_tready">
+         <obj_property name="ElementShortName">i_axis_mm2s_sts_wgt_tready</obj_property>
+         <obj_property name="ObjectShortName">i_axis_mm2s_sts_wgt_tready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/i_axis_mm2s_sts_wgt_tvalid">
+         <obj_property name="ElementShortName">i_axis_mm2s_sts_wgt_tvalid</obj_property>
+         <obj_property name="ObjectShortName">i_axis_mm2s_sts_wgt_tvalid</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/i_axis_mm2s_sts_wgt_tdata">
+         <obj_property name="ElementShortName">i_axis_mm2s_sts_wgt_tdata[7:0]</obj_property>
+         <obj_property name="ObjectShortName">i_axis_mm2s_sts_wgt_tdata[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/i_axis_mm2s_sts_wgt_tkeep">
+         <obj_property name="ElementShortName">i_axis_mm2s_sts_wgt_tkeep[0:0]</obj_property>
+         <obj_property name="ObjectShortName">i_axis_mm2s_sts_wgt_tkeep[0:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/i_axis_mm2s_sts_wgt_tlast">
+         <obj_property name="ElementShortName">i_axis_mm2s_sts_wgt_tlast</obj_property>
+         <obj_property name="ObjectShortName">i_axis_mm2s_sts_wgt_tlast</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/i_axis_s2mm_sts_out_tready">
+         <obj_property name="ElementShortName">i_axis_s2mm_sts_out_tready</obj_property>
+         <obj_property name="ObjectShortName">i_axis_s2mm_sts_out_tready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/i_axis_s2mm_sts_out_tvalid">
+         <obj_property name="ElementShortName">i_axis_s2mm_sts_out_tvalid</obj_property>
+         <obj_property name="ObjectShortName">i_axis_s2mm_sts_out_tvalid</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/i_axis_s2mm_sts_out_tdata">
+         <obj_property name="ElementShortName">i_axis_s2mm_sts_out_tdata[7:0]</obj_property>
+         <obj_property name="ObjectShortName">i_axis_s2mm_sts_out_tdata[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/i_axis_s2mm_sts_out_tkeep">
+         <obj_property name="ElementShortName">i_axis_s2mm_sts_out_tkeep[0:0]</obj_property>
+         <obj_property name="ObjectShortName">i_axis_s2mm_sts_out_tkeep[0:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/i_axis_s2mm_sts_out_tlast">
+         <obj_property name="ElementShortName">i_axis_s2mm_sts_out_tlast</obj_property>
+         <obj_property name="ObjectShortName">i_axis_s2mm_sts_out_tlast</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/latency_cnt_start">
+         <obj_property name="ElementShortName">latency_cnt_start</obj_property>
+         <obj_property name="ObjectShortName">latency_cnt_start</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/latency_cnt_state">
+         <obj_property name="ElementShortName">latency_cnt_state</obj_property>
+         <obj_property name="ObjectShortName">latency_cnt_state</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/latency_cnt_end">
+         <obj_property name="ElementShortName">latency_cnt_end</obj_property>
+         <obj_property name="ObjectShortName">latency_cnt_end</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/latency_cnt">
+         <obj_property name="ElementShortName">latency_cnt[31:0]</obj_property>
+         <obj_property name="ObjectShortName">latency_cnt[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/mm2s_err_iofm">
+         <obj_property name="ElementShortName">mm2s_err_iofm</obj_property>
+         <obj_property name="ObjectShortName">mm2s_err_iofm</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/s2mm_err_iofm">
+         <obj_property name="ElementShortName">s2mm_err_iofm</obj_property>
+         <obj_property name="ObjectShortName">s2mm_err_iofm</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/mem_itf_inst/mm2s_err_wgt">
+         <obj_property name="ElementShortName">mm2s_err_wgt</obj_property>
+         <obj_property name="ObjectShortName">mm2s_err_wgt</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="divider109" type="divider">
+   </wvobject>
+   <wvobject type="group" fp_name="group221">
+      <obj_property name="label">glb_ctrl</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/clk">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/rst_n">
+         <obj_property name="ElementShortName">rst_n</obj_property>
+         <obj_property name="ObjectShortName">rst_n</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/s_axis_instr_tready">
+         <obj_property name="ElementShortName">s_axis_instr_tready</obj_property>
+         <obj_property name="ObjectShortName">s_axis_instr_tready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/s_axis_instr_tvalid">
+         <obj_property name="ElementShortName">s_axis_instr_tvalid</obj_property>
+         <obj_property name="ObjectShortName">s_axis_instr_tvalid</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/s_axis_instr_tdata">
+         <obj_property name="ElementShortName">s_axis_instr_tdata[63:0]</obj_property>
+         <obj_property name="ObjectShortName">s_axis_instr_tdata[63:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/m_axis_mm2s_cmd_act_tdata">
+         <obj_property name="ElementShortName">m_axis_mm2s_cmd_act_tdata[79:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_mm2s_cmd_act_tdata[79:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/m_axis_mm2s_cmd_act_tvalid">
+         <obj_property name="ElementShortName">m_axis_mm2s_cmd_act_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_mm2s_cmd_act_tvalid</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/m_axis_mm2s_cmd_act_tready">
+         <obj_property name="ElementShortName">m_axis_mm2s_cmd_act_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_mm2s_cmd_act_tready</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/m_axis_mm2s_cmd_wgt_tdata">
+         <obj_property name="ElementShortName">m_axis_mm2s_cmd_wgt_tdata[79:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_mm2s_cmd_wgt_tdata[79:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/m_axis_mm2s_cmd_wgt_tvalid">
+         <obj_property name="ElementShortName">m_axis_mm2s_cmd_wgt_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_mm2s_cmd_wgt_tvalid</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/m_axis_mm2s_cmd_wgt_tready">
+         <obj_property name="ElementShortName">m_axis_mm2s_cmd_wgt_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_mm2s_cmd_wgt_tready</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/m_axis_s2mm_cmd_out_tdata">
+         <obj_property name="ElementShortName">m_axis_s2mm_cmd_out_tdata[79:0]</obj_property>
+         <obj_property name="ObjectShortName">m_axis_s2mm_cmd_out_tdata[79:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/m_axis_s2mm_cmd_out_tvalid">
+         <obj_property name="ElementShortName">m_axis_s2mm_cmd_out_tvalid</obj_property>
+         <obj_property name="ObjectShortName">m_axis_s2mm_cmd_out_tvalid</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/m_axis_s2mm_cmd_out_tready">
+         <obj_property name="ElementShortName">m_axis_s2mm_cmd_out_tready</obj_property>
+         <obj_property name="ObjectShortName">m_axis_s2mm_cmd_out_tready</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ld_valid_act">
+         <obj_property name="ElementShortName">ld_valid_act</obj_property>
+         <obj_property name="ObjectShortName">ld_valid_act</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ld_valid_wgt">
+         <obj_property name="ElementShortName">ld_valid_wgt</obj_property>
+         <obj_property name="ObjectShortName">ld_valid_wgt</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/wb_valid">
+         <obj_property name="ElementShortName">wb_valid</obj_property>
+         <obj_property name="ObjectShortName">wb_valid</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/wb_bs_bp_sel">
+         <obj_property name="ElementShortName">wb_bs_bp_sel</obj_property>
+         <obj_property name="ObjectShortName">wb_bs_bp_sel</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bs_act_buf_ld_en">
+         <obj_property name="ElementShortName">bs_act_buf_ld_en[39:0]</obj_property>
+         <obj_property name="ObjectShortName">bs_act_buf_ld_en[39:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bs_act_buf_ld_addr">
+         <obj_property name="ElementShortName">bs_act_buf_ld_addr[39:0][9:0]</obj_property>
+         <obj_property name="ObjectShortName">bs_act_buf_ld_addr[39:0][9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bs_wgt_buf_ld_en">
+         <obj_property name="ElementShortName">bs_wgt_buf_ld_en[39:0]</obj_property>
+         <obj_property name="ObjectShortName">bs_wgt_buf_ld_en[39:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bs_wgt_buf_ld_addr">
+         <obj_property name="ElementShortName">bs_wgt_buf_ld_addr[39:0][10:0]</obj_property>
+         <obj_property name="ObjectShortName">bs_wgt_buf_ld_addr[39:0][10:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bs_awt_buf_ld_sel">
+         <obj_property name="ElementShortName">bs_awt_buf_ld_sel</obj_property>
+         <obj_property name="ObjectShortName">bs_awt_buf_ld_sel</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bs_act_buf_ex_addr">
+         <obj_property name="ElementShortName">bs_act_buf_ex_addr[9:0]</obj_property>
+         <obj_property name="ObjectShortName">bs_act_buf_ex_addr[9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bs_wgt_buf_ex_addr">
+         <obj_property name="ElementShortName">bs_wgt_buf_ex_addr[10:0]</obj_property>
+         <obj_property name="ObjectShortName">bs_wgt_buf_ex_addr[10:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bs_out_buf_ex_addr">
+         <obj_property name="ElementShortName">bs_out_buf_ex_addr[9:0]</obj_property>
+         <obj_property name="ObjectShortName">bs_out_buf_ex_addr[9:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bs_awt_buf_ex_sel">
+         <obj_property name="ElementShortName">bs_awt_buf_ex_sel</obj_property>
+         <obj_property name="ObjectShortName">bs_awt_buf_ex_sel</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bs_out_buf_ex_sel">
+         <obj_property name="ElementShortName">bs_out_buf_ex_sel</obj_property>
+         <obj_property name="ObjectShortName">bs_out_buf_ex_sel</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bs_psum_sel">
+         <obj_property name="ElementShortName">bs_psum_sel</obj_property>
+         <obj_property name="ObjectShortName">bs_psum_sel</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bs_out_buf_wb_en">
+         <obj_property name="ElementShortName">bs_out_buf_wb_en[2:0]</obj_property>
+         <obj_property name="ObjectShortName">bs_out_buf_wb_en[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bs_out_buf_wb_addr">
+         <obj_property name="ElementShortName">bs_out_buf_wb_addr[39:0][9:0]</obj_property>
+         <obj_property name="ObjectShortName">bs_out_buf_wb_addr[39:0][9:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bs_out_buf_wb_sel">
+         <obj_property name="ElementShortName">bs_out_buf_wb_sel</obj_property>
+         <obj_property name="ObjectShortName">bs_out_buf_wb_sel</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bp_act_buf_ld_en">
+         <obj_property name="ElementShortName">bp_act_buf_ld_en[14:0]</obj_property>
+         <obj_property name="ObjectShortName">bp_act_buf_ld_en[14:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bp_act_buf_ld_addr">
+         <obj_property name="ElementShortName">bp_act_buf_ld_addr[14:0][8:0]</obj_property>
+         <obj_property name="ObjectShortName">bp_act_buf_ld_addr[14:0][8:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bp_wgt_buf_ld_en">
+         <obj_property name="ElementShortName">bp_wgt_buf_ld_en[13:0]</obj_property>
+         <obj_property name="ObjectShortName">bp_wgt_buf_ld_en[13:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bp_wgt_buf_ld_addr">
+         <obj_property name="ElementShortName">bp_wgt_buf_ld_addr[13:0][9:0]</obj_property>
+         <obj_property name="ObjectShortName">bp_wgt_buf_ld_addr[13:0][9:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bp_awt_buf_ld_sel">
+         <obj_property name="ElementShortName">bp_awt_buf_ld_sel</obj_property>
+         <obj_property name="ObjectShortName">bp_awt_buf_ld_sel</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bp_act_buf_ex_addr">
+         <obj_property name="ElementShortName">bp_act_buf_ex_addr[8:0]</obj_property>
+         <obj_property name="ObjectShortName">bp_act_buf_ex_addr[8:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bp_wgt_buf_ex_addr">
+         <obj_property name="ElementShortName">bp_wgt_buf_ex_addr[9:0]</obj_property>
+         <obj_property name="ObjectShortName">bp_wgt_buf_ex_addr[9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bp_out_buf_ex_addr">
+         <obj_property name="ElementShortName">bp_out_buf_ex_addr[8:0]</obj_property>
+         <obj_property name="ObjectShortName">bp_out_buf_ex_addr[8:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bp_awt_buf_ex_sel">
+         <obj_property name="ElementShortName">bp_awt_buf_ex_sel</obj_property>
+         <obj_property name="ObjectShortName">bp_awt_buf_ex_sel</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bp_out_buf_ex_sel">
+         <obj_property name="ElementShortName">bp_out_buf_ex_sel</obj_property>
+         <obj_property name="ObjectShortName">bp_out_buf_ex_sel</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bp_psum_sel">
+         <obj_property name="ElementShortName">bp_psum_sel</obj_property>
+         <obj_property name="ObjectShortName">bp_psum_sel</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bp_out_buf_wb_en">
+         <obj_property name="ElementShortName">bp_out_buf_wb_en[2:0]</obj_property>
+         <obj_property name="ObjectShortName">bp_out_buf_wb_en[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bp_out_buf_wb_addr">
+         <obj_property name="ElementShortName">bp_out_buf_wb_addr[14:0][8:0]</obj_property>
+         <obj_property name="ObjectShortName">bp_out_buf_wb_addr[14:0][8:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bp_out_buf_wb_sel">
+         <obj_property name="ElementShortName">bp_out_buf_wb_sel</obj_property>
+         <obj_property name="ObjectShortName">bp_out_buf_wb_sel</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/wb_tile_done">
+         <obj_property name="ElementShortName">wb_tile_done</obj_property>
+         <obj_property name="ObjectShortName">wb_tile_done</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/wb_status">
+         <obj_property name="ElementShortName">wb_status</obj_property>
+         <obj_property name="ObjectShortName">wb_status</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/param_bw_tile_times_act">
+         <obj_property name="ElementShortName">param_bw_tile_times_act[15:0]</obj_property>
+         <obj_property name="ObjectShortName">param_bw_tile_times_act[15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/param_bw_tile_times_bs_wgt">
+         <obj_property name="ElementShortName">param_bw_tile_times_bs_wgt[15:0]</obj_property>
+         <obj_property name="ObjectShortName">param_bw_tile_times_bs_wgt[15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/param_bw_tile_times_bp_wgt">
+         <obj_property name="ElementShortName">param_bw_tile_times_bp_wgt[15:0]</obj_property>
+         <obj_property name="ObjectShortName">param_bw_tile_times_bp_wgt[15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bs_ceil_k_rows">
+         <obj_property name="ElementShortName">bs_ceil_k_rows[7:0]</obj_property>
+         <obj_property name="ObjectShortName">bs_ceil_k_rows[7:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bp_ceil_k_rows">
+         <obj_property name="ElementShortName">bp_ceil_k_rows[7:0]</obj_property>
+         <obj_property name="ObjectShortName">bp_ceil_k_rows[7:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bs_ceil_hw_cols">
+         <obj_property name="ElementShortName">bs_ceil_hw_cols[7:0]</obj_property>
+         <obj_property name="ObjectShortName">bs_ceil_hw_cols[7:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bp_ceil_hw_cols">
+         <obj_property name="ElementShortName">bp_ceil_hw_cols[7:0]</obj_property>
+         <obj_property name="ObjectShortName">bp_ceil_hw_cols[7:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/param_tile_cij">
+         <obj_property name="ElementShortName">param_tile_cij[15:0]</obj_property>
+         <obj_property name="ObjectShortName">param_tile_cij[15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/param_tile_cij_ceilhw_bs">
+         <obj_property name="ElementShortName">param_tile_cij_ceilhw_bs[23:0]</obj_property>
+         <obj_property name="ObjectShortName">param_tile_cij_ceilhw_bs[23:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/param_tile_cij_ceilhw_bp">
+         <obj_property name="ElementShortName">param_tile_cij_ceilhw_bp[23:0]</obj_property>
+         <obj_property name="ObjectShortName">param_tile_cij_ceilhw_bp[23:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/tile_bs_eb">
+         <obj_property name="ElementShortName">tile_bs_eb[2:0]</obj_property>
+         <obj_property name="ObjectShortName">tile_bs_eb[2:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/param_tile_cij_eb">
+         <obj_property name="ElementShortName">param_tile_cij_eb[23:0]</obj_property>
+         <obj_property name="ObjectShortName">param_tile_cij_eb[23:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/param_bs_bw_out_times">
+         <obj_property name="ElementShortName">param_bs_bw_out_times[15:0]</obj_property>
+         <obj_property name="ObjectShortName">param_bs_bw_out_times[15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/param_bp_bw_out_times">
+         <obj_property name="ElementShortName">param_bp_bw_out_times[15:0]</obj_property>
+         <obj_property name="ObjectShortName">param_bp_bw_out_times[15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/param_tile_number">
+         <obj_property name="ElementShortName">param_tile_number[15:0]</obj_property>
+         <obj_property name="ObjectShortName">param_tile_number[15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/param_btt_tile_act">
+         <obj_property name="ElementShortName">param_btt_tile_act[23:0]</obj_property>
+         <obj_property name="ObjectShortName">param_btt_tile_act[23:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/param_btt_tile_wgt">
+         <obj_property name="ElementShortName">param_btt_tile_wgt[23:0]</obj_property>
+         <obj_property name="ObjectShortName">param_btt_tile_wgt[23:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/param_btt_tile_out">
+         <obj_property name="ElementShortName">param_btt_tile_out[23:0]</obj_property>
+         <obj_property name="ObjectShortName">param_btt_tile_out[23:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ext_addr_act_tile">
+         <obj_property name="ElementShortName">ext_addr_act_tile[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ext_addr_act_tile[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ext_addr_wgt_tile">
+         <obj_property name="ElementShortName">ext_addr_wgt_tile[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ext_addr_wgt_tile[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ext_addr_out_tile">
+         <obj_property name="ElementShortName">ext_addr_out_tile[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ext_addr_out_tile[31:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/last_layer">
+         <obj_property name="ElementShortName">last_layer</obj_property>
+         <obj_property name="ObjectShortName">last_layer</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/hs_axis_instr">
+         <obj_property name="ElementShortName">hs_axis_instr</obj_property>
+         <obj_property name="ObjectShortName">hs_axis_instr</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/layer_running_begin">
+         <obj_property name="ElementShortName">layer_running_begin</obj_property>
+         <obj_property name="ObjectShortName">layer_running_begin</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/layer_running_sts">
+         <obj_property name="ElementShortName">layer_running_sts</obj_property>
+         <obj_property name="ObjectShortName">layer_running_sts</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/layer_running_end">
+         <obj_property name="ElementShortName">layer_running_end</obj_property>
+         <obj_property name="ObjectShortName">layer_running_end</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/cnt_ld_tile">
+         <obj_property name="ElementShortName">cnt_ld_tile[15:0]</obj_property>
+         <obj_property name="ObjectShortName">cnt_ld_tile[15:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/cnt_ex_tile">
+         <obj_property name="ElementShortName">cnt_ex_tile[15:0]</obj_property>
+         <obj_property name="ObjectShortName">cnt_ex_tile[15:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/cnt_wb_tile">
+         <obj_property name="ElementShortName">cnt_wb_tile[15:0]</obj_property>
+         <obj_property name="ObjectShortName">cnt_wb_tile[15:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ld_busy">
+         <obj_property name="ElementShortName">ld_busy</obj_property>
+         <obj_property name="ObjectShortName">ld_busy</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ex_busy">
+         <obj_property name="ElementShortName">ex_busy</obj_property>
+         <obj_property name="ObjectShortName">ex_busy</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/wb_busy">
+         <obj_property name="ElementShortName">wb_busy</obj_property>
+         <obj_property name="ObjectShortName">wb_busy</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ld_flag">
+         <obj_property name="ElementShortName">ld_flag</obj_property>
+         <obj_property name="ObjectShortName">ld_flag</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ex_flag">
+         <obj_property name="ElementShortName">ex_flag</obj_property>
+         <obj_property name="ObjectShortName">ex_flag</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/wb_flag">
+         <obj_property name="ElementShortName">wb_flag</obj_property>
+         <obj_property name="ObjectShortName">wb_flag</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ld_ex_sync">
+         <obj_property name="ElementShortName">ld_ex_sync</obj_property>
+         <obj_property name="ObjectShortName">ld_ex_sync</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/wb_ex_sync">
+         <obj_property name="ElementShortName">wb_ex_sync</obj_property>
+         <obj_property name="ObjectShortName">wb_ex_sync</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/tri_sync">
+         <obj_property name="ElementShortName">tri_sync</obj_property>
+         <obj_property name="ObjectShortName">tri_sync</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ld_tile_done">
+         <obj_property name="ElementShortName">ld_tile_done</obj_property>
+         <obj_property name="ObjectShortName">ld_tile_done</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ex_tile_done">
+         <obj_property name="ElementShortName">ex_tile_done</obj_property>
+         <obj_property name="ObjectShortName">ex_tile_done</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/wb_tile_done">
+         <obj_property name="ElementShortName">wb_tile_done</obj_property>
+         <obj_property name="ObjectShortName">wb_tile_done</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/wb_status">
+         <obj_property name="ElementShortName">wb_status</obj_property>
+         <obj_property name="ObjectShortName">wb_status</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ld_tile_eol">
+         <obj_property name="ElementShortName">ld_tile_eol</obj_property>
+         <obj_property name="ObjectShortName">ld_tile_eol</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ex_tile_eol">
+         <obj_property name="ElementShortName">ex_tile_eol</obj_property>
+         <obj_property name="ObjectShortName">ex_tile_eol</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/wb_tile_eol">
+         <obj_property name="ElementShortName">wb_tile_eol</obj_property>
+         <obj_property name="ObjectShortName">wb_tile_eol</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ld_layer_finish">
+         <obj_property name="ElementShortName">ld_layer_finish</obj_property>
+         <obj_property name="ObjectShortName">ld_layer_finish</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ex_layer_finish">
+         <obj_property name="ElementShortName">ex_layer_finish</obj_property>
+         <obj_property name="ObjectShortName">ex_layer_finish</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ld_tile_start">
+         <obj_property name="ElementShortName">ld_tile_start</obj_property>
+         <obj_property name="ObjectShortName">ld_tile_start</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/wb_tile_start">
+         <obj_property name="ElementShortName">wb_tile_start</obj_property>
+         <obj_property name="ObjectShortName">wb_tile_start</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bs_ex_tile_start">
+         <obj_property name="ElementShortName">bs_ex_tile_start</obj_property>
+         <obj_property name="ObjectShortName">bs_ex_tile_start</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bp_ex_tile_start">
+         <obj_property name="ElementShortName">bp_ex_tile_start</obj_property>
+         <obj_property name="ObjectShortName">bp_ex_tile_start</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bs_ex_tile_end">
+         <obj_property name="ElementShortName">bs_ex_tile_end</obj_property>
+         <obj_property name="ObjectShortName">bs_ex_tile_end</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/bp_ex_tile_end">
+         <obj_property name="ElementShortName">bp_ex_tile_end</obj_property>
+         <obj_property name="ObjectShortName">bp_ex_tile_end</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/lut_ex_finish">
+         <obj_property name="ElementShortName">lut_ex_finish</obj_property>
+         <obj_property name="ObjectShortName">lut_ex_finish</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/dsp_ex_finish">
+         <obj_property name="ElementShortName">dsp_ex_finish</obj_property>
+         <obj_property name="ObjectShortName">dsp_ex_finish</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ld_act_cmd">
+         <obj_property name="ElementShortName">ld_act_cmd[79:0]</obj_property>
+         <obj_property name="ObjectShortName">ld_act_cmd[79:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ld_wgt_cmd">
+         <obj_property name="ElementShortName">ld_wgt_cmd[79:0]</obj_property>
+         <obj_property name="ObjectShortName">ld_wgt_cmd[79:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/wb_out_cmd">
+         <obj_property name="ElementShortName">wb_out_cmd[79:0]</obj_property>
+         <obj_property name="ObjectShortName">wb_out_cmd[79:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/s2mm_sts_tag">
+         <obj_property name="ElementShortName">s2mm_sts_tag[3:0]</obj_property>
+         <obj_property name="ObjectShortName">s2mm_sts_tag[3:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/act_mover_valid_r">
+         <obj_property name="ElementShortName">act_mover_valid_r</obj_property>
+         <obj_property name="ObjectShortName">act_mover_valid_r</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/act_mover_hs">
+         <obj_property name="ElementShortName">act_mover_hs</obj_property>
+         <obj_property name="ObjectShortName">act_mover_hs</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/wgt_mover_valid_r">
+         <obj_property name="ElementShortName">wgt_mover_valid_r</obj_property>
+         <obj_property name="ObjectShortName">wgt_mover_valid_r</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/wgt_mover_hs">
+         <obj_property name="ElementShortName">wgt_mover_hs</obj_property>
+         <obj_property name="ObjectShortName">wgt_mover_hs</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/out_mover_valid_r">
+         <obj_property name="ElementShortName">out_mover_valid_r</obj_property>
+         <obj_property name="ObjectShortName">out_mover_valid_r</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/out_mover_hs">
+         <obj_property name="ElementShortName">out_mover_hs</obj_property>
+         <obj_property name="ObjectShortName">out_mover_hs</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="divider225" type="divider">
+   </wvobject>
+   <wvobject type="group" fp_name="group244">
+      <obj_property name="label">wb_ctrl</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ctrl_wb_inst/clk">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ctrl_wb_inst/rst_n">
+         <obj_property name="ElementShortName">rst_n</obj_property>
+         <obj_property name="ObjectShortName">rst_n</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ctrl_wb_inst/bs_bw_out_times">
+         <obj_property name="ElementShortName">bs_bw_out_times[15:0]</obj_property>
+         <obj_property name="ObjectShortName">bs_bw_out_times[15:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ctrl_wb_inst/bp_bw_out_times">
+         <obj_property name="ElementShortName">bp_bw_out_times[15:0]</obj_property>
+         <obj_property name="ObjectShortName">bp_bw_out_times[15:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ctrl_wb_inst/wb_tile_start">
+         <obj_property name="ElementShortName">wb_tile_start</obj_property>
+         <obj_property name="ObjectShortName">wb_tile_start</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ctrl_wb_inst/wb_valid_out">
+         <obj_property name="ElementShortName">wb_valid_out</obj_property>
+         <obj_property name="ObjectShortName">wb_valid_out</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ctrl_wb_inst/bs_out_buf_wb_en">
+         <obj_property name="ElementShortName">bs_out_buf_wb_en[2:0]</obj_property>
+         <obj_property name="ObjectShortName">bs_out_buf_wb_en[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ctrl_wb_inst/bs_out_buf_wb_addr">
+         <obj_property name="ElementShortName">bs_out_buf_wb_addr[39:0][9:0]</obj_property>
+         <obj_property name="ObjectShortName">bs_out_buf_wb_addr[39:0][9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ctrl_wb_inst/bp_out_buf_wb_en">
+         <obj_property name="ElementShortName">bp_out_buf_wb_en[2:0]</obj_property>
+         <obj_property name="ObjectShortName">bp_out_buf_wb_en[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ctrl_wb_inst/bp_out_buf_wb_addr">
+         <obj_property name="ElementShortName">bp_out_buf_wb_addr[14:0][8:0]</obj_property>
+         <obj_property name="ObjectShortName">bp_out_buf_wb_addr[14:0][8:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ctrl_wb_inst/wb_bs_bp_sel">
+         <obj_property name="ElementShortName">wb_bs_bp_sel</obj_property>
+         <obj_property name="ObjectShortName">wb_bs_bp_sel</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ctrl_wb_inst/wb_tile_end">
+         <obj_property name="ElementShortName">wb_tile_end</obj_property>
+         <obj_property name="ObjectShortName">wb_tile_end</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ctrl_wb_inst/bs_wb_out_state">
+         <obj_property name="ElementShortName">bs_wb_out_state</obj_property>
+         <obj_property name="ObjectShortName">bs_wb_out_state</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ctrl_wb_inst/bp_wb_out_state">
+         <obj_property name="ElementShortName">bp_wb_out_state</obj_property>
+         <obj_property name="ObjectShortName">bp_wb_out_state</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ctrl_wb_inst/cnt_bs_out_bw_times">
+         <obj_property name="ElementShortName">cnt_bs_out_bw_times[15:0]</obj_property>
+         <obj_property name="ObjectShortName">cnt_bs_out_bw_times[15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ctrl_wb_inst/full_cnt_bs_out_bw_times">
+         <obj_property name="ElementShortName">full_cnt_bs_out_bw_times</obj_property>
+         <obj_property name="ObjectShortName">full_cnt_bs_out_bw_times</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ctrl_wb_inst/cnt_bp_out_bw_times">
+         <obj_property name="ElementShortName">cnt_bp_out_bw_times[15:0]</obj_property>
+         <obj_property name="ObjectShortName">cnt_bp_out_bw_times[15:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/sys_top_tb/sys_top_inst/glb_ctrl_inst/ctrl_wb_inst/full_cnt_bp_out_bw_times">
+         <obj_property name="ElementShortName">full_cnt_bp_out_bw_times</obj_property>
+         <obj_property name="ObjectShortName">full_cnt_bp_out_bw_times</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

@@ -16,6 +16,8 @@ module glb_ctrl #(
 ) (
     input  logic                                    clk,
     input  logic                                    rst_n,
+    // status
+    output logic [31:0]                             debug_status,
     // input axis_instr
     output logic                                    s_axis_instr_tready,
     input  logic                                    s_axis_instr_tvalid,
@@ -72,7 +74,9 @@ module glb_ctrl #(
     output logic [BP_COLS-1:0][BP_OUT_BUF_DEPTH-1:0]bp_out_buf_wb_addr,
     output logic                                    bp_out_buf_wb_sel,
     output logic                                    wb_tile_done,
-    output logic                                    wb_status
+    output logic                                    wb_status,
+    // start latency counter
+    output logic                                    first_instr
 );
     
     // all the parameters for the current layer
@@ -102,6 +106,27 @@ module glb_ctrl #(
     // decode the instructions
     logic hs_axis_instr;
     assign hs_axis_instr = s_axis_instr_tvalid & s_axis_instr_tready & (s_axis_instr_tdata[127] == 1'b1);
+
+    logic [7:0] hs_axis_instr_cnt;
+    always_ff @( posedge clk ) begin
+        if (~rst_n) begin
+            hs_axis_instr_cnt <= 0;
+        end
+        else if (hs_axis_instr) begin
+            hs_axis_instr_cnt <= hs_axis_instr_cnt + 1;
+        end
+    end
+
+    logic first_instr_state;
+    always_ff @( posedge clk ) begin
+        if (~rst_n) begin
+            first_instr_state <= 1'b0;
+        end
+        else if (hs_axis_instr) begin
+            first_instr_state <= 1'b1;
+        end
+    end
+    assign first_instr = (~first_instr_state) & hs_axis_instr;
 
     always_ff @( posedge clk ) begin
         if (~rst_n) begin
@@ -449,7 +474,7 @@ module glb_ctrl #(
     assign ld_act_cmd[23]    = 1'b1; // TYPE
     assign ld_act_cmd[29:24] = 0; // TYPE
     assign ld_act_cmd[30]    = 1'b1; // EOF
-    assign ld_act_cmd[31]    = 1'b1; // DRR
+    assign ld_act_cmd[31]    = 1'b0; // DRR
     assign ld_act_cmd[63:32] = ext_addr_act_tile; // SADDR
     assign ld_act_cmd[79:64] = 0;
 
@@ -459,7 +484,7 @@ module glb_ctrl #(
     assign ld_wgt_cmd[23]    = 1'b1; // TYPE
     assign ld_wgt_cmd[29:24] = 0; // TYPE
     assign ld_wgt_cmd[30]    = 1'b1; // EOF
-    assign ld_wgt_cmd[31]    = 1'b1; // DRR
+    assign ld_wgt_cmd[31]    = 1'b0; // DRR
     assign ld_wgt_cmd[63:32] = ext_addr_wgt_tile; // SADDR
     assign ld_wgt_cmd[79:64] = 0;
 
@@ -471,7 +496,7 @@ module glb_ctrl #(
     assign wb_out_cmd[23]    = 1'b1; // TYPE
     assign wb_out_cmd[29:24] = 0; // TYPE
     assign wb_out_cmd[30]    = 1'b1; // EOF
-    assign wb_out_cmd[31]    = 1'b1; // DRR
+    assign wb_out_cmd[31]    = 1'b0; // DRR
     assign wb_out_cmd[63:32] = ext_addr_out_tile; // SADDR
     assign wb_out_cmd[71:64] = 0;  // SADDR
     assign wb_out_cmd[75:72] = s2mm_sts_tag;
@@ -483,16 +508,19 @@ module glb_ctrl #(
 
     logic act_mover_valid_r;
     logic act_mover_hs;
+    logic act_mover_en;
+
     assign act_mover_hs = m_axis_mm2s_cmd_act_tready & m_axis_mm2s_cmd_act_tvalid;
+    assign act_mover_en = ld_tile_start & ((~m_axis_mm2s_cmd_act_tvalid)|m_axis_mm2s_cmd_act_tready);
 
     always_ff @( posedge clk ) begin
         if (~rst_n) begin
             act_mover_valid_r <= 1'b0;
         end
-        else if (act_mover_hs&(~ld_tile_start)) begin
+        else if (act_mover_hs&(~act_mover_en)) begin
             act_mover_valid_r <= 1'b0;
         end
-        else if (ld_tile_start) begin
+        else if (act_mover_en) begin
             act_mover_valid_r <= 1'b1;
         end
     end
@@ -500,16 +528,19 @@ module glb_ctrl #(
 
     logic wgt_mover_valid_r;
     logic wgt_mover_hs;
+    logic wgt_mover_en;
+
     assign wgt_mover_hs = m_axis_mm2s_cmd_wgt_tready & m_axis_mm2s_cmd_wgt_tvalid;
+    assign wgt_mover_en = ld_tile_start & ((~m_axis_mm2s_cmd_wgt_tvalid)|m_axis_mm2s_cmd_wgt_tready);
 
     always_ff @( posedge clk ) begin
         if (~rst_n) begin
             wgt_mover_valid_r <= 1'b0;
         end
-        else if (wgt_mover_hs&(~ld_tile_start)) begin
+        else if (wgt_mover_hs&(~wgt_mover_en)) begin
             wgt_mover_valid_r <= 1'b0;
         end
-        else if (ld_tile_start) begin
+        else if (wgt_mover_en) begin
             wgt_mover_valid_r <= 1'b1;
         end
     end
@@ -517,17 +548,19 @@ module glb_ctrl #(
 
     logic out_mover_valid_r;
     logic out_mover_hs;
+    logic out_mover_en;
     assign m_axis_s2mm_cmd_out_tdata = wb_out_cmd;
     assign out_mover_hs = m_axis_s2mm_cmd_out_tready & m_axis_s2mm_cmd_out_tvalid;
+    assign out_mover_en = wb_tile_start & ((~m_axis_s2mm_cmd_out_tvalid)|m_axis_s2mm_cmd_out_tready);
 
     always_ff @( posedge clk ) begin
         if (~rst_n) begin
             out_mover_valid_r <= 1'b0;
         end
-        else if (out_mover_hs&(~wb_tile_start)) begin
+        else if (out_mover_hs&(~out_mover_en)) begin
             out_mover_valid_r <= 1'b0;
         end
-        else if (wb_tile_start) begin
+        else if (out_mover_en) begin
             out_mover_valid_r <= 1'b1;
         end
     end
@@ -544,5 +577,17 @@ module glb_ctrl #(
     assign bp_out_buf_wb_sel = wb_flag;
 
     assign wb_status = wb_busy;
+
+    always_ff @( posedge clk ) begin
+        if (~rst_n) begin
+            debug_status <= 32'd0;
+        end
+        else begin
+            debug_status[7:0] <= {1'b0, act_mover_valid_r, wgt_mover_valid_r, out_mover_valid_r, layer_running_sts, ld_busy, ex_busy, wb_busy};
+            debug_status[15:8] <= (ld_tile_eol == 1'b1) ? (debug_status[15:8] + 1) : debug_status[15:8];
+            debug_status[23:16] <= (layer_running_end == 1'b1) ? (debug_status[23:16] + 1) : debug_status[23:16];
+            debug_status[31:24] <= (ld_tile_done == 1'b1) ? (debug_status[31:24] + 1) : debug_status[31:24];
+        end
+    end
 
 endmodule

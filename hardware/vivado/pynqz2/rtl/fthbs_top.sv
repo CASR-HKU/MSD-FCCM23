@@ -184,7 +184,7 @@ module fthbs_top #(
     aux_instr #(
         .AXI_ADDR_WIDTH  (AUX_AXI_ADDR_WIDTH),
         .AXI_DATA_WIDTH  (AUX_AXI_DATA_WIDTH),
-        .INSTR_FIFO_DEPTH(256)
+        .INSTR_FIFO_DEPTH(512)
     ) aux_instr_inst (
         .clk            (clk),
         .rst_n          (rst_n),

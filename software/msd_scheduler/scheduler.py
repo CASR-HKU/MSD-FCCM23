@@ -124,17 +124,21 @@ class Scheduler(object):
         best_schd['c_size, c_tiles'] = (0, 0)
         best_schd['o_size, o_tiles'] = (0, 0)
 
-        for tile_k in range(4, K_bound + 1, 2):
+        for tile_k in range(K_bound, 15, -2):
             num_k_tiles = ceil_func(K, tile_k)
+            if num_k_tiles >= (tile_k * 1.5):
+                continue
             # different ratio for K, default from 0.2 to 0.8
             for och_lut in range(math.floor(tile_k*0.2), math.floor(tile_k*0.7)):
                 ratio_k = och_lut/tile_k
                 och_dsp = tile_k - och_lut
-                if C_bound < 16:
-                    for tile_c in range(1, C_bound + 1):
+                if C_bound < 8:
+                    for tile_c in range(C_bound, 0, -1):
                         num_c_tiles = ceil_func(C, tile_c)
+                        if num_c_tiles >= (tile_c * 1.5):
+                            continue
                         if H < 8:
-                            for tile_o in range(1, H + 1):
+                            for tile_o in range(H, 0, -1):
                                 num_o_tiles = ceil_func(H, tile_o)
                                 # [K, H, W, C, I, J]
                                 # we do not tile I and J (kernel height and weight)
@@ -144,6 +148,7 @@ class Scheduler(object):
                                     schd_tile, och_lut, och_dsp, ess_bit, verbose)
                                 if is_overflow == False:
                                     continue
+
                                 schedule = {}
                                 schedule['k_size, k_tiles'] = (
                                     tile_k, num_k_tiles)
@@ -182,7 +187,7 @@ class Scheduler(object):
                                 #     print("schedule: ", schedule)
                                 #     print("best_lat now:", best_lat)
                         else:
-                            for tile_o in range(4, H + 1, 2):
+                            for tile_o in range(H, 3, -2):
                                 num_o_tiles = ceil_func(H, tile_o)
                                 # [K, H, W, C, I, J]
                                 # we do not tile I and J (kernel height and weight)
@@ -191,6 +196,8 @@ class Scheduler(object):
                                 is_overflow, opt_lat_cycle, roofline_bound = self.hw_model_obj.get_opt_lat(
                                     schd_tile, och_lut, och_dsp, ess_bit, verbose)
                                 if is_overflow == False:
+                                    continue
+                                if num_c_tiles > (tile_c * 2):
                                     continue
                                 schedule = {}
                                 schedule['k_size, k_tiles'] = (
@@ -232,10 +239,12 @@ class Scheduler(object):
                                 #     print("schedule: ", schedule)
                                 #     print("best_lat now:", best_lat)
                 else:
-                    for tile_c in range(4, C_bound + 1, 2):
+                    for tile_c in range(C_bound, 15, -2):
                         num_c_tiles = ceil_func(C, tile_c)
+                        if num_c_tiles >= (tile_c * 1.5):
+                            continue
                         if H < 8:
-                            for tile_o in range(1, H + 1):
+                            for tile_o in range(H, 0, -1):
                                 num_o_tiles = ceil_func(H, tile_o)
                                 # [K, H, W, C, I, J]
                                 # we do not tile I and J (kernel height and weight)
@@ -245,6 +254,7 @@ class Scheduler(object):
                                     schd_tile, och_lut, och_dsp, ess_bit, verbose)
                                 if is_overflow == False:
                                     continue
+
                                 schedule = {}
                                 schedule['k_size, k_tiles'] = (
                                     tile_k, num_k_tiles)
@@ -285,7 +295,7 @@ class Scheduler(object):
                                 #     print("schedule: ", schedule)
                                 #     print("best_lat now:", best_lat)
                         else:
-                            for tile_o in range(4, H + 1, 2):
+                            for tile_o in range(H, 3, -2):
                                 num_o_tiles = ceil_func(H, tile_o)
                                 # [K, H, W, C, I, J]
                                 # we do not tile I and J (kernel height and weight)
@@ -294,6 +304,8 @@ class Scheduler(object):
                                 is_overflow, opt_lat_cycle, roofline_bound = self.hw_model_obj.get_opt_lat(
                                     schd_tile, och_lut, och_dsp, ess_bit, verbose)
                                 if is_overflow == False:
+                                    continue
+                                if num_c_tiles > (tile_c * 2):
                                     continue
                                 schedule = {}
                                 schedule['k_size, k_tiles'] = (
@@ -468,14 +480,16 @@ class Scheduler(object):
         best_schd['o_size, o_tiles'] = (0, 0)
 
         tile_k = 1
-        for tile_c in range(4, C_bound + 1, 2):
+        for tile_c in range(C_bound, 3, -2):
             num_c_tiles = ceil_func(C, tile_c)
+            if num_c_tiles >= (tile_c * 1.5):
+                continue
             # different ratio for C, default from 0.1 to 0.8
             for och_lut in range(math.floor(tile_c*0.1), math.floor(tile_c*0.7)):
                 ratio_c = och_lut/tile_c
                 och_dsp = tile_c - och_lut
                 if H < 8:
-                    for tile_o in range(1, H + 1):
+                    for tile_o in range(H, 0, -1):
                         num_o_tiles = ceil_func(H, tile_o)
                         # [K, H, W, C, I, J]
                         # we do not tile I and J (kernel height and weight)
@@ -485,9 +499,11 @@ class Scheduler(object):
                             schd_tile, och_lut, och_dsp, ess_bit, verbose)
                         if is_overflow == False:
                             continue
+                        if num_o_tiles >= tile_o:
+                            continue
                         schedule = {}
-                        schedule['k_size, k_tiles'] = (tile_k, K)
-                        schedule['c_size, c_tiles'] = (tile_c, num_c_tiles)
+                        schedule['k_size, k_tiles'] = (tile_c, num_c_tiles)
+                        schedule['c_size, c_tiles'] = (1, 1)
                         schedule['o_size, o_tiles'] = (tile_o, num_o_tiles)
 
                         # abandon the schedule if buffers overflow (depth)
@@ -528,8 +544,10 @@ class Scheduler(object):
                         #     print("schedule: ", schedule)
                         #     print("best_lat now:", best_lat)
                 else:
-                    for tile_o in range(2, H + 1, 2):
+                    for tile_o in range(H, 3, -2):
                         num_o_tiles = ceil_func(H, tile_o)
+                        if num_o_tiles >= tile_o:
+                            continue
                         # [K, H, W, C, I, J]
                         # we do not tile I and J (kernel height and weight)
                         schd_tile = [tile_c,
@@ -538,8 +556,10 @@ class Scheduler(object):
                             schd_tile, och_lut, och_dsp, ess_bit, verbose)
                         if is_overflow == False:
                             continue
+                        if num_c_tiles > (tile_c * 2):
+                            continue
                         schedule = {}
-                        schedule['k_size, k_tiles'] = (tile_k, K)
+                        schedule['k_size, k_tiles'] = (tile_k, 1)
                         schedule['c_size, c_tiles'] = (tile_c, num_c_tiles)
                         schedule['o_size, o_tiles'] = (tile_o, num_o_tiles)
 

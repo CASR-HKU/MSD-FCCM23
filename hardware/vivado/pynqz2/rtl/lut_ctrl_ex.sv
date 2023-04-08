@@ -14,9 +14,9 @@ module lut_ctrl_ex #(
     // tile size, updated when bs_ex_tile_start asserted
     input  logic [7:0]                  bs_subtile_K, // subtile of K (COLS)
     input  logic [7:0]                  bs_subtile_HW, // subtile of HW (ROWS)
-    input  logic [BS_ACT_BUF_DEPTH+7:0] bs_opt_subtile_HWCIJ, // for better timing
-    input  logic [BS_ACT_BUF_DEPTH-1:0] bs_subtile_CIJ, // subtile of CIJ (dataflow depth)
-    input  logic [BS_WGT_BUF_DEPTH-1:0] bs_subtile_EBCIJ, // subtile of EB*CIJ (dataflow depth)
+    input  logic [23:0]                 bs_opt_subtile_HWCIJ, // for better timing
+    input  logic [15:0]                 bs_subtile_CIJ, // subtile of CIJ (dataflow depth)
+    input  logic [23:0]                 bs_subtile_EBCIJ, // subtile of EB*CIJ (dataflow depth)
     // control signals
     input  logic                        bs_ex_tile_start,
     input  logic [2:0]                  bs_tile_eb,
@@ -42,7 +42,7 @@ module lut_ctrl_ex #(
 
     logic [2:0]                  cnt_eb;
     logic [BS_WGT_BUF_DEPTH-1:0] cnt_wgt_depth;
-    logic [BS_ACT_BUF_DEPTH-1:0] cnt_dataflow_depth;
+    logic [15:0]                 cnt_dataflow_depth;
     logic [7:0]                  cnt_dataflow_k;
     logic [7:0]                  cnt_dataflow_hw;
     logic                        full_cnt_eb;

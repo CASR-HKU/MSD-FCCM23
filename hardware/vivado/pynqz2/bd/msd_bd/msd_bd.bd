@@ -5,7 +5,7 @@
       "device": "xc7z020clg400-1",
       "name": "msd_bd",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
-      "synth_flow_mode": "Hierarchical",
+      "synth_flow_mode": "None",
       "tool_version": "2021.2",
       "validated": "true"
     },
@@ -562,6 +562,9 @@
           },
           "PCW_INCLUDE_ACP_TRANS_CHECK": {
             "value": "0"
+          },
+          "PCW_IRQ_F2P_MODE": {
+            "value": "DIRECT"
           },
           "PCW_MIO_0_IOTYPE": {
             "value": "LVCMOS 3.3V"
@@ -1194,7 +1197,7 @@
             "value": "200"
           },
           "PCW_PERIPHERAL_BOARD_PRESET": {
-            "value": "None"
+            "value": "part0"
           },
           "PCW_PLL_BYPASSMODE_ENABLE": {
             "value": "0"
@@ -1336,6 +1339,9 @@
           },
           "PCW_S_AXI_HP1_ID_WIDTH": {
             "value": "6"
+          },
+          "PCW_S_AXI_HP2_DATA_WIDTH": {
+            "value": "64"
           },
           "PCW_S_AXI_HP3_DATA_WIDTH": {
             "value": "64"
@@ -1985,8 +1991,8 @@
             "components": {
               "s00_regslice": {
                 "vlnv": "xilinx.com:ip:axi_register_slice:2.1",
-                "xci_name": "msd_bd_s00_regslice_36",
-                "xci_path": "ip/msd_bd_s00_regslice_36/msd_bd_s00_regslice_36.xci",
+                "xci_name": "msd_bd_s00_regslice_60",
+                "xci_path": "ip/msd_bd_s00_regslice_60/msd_bd_s00_regslice_60.xci",
                 "inst_hier_path": "axi_interconnect_0/s00_couplers/s00_regslice",
                 "interface_ports": {
                   "S_AXI": {
@@ -2224,8 +2230,8 @@
             "components": {
               "s00_regslice": {
                 "vlnv": "xilinx.com:ip:axi_register_slice:2.1",
-                "xci_name": "msd_bd_s00_regslice_37",
-                "xci_path": "ip/msd_bd_s00_regslice_37/msd_bd_s00_regslice_37.xci",
+                "xci_name": "msd_bd_s00_regslice_61",
+                "xci_path": "ip/msd_bd_s00_regslice_61/msd_bd_s00_regslice_61.xci",
                 "inst_hier_path": "axi_interconnect_1/s00_couplers/s00_regslice",
                 "interface_ports": {
                   "S_AXI": {
@@ -2463,8 +2469,8 @@
             "components": {
               "s00_regslice": {
                 "vlnv": "xilinx.com:ip:axi_register_slice:2.1",
-                "xci_name": "msd_bd_s00_regslice_38",
-                "xci_path": "ip/msd_bd_s00_regslice_38/msd_bd_s00_regslice_38.xci",
+                "xci_name": "msd_bd_s00_regslice_62",
+                "xci_path": "ip/msd_bd_s00_regslice_62/msd_bd_s00_regslice_62.xci",
                 "inst_hier_path": "axi_interconnect_2/s00_couplers/s00_regslice",
                 "interface_ports": {
                   "S_AXI": {
@@ -2702,8 +2708,8 @@
             "components": {
               "s00_regslice": {
                 "vlnv": "xilinx.com:ip:axi_register_slice:2.1",
-                "xci_name": "msd_bd_s00_regslice_39",
-                "xci_path": "ip/msd_bd_s00_regslice_39/msd_bd_s00_regslice_39.xci",
+                "xci_name": "msd_bd_s00_regslice_63",
+                "xci_path": "ip/msd_bd_s00_regslice_63/msd_bd_s00_regslice_63.xci",
                 "inst_hier_path": "axi_interconnect_3/s00_couplers/s00_regslice",
                 "interface_ports": {
                   "S_AXI": {
@@ -2849,7 +2855,7 @@
                 "value_src": "constant"
               },
               "FREQ_HZ": {
-                "value": "100000000",
+                "value": "1e+08",
                 "value_src": "user_prop"
               },
               "ID_WIDTH": {
@@ -3008,7 +3014,7 @@
                 "value_src": "constant"
               },
               "FREQ_HZ": {
-                "value": "100000000",
+                "value": "1e+08",
                 "value_src": "user_prop"
               },
               "ID_WIDTH": {
@@ -3297,7 +3303,7 @@
                 "value_src": "constant"
               },
               "FREQ_HZ": {
-                "value": "100000000",
+                "value": "1e+08",
                 "value_src": "user_prop"
               },
               "ID_WIDTH": {
@@ -3492,7 +3498,7 @@
                 "value_src": "constant"
               },
               "FREQ_HZ": {
-                "value": "100000000",
+                "value": "1e+08",
                 "value_src": "user_prop"
               },
               "ID_WIDTH": {
@@ -3696,7 +3702,7 @@
                 "value_src": "constant"
               },
               "FREQ_HZ": {
-                "value": "100000000",
+                "value": "1e+08",
                 "value_src": "user_prop"
               },
               "CLK_DOMAIN": {

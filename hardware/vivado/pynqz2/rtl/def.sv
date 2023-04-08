@@ -35,10 +35,10 @@
 `endif
 
 // 4 - 12, 8 - 11, 16 - 10
-`define HW_BS_ACT_BUF_DEPTH 10
+`define HW_BS_ACT_BUF_DEPTH 11
 `define HW_BS_WGT_BUF_DEPTH 11
-`define HW_BS_OUT_BUF_DEPTH 10 
-`define HW_BS_BUF_SIZE 16384
+`define HW_BS_OUT_BUF_DEPTH 11
+`define HW_BS_BUF_SIZE 32768
 
 // DSP bit-parallel
 `define HW_DSP_PE_ROWS 14
@@ -51,13 +51,13 @@
 `define HW_DSP_VER_BUS_DW 16
 `define HW_DSP_HOR_BUS_DW 8
 
-`define HW_BP_ACT_BUF_DEPTH 9
+`define HW_BP_ACT_BUF_DEPTH 10
 `define HW_BP_WGT_BUF_DEPTH 10
-`define HW_BP_OUT_BUF_DEPTH 9 
-`define HW_BP_BUF_SIZE 16384
+`define HW_BP_OUT_BUF_DEPTH 10
+`define HW_BP_BUF_SIZE 32768
 
 // memory side
-`define HW_GLB_MEM_BW 32
+`define HW_GLB_MEM_BW 16
 
 `define BS_BW_LARGER_RC
 `define BP_BW_LARGER_RC

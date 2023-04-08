@@ -41,7 +41,7 @@ module buf_sdp #(
         .MEMORY_INIT_FILE("none"),  // String
         .MEMORY_INIT_PARAM("0"),  // String
         .MEMORY_OPTIMIZATION("true"),  // String
-        .MEMORY_PRIMITIVE("auto"),  // String
+        .MEMORY_PRIMITIVE("block"),  // String
         .MEMORY_SIZE(BUF_MEM_SIZE),  // DECIMAL
         .MESSAGE_CONTROL(0),  // DECIMAL
         .READ_DATA_WIDTH_B(BUF_EX_DATA_WIDTH),  // DECIMAL

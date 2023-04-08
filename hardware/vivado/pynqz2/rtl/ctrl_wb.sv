@@ -41,7 +41,7 @@ module ctrl_wb #(
             else cnt_bs_out_bw_times <= cnt_bs_out_bw_times + 1;
         end
     end
-    assign full_cnt_bs_out_bw_times = bs_wb_out_state & (cnt_bs_out_bw_times == bs_bw_out_times - 1);
+    assign full_cnt_bs_out_bw_times = bs_wb_out_state & wb_valid_out & (cnt_bs_out_bw_times == bs_bw_out_times - 1);
 
     always_ff @( posedge clk ) begin
         if (~rst_n) begin
@@ -87,14 +87,14 @@ module ctrl_wb #(
             else cnt_bp_out_bw_times <= cnt_bp_out_bw_times + 1;
         end
     end
-    assign full_cnt_bp_out_bw_times = bp_wb_out_state & (cnt_bp_out_bw_times == bp_bw_out_times - 1);
+    assign full_cnt_bp_out_bw_times = bp_wb_out_state & wb_valid_out & (cnt_bp_out_bw_times == bp_bw_out_times - 1);
 
     always_ff @( posedge clk ) begin
         if (~rst_n) begin
             bp_out_buf_wb_en <= 0;
         end
         else if (bp_wb_out_state & wb_valid_out) begin
-            if (bp_out_buf_wb_en == BP_COLS/4) begin
+            if (bp_out_buf_wb_en == (BP_COLS/4 - 1)) begin
                 bp_out_buf_wb_en <= 0;
             end
             else bp_out_buf_wb_en <= bp_out_buf_wb_en + 1;

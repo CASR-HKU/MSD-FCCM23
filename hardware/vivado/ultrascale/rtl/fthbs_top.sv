@@ -125,20 +125,20 @@ module fthbs_top #(
     logic [31:0] aux_instr_scalar, aux_instr_status, aux_debug_scalar, aux_debug_status;
     logic [63:0] aux_instr_addr, aux_debug_addr;
     logic [                   3:0][31:0] core_scalar;
-    logic [                   1:0][31:0] core_status;
+    logic [                   3:0][31:0] core_status;
 
     // instructions from aux to agna core
     logic                                i_axis_instr_tready;
     logic                                i_axis_instr_tvalid;
     logic [AUX_AXI_DATA_WIDTH-1:0]       i_axis_instr_tdata;
 
-    always_ff @(posedge clk) begin
-        if (~rst_n) begin
-            aux_debug_status <= 32'h0;
-        end else begin
-            aux_debug_status[15:0] <= (ap_start&ap_done)      ? aux_debug_status[15:0]+1 : aux_debug_status[15:0];
-        end
-    end
+    // always_ff @(posedge clk) begin
+    //     if (~rst_n) begin
+    //         aux_debug_status <= 32'h0;
+    //     end else begin
+    //         aux_debug_status[15:0] <= (ap_start&ap_done)      ? aux_debug_status[15:0]+1 : aux_debug_status[15:0];
+    //     end
+    // end
 
     ps_ctrl ps_ctrl_inst (
         // common signal
@@ -217,6 +217,7 @@ module fthbs_top #(
         .rst_n                       (rst_n                 ),
         .scalar                      (core_scalar[0]        ),
         .status                      (core_status           ),
+        .debug_status                (aux_debug_status      ),
         .m_axi_iofm_awready          (m_axi_iofm_awready    ),
         .m_axi_iofm_awvalid          (m_axi_iofm_awvalid    ),
         .m_axi_iofm_awaddr           (m_axi_iofm_awaddr     ),

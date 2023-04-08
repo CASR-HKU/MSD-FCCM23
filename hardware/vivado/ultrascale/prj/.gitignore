@@ -1,5 +1,6 @@
 *
 !/.gitignore
-!/msd_hw_ults.tcl
+!/project.tcl
 !/update_prj.tcl
 !/output_gen.tcl
+!/Makefile

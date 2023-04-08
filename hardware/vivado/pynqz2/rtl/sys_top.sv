@@ -75,7 +75,7 @@ module sys_top #(
     // input axis_instr
     output logic                            s_axis_instr_tready         ,
     input  logic                            s_axis_instr_tvalid         ,
-    input  logic [  AXI_DATA_WIDTH-1:0]     s_axis_instr_tdata          
+    input  logic [  63:0]                   s_axis_instr_tdata          
 );
     
     logic                            i_axis_mm2s_cmd_act_tready  ;
@@ -232,28 +232,12 @@ module sys_top #(
     assign ld_valid_wgt = i_axis_mm2s_wgt_tready & i_axis_mm2s_wgt_tvalid;
     assign wb_valid     = i_axis_s2mm_out_tready & i_axis_s2mm_out_tvalid;
 
-    logic                           i_axis_instr_tready;
-    logic                           i_axis_instr_tvalid;
-    logic [  128-1:0]               i_axis_instr_tdata ;
-
-    // width converter (only used in pynq-z2)
-    axis_dwidth_converter_instr instr_width_converter (
-        .aclk           (clk),                    // input wire aclk
-        .aresetn        (rst_n),              // input wire aresetn
-        .s_axis_tvalid  (s_axis_instr_tvalid),  // input wire s_axis_tvalid
-        .s_axis_tready  (s_axis_instr_tready),  // output wire s_axis_tready
-        .s_axis_tdata   (s_axis_instr_tdata),    // input wire [63 : 0] s_axis_tdata
-        .m_axis_tvalid  (i_axis_instr_tvalid),  // output wire m_axis_tvalid
-        .m_axis_tready  (i_axis_instr_tready),  // input wire m_axis_tready
-        .m_axis_tdata   (i_axis_instr_tdata)    // output wire [127 : 0] m_axis_tdata
-    );
-
     glb_ctrl glb_ctrl_inst (
         .clk                        (clk),
         .rst_n                      (rst_n),
-        .s_axis_instr_tready        (i_axis_instr_tready),
-        .s_axis_instr_tvalid        (i_axis_instr_tvalid),
-        .s_axis_instr_tdata         (i_axis_instr_tdata),
+        .s_axis_instr_tready        (s_axis_instr_tready),
+        .s_axis_instr_tvalid        (s_axis_instr_tvalid),
+        .s_axis_instr_tdata         (s_axis_instr_tdata),
         .m_axis_mm2s_cmd_act_tdata  (i_axis_mm2s_cmd_act_tdata),
         .m_axis_mm2s_cmd_act_tvalid (i_axis_mm2s_cmd_act_tvalid),
         .m_axis_mm2s_cmd_act_tready (i_axis_mm2s_cmd_act_tready),
@@ -299,7 +283,7 @@ module sys_top #(
         .wb_status                  (wb_status)
     );
 
-    logic [127:0] bs_out_wb_data, bp_out_wb_data;
+    logic [63:0] bs_out_wb_data, bp_out_wb_data;
     logic i_axis_mm2s_act_tready_bs, i_axis_mm2s_act_tready_bp;
     logic i_axis_mm2s_wgt_tready_bs, i_axis_mm2s_wgt_tready_bp;
     assign i_axis_mm2s_act_tready = i_axis_mm2s_act_tready_bs & i_axis_mm2s_act_tready_bp;
@@ -369,7 +353,7 @@ module sys_top #(
         end
     end
 
-    assign i_axis_s2mm_out_tkeep = 16'hffff;
+    assign i_axis_s2mm_out_tkeep = 8'hff;
     assign i_axis_s2mm_out_tlast = wb_tile_done;
     assign i_axis_s2mm_out_tvalid = wb_status;
 

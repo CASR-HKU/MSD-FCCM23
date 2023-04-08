@@ -85,7 +85,7 @@ module bs_lut_core #(
                 .BUF_LD_DATA_WIDTH  (IDX_DW),
                 .BUF_EX_ADDR_WIDTH  (BS_WGT_BUF_DEPTH),
                 .BUF_EX_DATA_WIDTH  (IDX_DW),
-                .BUF_MEM_SIZE       (BS_BUF_SIZE)
+                .BUF_MEM_SIZE       (16384)
             ) bs_lut_wgt_buf (
                 .clk                (clk),
                 .buf_ld_wr_en       (bs_wgt_buf_ld_en[bs_row_idx]),

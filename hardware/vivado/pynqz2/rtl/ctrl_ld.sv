@@ -52,7 +52,7 @@ module ctrl_ld #(
             else cnt_act_bw_times <= cnt_act_bw_times + 1;
         end
     end
-    assign full_cnt_act_bw_times = ld_act_state & (cnt_act_bw_times == bw_act_times - 1);
+    assign full_cnt_act_bw_times = ld_act_state & ld_valid_act & (cnt_act_bw_times == bw_act_times - 1);
 
     always_ff @( posedge clk ) begin
         if (~rst_n) begin
@@ -98,7 +98,7 @@ module ctrl_ld #(
             else cnt_bs_wgt_bw_times <= cnt_bs_wgt_bw_times + 1;
         end
     end
-    assign full_cnt_bs_wgt_bw_times = bs_ld_wgt_state & (cnt_bs_wgt_bw_times == bs_bw_wgt_times - 1);
+    assign full_cnt_bs_wgt_bw_times = bs_ld_wgt_state & ld_valid_wgt & (cnt_bs_wgt_bw_times == bs_bw_wgt_times - 1);
 
     always_ff @( posedge clk ) begin
         if (~rst_n) begin
@@ -133,7 +133,7 @@ module ctrl_ld #(
             else cnt_bp_wgt_bw_times <= cnt_bp_wgt_bw_times + 1;
         end
     end
-    assign full_cnt_bp_wgt_bw_times = bp_ld_wgt_state & (cnt_bp_wgt_bw_times == bp_bw_wgt_times - 1);
+    assign full_cnt_bp_wgt_bw_times = bp_ld_wgt_state & ld_valid_wgt & (cnt_bp_wgt_bw_times == bp_bw_wgt_times - 1);
 
     always_ff @( posedge clk ) begin
         if (~rst_n) begin
