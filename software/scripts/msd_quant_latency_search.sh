@@ -42,5 +42,5 @@ CUDA_VISIBLE_DEVICES=0 python -u -m torch.distributed.launch --nproc_per_node=1 
 CUDA_VISIBLE_DEVICES=1 python -u -m torch.distributed.launch --nproc_per_node=1 --master_port 46671 main.py --dataset=imagenet --model=resnet50 --epoch=3 --mode=int --wbit=8 --abit=8 --batch_size=128 --eb=csd_eb2 --lr=0.0005 --train -l4=28,40,18,0,39,27,33,40,27,33,39,13,43,24,45,48,2,3,9,25,12,16,22,25,49,47,41,35,32,4,1,10,8,7,41,32,35,47,23,14,49,31,37,21 > ./log/resnet50_Int_EB_layerwise_mix_3.0088910337175596.log 2>&1
 CUDA_VISIBLE_DEVICES=0 python -u -m torch.distributed.launch --nproc_per_node=1 --master_port 46666 main.py --dataset=imagenet --model=resnet18 --epoch=5 --mode=int --wbit=8 --abit=8 --batch_size=256 --eb=sel-2-3-4-5 --lr=0.00005 --train > ./log/resnet18_Int_EB_layerwise_largeeb.log 2>&1
 
-
+cd ../../../
 
