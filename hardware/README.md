@@ -139,10 +139,10 @@ In MSD experiments, we set up three FPGA platforms for the evaluations: Pynq-Z2,
   </tr>
   <tr>
     <td>ResNet-50</td>
-    <td>30.58</td>
-    <td>269.5</td>
-    <td>5.12</td>
-    <td>1.02</td>
+    <td>29.06</td>
+    <td>283.6</td>
+    <td>5.39</td>
+    <td>1.07</td>
   </tr>
   <tr>
     <td>MobileNet-V2</td>

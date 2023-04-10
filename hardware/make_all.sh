@@ -6,3 +6,4 @@ make all
 cd ../../../
 cd ./vivado/zcu102/prj
 make all
+cd ../../../
