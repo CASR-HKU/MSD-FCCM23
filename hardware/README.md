@@ -6,7 +6,7 @@ MSD hardware part is based on an general FPGA accelerator that utilizes the hete
 * **Hardware Design Tool**: Xilinx Vivado 2021.2
 * **FPGA Platform**: Platforms with PYNQ-based ARM CPU.
 
-## Hardware Presets
+## Hardware Platform Presets
 In MSD experiments, we set up three FPGA platforms for the evaluations: Pynq-Z2, Ultra96-V2 and ZCU102. The host driver of the accelerator is powered by [PYNQ 2.6](https://pynq.readthedocs.io/en/v2.6.1/index.html). You might need to build a image by yourself. You can refer to the instructions in these websites:
 
 - [pynq.io](http://www.pynq.io/board.html)
@@ -23,6 +23,21 @@ In MSD experiments, we set up three FPGA platforms for the evaluations: Pynq-Z2,
 
 - *(Optional) Schedule and Dataflow Preparation*: you should already run the *Scheduler* step in the software evaluation to get the dataflow and schedule *.csv* files, please refer to `../software/README.md`. **We have provided the final schedule csv files so you can directly use the schedule in our host and you may want to skip this step.**
 
+- *(Optional) Download and setup board files:* If you do not have PYNQ-Z2, Ultra96 and ZCU102 board files, you can download them from the following links:
+
+    - [PYNQ-Z2](https://dpoauwgwqsy2x.cloudfront.net/Download/pynq-z2.zip). Unzip the downloaded file and move it to your board files path.
+    - [Ultra96 and ZCU102](https://github.com/Xilinx/XilinxBoardStore/tree/2021.2/). You can directly download the repository and find the board files in the `./boards` folder.
+
+    If you have the board files, or after you download them, you need to export the environment variable for the board files path, as follows:
+
+    ```bash
+    export BOARD_PART_REPO=$your_board_files_path$
+    # e.g., my board files are all in the `/home/jiajun/.Xilinx/Vivado/2021.2/xhub/board_store/xilinx_board_store` folder, so the command is:
+    # export BOARD_PART_REPO=/home/jiajun/.Xilinx/Vivado/2021.2/xhub/board_store/xilinx_board_store
+    ```
+
+    Then you can continue to the next step. **Remember you should keep in the same terminal.**
+
 - *Vivado Project & Bitstream Generation*. There are three Vivado projects in the `./vivado`. We provide a *Makefile* for each project, by which you can automatically run the synthesis and implementation.
 
     *If you want to generate the projects and bitstream individually for different FPGA platforms, you can run the following commands:*
@@ -30,11 +45,11 @@ In MSD experiments, we set up three FPGA platforms for the evaluations: Pynq-Z2,
     ``` bash
     # First, you need to source the Vivado environment (2021.2)
     # Make sure you have the license for the Vivado tools and it is also activated when running the following commands
-    source $your_vivado_path/settings64.sh
-    # pynq-z2 (xc7z020)
-    cd ./vivado/pynq-z2/prj
+    source $your_vivado_path$/settings64.sh
+    # pynqz2 (xc7z020)
+    cd ./vivado/pynqz2/prj
     make all
-    # For ultra96 (zu3eg) and zcu102 (zu9eg), the steps are similar, just make in the corresponding folder (./vivado/ultra96/prj or ./vivado/zcu102/prj)
+    # For ultra96 (zu3eg) and zcu102 (zu9eg), the steps are similar, just make in the corresponding folder (`./vivado/ultra96/prj` or `./vivado/zcu102/prj`)
     ```
 
     *Also, you can directly run the shell to generate all, which may take a long time:*
@@ -45,31 +60,29 @@ In MSD experiments, we set up three FPGA platforms for the evaluations: Pynq-Z2,
     source make_all.sh
     ```
 
-    You can then open the vivado project (*.xpr* file) with GUI and check the utilization (LUTs, DSPs, BRAMs, etc.) for the hardware evaluation. 
+    You can then open the utilization report file (`./msd_hw_xxx_utilization.txt`) or open the project with GUI and check the utilization (LUTs, DSPs, BRAMs, etc.) for the hardware evaluation. 
 
-    **We have provided the bitstream files so you can directly test the hardware in our host and you may want to skip synthesis & implementation & bitstream steps.**
-
-- *Board-level Test*. The host codes which are responsible of driving the accelerator are in the `./host` folder. **We strongly recommend the evaluators using our platforms remotely, and we will prepare everything done for you:**
+- *Board-level Test*. The host codes which are responsible of driving the accelerator are in the `./host` folder. **We strongly recommend the evaluators using our platforms remotely, and we will prepare everything done including bitstream files for you:**
 
     ```bash
     # In our remote host, you can directly run the following commands in the terminal:
-    cd jupyter_notebooks/MSD-FCCM23/
     source start_eval.sh
-    # Every platforms has the same commands, and everything related to the results will be printed in the terminal
     ```
+
+    Every platforms has the same commands, and everything related to the results will be printed in the terminal.
 
     *If you want to run the hardware evaluation on your own platform, you can follow the steps below:*
 
-    - Copy everything in the corresponding folder into **ONE** destination in your platform. E.g., if you want to run the evaluation on the Ultra96, you can copy the `./host/ultra96` folder into the `$your_host_path` folder in your Ultra96 platform. **Make sure you have the same folder structure as the remote host.**
+    - Copy everything in the corresponding folder into **ONE** destination in your platform. E.g., if you want to run the evaluation on the Ultra96, you can copy the `./host/ultra96` folder into the `$your_host_path$` folder in your Ultra96 platform. **Make sure you have the same folder structure as the remote host.**
 
-    - Copy the bitstream and handoff files into your folder, which have been generated in each `/prj` path (e.g., `./vivado/pynq-z2/prj` for Pynq-Z2). 
+    - Copy the bitstream and handoff files (`./msd_hw_xxx.bit` and `./msd_hw_xxx.hwh`) into your folder, which have been generated in each `/prj` path (e.g., `./vivado/pynqz2/prj` for Pynq-Z2). 
 
     - Copy the schedule csv files into your folder, which have been generated in the `../software/msd_scheduler/results`.
 
     - Run the following commands in the terminal:
 
         ```bash
-        cd $your_host_path
+        cd $your_host_path$
         source start_eval.sh
         ```
 

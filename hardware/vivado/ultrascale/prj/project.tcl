@@ -150,7 +150,7 @@ set proj_dir [get_property directory [current_project]]
 
 # Set project properties
 set obj [current_project]
-set_property -name "board_part_repo_paths" -value "[file normalize "$origin_dir/../../../../../../../../../home/jiajun/.Xilinx/Vivado/2021.2/xhub/board_store/xilinx_board_store"]" -objects $obj
+set_property -name "board_part_repo_paths" -value "[file normalize "$::env(BOARD_PART_REPO)"]" -objects $obj
 set_property -name "board_part" -value "avnet.com:ultra96v2:part0:1.2" -objects $obj
 set_property -name "classic_soc_boot" -value "0" -objects $obj
 set_property -name "compxlib.activehdl_compiled_library_dir" -value "$proj_dir/${_xil_proj_name_}.cache/compile_simlib/activehdl" -objects $obj

@@ -1991,8 +1991,8 @@
             "components": {
               "s00_regslice": {
                 "vlnv": "xilinx.com:ip:axi_register_slice:2.1",
-                "xci_name": "msd_bd_s00_regslice_60",
-                "xci_path": "ip/msd_bd_s00_regslice_60/msd_bd_s00_regslice_60.xci",
+                "xci_name": "msd_bd_s00_regslice_76",
+                "xci_path": "ip/msd_bd_s00_regslice_76/msd_bd_s00_regslice_76.xci",
                 "inst_hier_path": "axi_interconnect_0/s00_couplers/s00_regslice",
                 "interface_ports": {
                   "S_AXI": {
@@ -2230,8 +2230,8 @@
             "components": {
               "s00_regslice": {
                 "vlnv": "xilinx.com:ip:axi_register_slice:2.1",
-                "xci_name": "msd_bd_s00_regslice_61",
-                "xci_path": "ip/msd_bd_s00_regslice_61/msd_bd_s00_regslice_61.xci",
+                "xci_name": "msd_bd_s00_regslice_77",
+                "xci_path": "ip/msd_bd_s00_regslice_77/msd_bd_s00_regslice_77.xci",
                 "inst_hier_path": "axi_interconnect_1/s00_couplers/s00_regslice",
                 "interface_ports": {
                   "S_AXI": {
@@ -2469,8 +2469,8 @@
             "components": {
               "s00_regslice": {
                 "vlnv": "xilinx.com:ip:axi_register_slice:2.1",
-                "xci_name": "msd_bd_s00_regslice_62",
-                "xci_path": "ip/msd_bd_s00_regslice_62/msd_bd_s00_regslice_62.xci",
+                "xci_name": "msd_bd_s00_regslice_78",
+                "xci_path": "ip/msd_bd_s00_regslice_78/msd_bd_s00_regslice_78.xci",
                 "inst_hier_path": "axi_interconnect_2/s00_couplers/s00_regslice",
                 "interface_ports": {
                   "S_AXI": {
@@ -2708,8 +2708,8 @@
             "components": {
               "s00_regslice": {
                 "vlnv": "xilinx.com:ip:axi_register_slice:2.1",
-                "xci_name": "msd_bd_s00_regslice_63",
-                "xci_path": "ip/msd_bd_s00_regslice_63/msd_bd_s00_regslice_63.xci",
+                "xci_name": "msd_bd_s00_regslice_79",
+                "xci_path": "ip/msd_bd_s00_regslice_79/msd_bd_s00_regslice_79.xci",
                 "inst_hier_path": "axi_interconnect_3/s00_couplers/s00_regslice",
                 "interface_ports": {
                   "S_AXI": {

@@ -19,5 +19,8 @@ reset_runs ${synth_name}
 launch_runs ${impl_name} -to_step write_bitstream -jobs 8
 wait_on_run ${impl_name}
 
+open_run ${impl_name}
+report_utilization -file ./msd_hw_zcu102_utilization.txt
+
 file copy -force [get_files ${bd_name}.hwh] ./msd_hw_zcu102.hwh
 file copy -force [get_property DIRECTORY [get_runs ${impl_name}]]/[get_property top [current_fileset]].bit ./msd_hw_zcu102.bit

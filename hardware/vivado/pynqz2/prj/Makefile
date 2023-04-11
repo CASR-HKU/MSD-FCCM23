@@ -1,3 +1,7 @@
+ifeq ($(BOARD_PART_REPO),)
+$(error BOARD_PART_REPO is not set)
+endif
+
 all: clean
 	$(MAKE) prj
 	$(MAKE) gen
