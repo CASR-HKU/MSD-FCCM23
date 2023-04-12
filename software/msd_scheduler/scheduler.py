@@ -126,7 +126,7 @@ class Scheduler(object):
 
         for tile_k in range(K_bound, 15, -2):
             num_k_tiles = ceil_func(K, tile_k)
-            if num_k_tiles >= (tile_k * 1.5):
+            if num_k_tiles > tile_k/2:
                 continue
             # different ratio for K, default from 0.2 to 0.8
             for och_lut in range(math.floor(tile_k*0.2), math.floor(tile_k*0.7)):
@@ -135,11 +135,13 @@ class Scheduler(object):
                 if C_bound < 8:
                     for tile_c in range(C_bound, 0, -1):
                         num_c_tiles = ceil_func(C, tile_c)
-                        if num_c_tiles >= (tile_c * 1.5):
+                        if num_c_tiles > tile_c:
                             continue
                         if H < 8:
                             for tile_o in range(H, 0, -1):
                                 num_o_tiles = ceil_func(H, tile_o)
+                                if num_o_tiles > tile_o:
+                                    continue
                                 # [K, H, W, C, I, J]
                                 # we do not tile I and J (kernel height and weight)
                                 schd_tile = [tile_k,
@@ -189,6 +191,8 @@ class Scheduler(object):
                         else:
                             for tile_o in range(H, 3, -2):
                                 num_o_tiles = ceil_func(H, tile_o)
+                                if num_o_tiles > tile_o/2:
+                                    continue
                                 # [K, H, W, C, I, J]
                                 # we do not tile I and J (kernel height and weight)
                                 schd_tile = [tile_k,
@@ -196,8 +200,6 @@ class Scheduler(object):
                                 is_overflow, opt_lat_cycle, roofline_bound = self.hw_model_obj.get_opt_lat(
                                     schd_tile, och_lut, och_dsp, ess_bit, verbose)
                                 if is_overflow == False:
-                                    continue
-                                if num_c_tiles > (tile_c * 2):
                                     continue
                                 schedule = {}
                                 schedule['k_size, k_tiles'] = (
@@ -241,11 +243,13 @@ class Scheduler(object):
                 else:
                     for tile_c in range(C_bound, 15, -2):
                         num_c_tiles = ceil_func(C, tile_c)
-                        if num_c_tiles >= (tile_c * 1.5):
+                        if num_c_tiles > tile_c/2:
                             continue
                         if H < 8:
                             for tile_o in range(H, 0, -1):
                                 num_o_tiles = ceil_func(H, tile_o)
+                                if num_o_tiles > tile_o:
+                                    continue
                                 # [K, H, W, C, I, J]
                                 # we do not tile I and J (kernel height and weight)
                                 schd_tile = [tile_k,
@@ -297,6 +301,8 @@ class Scheduler(object):
                         else:
                             for tile_o in range(H, 3, -2):
                                 num_o_tiles = ceil_func(H, tile_o)
+                                if num_o_tiles > tile_o/2:
+                                    continue
                                 # [K, H, W, C, I, J]
                                 # we do not tile I and J (kernel height and weight)
                                 schd_tile = [tile_k,
@@ -305,8 +311,7 @@ class Scheduler(object):
                                     schd_tile, och_lut, och_dsp, ess_bit, verbose)
                                 if is_overflow == False:
                                     continue
-                                if num_c_tiles > (tile_c * 2):
-                                    continue
+
                                 schedule = {}
                                 schedule['k_size, k_tiles'] = (
                                     tile_k, num_k_tiles)
@@ -482,7 +487,7 @@ class Scheduler(object):
         tile_k = 1
         for tile_c in range(C_bound, 3, -2):
             num_c_tiles = ceil_func(C, tile_c)
-            if num_c_tiles >= (tile_c * 1.5):
+            if num_c_tiles > tile_c/2:
                 continue
             # different ratio for C, default from 0.1 to 0.8
             for och_lut in range(math.floor(tile_c*0.1), math.floor(tile_c*0.7)):
@@ -499,7 +504,7 @@ class Scheduler(object):
                             schd_tile, och_lut, och_dsp, ess_bit, verbose)
                         if is_overflow == False:
                             continue
-                        if num_o_tiles >= tile_o:
+                        if num_o_tiles > tile_o:
                             continue
                         schedule = {}
                         schedule['k_size, k_tiles'] = (tile_c, num_c_tiles)
@@ -546,7 +551,7 @@ class Scheduler(object):
                 else:
                     for tile_o in range(H, 3, -2):
                         num_o_tiles = ceil_func(H, tile_o)
-                        if num_o_tiles >= tile_o:
+                        if num_o_tiles > tile_o/2:
                             continue
                         # [K, H, W, C, I, J]
                         # we do not tile I and J (kernel height and weight)

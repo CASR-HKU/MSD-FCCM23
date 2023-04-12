@@ -191,14 +191,69 @@ class Simulator(object):
         for layer_idx in range(len(conv_params_array)):
             str_layer_name = layer_names[layer_idx]
             # print("Starting schedule: " + str_layer_name)
-            wr_line = str_layer_name + ', '
             layer_conv_params = conv_params_array[layer_idx]
             stats_latency, stats_schedule, stats_ratio, best_roof = self.get_layer_latency_opt(
                 layer_conv_params, eb_list[layer_idx], verbose)
             if "Encoder_0" in str_layer_name:
                 total_latency += stats_latency * 12
+                for i in range(12):
+                    wr_line = str_layer_name + '_' + str(i) + ', '
+                    wr_line += str(stats_latency) + ', '
+                    wr_line += str(stats_schedule['k_size, k_tiles'][0]) + ', '
+                    wr_line += str(stats_schedule['k_size, k_tiles'][1]) + ', '
+                    wr_line += str(stats_schedule['c_size, c_tiles'][0]) + ', '
+                    wr_line += str(stats_schedule['c_size, c_tiles'][1]) + ', '
+                    wr_line += str(stats_schedule['o_size, o_tiles'][0]) + ', '
+                    wr_line += str(stats_schedule['o_size, o_tiles'][1]) + ', '
+                    wr_line += str(layer_conv_params[5]) + ', '
+                    wr_line += str(layer_conv_params[6]) + ', '
+                    wr_line += str(stats_ratio) + ', '
+                    wr_line += str(eb_list[layer_idx]) + ', '
+                    wr_line += best_roof
+                    wr_line += "\n"
+                    ff.write(wr_line)
             else:
                 total_latency += stats_latency
+                wr_line = str_layer_name + ', '
+                wr_line += str(stats_latency) + ', '
+                wr_line += str(stats_schedule['k_size, k_tiles'][0]) + ', '
+                wr_line += str(stats_schedule['k_size, k_tiles'][1]) + ', '
+                wr_line += str(stats_schedule['c_size, c_tiles'][0]) + ', '
+                wr_line += str(stats_schedule['c_size, c_tiles'][1]) + ', '
+                wr_line += str(stats_schedule['o_size, o_tiles'][0]) + ', '
+                wr_line += str(stats_schedule['o_size, o_tiles'][1]) + ', '
+                wr_line += str(layer_conv_params[5]) + ', '
+                wr_line += str(layer_conv_params[6]) + ', '
+                wr_line += str(stats_ratio) + ','
+                wr_line += str(eb_list[layer_idx]) + ', '
+                wr_line += best_roof
+                wr_line += "\n"
+                ff.write(wr_line)
+
+        total_latency_ms = total_latency * (1/self.frequency) * 1000
+        # ff.write("latency cycles: " + str(total_latency) + '\n')
+        # ff.write("latency: " + str(total_latency_ms) + " ms")
+        ff.close()
+
+        return total_latency, total_latency_ms
+
+    def generate_stats_csv_opt_mobnet(self, eb_list: list, model_csv="", stats_csv="", verbose=False):
+        # self.get_hw_info()
+        ff = open(stats_csv, "w")
+        self.dnn_model.load_model_csv(model_csv)
+        conv_params_array = self.dnn_model.calc_model_conv_params()
+        layer_names = self.dnn_model.get_layer_names()
+        total_latency = 0
+        assert len(conv_params_array) == len(
+            eb_list), "Make sure each layer has an essential bit number."
+        for layer_idx in range(32):
+            str_layer_name = layer_names[layer_idx]
+            # print("Starting schedule: " + str_layer_name)
+            layer_conv_params = conv_params_array[layer_idx]
+            stats_latency, stats_schedule, stats_ratio, best_roof = self.get_layer_latency_opt(
+                layer_conv_params, eb_list[layer_idx], verbose)
+            total_latency += stats_latency
+            wr_line = str_layer_name + ', '
             wr_line += str(stats_latency) + ', '
             wr_line += str(stats_schedule['k_size, k_tiles'][0]) + ', '
             wr_line += str(stats_schedule['k_size, k_tiles'][1]) + ', '
@@ -206,18 +261,41 @@ class Simulator(object):
             wr_line += str(stats_schedule['c_size, c_tiles'][1]) + ', '
             wr_line += str(stats_schedule['o_size, o_tiles'][0]) + ', '
             wr_line += str(stats_schedule['o_size, o_tiles'][1]) + ', '
-            wr_line += str(layer_conv_params[5]) + ','
-            wr_line += str(layer_conv_params[6]) + ','
+            wr_line += str(layer_conv_params[5]) + ', '
+            wr_line += str(layer_conv_params[6]) + ', '
             wr_line += str(stats_ratio) + ','
-            wr_line += str(eb_list[layer_idx]) + ','
+            wr_line += str(eb_list[layer_idx]) + ', '
             wr_line += best_roof
             wr_line += "\n"
             ff.write(wr_line)
-
-        total_latency_ms = total_latency * (1/self.frequency) * 1000
-        ff.write("latency cycles: " + str(total_latency) + '\n')
-        ff.write("latency: " + str(total_latency_ms) + " ms")
         ff.close()
+        total_latency_ms = total_latency * (1/self.frequency) * 1000
+        ff = open("results/xc7z020_mobilenetv2_2.csv", "w")
+        for layer_2_idx in range(32, len(conv_params_array)):
+            str_layer_name = layer_names[layer_2_idx]
+            # print("Starting schedule: " + str_layer_name)
+            layer_conv_params = conv_params_array[layer_2_idx]
+            stats_latency, stats_schedule, stats_ratio, best_roof = self.get_layer_latency_opt(
+                layer_conv_params, eb_list[layer_2_idx], verbose)
+            total_latency += stats_latency
+            wr_line = str_layer_name + ', '
+            wr_line += str(stats_latency) + ', '
+            wr_line += str(stats_schedule['k_size, k_tiles'][0]) + ', '
+            wr_line += str(stats_schedule['k_size, k_tiles'][1]) + ', '
+            wr_line += str(stats_schedule['c_size, c_tiles'][0]) + ', '
+            wr_line += str(stats_schedule['c_size, c_tiles'][1]) + ', '
+            wr_line += str(stats_schedule['o_size, o_tiles'][0]) + ', '
+            wr_line += str(stats_schedule['o_size, o_tiles'][1]) + ', '
+            wr_line += str(layer_conv_params[5]) + ', '
+            wr_line += str(layer_conv_params[6]) + ', '
+            wr_line += str(stats_ratio) + ','
+            wr_line += str(eb_list[layer_2_idx]) + ', '
+            wr_line += best_roof
+            wr_line += "\n"
+            ff.write(wr_line)
+        ff.close()
+        # ff.write("latency cycles: " + str(total_latency) + '\n')
+        # ff.write("latency: " + str(total_latency_ms) + " ms")
 
         return total_latency, total_latency_ms
 

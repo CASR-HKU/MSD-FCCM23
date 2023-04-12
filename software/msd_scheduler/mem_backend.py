@@ -48,6 +48,8 @@ class MEMBackend(object):
         #     (wgt_tile_size + ifm_tile_size), self.glb_bw)
         glb_ld_cycles = ceil_func(
             max(wgt_tile_size, ifm_tile_size), self.glb_bw)
+        if glb_ld_cycles < 16:
+            glb_ld_cycles = glb_ld_cycles * 1.2
         return glb_ld_cycles
 
     def get_glb_buffer_latency_ld_dpws(self, schd_tile: list, ess_bit, och_lut, och_dsp):
@@ -82,6 +84,8 @@ class MEMBackend(object):
         #     (wgt_tile_size + ifm_tile_size), self.glb_bw)
         glb_ld_cycles = ceil_func(
             max(wgt_tile_size, ifm_tile_size), self.glb_bw)
+        if glb_ld_cycles < 16:
+            glb_ld_cycles = glb_ld_cycles * 1.2
         return glb_ld_cycles
 
     def get_glb_buffer_latency_wb(self, schd_tile: list):

@@ -1,7 +1,38 @@
-Conv_proj, 49392, 192, 4, 3, 1, 14, 1, 16,16,0.19791666666666666,2,memory bound
-Encoder_0_attention, 36914, 32, 24, 24, 32, 1, 1, 1,1,0.1875,2,memory bound
-Encoder_0_mlp_linear1, 147506, 32, 96, 24, 32, 1, 1, 1,1,0.1875,2,memory bound
-Encoder_0_mlp_linear2, 147554, 32, 24, 48, 64, 1, 1, 1,1,0.1875,2,memory bound
-head_linear, 48063, 40, 25, 24, 32, 1, 1, 1,1,0.2,2,memory bound
-latency cycles: 4081143
-latency: 19.07076168224299 ms
+Conv_proj, 49392, 192, 4, 3, 1, 14, 1, 16, 16, 0.19791666666666666,2, memory bound
+Encoder_0_attention_0, 37011, 48, 16, 48, 16, 1, 1, 1, 1, 0.1875, 2, memory bound
+Encoder_0_attention_1, 37011, 48, 16, 48, 16, 1, 1, 1, 1, 0.1875, 2, memory bound
+Encoder_0_attention_2, 37011, 48, 16, 48, 16, 1, 1, 1, 1, 0.1875, 2, memory bound
+Encoder_0_attention_3, 37011, 48, 16, 48, 16, 1, 1, 1, 1, 0.1875, 2, memory bound
+Encoder_0_attention_4, 37011, 48, 16, 48, 16, 1, 1, 1, 1, 0.1875, 2, memory bound
+Encoder_0_attention_5, 37011, 48, 16, 48, 16, 1, 1, 1, 1, 0.1875, 2, memory bound
+Encoder_0_attention_6, 37011, 48, 16, 48, 16, 1, 1, 1, 1, 0.1875, 2, memory bound
+Encoder_0_attention_7, 37011, 48, 16, 48, 16, 1, 1, 1, 1, 0.1875, 2, memory bound
+Encoder_0_attention_8, 37011, 48, 16, 48, 16, 1, 1, 1, 1, 0.1875, 2, memory bound
+Encoder_0_attention_9, 37011, 48, 16, 48, 16, 1, 1, 1, 1, 0.1875, 2, memory bound
+Encoder_0_attention_10, 37011, 48, 16, 48, 16, 1, 1, 1, 1, 0.1875, 2, memory bound
+Encoder_0_attention_11, 37011, 48, 16, 48, 16, 1, 1, 1, 1, 0.1875, 2, memory bound
+Encoder_0_mlp_linear1_0, 147750, 96, 32, 48, 16, 1, 1, 1, 1, 0.19791666666666666, 2, memory bound
+Encoder_0_mlp_linear1_1, 147750, 96, 32, 48, 16, 1, 1, 1, 1, 0.19791666666666666, 2, memory bound
+Encoder_0_mlp_linear1_2, 147750, 96, 32, 48, 16, 1, 1, 1, 1, 0.19791666666666666, 2, memory bound
+Encoder_0_mlp_linear1_3, 147750, 96, 32, 48, 16, 1, 1, 1, 1, 0.19791666666666666, 2, memory bound
+Encoder_0_mlp_linear1_4, 147750, 96, 32, 48, 16, 1, 1, 1, 1, 0.19791666666666666, 2, memory bound
+Encoder_0_mlp_linear1_5, 147750, 96, 32, 48, 16, 1, 1, 1, 1, 0.19791666666666666, 2, memory bound
+Encoder_0_mlp_linear1_6, 147750, 96, 32, 48, 16, 1, 1, 1, 1, 0.19791666666666666, 2, memory bound
+Encoder_0_mlp_linear1_7, 147750, 96, 32, 48, 16, 1, 1, 1, 1, 0.19791666666666666, 2, memory bound
+Encoder_0_mlp_linear1_8, 147750, 96, 32, 48, 16, 1, 1, 1, 1, 0.19791666666666666, 2, memory bound
+Encoder_0_mlp_linear1_9, 147750, 96, 32, 48, 16, 1, 1, 1, 1, 0.19791666666666666, 2, memory bound
+Encoder_0_mlp_linear1_10, 147750, 96, 32, 48, 16, 1, 1, 1, 1, 0.19791666666666666, 2, memory bound
+Encoder_0_mlp_linear1_11, 147750, 96, 32, 48, 16, 1, 1, 1, 1, 0.19791666666666666, 2, memory bound
+Encoder_0_mlp_linear2_0, 147747, 48, 16, 96, 32, 1, 1, 1, 1, 0.1875, 2, memory bound
+Encoder_0_mlp_linear2_1, 147747, 48, 16, 96, 32, 1, 1, 1, 1, 0.1875, 2, memory bound
+Encoder_0_mlp_linear2_2, 147747, 48, 16, 96, 32, 1, 1, 1, 1, 0.1875, 2, memory bound
+Encoder_0_mlp_linear2_3, 147747, 48, 16, 96, 32, 1, 1, 1, 1, 0.1875, 2, memory bound
+Encoder_0_mlp_linear2_4, 147747, 48, 16, 96, 32, 1, 1, 1, 1, 0.1875, 2, memory bound
+Encoder_0_mlp_linear2_5, 147747, 48, 16, 96, 32, 1, 1, 1, 1, 0.1875, 2, memory bound
+Encoder_0_mlp_linear2_6, 147747, 48, 16, 96, 32, 1, 1, 1, 1, 0.1875, 2, memory bound
+Encoder_0_mlp_linear2_7, 147747, 48, 16, 96, 32, 1, 1, 1, 1, 0.1875, 2, memory bound
+Encoder_0_mlp_linear2_8, 147747, 48, 16, 96, 32, 1, 1, 1, 1, 0.1875, 2, memory bound
+Encoder_0_mlp_linear2_9, 147747, 48, 16, 96, 32, 1, 1, 1, 1, 0.1875, 2, memory bound
+Encoder_0_mlp_linear2_10, 147747, 48, 16, 96, 32, 1, 1, 1, 1, 0.1875, 2, memory bound
+Encoder_0_mlp_linear2_11, 147747, 48, 16, 96, 32, 1, 1, 1, 1, 0.1875, 2, memory bound
+head_linear, 48154, 50, 20, 48, 16, 1, 1, 1, 1, 0.2,2, memory bound

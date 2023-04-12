@@ -89,6 +89,19 @@ MSD software part is responsible for quantization-aware training (QAT) and the s
 
     **NOTE: the results generated in this step are based on cycle-accurate simulator in our scheduler, not the real hardware. But the latency results can still be a reference.**
 
+- Time Consumption of each step (approximation):
+
+    Configuration:
+    + AMD EPYC 7413 24-Core Processor @ 2.65GHz
+    + 5 * NVIDIA 3090 GPUs (24GB)
+    + CPU jobs for scheduler: 8 jobs
+
+    | Step | Time |
+    |:---:|:---:|
+    | Quantization Accuracy | 3~4 days |
+    | Accuracy-speedup trade-off | 6~7 days |
+    | Scheduler | 5 hours |
+
 ## Expected Results
 - The expected accuracy results based on EB=2 mode are listed here (corresponding to Table IV in the paper):
 

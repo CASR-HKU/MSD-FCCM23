@@ -73,11 +73,20 @@ In MSD experiments, we set up three FPGA platforms for the evaluations: Pynq-Z2,
 
     *If you want to run the hardware evaluation on your own platform, you can follow the steps below:*
 
-    - Copy everything in the corresponding folder into **ONE** destination in your platform. E.g., if you want to run the evaluation on the Ultra96, you can copy the `./host/ultra96` folder into the `$your_host_path$` folder in your Ultra96 platform. **Make sure you have the same folder structure as the remote host.**
+    - In `./host`, copy everything in the corresponding folder into **ONE** destination in your platform. E.g., if you want to run the evaluation on the Ultra96, you can copy the `./host/ultra96` folder into the `$your_host_path$` folder in your Ultra96 platform. **Make sure you have the same folder structure as the remote host.**
 
-    - Copy the bitstream and handoff files (`./msd_hw_xxx.bit` and `./msd_hw_xxx.hwh`) into your folder, which have been generated in each `/prj` path (e.g., `./vivado/pynqz2/prj` for Pynq-Z2). 
+    - Copy the bitstream and handoff files (`./msd_hw_xxx.bit` and `./msd_hw_xxx.hwh`) into your folder, which have been generated in each `/prj` path (e.g., `./vivado/pynqz2/prj` for Pynq-Z2). Modify the `run_eval.py` file, and change the bitstream path:
 
-    - Copy the schedule csv files into your folder, which have been generated in the `../software/msd_scheduler/results`.
+        ``` python
+        # original & default in the file
+        overlay = pynq.Overlay('/home/xilinx/jupyter_notebooks/MSD_FCCM_2023/msd_hw_pynq.bit')
+        # change to your path
+        overlay = pynq.Overlay('$your_host_path$')
+        ```
+
+    - Copy the schedule csv files into your folder according to your board, which have been generated in the `../software/msd_scheduler/results`. E.g., if you want to run the evaluation on the Ultra96, you can copy the `./results/ultra96_xxxx` csv files into the `$your_host_path$` folder in your Ultra96 platform.
+
+      **NOTE: the mobilenetv2 on xc7z020 contains two csv files, you need to copy both of them.**
 
     - Run the following commands in the terminal:
 
@@ -85,6 +94,18 @@ In MSD experiments, we set up three FPGA platforms for the evaluations: Pynq-Z2,
         cd $your_host_path$
         source start_eval.sh
         ```
+
+- Time Consumption of each step (approximation):
+
+    Configuration:
+    + AMD EPYC 7413 24-Core Processor @ 2.65GHz
+    + CPU jobs for scheduler and Vivado 2021.2: 8 jobs
+
+    | Step | Time |
+    |:---:|:---:|
+    | Schedule and Dataflow Preparation | 5 hours |
+    | Vivado Project & Bitstream Generation | 4 hours |
+    | Board-level Test | Very fast |
 
 ## Expected Results
 **NOTE: our latest results are slightly different from the submission draft since we have optimized the codes. The camera ready results will be cosistent with the artifact evaluation results, as listed here:**
@@ -138,17 +159,17 @@ In MSD experiments, we set up three FPGA platforms for the evaluations: Pynq-Z2,
     <td rowspan="4">264</td>
     <td rowspan="4">194</td>
     <td>VGG-16</td>
-    <td>100.76</td>
-    <td>307.7</td>
-    <td>5.84</td>
-    <td>1.17</td>
+    <td>74.22</td>
+    <td>417.6</td>
+    <td>7.93</td>
+    <td>1.58</td>
   </tr>
   <tr>
     <td>ResNet-18</td>
-    <td>9.71</td>
-    <td>374.9</td>
-    <td>7.12</td>
-    <td>1.42</td>
+    <td>7.72</td>
+    <td>471.7</td>
+    <td>8.96</td>
+    <td>1.79</td>
   </tr>
   <tr>
     <td>ResNet-50</td>
@@ -171,31 +192,31 @@ In MSD experiments, we set up three FPGA platforms for the evaluations: Pynq-Z2,
     <td rowspan="4">2312</td>
     <td rowspan="4">771</td>
     <td>VGG-16</td>
-    <td>72.25</td>
-    <td>429.1</td>
-    <td>2.83</td>
-    <td>0.19</td>
+    <td>52.70</td>
+    <td>588.2</td>
+    <td>3.88</td>
+    <td>0.25</td>
   </tr>
   <tr>
     <td>ResNet-18</td>
-    <td>7.23</td>
-    <td>503.1</td>
-    <td>3.32</td>
-    <td>0.22</td>
+    <td>5.69</td>
+    <td>639.8</td>
+    <td>4.22</td>
+    <td>0.28</td>
   </tr>
   <tr>
     <td>ResNet-50</td>
-    <td>18.44</td>
-    <td>446.8</td>
-    <td>2.95</td>
-    <td>0.19</td>
+    <td>15.94</td>
+    <td>516.9</td>
+    <td>3.41</td>
+    <td>0.22</td>
   </tr>
   <tr>
     <td>ViT-base</td>
-    <td>23.80</td>
-    <td>1388.2</td>
-    <td>9.15</td>
-    <td>0.60</td>
+    <td>22.30</td>
+    <td>1481.44</td>
+    <td>9.77</td>
+    <td>0.64</td>
   </tr>
 </tbody>
 </table>

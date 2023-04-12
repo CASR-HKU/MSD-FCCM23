@@ -1,56 +1,54 @@
-conv1, 461836, 64, 1, 3, 1, 8, 28, 7,1,0.5,2,memory bound
-layer_64_1_conv4, 50688, 64, 4, 64, 1, 8, 7, 1,1,0.5,2,memory bound
-layer_64_1_conv1, 13056, 64, 1, 64, 1, 8, 7, 1,1,0.5,2,memory bound
-layer_64_1_conv2, 113728, 64, 1, 16, 4, 8, 7, 3,1,0.5,2,memory bound
-layer_64_1_conv3, 50688, 64, 4, 64, 1, 8, 7, 1,1,0.5,2,memory bound
-layer_64_2_conv1, 50688, 64, 1, 64, 4, 8, 7, 1,1,0.5,2,memory bound
-layer_64_2_conv2, 113728, 64, 1, 16, 4, 8, 7, 3,1,0.5,2,memory bound
-layer_64_2_conv3, 50688, 64, 4, 64, 1, 8, 7, 1,1,0.5,2,memory bound
-layer_64_3_conv1, 50688, 64, 1, 64, 4, 8, 7, 1,1,0.5,2,memory bound
-layer_64_3_conv2, 113728, 64, 1, 16, 4, 8, 7, 3,1,0.5,2,memory bound
-layer_64_3_conv3, 50688, 64, 4, 64, 1, 8, 7, 1,1,0.5,2,memory bound
-layer_128_1_conv4, 297344, 256, 2, 128, 2, 28, 2, 1,1,0.6875,2,compute bound
-layer_128_1_conv1, 87886, 128, 1, 86, 3, 28, 2, 1,1,0.625,2,compute bound
-layer_128_1_conv2, 345888, 128, 1, 16, 8, 18, 3, 3,1,0.625,2,compute bound
-layer_128_1_conv3, 46144, 256, 2, 128, 1, 14, 2, 1,1,0.6875,2,compute bound
-layer_128_2_conv1, 45966, 128, 1, 86, 6, 14, 2, 1,1,0.625,2,compute bound
-layer_128_2_conv2, 82592, 128, 1, 16, 8, 26, 1, 3,1,0.625,2,compute bound
-layer_128_2_conv3, 46144, 256, 2, 128, 1, 14, 2, 1,1,0.6875,2,compute bound
-layer_128_3_conv1, 45966, 128, 1, 86, 6, 14, 2, 1,1,0.625,2,compute bound
-layer_128_3_conv2, 82592, 128, 1, 16, 8, 26, 1, 3,1,0.625,2,compute bound
-layer_128_3_conv3, 46144, 256, 2, 128, 1, 14, 2, 1,1,0.6875,2,compute bound
-layer_128_4_conv1, 45966, 128, 1, 86, 6, 14, 2, 1,1,0.625,2,compute bound
-layer_128_4_conv2, 82592, 128, 1, 16, 8, 26, 1, 3,1,0.625,2,compute bound
-layer_128_4_conv3, 46144, 256, 2, 128, 1, 14, 2, 1,1,0.6875,2,compute bound
-layer_256_1_conv4, 277486, 206, 5, 128, 4, 28, 1, 1,1,0.6893203883495146,2,compute bound
-layer_256_1_conv1, 87072, 256, 1, 86, 6, 14, 2, 1,1,0.6875,2,compute bound
-layer_256_1_conv2, 289600, 256, 1, 16, 16, 26, 1, 3,1,0.6875,2,compute bound
-layer_256_1_conv3, 42332, 206, 5, 86, 3, 14, 1, 1,1,0.6893203883495146,2,compute bound
-layer_256_2_conv1, 45792, 256, 1, 86, 12, 14, 1, 1,1,0.6875,2,compute bound
-layer_256_2_conv2, 62208, 256, 1, 16, 16, 12, 1, 3,1,0.6875,2,compute bound
-layer_256_2_conv3, 42332, 206, 5, 86, 3, 14, 1, 1,1,0.6893203883495146,2,compute bound
-layer_256_3_conv1, 45792, 256, 1, 86, 12, 14, 1, 1,1,0.6875,2,compute bound
-layer_256_3_conv2, 62208, 256, 1, 16, 16, 12, 1, 3,1,0.6875,2,compute bound
-layer_256_3_conv3, 42332, 206, 5, 86, 3, 14, 1, 1,1,0.6893203883495146,2,compute bound
-layer_256_4_conv1, 45792, 256, 1, 86, 12, 14, 1, 1,1,0.6875,2,compute bound
-layer_256_4_conv2, 62208, 256, 1, 16, 16, 12, 1, 3,1,0.6875,2,compute bound
-layer_256_4_conv3, 42332, 206, 5, 86, 3, 14, 1, 1,1,0.6893203883495146,2,compute bound
-layer_256_5_conv1, 45792, 256, 1, 86, 12, 14, 1, 1,1,0.6875,2,compute bound
-layer_256_5_conv2, 62208, 256, 1, 16, 16, 12, 1, 3,1,0.6875,2,compute bound
-layer_256_5_conv3, 42332, 206, 5, 86, 3, 14, 1, 1,1,0.6893203883495146,2,compute bound
-layer_256_6_conv1, 45792, 256, 1, 86, 12, 14, 1, 1,1,0.6875,2,compute bound
-layer_256_6_conv2, 62208, 256, 1, 16, 16, 12, 1, 3,1,0.6875,2,compute bound
-layer_256_6_conv3, 42332, 206, 5, 86, 3, 14, 1, 1,1,0.6893203883495146,2,compute bound
-layer_512_1_conv4, 311372, 206, 10, 128, 8, 14, 1, 1,1,0.6893203883495146,2,compute bound
-layer_512_1_conv1, 87040, 256, 2, 114, 9, 14, 1, 1,1,0.6875,2,compute bound
-layer_512_1_conv2, 235008, 256, 2, 16, 32, 12, 1, 3,1,0.6875,2,compute bound
-layer_512_1_conv3, 65988, 64, 32, 64, 8, 7, 1, 1,1,0.5,2,memory bound
-layer_512_2_conv1, 65988, 64, 8, 64, 32, 7, 1, 1,1,0.5,2,memory bound
-layer_512_2_conv2, 147794, 32, 16, 16, 32, 5, 1, 3,1,0.1875,2,memory bound
-layer_512_2_conv3, 65988, 64, 32, 64, 8, 7, 1, 1,1,0.5,2,memory bound
-layer_512_3_conv1, 65988, 64, 8, 64, 32, 7, 1, 1,1,0.5,2,memory bound
-layer_512_3_conv2, 147794, 32, 16, 16, 32, 5, 1, 3,1,0.1875,2,memory bound
-layer_512_3_conv3, 65988, 64, 32, 64, 8, 7, 1, 1,1,0.5,2,memory bound
-fc1000, 128083, 40, 25, 32, 64, 1, 1, 1,1,0.2,2,memory bound
-latency cycles: 5256753
-latency: 24.564266355140187 ms
+conv1, 472924, 64, 1, 3, 1, 22, 10, 7, 1, 0.5,2, compute bound
+layer_64_1_conv4, 52528, 128, 2, 64, 1, 14, 4, 1, 1, 0.625,2, memory bound
+layer_64_1_conv1, 15904, 64, 1, 64, 1, 14, 4, 1, 1, 0.5,2, compute bound
+layer_64_1_conv2, 115920, 64, 1, 16, 4, 18, 3, 3, 1, 0.5,2, compute bound
+layer_64_1_conv3, 52528, 128, 2, 64, 1, 14, 4, 1, 1, 0.625,2, memory bound
+layer_64_2_conv1, 57472, 64, 1, 64, 4, 28, 2, 1, 1, 0.5,2, compute bound
+layer_64_2_conv2, 115920, 64, 1, 16, 4, 18, 3, 3, 1, 0.5,2, compute bound
+layer_64_2_conv3, 52528, 128, 2, 64, 1, 14, 4, 1, 1, 0.625,2, memory bound
+layer_64_3_conv1, 57472, 64, 1, 64, 4, 28, 2, 1, 1, 0.5,2, compute bound
+layer_64_3_conv2, 115920, 64, 1, 16, 4, 18, 3, 3, 1, 0.5,2, compute bound
+layer_64_3_conv3, 52528, 128, 2, 64, 1, 14, 4, 1, 1, 0.625,2, memory bound
+layer_128_1_conv4, 297344, 256, 2, 128, 2, 28, 2, 1, 1, 0.6875,2, compute bound
+layer_128_1_conv1, 87886, 128, 1, 86, 3, 28, 2, 1, 1, 0.625,2, compute bound
+layer_128_1_conv2, 345888, 128, 1, 16, 8, 18, 3, 3, 1, 0.625,2, compute bound
+layer_128_1_conv3, 46144, 256, 2, 128, 1, 14, 2, 1, 1, 0.6875,2, compute bound
+layer_128_2_conv1, 45966, 128, 1, 86, 6, 14, 2, 1, 1, 0.625,2, compute bound
+layer_128_2_conv2, 82592, 128, 1, 16, 8, 26, 1, 3, 1, 0.625,2, compute bound
+layer_128_2_conv3, 46144, 256, 2, 128, 1, 14, 2, 1, 1, 0.6875,2, compute bound
+layer_128_3_conv1, 45966, 128, 1, 86, 6, 14, 2, 1, 1, 0.625,2, compute bound
+layer_128_3_conv2, 82592, 128, 1, 16, 8, 26, 1, 3, 1, 0.625,2, compute bound
+layer_128_3_conv3, 46144, 256, 2, 128, 1, 14, 2, 1, 1, 0.6875,2, compute bound
+layer_128_4_conv1, 45966, 128, 1, 86, 6, 14, 2, 1, 1, 0.625,2, compute bound
+layer_128_4_conv2, 82592, 128, 1, 16, 8, 26, 1, 3, 1, 0.625,2, compute bound
+layer_128_4_conv3, 46144, 256, 2, 128, 1, 14, 2, 1, 1, 0.6875,2, compute bound
+layer_256_1_conv4, 277486, 206, 5, 128, 4, 28, 1, 1, 1, 0.6893203883495146,2, compute bound
+layer_256_1_conv1, 87072, 256, 1, 86, 6, 14, 2, 1, 1, 0.6875,2, compute bound
+layer_256_1_conv2, 376384, 256, 1, 32, 8, 14, 2, 3, 1, 0.6875,2, compute bound
+layer_256_1_conv3, 42332, 206, 5, 86, 3, 14, 1, 1, 1, 0.6893203883495146,2, compute bound
+layer_256_2_conv1, 45792, 256, 1, 86, 12, 14, 1, 1, 1, 0.6875,2, compute bound
+layer_256_2_conv2, 64512, 256, 1, 32, 8, 12, 1, 3, 1, 0.6875,2, compute bound
+layer_256_2_conv3, 42332, 206, 5, 86, 3, 14, 1, 1, 1, 0.6893203883495146,2, compute bound
+layer_256_3_conv1, 45792, 256, 1, 86, 12, 14, 1, 1, 1, 0.6875,2, compute bound
+layer_256_3_conv2, 64512, 256, 1, 32, 8, 12, 1, 3, 1, 0.6875,2, compute bound
+layer_256_3_conv3, 42332, 206, 5, 86, 3, 14, 1, 1, 1, 0.6893203883495146,2, compute bound
+layer_256_4_conv1, 45792, 256, 1, 86, 12, 14, 1, 1, 1, 0.6875,2, compute bound
+layer_256_4_conv2, 64512, 256, 1, 32, 8, 12, 1, 3, 1, 0.6875,2, compute bound
+layer_256_4_conv3, 42332, 206, 5, 86, 3, 14, 1, 1, 1, 0.6893203883495146,2, compute bound
+layer_256_5_conv1, 45792, 256, 1, 86, 12, 14, 1, 1, 1, 0.6875,2, compute bound
+layer_256_5_conv2, 64512, 256, 1, 32, 8, 12, 1, 3, 1, 0.6875,2, compute bound
+layer_256_5_conv3, 42332, 206, 5, 86, 3, 14, 1, 1, 1, 0.6893203883495146,2, compute bound
+layer_256_6_conv1, 45792, 256, 1, 86, 12, 14, 1, 1, 1, 0.6875,2, compute bound
+layer_256_6_conv2, 64512, 256, 1, 32, 8, 12, 1, 3, 1, 0.6875,2, compute bound
+layer_256_6_conv3, 42332, 206, 5, 86, 3, 14, 1, 1, 1, 0.6893203883495146,2, compute bound
+layer_512_1_conv4, 311372, 206, 10, 128, 8, 14, 1, 1, 1, 0.6893203883495146,2, compute bound
+layer_512_1_conv1, 87040, 256, 2, 114, 9, 14, 1, 1, 1, 0.6875,2, compute bound
+layer_512_1_conv2, 237312, 256, 2, 32, 16, 12, 1, 3, 1, 0.6875,2, compute bound
+layer_512_1_conv3, 65988, 64, 32, 64, 8, 7, 1, 1, 1, 0.5,2, memory bound
+layer_512_2_conv1, 65988, 64, 8, 64, 32, 7, 1, 1, 1, 0.5,2, memory bound
+layer_512_2_conv2, 148082, 32, 16, 32, 16, 5, 1, 3, 1, 0.1875,2, memory bound
+layer_512_2_conv3, 65988, 64, 32, 64, 8, 7, 1, 1, 1, 0.5,2, memory bound
+layer_512_3_conv1, 65988, 64, 8, 64, 32, 7, 1, 1, 1, 0.5,2, memory bound
+layer_512_3_conv2, 148082, 32, 16, 32, 16, 5, 1, 3, 1, 0.1875,2, memory bound
+layer_512_3_conv3, 65988, 64, 32, 64, 8, 7, 1, 1, 1, 0.5,2, memory bound
+fc1000, 128204, 50, 20, 64, 32, 1, 1, 1, 1, 0.2,2, memory bound

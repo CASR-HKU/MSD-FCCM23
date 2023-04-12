@@ -41,6 +41,9 @@ if 'baseline' in arch_str:
     # print("baseline")
     total_latency, total_latency_ms = hw_simulator.generate_stats_csv_baseline([1]*54,
                                                                                model_file_str, result_file_str, False)
+elif arch_str == 'xc7z020' and model_str == 'mobilenetv2':
+    total_latency, total_latency_ms = hw_simulator.generate_stats_csv_opt_mobnet(eb_list_dict[model_str],
+                                                                                 model_file_str, result_file_str, False)
 else:
     total_latency, total_latency_ms = hw_simulator.generate_stats_csv_opt(eb_list_dict[model_str],
                                                                           model_file_str, result_file_str, False)
