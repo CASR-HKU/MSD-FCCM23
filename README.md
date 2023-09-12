@@ -1,7 +1,16 @@
 # MSD-FCCM23
 MSD: Mixing Signed Digit Representations for Hardware-efficient DNN Acceleration on FPGA with Heterogeneous Resources
 
-*Paper citation: to be updated when published.*
+Citation:
+> @INPROCEEDINGS{10171562,
+  author={Wu, Jiajun and Zhou, Jiajun and Gao, Yizhao and Ding, Yuhao and Wong, Ngai and So, Hayden Kwok-Hay},
+  booktitle={2023 IEEE 31st Annual International Symposium on Field-Programmable Custom Computing Machines (FCCM)}, 
+  title={MSD: Mixing Signed Digit Representations for Hardware-efficient DNN Acceleration on FPGA with Heterogeneous Resources}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={94-104},
+  doi={10.1109/FCCM57271.2023.00019}}
 
 ## Introduction
 This repository contains the software and hardware open-source for MSD, an FPGA acceleration framework for DNN inference with mixed signed digit representations. 
